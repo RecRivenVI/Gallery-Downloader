@@ -9,12 +9,12 @@ from gallery_dl.extractor import vanlifetrader
 
 __tests__ = (
 {
-    "#url"     : "https://vanlifetrader.com/listing/2026-geotrek-verus-awd-afeb01/",
+    "#url"     : "https://vanlifetrader.com/listing/untrapped-solutions-new-build-mercedes-sprinter-144-awd-a2738b/",
     "#category": ("", "vanlifetrader", "listing"),
     "#class"   : vanlifetrader.VanlifetraderListingExtractor,
     "#count"   : ">= 1",
 
-    "slug"     : "2026-geotrek-verus-awd-afeb01",
+    "slug"     : "untrapped-solutions-new-build-mercedes-sprinter-144-awd-a2738b",
 },
 
 {
