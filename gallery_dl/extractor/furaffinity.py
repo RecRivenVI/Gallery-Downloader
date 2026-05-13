@@ -96,28 +96,24 @@ class FuraffinityExtractor(Extractor):
         })
 
         if self._new_layout:
-            data["tags"] = text.split_html(extr(
-                "<h3>Keywords</h3>", "</section>"))
-            data["scraps"] = (extr(' submissions">', "<") == "Scraps")
-            data["title"] = text.unescape(extr("<h2><p>", "</p></h2>"))
-            data["artist_url"] = extr('title="', '"').strip()
-            data["artist"] = extr(">", "<")
-            data["_description"] = extr(
-                'class="submission-description user-submitted-links">',
-                '                                    </div>')
-            data["views"] = pi(rh(extr('class="views">', '</span>')))
-            data["favorites"] = pi(rh(extr('class="favorites">', '</span>')))
-            data["comments"] = pi(rh(extr('class="comments">', '</span>')))
-            data["rating"] = rh(extr('class="rating">', '</span>'))
-            data["fa_category"] = rh(extr('>Category</strong>', '</span>'))
-            data["theme"] = rh(extr('>', '<'))
-            data["species"] = rh(extr('>Species</strong>', '</div>'))
-            data["gender"] = rh(extr('>Gender</strong>', '</div>'))
-            data["width"] = pi(extr("<span>", "x"))
-            data["height"] = pi(extr("", "p"))
+            data["scraps"] = ("/scraps/" in extr('class="minigallery-title', '</a>'))
+            data["title"] = text.unescape(text.sanitize_whitespace(extr('class="submission-title">\n                                                <h2>', '</h2>')))
+            data["artist_url"] = extr('displayName" title=" ', ' "').strip()
+            data["artist"] = extr('>', '<')
+            data["_description"] = rh(extr('class="submission-description-text user-submitted-links">', '</section>'))
+            data["views"] = pi(rh(extr('title="Views">', '</div>')))
+            data["comments"] = pi(rh(extr('title="Comments">', '</div>')))
+            data["favorites"] = pi(rh(extr('title="Favorites">', '</div>')))
+            data["rating"] = rh(extr('inline c-contentRating--', '</div>').split('>')[1])
+            data["fa_category"] = rh(extr('<span>File Size</span>\n                                                                                    </span>', '</span>'))
+            data["fa_subcategory"] = rh(extr('<span>', '</span>'))
+            data["species"] = rh(extr('<span>', '</span>'))
+            data["width"] = pi(extr('<span>', 'x'))
+            data["height"] = pi(extr('', '</span>'))
+            data["tags"] = text.split_html(extr('<div class="highlight">Keywords</div>', '</div>'))
             data["folders"] = folders = []
             for folder in extr(
-                    "<h3>Listed in Folders</h3>", "</section>").split("</a>"):
+                    '<div class="highlight">Folders</div>', '<div class="comments-list">').split('</a>'):
                 if folder := rh(folder):
                     folders.append(folder)
         else:
