@@ -100,16 +100,17 @@ class FuraffinityExtractor(Extractor):
             data["title"] = text.unescape(text.sanitize_whitespace(extr('class="submission-title">\n                                                <h2>', '</h2>')))
             data["artist_url"] = extr('displayName" title=" ', ' "').strip()
             data["artist"] = extr('>', '<')
-            data["_description"] = rh(extr('class="submission-description-text user-submitted-links">', '</section>'))
+            data["_description"] = extr('class="submission-description-text user-submitted-links">', '</section>')
             data["views"] = pi(rh(extr('title="Views">', '</div>')))
             data["comments"] = pi(rh(extr('title="Comments">', '</div>')))
             data["favorites"] = pi(rh(extr('title="Favorites">', '</div>')))
-            data["rating"] = rh(extr('inline c-contentRating--', '</div>').split('>')[1])
-            data["fa_category"] = rh(extr('<span>File Size</span>\n                                                                                    </span>', '</span>'))
-            data["fa_subcategory"] = rh(extr('<span>', '</span>'))
-            data["species"] = rh(extr('<span>', '</span>'))
-            data["width"] = pi(extr('<span>', 'x'))
-            data["height"] = pi(extr('', '</span>'))
+            data["rating"] = extr('inline c-contentRating--', '</div>').split('>')[1]
+            contentstats = text.split_html(extr('<span class="highlight">', '</div>'))
+            data["fa_category"] = contentstats[5]
+            data["fa_subcategory"] = contentstats[6]
+            data["species"] = contentstats[7]
+            data["width"] = pi(contentstats[8].split(' ')[0])
+            data["height"] = pi(contentstats[8].split(' ')[2])
             data["tags"] = text.split_html(extr('<div class="highlight">Keywords</div>', '</div>'))
             data["folders"] = folders = []
             for folder in extr(
