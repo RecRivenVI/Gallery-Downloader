@@ -63,6 +63,11 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://pixeldrain.net/u/yEK1n2Qc",
+    "#class"   : pixeldrain.PixeldrainFileExtractor,
+},
+
+{
     "#url"     : "https://pixeldrain.com/l/zQ7XpWfM",
     "#category": ("", "pixeldrain", "album"),
     "#class"   : pixeldrain.PixeldrainAlbumExtractor,
