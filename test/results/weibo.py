@@ -262,6 +262,19 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://weibo.com/7521361627/RhWvkn8Ai",
+    "#comment" : "retweet attachments: avoid circular metadata",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {"retweets": True},
+    "#count"   : 4,
+
+    "status": {"id": 5342764705514546},
+    "type"  : "pic",
+    "num"   : {1, 2, 3, 4},
+},
+
+{
     "#url"     : "https://weibo.com/3194672795/OuxSwgUrC",
     "#comment" : "type == livephoto (#2146, #6471)",
     "#category": ("", "weibo", "status"),

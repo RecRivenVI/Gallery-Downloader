@@ -203,7 +203,7 @@ class WeiboExtractor(Extractor):
             for item in status["url_struct"]:
                 if pics := item.get("pic_infos"):
                     for pic in pics.values():
-                        file = pic.get("largest") or pic["large"]
+                        file = (pic.get("largest") or pic["large"]).copy()
                         file["type"] = "pic"
                         files.append(file)
 
