@@ -182,6 +182,9 @@ class HttpDownloader(DownloaderBase):
             except Timeout as exc:
                 msg = str(exc)
                 continue
+            except RequestException as exc:
+                msg = str(exc)
+                continue
             except Exception as exc:
                 self.log.warning(exc)
                 return False
