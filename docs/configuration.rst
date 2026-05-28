@@ -8291,7 +8291,8 @@ Description
 extractor.weibo.retweets
 ------------------------
 Type
-    ``bool``
+    * ``bool``
+    * ``string``
 Default
     ``false``
 Description
@@ -8299,6 +8300,10 @@ Description
 
     If this value is ``"original"``, metadata for these files
     will be taken from the original posts, not the retweeted posts.
+
+    If this value is ``"split"``, download the retweet's attachments and
+    the original post's media separately, with their own metadata and
+    file numbering.
 
 
 extractor.weibo.text
