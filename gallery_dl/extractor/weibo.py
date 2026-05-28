@@ -91,6 +91,17 @@ class WeiboExtractor(Extractor):
                     self.log.debug("Skipping %s (retweet)", status["id"])
                     continue
 
+                if self.retweets == "split":
+                    if not self.likes and is_like(
+                            (status.get("title") or {}).get("text") or ""):
+                        self.log.debug("Skipping %s (赞过 like)", status["id"])
+                        continue
+                    for post, files in self._split_retweet(status):
+                        files = [file for file in files if file["url"]]
+                        if files:
+                            yield from self._items_status(post, files, is_like)
+                    continue
+
                 # videos of the original post are in status
                 # images of the original post are in status["retweeted_status"]
                 files = []
@@ -103,51 +114,83 @@ class WeiboExtractor(Extractor):
                 files = []
                 self._extract_status(status, files)
 
-            if title := status.get("title"):
-                if is_like(title.get("text") or ""):
-                    if not self.likes:
-                        self.log.debug("Skipping %s (赞过 like)", status["id"])
-                        continue
-                    status["like"] = True
-                else:
-                    status["like"] = False
+            yield from self._items_status(status, files, is_like)
+
+    def _items_status(self, status, files, is_like):
+        if title := status.get("title"):
+            if is_like(title.get("text") or ""):
+                if not self.likes:
+                    self.log.debug("Skipping %s (赞过 like)", status["id"])
+                    return
+                status["like"] = True
             else:
-                status["like"] = None
+                status["like"] = False
+        else:
+            status["like"] = None
 
-            if self.longtext and status.get("isLongText") and \
-                    status["text"].endswith('class="expand">展开</span>'):
-                status = self._status_by_id(status["id"])
+        if self.longtext and status.get("isLongText") and \
+                status["text"].endswith('class="expand">展开</span>'):
+            status = self._status_by_id(status["id"])
 
-            status["date"] = self.parse_datetime(
-                status["created_at"], "%a %b %d %H:%M:%S %z %Y")
-            status["count"] = len(files)
-            yield Message.Directory, "", status
+        status["date"] = self.parse_datetime(
+            status["created_at"], "%a %b %d %H:%M:%S %z %Y")
+        status["count"] = len(files)
+        yield Message.Directory, "", status
 
-            num = 0
-            for file in files:
-                url = file["url"]
-                if not url:
-                    continue
-                if url.startswith("http:"):
-                    url = "https:" + url[5:]
-                if "filename" not in file:
-                    text.nameext_from_url(url, file)
-                    if file["extension"] == "json":
-                        file["extension"] = "mp4"
-                    elif not file["extension"]:
-                        params = text.parse_query(url[url.find("?")+1:])
-                        if "livephoto" in params:
-                            text.nameext_from_url(params["livephoto"], file)
-                        else:
-                            file["extension"] = "mp4"
-                if file["extension"] == "m3u8":
-                    url = "ytdl:" + url
-                    file["_ytdl_manifest"] = "hls"
+        num = 0
+        for file in files:
+            url = file["url"]
+            if not url:
+                continue
+            if url.startswith("http:"):
+                url = "https:" + url[5:]
+            if "filename" not in file:
+                text.nameext_from_url(url, file)
+                if file["extension"] == "json":
                     file["extension"] = "mp4"
-                num += 1
-                file["status"] = status
-                file["num"] = num
-                yield Message.Url, url, file
+                elif not file["extension"]:
+                    params = text.parse_query(url[url.find("?")+1:])
+                    if "livephoto" in params:
+                        text.nameext_from_url(params["livephoto"], file)
+                    else:
+                        file["extension"] = "mp4"
+            if file["extension"] == "m3u8":
+                url = "ytdl:" + url
+                file["_ytdl_manifest"] = "hls"
+                file["extension"] = "mp4"
+            num += 1
+            file["status"] = status
+            file["num"] = num
+            yield Message.Url, url, file
+
+    def _split_retweet(self, status):
+        original = status["retweeted_status"]
+        retweet = status
+        page = status.get("page_info") or {}
+        media = page.get("media_info") or {}
+        original_page = original.get("page_info") or {}
+        original_media = original_page.get("media_info") or {}
+        owner = media.get("author_mid")
+        media_id = media.get("media_id")
+        object_id = page.get("object_id")
+        if media and (
+                (owner and str(owner) == str(original["id"])) or
+                (media_id and str(media_id) ==
+                 str(original_media.get("media_id"))) or
+                (object_id and object_id == original_page.get("object_id"))):
+            # The API also attaches the original video to the retweet.
+            retweet = status.copy()
+            del retweet["page_info"]
+            if not original_media:
+                original = original.copy()
+                original["page_info"] = page
+
+        files = []
+        self._extract_retweet(retweet, files)
+        yield status, files
+        files = []
+        self._extract_status(original, files)
+        yield original, files
 
     def _extract_status(self, status, files):
         if "mix_media_info" in status:
@@ -203,7 +246,7 @@ class WeiboExtractor(Extractor):
             for item in status["url_struct"]:
                 if pics := item.get("pic_infos"):
                     for pic in pics.values():
-                        file = pic.get("largest") or pic["large"]
+                        file = (pic.get("largest") or pic["large"]).copy()
                         file["type"] = "pic"
                         files.append(file)
 

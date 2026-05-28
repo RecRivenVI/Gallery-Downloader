@@ -262,6 +262,134 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://weibo.com/7521361627/RhWvkn8Ai",
+    "#comment" : "split retweets: images and attachment",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {"retweets": "split"},
+    "#count"   : 4,
+
+    "status": {"id": {5340952826742584, 5342764705514546}},
+    "type"  : "pic",
+    "num"   : {1, 2, 3},
+},
+
+{
+    "#url"     : "https://weibo.com/7521361627/RhWvkn8Ai",
+    "#comment" : "split retweets: attachment metadata",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {
+        "retweets": "split",
+        "image-filter": "status['id'] == 5342764705514546",
+    },
+    "#count"   : 1,
+
+    "status": {"id": 5342764705514546, "count": 1},
+    "type"  : "pic",
+    "num"   : 1,
+},
+
+{
+    "#url"     : "https://weibo.com/7521361627/RhWvkn8Ai",
+    "#comment" : "split retweets: original images",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {
+        "retweets": "split",
+        "image-filter": "status['id'] == 5340952826742584",
+    },
+    "#count"   : 3,
+
+    "status": {"id": 5340952826742584, "count": 3},
+    "type"  : "pic",
+    "num"   : {1, 2, 3},
+},
+
+{
+    "#url"     : "https://weibo.com/5834233789/Ri0a3df0N",
+    "#comment" : "split retweets: multi-hop original video",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {"retweets": "split"},
+    "#count"   : 1,
+
+    "status": {"id": 5341596992148888, "count": 1},
+    "type"  : "video",
+    "num"   : 1,
+},
+
+{
+    "#url"     : "https://weibo.com/1987900727/RhXL4hcNH",
+    "#comment" : "split retweets: original video",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {"retweets": "split"},
+    "#count"   : 1,
+
+    "status": {"id": 5342735351678337, "count": 1},
+    "type"  : "video",
+    "num"   : 1,
+},
+
+{
+    "#url"     : "https://weibo.com/7020977254/RhNoODIsY",
+    "#comment" : "split retweets: video and attachment",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {"retweets": "split"},
+    "#count"   : 2,
+
+    "status": {"id": {5342414709465724, 5342393993793847}, "count": 1},
+    "num"   : 1,
+},
+
+{
+    "#url"     : "https://weibo.com/7020977254/RhNoODIsY",
+    "#comment" : "split retweets: attachment ownership and numbering",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {
+        "retweets": "split",
+        "image-filter": "status['id'] == 5342414709465724",
+    },
+    "#count"   : 1,
+
+    "status": {"id": 5342414709465724, "count": 1},
+    "type"  : "pic",
+    "num"   : 1,
+},
+
+{
+    "#url"     : "https://weibo.com/7020977254/RhNoODIsY",
+    "#comment" : "split retweets: video belongs to original",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {
+        "retweets": "split",
+        "image-filter": "status['id'] == 5342393993793847",
+    },
+    "#count"   : 1,
+
+    "status": {"id": 5342393993793847, "count": 1},
+    "type"  : "video",
+    "num"   : 1,
+},
+
+{
+    "#url"     : "https://weibo.com/6265874748/RhMVOahNd",
+    "#comment" : "split retweets: same original from another retweet",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {"retweets": "split"},
+    "#count"   : 1,
+
+    "status": {"id": 5342393993793847, "count": 1},
+    "type"  : "video",
+    "num"   : 1,
+},
+
+{
     "#url"     : "https://weibo.com/3194672795/OuxSwgUrC",
     "#comment" : "type == livephoto (#2146, #6471)",
     "#category": ("", "weibo", "status"),
