@@ -8149,6 +8149,9 @@ Description
     If this value is ``"original"``, metadata for these files
     will be taken from the original posts, not the retweeted posts.
 
+    If this value is ``"split"``, media from retweeted posts and
+    original posts will be downloaded as separate posts.
+
 
 extractor.weibo.text
 --------------------

@@ -91,6 +91,10 @@ class WeiboExtractor(Extractor):
                     self.log.debug("Skipping %s (retweet)", status["id"])
                     continue
 
+                if self.retweets == "split":
+                    yield from self._items_split_retweet(status, is_like)
+                    continue
+
                 # videos of the original post are in status
                 # images of the original post are in status["retweeted_status"]
                 files = []
@@ -148,6 +152,59 @@ class WeiboExtractor(Extractor):
                 file["status"] = status
                 file["num"] = num
                 yield Message.Url, url, file
+
+    def _items_split_retweet(self, status, is_like):
+        files = []
+        self._extract_retweet(status, files)
+        if files:
+            yield from self._emit_status(status, files, is_like)
+
+        files = []
+        self._extract_status(status["retweeted_status"], files)
+        if files:
+            yield from self._emit_status(
+                status["retweeted_status"], files, is_like)
+
+    def _emit_status(self, status, files, is_like):
+        if title := status.get("title"):
+            if is_like(title.get("text") or ""):
+                if not self.likes:
+                    self.log.debug("Skipping %s (赞过 like)", status["id"])
+                    return
+                status["like"] = True
+            else:
+                status["like"] = False
+        else:
+            status["like"] = None
+
+        if self.longtext and status.get("isLongText") and \
+                status["text"].endswith('class="expand">展开</span>'):
+            status = self._status_by_id(status["id"])
+
+        status["date"] = self.parse_datetime(
+            status["created_at"], "%a %b %d %H:%M:%S %z %Y")
+        status["count"] = len(files)
+        yield Message.Directory, "", status
+
+        num = 0
+        for file in files:
+            url = file["url"]
+            if not url:
+                continue
+            if url.startswith("http:"):
+                url = "https:" + url[5:]
+            if "filename" not in file:
+                text.nameext_from_url(url, file)
+                if file["extension"] == "json":
+                    file["extension"] = "mp4"
+            if file["extension"] == "m3u8":
+                url = "ytdl:" + url
+                file["_ytdl_manifest"] = "hls"
+                file["extension"] = "mp4"
+            num += 1
+            file["status"] = status
+            file["num"] = num
+            yield Message.Url, url, file
 
     def _extract_status(self, status, files):
         if "mix_media_info" in status:

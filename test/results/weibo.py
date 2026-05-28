@@ -262,6 +262,17 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://m.weibo.cn/detail/4600272267522211",
+    "#comment" : "split retweets",
+    "#category": ("", "weibo", "status"),
+    "#class"   : weibo.WeiboStatusExtractor,
+    "#options" : {"retweets": "split"},
+    "#count"   : 2,
+
+    "status": {"id": {4600272267522211, 4600167083287033}},
+},
+
+{
     "#url"     : "https://weibo.com/3194672795/OuxSwgUrC",
     "#comment" : "type == livephoto (#2146, #6471)",
     "#category": ("", "weibo", "status"),
