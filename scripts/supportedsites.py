@@ -192,6 +192,7 @@ CATEGORY_MAP = {
     "senmanga"       : "Sen Manga",
     "sensescans"     : "Sense-Scans",
     "sexcom"         : "Sex.com",
+    "shareimage"     : "Share-Image",
     "silverpic"      : "SilverPic.com",
     "simpcity"       : "SimpCity Forums",
     "simplyhentai"   : "Simply Hentai",
