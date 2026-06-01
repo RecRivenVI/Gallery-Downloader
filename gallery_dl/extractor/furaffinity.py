@@ -96,27 +96,38 @@ class FuraffinityExtractor(Extractor):
         })
 
         if self._new_layout:
-            data["scraps"] = ("/scraps/" in extr('class="minigallery-title', '</a>'))
-            data["title"] = text.unescape(text.sanitize_whitespace(extr('class="submission-title">\n                                                <h2>', '</h2>')))
+            data["scraps"] = ("/scraps/" in extr(
+                'class="minigallery-title', '</a>'))
             data["artist_url"] = extr('displayName" title=" ', ' "').strip()
             data["artist"] = extr('>', '<')
-            data["_description"] = extr('class="submission-description-text user-submitted-links">', '</section>')
+            data["_description"] = extr('user-submitted-links">', '</section>')
             data["views"] = pi(rh(extr('title="Views">', '</div>')))
             data["comments"] = pi(rh(extr('title="Comments">', '</div>')))
             data["favorites"] = pi(rh(extr('title="Favorites">', '</div>')))
-            data["rating"] = extr('inline c-contentRating--', '</div>').split('>')[1]
-            contentstats = text.split_html(extr('<span class="highlight">', '</div>'))
-            data["fa_category"] = contentstats[5]
-            data["fa_subcategory"] = contentstats[6]
-            data["species"] = contentstats[7]
-            data["width"] = pi(contentstats[8].split(' ')[0])
-            data["height"] = pi(contentstats[8].split(' ')[2])
-            data["tags"] = text.split_html(extr('<div class="highlight">Keywords</div>', '</div>'))
-            data["folders"] = folders = []
-            for folder in extr(
-                    '<div class="highlight">Folders</div>', '<div class="comments-list">').split('</a>'):
-                if folder := rh(folder):
-                    folders.append(folder)
+            data["rating"] = extr('inline c-contentRating--', '"')
+            contentstats = text.split_html(extr(
+                '<span class="highlight">', '</div>'))
+            try:
+                width, _, height = contentstats[8].partition("x")
+                data["fa_category"] = contentstats[5]
+                data["fa_subcategory"] = contentstats[6]
+                data["species"] = contentstats[7]
+                data["width"] = pi(width)
+                data["height"] = pi(height)
+            except Exception:
+                data["fa_category"] = contentstats[4]
+                data["fa_subcategory"] = contentstats[5]
+                data["species"] = contentstats[6]
+                data["width"] = data["height"] = 0
+            data["tags"] = text.split_html(extr('>Keywords</div>', '</div>'))
+            data["folders"] = [
+                name
+                for folder in extr(
+                    '>Folders</div>',
+                    '<div class="comments-list">').split('</a>')
+                if (name := rh(folder))
+            ]
+            data["title"] = text.unescape(extr('data-artwork-title="', '"'))
         else:
             # old site layout
             data["scraps"] = (
