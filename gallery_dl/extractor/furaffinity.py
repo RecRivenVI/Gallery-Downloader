@@ -77,7 +77,7 @@ class FuraffinityExtractor(Extractor):
         if self._new_layout is None:
             self._new_layout = ("http-equiv=" not in extr("<meta ", ">"))
 
-        pos = page.find(".net/art/")
+        pos = page.find(">Download<")
         if pos < 0:
             msg = text.remove_html(
                 extr('System Message', '</section>') or
@@ -89,7 +89,7 @@ class FuraffinityExtractor(Extractor):
         pi = text.parse_int
         rh = text.remove_html
 
-        path = page[page.rfind('"', None, pos)+1:page.find('"', pos)]
+        path = text.rextr(page, 'href="', '"', pos)
         data = text.nameext_from_url(path, {
             "id" : pi(post_id),
             "url": "https:" + path,
