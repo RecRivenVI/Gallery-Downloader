@@ -1093,6 +1093,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Boards, Feed, Likes, Pins, User Pins, related Pins, Search Results</td>
     <td></td>
 </tr>
+<tr id="shareimage" title="shareimage">
+    <td>Share-Image</td>
+    <td>https://www.share-image.com/</td>
+    <td>Galleries</td>
+    <td></td>
+</tr>
 <tr id="simplyhentai" title="simplyhentai">
     <td>Simply Hentai</td>
     <td>https://www.simply-hentai.com/</td>
