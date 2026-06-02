@@ -43,7 +43,7 @@ def fmt_issue(issue, pr=False):
     src, _, num = issue.rpartition("#")
     if not src:
         src, domain = \
-            ("gh", "github.com") if int(num) > 128 else ("cb", "codeberg.org")
+            ("gh", "github.com") if int(num) > 999 else ("cb", "codeberg.org")
     elif src == "gh":
         domain = "github.com"
     else:
