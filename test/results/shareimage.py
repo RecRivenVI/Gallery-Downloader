@@ -13,4 +13,19 @@ __tests__ = (
     "#class": shareimage.ShareimageGalleryExtractor,
 },
 
+{
+    "#url"     : "https://www.share-image.com/22836-cute-blonde-amateur-babe-shows-her-naked-body",
+    "#class"   : shareimage.ShareimageGalleryExtractor,
+    "#pattern" : r"https://www\.share\-image\.com/pictures/big/2026/22836/178\d+\.jpg",
+    "#count"   : 68,
+
+    "count"      : 68,
+    "extension"  : "jpg",
+    "filename"   : r"re:^\d+$",
+    "gallery_id" : 22836,
+    "gallery_url": "https://www.share-image.com/22836-cute-blonde-amateur-babe-shows-her-naked-body",
+    "num"        : range(1, 68),
+    "title"      : "Cute Blonde Amateur Babe shows her Naked Body",
+},
+
 )
