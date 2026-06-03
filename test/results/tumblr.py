@@ -150,6 +150,16 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.tumblr.com/blog/view/t:0COK151uIXGkmk2AhdVXJA",
+    "#comment" : "blog ID URL",
+    "#class"   : tumblr.TumblrUserExtractor,
+    "#range"   : "1-3",
+    "#pattern" : r"https://\d+\.media\.tumblr\.com/[^/?#]+/tumblr_.+_1280\.\w+",
+
+    "blog_name": "nocoweb",
+},
+
+{
     "#url"     : "http://demo.tumblr.com/post/459265350",
     "#class"   : tumblr.TumblrPostExtractor,
     "#pattern" : r"https://\d+\.media\.tumblr\.com/tumblr_[^/_]+_1280.jpg",
