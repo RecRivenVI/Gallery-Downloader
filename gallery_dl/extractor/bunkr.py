@@ -182,22 +182,27 @@ class BunkrAlbumExtractor(LolisafeAlbumExtractor):
                     raise self.exc.AbortExtraction("Album deleted")
 
     def _extract_file(self, data_id):
-        url = self.root_api + "/api/_001_v2"
-        file = self.request_json(url, method="POST", json={"id": data_id})
+        headers = {
+            "Referer": self.root_api + "/",
+            "Origin" : self.root_api,
+        }
+
+        url = self.endpoint
+        file = self.request_json(
+            url, method="POST", headers=headers, json={"id": data_id})
 
         url = self.root_sign + "/sign"
-        sign = self.request_json(url, params={"path": file["path"]})
+        sign = self.request_json(
+            url, params={"path": file["path"]}, headers=headers)
         if "original" in file:
             sign["n"] = file["original"]
 
+        del headers["Origin"]
         return {
             "file"          : (f"{file['mediafiles']}{file['path']}"
                                f"?{text.build_query(sign)}"),
             "id_url"        : data_id,
-            "_http_headers" : {
-                "Referer": self.root_api + "/",
-                "Origin" : self.root_api,
-            },
+            "_http_headers" : headers,
             "_http_validate": self._validate,
         }
 
