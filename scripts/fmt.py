@@ -70,7 +70,10 @@ def fmt_subject(subject):
 def fmt_commit(pr, subject, issues, suffix=""):
     subject = fmt_subject(subject) + suffix
     if pr:
-        subject = f"merge {fmt_issue(pr, True)}: {subject}"
+        if suffix:
+            subject = f"merge {suffix}{fmt_issue(pr, True)}[: {subject}"
+        else:
+            subject = f"merge {fmt_issue(pr, True)}: {subject}"
     if issues:
         subject = f"{subject} ({' '.join(fmt_issues(issues))})"
     return subject
