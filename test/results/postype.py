@@ -103,6 +103,12 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.postype.com/en/@sanoonsnowfield/post/21587023",
+    "#comment" : "URL with ISO 639 language code",
+    "#class"   : postype.PostypePostExtractor,
+},
+
+{
     "#url"     : "https://www.postype.com/@miragestar602",
     "#class"   : postype.PostypeChannelExtractor,
     "#pattern" : r"https://d2ufj6gm1gtdrc\.cloudfront\.net/[^?]+$",
