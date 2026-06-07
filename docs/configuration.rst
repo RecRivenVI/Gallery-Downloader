@@ -4529,6 +4529,18 @@ Description
     Extract ``username`` and ``user_profile`` metadata.
 
 
+extractor.kemono.original
+-------------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Try to download original files.
+
+    Download thumbnails/previews if available when this option is disabled.
+
+
 extractor.kemono.revisions
 --------------------------
 Type
