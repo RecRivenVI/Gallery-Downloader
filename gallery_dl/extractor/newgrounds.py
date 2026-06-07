@@ -215,40 +215,39 @@ class NewgroundsExtractor(Extractor):
         data["_index"] = index
 
         if image_data := extr("let imageData =", "\n];"):
-            data["_multi"] = self._extract_images_multi(image_data, data)
+            multi = self._extract_images_multi(image_data)
+        elif art_images := extr('<div class="art-images', '\n\t\t</div>'):
+            multi = self._extract_images_art(art_images)
         else:
-            if art_images := extr('<div class="art-images', '\n\t\t</div>'):
-                data["_multi"] = self._extract_images_art(art_images, data)
+            # single image post
+            return data
 
+        # multi image post
+        ext = text.ext_from_url(data["url"])
+        exts = ("jpg", "png", "gif")
+        if ext == "webp":
+            ext = "jpg"
+        for img in multi:
+            if text.ext_from_url(url := img["image"]) == "webp":
+                fallback = [url.replace(".webp", "." + e)
+                            for e in exts if e != ext]
+                fallback.append(url)
+                img["image"] = url.replace(".webp", "." + ext)
+                img["_fallback"] = fallback
+        data["_multi"] = multi
         return data
 
-    def _extract_images_multi(self, html, data):
+    def _extract_images_multi(self, html):
         images = util.json_loads(html + "]")
-        ext = text.ext_from_url(data["url"])
-        return [
-            self._proess_image(img, ext)
-            for img in util.advance(images, 1)
-        ]
+        del images[0]
+        return images
 
-    def _extract_images_art(self, html, data):
-        ext = text.ext_from_url(data["url"])
+    def _extract_images_art(self, html):
         return [
-            self._proess_image({"image": text.ensure_http_scheme(
-                url.replace("/medium_views/", "/images/", 1))}, ext)
+            {"image": text.ensure_http_scheme(url.replace(
+                "/medium_views/", "/images/", 1))}
             for url in text.extract_iter(html, 'data-smartload-src="', '"')
         ]
-
-    def _proess_image(self, img, ext):
-        url = img["image"]
-        if text.ext_from_url(url) == "webp":
-            if ext == "webp":
-                ext = "jpg"
-            fallback = [url.replace(".webp", "." + e)
-                        for e in ("jpg", "png", "gif") if e != ext]
-            fallback.append(url)
-            img["image"] = url.replace(".webp", "." + ext)
-            img["_fallback"] = fallback
-        return img
 
     def _extract_audio_data(self, extr, url):
         index = url.split("/")[5]

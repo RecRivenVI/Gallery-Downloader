@@ -98,7 +98,7 @@ __tests__ = (
     "#class"   : newgrounds.NewgroundsImageExtractor,
     "#results" : (
         "https://art.ngfiles.com/images/5127000/5127150_93307_bacun_kill-la-kill-10th-anniversary.61adfe309bec342f9db55fd44397235b.png?f1697310027",
-        "https://art.ngfiles.com/images/5127000/5127150_94250_bacun_kill-la-kill-10th-anniversary.64fdf525fa38c1ab34defac4b354bc7a.webp?f1697332147",
+        "https://art.ngfiles.com/images/5127000/5127150_94250_bacun_kill-la-kill-10th-anniversary.64fdf525fa38c1ab34defac4b354bc7a.png?f1697332147",
     ),
 },
 
