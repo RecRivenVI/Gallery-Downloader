@@ -2468,7 +2468,7 @@ Type
     * ``string``
     * ``list`` of ``strings``
 Default
-    ``"original=true"``
+    ``"original"``
 Example
     * ``"width=1280,quality=90"``
     * ``["width=1280", "quality=90"]``
@@ -2488,7 +2488,7 @@ Type
     * ``string``
     * ``list`` of ``strings``
 Default
-    ``"original=true,quality=100"``
+    ``"original"``
 Example
     * ``"+transcode=true,quality=100"``
     * ``["+", "transcode=true", "quality=100"]``
