@@ -7,14 +7,14 @@ mutagen==1.47.0 \
 PySocks==1.7.1 \
     --hash=sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5 \
 
-requests==2.33.1 \
-    --hash=sha256:4e6d1ef462f3626a1f0a0a9c42dd93c63bad33f9f1c1937509b8c5c8718ab56a \
+requests==2.34.2 \
+    --hash=sha256:2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0 \
 
 truststore==0.10.4 \
     --hash=sha256:adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981 \
 
-yt-dlp==2026.3.17 \
-    --hash=sha256:32992db94303a8a5d211a183f2174834fe7f8c29d83ed2e7a324eae97a8f26d8 \
+yt-dlp==2026.6.9 \
+    --hash=sha256:442ba4c75724b9496144c8434b617962ee08d0ee7c26ec663848fe9b78d5a3e4 \
 
 yt-dlp-ejs==0.8.0 \
     --hash=sha256:79300e5fca7f937a1eeede11f0456862c1b41107ce1d726871e0207424f4bdb4 \
@@ -35,22 +35,22 @@ websockets==16.0 \
     --hash=sha256:19c4dc84098e523fd63711e563077d39e90ec6702aff4b5d9e344a60cb3c0cb1 \
     --hash=sha256:a5e18a238a2b2249c9a9235466b90e96ae4795672598a58772dd806edc7ac6d3 \
 
-certifi==2026.2.25 \
-    --hash=sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa \
-    # from requests==2.33.1
+certifi==2026.5.20 \
+    --hash=sha256:3c52e209ba0a4ad7aebe60436a4ab349c39e1e602e8c134221e546902ad25897 \
+    # from requests==2.34.2
 
-idna==3.11 \
-    --hash=sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea \
-    # from requests==2.33.1
+idna==3.17 \
+    --hash=sha256:466e48829084efe2548012b855df21540b96f2e20e51bd124c851536556a592c \
+    # from requests==2.34.2
 
-urllib3==2.6.3 \
-    --hash=sha256:bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4 \
-    # from requests==2.33.1
+urllib3==2.7.0 \
+    --hash=sha256:9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897 \
+    # from requests==2.34.2
 
 charset-normalizer==3.4.7 \
     --hash=sha256:e8ac484bf18ce6975760921bb6148041faa8fef0547200386ea0b52b5d27bf7b \
     --hash=sha256:7579e913a5339fb8fa133f6bbcfd8e6749696206cf05acdbdca71a1b436d8e72 \
-    # from requests==2.33.1
+    # from requests==2.34.2
 
 MarkupSafe==3.0.3 \
     --hash=sha256:ec15a59cf5af7be74194f7ab02d0f59a62bdcf1a537677ce67a2537c9b87fcda \

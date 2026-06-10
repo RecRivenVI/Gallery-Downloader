@@ -4,20 +4,20 @@ Jinja2==3.1.6 \
 mutagen==1.47.0 \
     --hash=sha256:edd96f50c5907a9539d8e5bba7245f62c9f520aef333d13392a79a4f70aca719 \
 
-pyinstaller==6.19.0 \
-    --hash=sha256:4190e76b74f0c4b5c5f11ac360928cd2e36ec8e3194d437bf6b8648c7bc0c134 \
+pyinstaller==6.20.0 \
+    --hash=sha256:bf3be4e1284ee78ddccba5e29f99443a12a7b4673168288ffc4c9d38c6f7b90e \
 
 PySocks==1.7.1 \
     --hash=sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5 \
 
-requests==2.33.1 \
-    --hash=sha256:4e6d1ef462f3626a1f0a0a9c42dd93c63bad33f9f1c1937509b8c5c8718ab56a \
+requests==2.34.2 \
+    --hash=sha256:2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0 \
 
 truststore==0.10.4 \
     --hash=sha256:adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981 \
 
-yt-dlp==2026.3.17 \
-    --hash=sha256:32992db94303a8a5d211a183f2174834fe7f8c29d83ed2e7a324eae97a8f26d8 \
+yt-dlp==2026.6.9 \
+    --hash=sha256:442ba4c75724b9496144c8434b617962ee08d0ee7c26ec663848fe9b78d5a3e4 \
 
 yt-dlp-ejs==0.8.0 \
     --hash=sha256:79300e5fca7f937a1eeede11f0456862c1b41107ce1d726871e0207424f4bdb4 \
@@ -41,54 +41,54 @@ websockets==16.0 \
 
 altgraph==0.17.5 \
     --hash=sha256:f3a22400bce1b0c701683820ac4f3b159cd301acab067c51c653e06961600597 \
-    # from macholib, pyinstaller==6.19.0
+    # from macholib, pyinstaller==6.20.0
 
-certifi==2026.2.25 \
-    --hash=sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa \
-    # from requests==2.33.1
+certifi==2026.5.20 \
+    --hash=sha256:3c52e209ba0a4ad7aebe60436a4ab349c39e1e602e8c134221e546902ad25897 \
+    # from requests==2.34.2
 
 charset-normalizer==3.4.7 \
     --hash=sha256:c36c333c39be2dbca264d7803333c896ab8fa7d4d6f0ab7edb7dfd7aea6e98c0 \
-    # from requests==2.33.1
+    # from requests==2.34.2
 
-idna==3.11 \
-    --hash=sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea \
-    # from requests==2.33.1
+idna==3.17 \
+    --hash=sha256:466e48829084efe2548012b855df21540b96f2e20e51bd124c851536556a592c \
+    # from requests==2.34.2
 
 importlib-metadata==9.0.0 \
     --hash=sha256:2d21d1cc5a017bd0559e36150c21c830ab1dc304dedd1b7ea85d20f45ef3edd7 \
-    # from pyinstaller-hooks-contrib, pyinstaller==6.19.0
+    # from pyinstaller-hooks-contrib, pyinstaller==6.20.0
 
 macholib==1.16.4 \
     --hash=sha256:da1a3fa8266e30f0ce7e97c6a54eefaae8edd1e5f86f3eb8b95457cae90265ea \
-    # from pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
-packaging==26.1 \
-    --hash=sha256:5d9c0669c6285e491e0ced2eee587eaf67b670d94a19e94e3984a481aba6802f \
-    # from pyinstaller-hooks-contrib, pyinstaller==6.19.0
+packaging==26.2 \
+    --hash=sha256:5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e \
+    # from pyinstaller-hooks-contrib, pyinstaller==6.20.0
 
 pefile==2024.8.26 \
     --hash=sha256:76f8b485dcd3b1bb8166f1128d395fa3d87af26360c2358fb75b80019b957c6f \
-    # from pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
-pyinstaller-hooks-contrib==2026.4 \
-    --hash=sha256:1de1a5e49a878122010b88c7e295502bc69776c157c4a4dc78741a4e6178b00f \
-    # from pyinstaller==6.19.0
+pyinstaller-hooks-contrib==2026.6 \
+    --hash=sha256:fd13b8ac126b35361175edacd41a0d97080b75dd5f4b594ecefefff969509dd3 \
+    # from pyinstaller==6.20.0
 
 pywin32-ctypes==0.2.3 \
     --hash=sha256:8a1513379d709975552d202d942d9837758905c8d01eb82b8bcc30918929e7b8 \
-    # from pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
 setuptools==82.0.1 \
     --hash=sha256:a59e362652f08dcd477c78bb6e7bd9d80a7995bc73ce773050228a348ce2e5bb \
-    # from pyinstaller-hooks-contrib, pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
-urllib3==2.6.3 \
-    --hash=sha256:bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4 \
-    # from requests==2.33.1
+urllib3==2.7.0 \
+    --hash=sha256:9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897 \
+    # from requests==2.34.2
 
-zipp==3.23.1 \
-    --hash=sha256:0b3596c50a5c700c9cb40ba8d86d9f2cc4807e9bedb06bcdf7fac85633e444dc \
+zipp==4.1.0 \
+    --hash=sha256:25ad4e16390cd314347dd8f1de67a2ac538ae658ed4ab9db16029c07c188e97f \
     # from importlib-metadata
 
 MarkupSafe==3.0.3 \

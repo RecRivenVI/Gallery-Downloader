@@ -4,14 +4,14 @@ Jinja2==3.1.6 \
 mutagen==1.47.0 \
     --hash=sha256:edd96f50c5907a9539d8e5bba7245f62c9f520aef333d13392a79a4f70aca719 \
 
-pyinstaller==6.19.0 \
-    --hash=sha256:a0fc5f6b3c55aa54353f0c74ffa59b1115433c1850c6f655d62b461a2ed6cbbe \
+pyinstaller==6.20.0 \
+    --hash=sha256:03696bb6350177c6bc23bcaf78e71a33c4a89b6754dd90d1be2f318e978c918b \
 
 PySocks==1.7.1 \
     --hash=sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5 \
 
-requests==2.33.1 \
-    --hash=sha256:4e6d1ef462f3626a1f0a0a9c42dd93c63bad33f9f1c1937509b8c5c8718ab56a \
+requests==2.34.2 \
+    --hash=sha256:2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0 \
 
 SecretStorage==3.5.0 \
     --hash=sha256:0ce65888c0725fcb2c5bc0fdb8e5438eece02c523557ea40ce0703c266248137 \
@@ -19,8 +19,8 @@ SecretStorage==3.5.0 \
 truststore==0.10.4 \
     --hash=sha256:adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981 \
 
-yt-dlp==2026.3.17 \
-    --hash=sha256:32992db94303a8a5d211a183f2174834fe7f8c29d83ed2e7a324eae97a8f26d8 \
+yt-dlp==2026.6.9 \
+    --hash=sha256:442ba4c75724b9496144c8434b617962ee08d0ee7c26ec663848fe9b78d5a3e4 \
 
 yt-dlp-ejs==0.8.0 \
     --hash=sha256:79300e5fca7f937a1eeede11f0456862c1b41107ce1d726871e0207424f4bdb4 \
@@ -43,19 +43,19 @@ websockets==16.0 \
 
 altgraph==0.17.5 \
     --hash=sha256:f3a22400bce1b0c701683820ac4f3b159cd301acab067c51c653e06961600597 \
-    # from macholib, pyinstaller==6.19.0
+    # from macholib, pyinstaller==6.20.0
 
-certifi==2026.2.25 \
-    --hash=sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa \
-    # from requests==2.33.1
+certifi==2026.5.20 \
+    --hash=sha256:3c52e209ba0a4ad7aebe60436a4ab349c39e1e602e8c134221e546902ad25897 \
+    # from requests==2.34.2
 
-idna==3.11 \
-    --hash=sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea \
-    # from requests==2.33.1
+idna==3.17 \
+    --hash=sha256:466e48829084efe2548012b855df21540b96f2e20e51bd124c851536556a592c \
+    # from requests==2.34.2
 
 importlib-metadata==9.0.0 \
     --hash=sha256:2d21d1cc5a017bd0559e36150c21c830ab1dc304dedd1b7ea85d20f45ef3edd7 \
-    # from pyinstaller-hooks-contrib, pyinstaller==6.19.0
+    # from pyinstaller-hooks-contrib, pyinstaller==6.20.0
 
 jeepney==0.9.0 \
     --hash=sha256:97e5714520c16fc0a45695e5365a2e11b81ea79bba796e26f9f1d178cb182683 \
@@ -63,42 +63,42 @@ jeepney==0.9.0 \
 
 macholib==1.16.4 \
     --hash=sha256:da1a3fa8266e30f0ce7e97c6a54eefaae8edd1e5f86f3eb8b95457cae90265ea \
-    # from pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
-packaging==26.1 \
-    --hash=sha256:5d9c0669c6285e491e0ced2eee587eaf67b670d94a19e94e3984a481aba6802f \
-    # from pyinstaller-hooks-contrib, pyinstaller==6.19.0
+packaging==26.2 \
+    --hash=sha256:5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e \
+    # from pyinstaller-hooks-contrib, pyinstaller==6.20.0
 
 pefile==2024.8.26 \
     --hash=sha256:76f8b485dcd3b1bb8166f1128d395fa3d87af26360c2358fb75b80019b957c6f \
-    # from pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
 pycparser==3.0 \
     --hash=sha256:b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992 \
     # from cffi
 
-pyinstaller-hooks-contrib==2026.4 \
-    --hash=sha256:1de1a5e49a878122010b88c7e295502bc69776c157c4a4dc78741a4e6178b00f \
-    # from pyinstaller==6.19.0
+pyinstaller-hooks-contrib==2026.6 \
+    --hash=sha256:fd13b8ac126b35361175edacd41a0d97080b75dd5f4b594ecefefff969509dd3 \
+    # from pyinstaller==6.20.0
 
 pywin32-ctypes==0.2.3 \
     --hash=sha256:8a1513379d709975552d202d942d9837758905c8d01eb82b8bcc30918929e7b8 \
-    # from pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
 setuptools==82.0.1 \
     --hash=sha256:a59e362652f08dcd477c78bb6e7bd9d80a7995bc73ce773050228a348ce2e5bb \
-    # from pyinstaller-hooks-contrib, pyinstaller==6.19.0
+    # from pyinstaller==6.20.0
 
 typing-extensions==4.15.0 \
     --hash=sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548 \
     # from cryptography
 
-urllib3==2.6.3 \
-    --hash=sha256:bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4 \
-    # from requests==2.33.1
+urllib3==2.7.0 \
+    --hash=sha256:9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897 \
+    # from requests==2.34.2
 
-zipp==3.23.1 \
-    --hash=sha256:0b3596c50a5c700c9cb40ba8d86d9f2cc4807e9bedb06bcdf7fac85633e444dc \
+zipp==4.1.0 \
+    --hash=sha256:25ad4e16390cd314347dd8f1de67a2ac538ae658ed4ab9db16029c07c188e97f \
     # from importlib-metadata
 
 cffi==2.0.0 \
@@ -109,18 +109,18 @@ cffi==2.0.0 \
 charset-normalizer==3.4.7 \
     --hash=sha256:cf29836da5119f3c8a8a70667b0ef5fdca3bb12f80fd06487cfa575b3909b393 \
     --hash=sha256:bd6c2a1c7573c64738d716488d2cdd3c00e340e4835707d8fdb8dc1a66ef164e \
-    # from requests==2.33.1
+    # from requests==2.34.2
 
 MarkupSafe==3.0.3 \
     --hash=sha256:f42d0984e947b8adf7dd6dde396e720934d12c506ce84eea8476409563607591 \
     --hash=sha256:457a69a9577064c05a97c41f4e65148652db078a3a509039e64d3467b9e7ef97 \
     # from Jinja2==3.1.6
 
-cryptography==46.0.7 \
-    --hash=sha256:128c5edfe5e5938b86b03941e94fac9ee793a94452ad1365c9fc3f4f62216832 \
-    --hash=sha256:1d25aee46d0c6f1a501adcddb2d2fee4b979381346a78558ed13e50aa8a59067 \
-    --hash=sha256:35719dc79d4730d30f1c2b6474bd6acda36ae2dfae1e3c16f2051f215df33ce0 \
-    --hash=sha256:5ad9ef796328c5e3c4ceed237a183f5d41d21150f972455a9d926593a1dcb308 \
-    --hash=sha256:420b1e4109cc95f0e5700eed79908cef9268265c773d3a66f7af1eef53d409ef \
-    --hash=sha256:42a1e5f98abb6391717978baf9f90dc28a743b7d9be7f0751a6f56a75d14065b \
+cryptography==48.0.1 \
+    --hash=sha256:86be3b1b0b6bf09482fb50a979c508d2950ed95f5621ec77f4e385962006b83a \
+    --hash=sha256:88c852a0ae366e262e5a1744b685e6a433dc8788dd2a277e418bf4904203609d \
+    --hash=sha256:b74ca3b8e5ecdd833bf6a002ca41b4793bb27fb8f1c06ffaf2643c9e9140e31b \
+    --hash=sha256:f0d27a5696721ef7a672b8c810f6aded391058e0b9486e63e6d93baf765da691 \
+    --hash=sha256:3752f2dbc8f07a30aad2932c986cea495b03bb554887828225da104f732852b6 \
+    --hash=sha256:0ee6ea481db1ab889cba043ec1eda17bb9c1ea79db6722f779c3667f9f70322f \
     # from SecretStorage==3.5.0
