@@ -19,7 +19,7 @@ EXTENSIONS = {
 }
 
 
-class GanknowExtractor(Extractor):
+class GankExtractor(Extractor):
     """Base class for ganknow extractors"""
     category = "ganknow"
     root = "https://ganknow.com"
@@ -31,7 +31,7 @@ class GanknowExtractor(Extractor):
     _preview_warning = True
 
     def _init(self):
-        self.api = GanknowAPI(self)
+        self.api = GankAPI(self)
         self.previews = self.config("previews", True)
         self._init_authorization()
 
@@ -122,10 +122,10 @@ class GanknowExtractor(Extractor):
             self.log.warning(
                 "Downloading blurred previews. Use cookies or disable "
                 "'previews' to skip unavailable media")
-            GanknowExtractor._preview_warning = False
+            GankExtractor._preview_warning = False
 
 
-class GanknowUserExtractor(GanknowExtractor):
+class GankUserExtractor(GankExtractor):
     """Extractor for a ganknow user's posts"""
     subcategory = "user"
     pattern = USER_PATTERN
@@ -137,7 +137,7 @@ class GanknowUserExtractor(GanknowExtractor):
         return self.api.posts(user["id"], self.groups[1])
 
 
-class GanknowPostExtractor(GanknowExtractor):
+class GankPostExtractor(GankExtractor):
     """Extractor for a single ganknow post"""
     subcategory = "post"
     pattern = POST_PATTERN
@@ -147,7 +147,7 @@ class GanknowPostExtractor(GanknowExtractor):
         return (self.api.post(self.groups[0]),)
 
 
-class GanknowAPI():
+class GankAPI():
     ROOT = "https://api.ganknow.com/v1"
 
     def __init__(self, extractor):
