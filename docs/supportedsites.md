@@ -415,6 +415,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Threads</td>
     <td></td>
 </tr>
+<tr id="ganknow" title="ganknow">
+    <td>Gank</td>
+    <td>https://ganknow.com/</td>
+    <td>Posts, User Posts</td>
+    <td><a href="https://codeberg.org/mikf/gallery-dl#cookies">Cookies</a></td>
+</tr>
 <tr id="gelbooru" title="gelbooru">
     <td>Gelbooru</td>
     <td>https://gelbooru.com/</td>
