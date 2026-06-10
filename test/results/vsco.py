@@ -66,6 +66,12 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://vsco.co/id:113950/gallery",
+    "#comment" : "'site_id' via id:SITEID in URL (gh#7310)",
+    "#class"   : vsco.VscoGalleryExtractor,
+},
+
+{
     "#url"     : "https://vsco.co/vsco/collection/1",
     "#category": ("", "vsco", "collection"),
     "#class"   : vsco.VscoCollectionExtractor,
