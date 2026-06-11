@@ -451,6 +451,35 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://bsky.app/profile/did:plc:qjygmu4svvrab6xid5tltsb7/post/3mnsrv2pirc2a",
+    "#comment" : "gallery / carousel (#168)",
+    "#class"   : bluesky.BlueskyPostExtractor,
+    "#archive" : False,
+    "#results" : (
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+        "https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.sync.getBlob?did=did:plc:qjygmu4svvrab6xid5tltsb7&cid=bafkreihl4wgwtsehns2mmobzr3jeet43vpnxxvtpumsbjoxnoytiweu4zq",
+    ),
+
+    "cid"          : "bafyreigejqjuk232astexnmkyymmld3xmo5bn3s7kow724vlvraebnk5iu",
+    "count"        : 10,
+    "date"         : "dt:2026-06-08 22:59:21",
+    "extension"    : "jpeg",
+    "width"        : 1079,
+    "height"       : 1906,
+    "instance"     : "bsky.app",
+    "post_id"      : "3mnsrv2pirc2a",
+    "text"         : "go, my 10 suckling kittens",
+},
+
+{
     "#url"     : "https://bsky.app/saved",
     "#class"   : bluesky.BlueskyBookmarkExtractor,
 },
