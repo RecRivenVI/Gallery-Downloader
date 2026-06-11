@@ -235,6 +235,16 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.patreon.com/koveliana/posts/pokememes-69853976",
+    "#comment" : "post URL with creator name (#170)",
+    "#class"   : patreon.PatreonPostExtractor,
+    "#results" : (
+        "https://c10.patreonusercontent.com/4/patreon-media/p/post/69853976/6eaeb5e7c966470c9504979f27f117df/eyJhIjoxLCJwIjoxfQ%3D%3D/1.png?token-hash=Hd7Sj3bGWUfyrVSKRHWFM48sn_a2bj1vkurPoqwulV4%3D&token-time=1781308800",
+        "https://c10.patreonusercontent.com/4/patreon-media/p/post/69853976/4ed48aca63dc409ab71dade357cad523/eyJhIjoxLCJwIjoxfQ%3D%3D/1.png?token-hash=9qSrfnsWY3bLh0lnpm7RGD1AtFr746iTWTpJzRij05k%3D&token-time=1781308800",
+    ),
+},
+
+{
     "#url"     : "https://www.patreon.com/collection/15764",
     "#class"   : patreon.PatreonCollectionExtractor,
     "#range"   : "1-3",
