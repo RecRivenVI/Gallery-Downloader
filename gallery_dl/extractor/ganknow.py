@@ -93,7 +93,9 @@ class GankExtractor(Extractor):
             url = media.get("url") or media.get("thumbUrl")
             preview = False
 
-            if not url and self.previews:
+            if url:
+                url += "=s0"
+            elif not url and self.previews:
                 url = media.get("previewUrl") or media.get("blurUrl")
                 preview = True
                 self._warn_preview()
