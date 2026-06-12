@@ -2353,7 +2353,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="pixhost" title="pixhost">
     <td>PiXhost</td>
-    <td>https://pixhost.to/</td>
+    <td>https://pixhost.cc/</td>
     <td>Galleries, individual Images</td>
     <td></td>
 </tr>
