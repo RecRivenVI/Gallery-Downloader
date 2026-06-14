@@ -12,15 +12,18 @@ __tests__ = (
     "#url"     : "https://hypnohub.net/index.php?page=post&s=list&tags=gonoike_biwa",
     "#category": ("gelbooru_v02", "hypnohub", "tag"),
     "#class"   : gelbooru_v02.GelbooruV02TagExtractor,
-    "#sha1_url": "fe662b86d38c331fcac9c62af100167d404937dc",
+    "#pattern": r"https://hypnohub.net//images/../../\w{32}.(jpg|png)",
 },
 
 {
     "#url"     : "https://hypnohub.net/index.php?page=pool&s=show&id=61",
     "#category": ("gelbooru_v02", "hypnohub", "pool"),
     "#class"   : gelbooru_v02.GelbooruV02PoolExtractor,
-    "#count"   : 3,
-    "#sha1_url": "d314826280073441a2da609f70ee814d1f4b9407",
+    "#results" : (
+        "https://hypnohub.net//images/60/93/6093f0e9fbe9697b519c3a60865b4f8e.jpg",
+        "https://hypnohub.net//images/40/0d/400d41d179d1b792e80d27e46b4a53a2.jpg",
+        "https://hypnohub.net//images/9a/8e/9a8ed3843ce4113c03bfa9cc219b47fa.jpg",
+    ),
 },
 
 {
@@ -38,7 +41,7 @@ __tests__ = (
         "tags" : True,
         "notes": True,
     },
-    "#pattern"     : r"https://hypnohub\.net/images/90/24/90245c3c5250c2a8173255d3923a010b\.jpg",
+    "#pattern"     : r"https://hypnohub\.net//images/90/24/90245c3c5250c2a8173255d3923a010b\.jpg",
     "#sha1_content": "5987c5d2354f22e5fa9b7ee7ce4a6f7beb8b2b71",
 
     "tags_artist"   : "brokenteapot",
@@ -72,6 +75,19 @@ __tests__ = (
             "y"     : 20,
         },
     ],
+},
+
+{
+    "#url"     : "https://hypnohub.net/index.php?page=post&s=view&id=168597",
+    "#comment" : "'Access Restricted' (gh#9586)",
+    "#category": ("gelbooru_v02", "hypnohub", "post"),
+    "#class"   : gelbooru_v02.GelbooruV02PostExtractor,
+    "#results"     : "https://hypnohub.net//images/02/79/0279d7acb918e80f3289c7b1c8eef8a4.png",
+    "#sha1_content": "7e8f23860dad284a042161d57cf4a4f7bbff30ea",
+
+    "file_url": "https://hypnohub.net/images/02/79/0279d7acb918e80f3289c7b1c8eef8a4.png",
+    "id"      : "168597",
+    "md5"     : "0279d7acb918e80f3289c7b1c8eef8a4",
 },
 
 )
