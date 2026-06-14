@@ -217,6 +217,7 @@ __tests__ = (
         "captions"         : True,
         "comments"         : True,
     },
+    "#results"     : "https://i.pximg.net/user-profile/img/2008/06/17/01/28/01/171098_fc06efd15628e2ee252941ae5298b5ff.jpg",
     "#sha1_content": "4e57544480cc2036ea9608103e8f024fa737fe66",
 },
 
@@ -229,7 +230,12 @@ __tests__ = (
         "captions"         : True,
         "comments"         : True,
     },
-    "#pattern" : r"https://i\.pximg\.net/background/img/2021/01/30/16/12/02/194921_af1f71e557a42f499213d4b9eaccc0f8\.jpg",
+    "#results": "https://i.pximg.net/background/img/2021/01/30/16/12/02/194921_af1f71e557a42f499213d4b9eaccc0f8.jpg",
+
+    "_fallback": (
+        "https://i.pximg.net/background/img/2021/01/30/16/12/02/194921_af1f71e557a42f499213d4b9eaccc0f8.png",
+        "https://i.pximg.net/background/img/2021/01/30/16/12/02/194921_af1f71e557a42f499213d4b9eaccc0f8.gif",
+    ),
 },
 
 {
