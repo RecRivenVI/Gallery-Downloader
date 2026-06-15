@@ -128,6 +128,24 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://aryion.com/g4/view/1244524",
+    "#comment" : "'&amp;' in title (#183)",
+    "#class"   : aryion.AryionPostExtractor,
+    "#results" : "https://aryion.com/g4/data.php?id=1244524",
+
+    "artist"     : "Dotil",
+    "date"       : "dt:2026-03-17 05:15:48",
+    "description": "Patreon request",
+    "width"      : 4141,
+    "height"     : 2331,
+    "id"         : 1244524,
+    "path"       : ["Patreon stuff"],
+    "size"       : 2776447,
+    "title"      : "Vesta & Eliza",
+    "url"        : "https://aryion.com/g4/data.php?id=1244524",
+},
+
+{
     "#url"     : "https://aryion.com/g4/search.php?q=forest1",
     "#class"   : aryion.AryionSearchExtractor,
     "#results" : (

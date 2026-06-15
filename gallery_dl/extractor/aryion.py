@@ -195,7 +195,7 @@ class AryionExtractor(Extractor):
         extr = text.extract_from(self.request(post_url).text)
 
         title, _, artist = text.unescape(extr(
-            "<title>g4 :: ", "<")).rpartition(" by ")
+            'property="og:title" content="', '"')).rpartition(" by ")
 
         return {
             "id"    : text.parse_int(post_id),
