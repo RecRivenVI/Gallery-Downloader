@@ -297,9 +297,6 @@ SUBCATEGORY_MAP = {
     "booth": {
         "category": "Item Categories",
     },
-    "cfake": {
-        "created": "Created",
-    },
     "civitai": {
         "models": "Model Listings",
         "images": "Image Listings",
