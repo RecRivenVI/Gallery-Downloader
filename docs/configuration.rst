@@ -969,6 +969,8 @@ Default
         ``simplyhentai`` |
         ``twitter``    |
         ``vsco``
+    ``"chrome"``
+        ``comicartfans``
     ``null``
         otherwise
 Example
