@@ -2470,7 +2470,7 @@ Type
     * ``string``
     * ``list`` of ``strings``
 Default
-    ``"original"``
+    ``"original=true"``
 Example
     * ``"width=1280,quality=90"``
     * ``["width=1280", "quality=90"]``
