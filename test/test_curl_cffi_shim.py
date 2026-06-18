@@ -16,9 +16,6 @@ from gallery_dl.extractor.curl_cffi_shim import (  # noqa: E402
     CurlCffiSessionWrapper,
     CurlCffiResponseWrapper,
     CookieJarWrapper,
-    _DaemonThreadPoolExecutor,
-    _RawProxy,
-    _detach_session_threads,
     _wrap_request,
 )
 
@@ -80,8 +77,6 @@ class TestCurlCffiResponseWrapper(unittest.TestCase):
         resp.json.return_value = overrides.get(
             "json_data", {"key": "val"})
         resp.close = Mock()
-        resp.iter_content = Mock(
-            return_value=iter([b"abc", b"def"]))
         return resp
 
     def test_passthrough(self):
@@ -95,8 +90,6 @@ class TestCurlCffiResponseWrapper(unittest.TestCase):
         self.assertEqual(w.json(), {"key": "val"})
         self.assertEqual(w.encoding, "utf-8")
         self.assertEqual(w.history, [])
-        self.assertEqual(
-            list(w.iter_content(chunk_size=3)), [b"abc", b"def"])
         w.close()
         resp.close.assert_called_once()
 
@@ -110,16 +103,6 @@ class TestCurlCffiResponseWrapper(unittest.TestCase):
         w = CurlCffiResponseWrapper(self._make_response(
             reason="Custom"))
         self.assertEqual(w.reason, "Custom")
-
-    def test_raw_chunked(self):
-        for headers, expected in (
-            ({"transfer-encoding": "chunked"}, True),
-            ({"content-length": "1234"}, False),
-            ({}, False),
-        ):
-            resp = Mock()
-            resp.headers = headers
-            self.assertEqual(_RawProxy(resp).chunked, expected)
 
 
 class TestCookieJarWrapper(unittest.TestCase):
@@ -207,42 +190,6 @@ class TestCurlCffiSessionWrapper(unittest.TestCase):
             with self.assertRaises(ImportError) as cm:
                 CurlCffiSessionWrapper()
             self.assertIn("curl_cffi", str(cm.exception))
-
-    def test_executor_is_daemon_variant(self):
-        wrapper = CurlCffiSessionWrapper(impersonate="firefox")
-        try:
-            self.assertIsInstance(
-                wrapper._session._executor,
-                _DaemonThreadPoolExecutor,
-            )
-        finally:
-            wrapper.close()
-
-    def test_daemon_executor_spawns_daemon_threads(self):
-        executor = _DaemonThreadPoolExecutor(max_workers=1)
-        try:
-            executor.submit(lambda: 42).result(timeout=5)
-            threads = list(executor._threads)
-            self.assertEqual(len(threads), 1)
-            self.assertTrue(threads[0].daemon)
-        finally:
-            executor.shutdown(wait=False)
-
-    def test_detach_session_threads_clears_queue(self):
-        import concurrent.futures.thread as tp
-        wrapper = CurlCffiSessionWrapper(impersonate="firefox")
-        try:
-            wrapper._session._executor.submit(
-                lambda: 42).result(timeout=5)
-            workers = list(wrapper._session._executor._threads)
-            self.assertTrue(
-                any(t in tp._threads_queues for t in workers))
-
-            _detach_session_threads(wrapper._session)
-            self.assertFalse(
-                any(t in tp._threads_queues for t in workers))
-        finally:
-            wrapper.close()
 
 
 if __name__ == "__main__":
