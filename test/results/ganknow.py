@@ -11,7 +11,7 @@ __tests__ = (
 {
     "#url"     : "https://ganknow.com/kukuchi581?tab=about",
     "#category": ("", "ganknow", "user"),
-    "#class"   : ganknow.GankUserExtractor,
+    "#class"   : ganknow.GanknowUserExtractor,
     "#auth"    : "cookies",
     "#range"   : "1-3",
     "#count"   : 3,
@@ -38,7 +38,7 @@ __tests__ = (
 {
     "#url"     : "https://ganknow.com/post/6c4ab8a6-e01d-463f-8ed5-53bead8495ee",
     "#category": ("", "ganknow", "post"),
-    "#class"   : ganknow.GankPostExtractor,
+    "#class"   : ganknow.GanknowPostExtractor,
     "#auth"    : "cookies",
     "#count"   : 1,
     "#pattern" : r"https://lh3\.googleusercontent\.com/",
@@ -56,7 +56,7 @@ __tests__ = (
 
 {
     "#url"  : "https://ganknow.com/u/kukuchi581",
-    "#class": ganknow.GankUserExtractor,
+    "#class": ganknow.GanknowUserExtractor,
 },
 
 )
