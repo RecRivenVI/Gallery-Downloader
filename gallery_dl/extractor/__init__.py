@@ -165,6 +165,7 @@ modules = [
     "okporn",
     "paheal",
     "patreon",
+    "pawchive",
     "pexels",
     "philomena",
     "pholder",

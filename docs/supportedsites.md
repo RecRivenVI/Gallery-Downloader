@@ -853,6 +853,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Collections, Creators, Posts, User Profiles</td>
     <td><a href="https://codeberg.org/mikf/gallery-dl#cookies">Cookies</a></td>
 </tr>
+<tr id="pawchive" title="pawchive">
+    <td>Pawchive</td>
+    <td>https://pawchive.st/</td>
+    <td>Posts, User Profiles</td>
+    <td></td>
+</tr>
 <tr id="pexels" title="pexels">
     <td>Pexels</td>
     <td>https://pexels.com/</td>

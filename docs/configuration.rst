@@ -5122,6 +5122,40 @@ Note
     port than the default.
 
 
+extractor.pawchive.files
+------------------------
+Type
+    ``list`` of ``strings``
+Default
+    ``["file", "attachments", "inline"]``
+Description
+    Determines the type and order of files to be downloaded.
+Available Types
+    * ``file``
+    * ``attachments``
+    * ``inline``
+
+
+extractor.pawchive.max-posts
+----------------------------
+Type
+    ``integer``
+Default
+    ``null``
+Description
+    Limit the number of posts to download.
+
+
+extractor.pawchive.metadata
+---------------------------
+Type
+    ``bool``
+Default
+    ``true``
+Description
+    Extract ``username`` and ``user_profile`` metadata.
+
+
 extractor.paheal.metadata
 -------------------------
 Type
