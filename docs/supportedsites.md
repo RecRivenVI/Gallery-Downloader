@@ -777,7 +777,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="motherless" title="motherless">
     <td>Motherless</td>
-    <td>https://motherless.com/</td>
+    <td>https://motherless.xxx/</td>
     <td>Galleries, Groups, Media Files</td>
     <td></td>
 </tr>

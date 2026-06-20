@@ -5,10 +5,33 @@
 # published by the Free Software Foundation.
 
 from gallery_dl.extractor import motherless
-from gallery_dl import exception
 
 
 __tests__ = (
+{
+    "#url"  : "https://motherless.xxx/B0168DB",
+    "#class": motherless.MotherlessMediaExtractor,
+    "#results": "https://cdn5-images.motherlessmedia.com/images/B0168DB.jpg",
+    "#sha1_content": "10629fc5dd7a9623af7dd57f1a322d0f24ac9acc",
+
+    "date"     : "dt:2013-03-29 00:00:00",
+    "extension": "jpg",
+    "favorites": range(0, 10),
+    "filename" : "B0168DB",
+    "group"    : "",
+    "id"       : "B0168DB",
+    "tags"     : [
+        "Lady J",
+        "outdoor",
+        "closeup. face"
+    ],
+    "title"    : "388652199_d6fc8a9515_o.jpg",
+    "type"     : "image",
+    "uploader" : "anonymous",
+    "url"      : "https://cdn5-images.motherlessmedia.com/images/B0168DB.jpg",
+    "views"    : range(90, 200),
+},
+
 {
     "#url"  : "https://motherless.com/B0168DB",
     "#class": motherless.MotherlessMediaExtractor,
@@ -31,7 +54,6 @@ __tests__ = (
     "uploader" : "anonymous",
     "url"      : "https://cdn5-images.motherlessmedia.com/images/B0168DB.jpg",
     "views"    : range(90, 200),
-
 },
 
 {
@@ -80,7 +102,7 @@ __tests__ = (
 {
     "#url"     : "https://motherless.com/8850983",
     "#class"   : motherless.MotherlessMediaExtractor,
-    "#exception": exception.NotFoundError,
+    "#exception": "NotFoundError",
 },
 
 {
@@ -135,15 +157,24 @@ __tests__ = (
 {
     "#url"     : "https://motherless.com/GI466D59F",
     "#class"   : motherless.MotherlessGalleryExtractor,
-    "#exception": exception.NotFoundError,
+    "#exception": "NotFoundError",
+},
+
+{
+    "#url"  : "https://motherless.xxx/g/bump___grind",
+    "#class": motherless.MotherlessGroupExtractor,
+    "#results": (
+        "https://motherless.xxx/gi/bump___grind",
+        "https://motherless.xxx/gv/bump___grind",
+    ),
 },
 
 {
     "#url"  : "https://motherless.com/g/bump___grind",
     "#class": motherless.MotherlessGroupExtractor,
     "#results": (
-        "https://motherless.com/gi/bump___grind",
-        "https://motherless.com/gv/bump___grind",
+        "https://motherless.xxx/gi/bump___grind",
+        "https://motherless.xxx/gv/bump___grind",
     ),
 },
 
