@@ -200,6 +200,69 @@ class PawchivePostExtractor(PawchiveExtractor):
         return (self.api.creator_post(service, creator_id, post_id),)
 
 
+class PawchiveFavoriteExtractor(PawchiveExtractor):
+    """Extractor for pawchive.st favorites"""
+    subcategory = "favorite"
+    pattern = BASE_PATTERN + r"/(?:account/)?favorites(?:/?\?([^#]+))?"
+    example = "https://pawchive.st/favorites"
+
+    def items(self):
+        self.login()
+
+        params = text.parse_query(self.groups[0])
+        type = params.get("type") or self.config("favorites") or "artist"
+
+        sort = params.get("sort")
+        order = params.get("order") or "desc"
+
+        if type == "artist":
+            users = self.api.account_favorites("artist")
+
+            if not sort:
+                sort = "updated"
+            users.sort(key=lambda x: x[sort] or util.NONE,
+                       reverse=(order == "desc"))
+
+            for user in users:
+                user["_extractor"] = PawchiveUserExtractor
+                url = f"{self.root}/{user['service']}/user/{user['id']}"
+                yield Message.Queue, url, user
+
+        elif type == "post":
+            posts = self.api.account_favorites("post")
+
+            if not sort:
+                sort = "faved_seq"
+            posts.sort(key=lambda x: x[sort] or util.NONE,
+                       reverse=(order == "desc"))
+
+            for post in posts:
+                post["_extractor"] = PawchivePostExtractor
+                url = (f"{self.root}/{post['service']}/user/"
+                       f"{post['user']}/post/{post['id']}")
+                yield Message.Queue, url, post
+
+    def login(self):
+        username, password = self._get_auth_info()
+        if username:
+            self.cookies_update(self.cache(
+                self._login_impl, username, password,
+                _exp=3650*86400, _mem=False))
+
+    def _login_impl(self, username, password):
+        self.log.info("Logging in as %s", username)
+
+        url = self.root + "/account/login"
+        data = {"username": username, "password": password}
+
+        response = self.request(url, method="POST", data=data, fatal=False)
+        if response.status_code >= 400 or not response.history:
+            msg = '"Username or password is incorrect"'
+            raise self.exc.AuthenticationError(msg)
+
+        return {c.name: c.value for c in response.history[0].cookies}
+
+
 class PawchiveAPI():
     """Interface for the Pawchive API
 

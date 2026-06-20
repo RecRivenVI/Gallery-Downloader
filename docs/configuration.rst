@@ -689,6 +689,7 @@ Description
     * ``newgrounds``
     * ``nijie`` (`R <pw-required_>`__)
     * ``nudostarforum``
+    * ``pawchive``
     * ``pillowfort``
     * ``poipiku``
     * ``rule34world``

@@ -589,6 +589,7 @@ AUTH_MAP = {
     "nijie"          : "Required",
     "nudostarforum"  : "Supported",
     "patreon"        : _COOKIES,
+    "pawchive"       : "Supported",
     "pawoo"          : _OAUTH,
     "pillowfort"     : "Supported",
     "pinterest"      : _COOKIES,

@@ -182,4 +182,14 @@ __tests__ = (
     },
 },
 
+{
+    "#url"     : "https://pawchive.st/favorites",
+    "#class"   : pawchive.PawchiveFavoriteExtractor,
+},
+
+{
+    "#url"     : "https://pawchive.st/favorites?type=post&sort=published&order=asc",
+    "#class"   : pawchive.PawchiveFavoriteExtractor,
+},
+
 )

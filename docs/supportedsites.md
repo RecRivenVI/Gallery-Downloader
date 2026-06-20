@@ -856,8 +856,8 @@ Consider all listed sites to potentially be NSFW.
 <tr id="pawchive" title="pawchive">
     <td>Pawchive</td>
     <td>https://pawchive.st/</td>
-    <td>Posts, User Profiles</td>
-    <td></td>
+    <td>Favorites, Posts, User Profiles</td>
+    <td>Supported</td>
 </tr>
 <tr id="pexels" title="pexels">
     <td>Pexels</td>
