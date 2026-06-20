@@ -73,11 +73,19 @@ class PawchiveExtractor(Extractor):
 
             files = []
             hashes = set()
+            warning = True
             post_archives = post["archives"] = []
 
             for file in itertools.chain.from_iterable(
                     g(post) for g in generators):
-                path = file["path"]
+                try:
+                    path = file["path"]
+                except KeyError:
+                    if warning:
+                        warning = False
+                        self.log.debug(file)
+                        self.log.warning("%s: Incomplete import", post["id"])
+                    continue
 
                 if "\\" in path:
                     file["path"] = path = path.replace("\\", "/")
