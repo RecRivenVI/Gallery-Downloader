@@ -186,7 +186,7 @@ class PawchiveUserExtractor(PawchiveExtractor):
 
 
 class PawchivePostExtractor(PawchiveExtractor):
-    """Extractor for a single Pawchive post"""
+    """Extractor for a single pawchive post"""
     subcategory = "post"
     pattern = USER_PATTERN + r"/post/([^/?#]+)"
     example = "https://pawchive.st/SERVICE/user/12345/post/12345"
@@ -200,8 +200,20 @@ class PawchivePostExtractor(PawchiveExtractor):
         return (self.api.creator_post(service, creator_id, post_id),)
 
 
+class PawchivePostsExtractor(PawchiveExtractor):
+    """Extractor for pawchive post listings"""
+    subcategory = "posts"
+    pattern = BASE_PATTERN + r"/posts(?:/?\?([^#]+))?"
+    example = "https://pawchive.st/posts"
+
+    def posts(self):
+        params = text.parse_query(self.groups[0])
+        return self.api.posts(
+            params.get("o"), params.get("q"), params.get("tag"))
+
+
 class PawchiveFavoriteExtractor(PawchiveExtractor):
-    """Extractor for pawchive.st favorites"""
+    """Extractor for pawchive favorites"""
     subcategory = "favorite"
     pattern = BASE_PATTERN + r"/(?:account/)?favorites(?:/?\?([^#]+))?"
     example = "https://pawchive.st/favorites"
@@ -307,7 +319,7 @@ class PawchiveAPI():
     def posts(self, offset=0, query=None, tags=None):
         endpoint = "/v1/posts"
         params = {"q": query, "o": offset, "tag": tags}
-        return self._pagination(endpoint, params, 50, "posts")
+        return self._pagination(endpoint, params, 50)
 
     def file(self, file_hash):
         endpoint = "/v1/file/" + file_hash

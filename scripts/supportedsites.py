@@ -404,6 +404,9 @@ SUBCATEGORY_MAP = {
         "followed": "Followed Users",
         "nuita" : "Nuita History",
     },
+    "pawchive": {
+        "posts": "",
+    },
     "pinterest": {
         "board": "",
         "pinit": "pin.it Links",

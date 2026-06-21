@@ -202,4 +202,14 @@ __tests__ = (
     "#class"   : pawchive.PawchiveArtistsExtractor,
 },
 
+{
+    "#url"     : "https://pawchive.st/posts",
+    "#class"   : pawchive.PawchivePostsExtractor,
+},
+
+{
+    "#url"     : "https://pawchive.st/posts?o=49950",
+    "#class"   : pawchive.PawchivePostsExtractor,
+},
+
 )
