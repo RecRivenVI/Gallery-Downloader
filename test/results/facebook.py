@@ -207,6 +207,32 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.facebook.com/media/set/?set=a.10203952173623829",
+    "#comment" : "'title' with double quotes (#198)",
+    "#class"   : facebook.FacebookSetExtractor,
+    "#range"   : "1",
+
+    "date"          : "dt:2014-11-16 09:09:52",
+    "extension"     : "jpg",
+    "filename"      : "515287746_10233603567690149_8284616838261135423_n",
+    "first_photo_id": "10203952173743832",
+    "followups_ids" : [],
+    "id"            : "10203952173743832",
+    "next_photo_id" : "10203952175743882",
+    "num"           : 1,
+    "set_id"        : "a.10203952173623829",
+    "title"         : """Souvenirs du tram vicinal "Bruxelles-Waterloo" et extensions""",
+    "user_id"       : "1206968555",
+    "user_pfbid"    : "",
+    "username"      : "Serge Bosquet",
+    "caption"       : """\
+L'Arrêt fixe de l'église de Waterloo. A partir de cet endroit, vers Waterloo et Braine-l'Alleud, la voie devenait unique avec évitements aux arrêts.
+Régime des trams directs vers Wavre (source : horaires 1951 et 1962)
+Plaque « Wavre Direct ». Au départ de Bruxelles : seuls les voyageurs de la section « Belle Alliance – Wavre » sont autorisés à monter dans ces trains. Au départ de Wavre : seul l’arrêt de Waterloo-Eglise est obligatoire entre le Monument Gordon et l’avenue Legrand ; ces trains ne s’arrêtent aux autres arrêts qu’à la demande de voyageurs de la section « Wavre – Belle Alliance » qui désirent descendre à un arrêt autorisé. Les voyageurs de la section « Monument Gordon – Bruxelles » qui en profitent pour monter, y sont autorisés pour autant qu’ils dépassent l’avenue Legrand, à Bruxelles. Remarque importante : vers Wavre, entre l’avenue Legrand et le Monument Gordon, tous les arrêts sont facultatifs.\
+""",
+},
+
+{
     "#url"     : "https://www.facebook.com/photo.php?fbid=10165113568399554&set=t.100064860875397&type=3",
     "#class"   : facebook.FacebookPhotoExtractor,
 },
