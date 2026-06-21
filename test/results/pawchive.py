@@ -192,4 +192,14 @@ __tests__ = (
     "#class"   : pawchive.PawchiveFavoriteExtractor,
 },
 
+{
+    "#url"     : "https://pawchive.st/artists",
+    "#class"   : pawchive.PawchiveArtistsExtractor,
+},
+
+{
+    "#url"     : "https://pawchive.st/artists?q=rika&service=fanbox&sort_by=indexed&order=asc",
+    "#class"   : pawchive.PawchiveArtistsExtractor,
+},
+
 )

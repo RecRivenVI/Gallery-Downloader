@@ -263,6 +263,37 @@ class PawchiveFavoriteExtractor(PawchiveExtractor):
         return {c.name: c.value for c in response.history[0].cookies}
 
 
+class PawchiveArtistsExtractor(PawchiveExtractor):
+    """Extractor for pawchive artists"""
+    subcategory = "artists"
+    pattern = BASE_PATTERN + r"/artists(?:\?([^#]+))?"
+    example = "https://pawchive.st/artists"
+
+    def items(self):
+        users = self.api.creators()
+        params = text.parse_query(self.groups[0])
+
+        if params.get("service"):
+            service = params["service"].lower()
+            users = [user for user in users
+                     if user["service"] == service]
+
+        if params.get("q"):
+            q = params["q"].lower()
+            users = [user for user in users
+                     if q in user["name"].lower()]
+
+        sort = params.get("sort_by") or "favorited"
+        order = params.get("order") or "desc"
+        users.sort(key=lambda user: user[sort] or util.NONE,
+                   reverse=(order != "asc"))
+
+        for user in users:
+            user["_extractor"] = PawchiveUserExtractor
+            url = f"{self.root}/{user['service']}/user/{user['id']}"
+            yield Message.Queue, url, user
+
+
 class PawchiveAPI():
     """Interface for the Pawchive API
 
