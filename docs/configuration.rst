@@ -4502,7 +4502,7 @@ Default
 Description
     Determines the type of favorites to be downloaded.
 
-    Available types are ``artist``, and ``post``.
+    Available types are ``artist`` and ``post``.
 
 
 extractor.kemono.files
@@ -5121,6 +5121,83 @@ Note
     of the port specified here. You'll have to manually adjust the
     port number in your browser's address bar when using a different
     port than the default.
+
+
+extractor.pawchive.archives
+---------------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Extract additional metadata for ``archives`` files, including
+    ``file``, ``file_list``, and ``password``.
+Note
+    This requires 1 additional HTTP request per ``archives`` file.
+
+
+extractor.pawchive.archives-format
+----------------------------------
+Type
+    ``string``
+Default
+    ``"list"``
+Description
+    Determines the format/type of the
+    `archives <extractor.pawchive.archives_>`__
+    metadata field.
+
+    ``"list"`` | ``"array"``
+        Plain ``list`` with archive files as elements
+    ``"dict"`` | ``"object"``
+        A ``dict`` with each archive file's ``hash`` as key.
+
+
+extractor.pawchive.comments
+---------------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Extract ``comments`` metadata.
+Note
+    This requires 1 additional HTTP request per post.
+
+
+extractor.pawchive.duplicates
+-----------------------------
+Type
+    * ``bool``
+    * ``string``
+    * ``list`` of ``strings``
+Default
+    ``false``
+Example
+    * ``"attachment,inline"``
+    * ``["file", "attachment"]``
+Description
+    Controls how to handle duplicate files in a post.
+
+    ``true``
+        Download duplicates
+    ``false``
+        Ignore duplicates
+    any ``list`` or ``string``
+        | Download a duplicate file if its ``type`` is in the given list
+        | Ignore it otherwise
+
+
+extractor.pawchive.favorites
+----------------------------
+Type
+    ``string``
+Default
+    ``"artist"``
+Description
+    Determines the type of favorites to be downloaded.
+
+    Available types are ``artist`` and ``post``.
 
 
 extractor.pawchive.files

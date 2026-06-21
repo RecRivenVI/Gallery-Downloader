@@ -36,8 +36,22 @@ class PawchiveExtractor(Extractor):
     def items(self):
         find_hash = text.re(HASH_PATTERN).match
         generators = self._build_file_generators(self.config("files"))
+        archives = True if self.config("archives") else False
+        archives_type = dict if self.config("archives-format") in {
+            "dict", "object"} else list
+        comments = True if self.config("comments") else False
         creator_info = {} if self.config("metadata", True) else None
         exts_archive = util.EXTS_ARCHIVE
+
+        if duplicates := self.config("duplicates"):
+            if isinstance(duplicates, str):
+                duplicates = set(duplicates.split(","))
+            elif isinstance(duplicates, (list, tuple)):
+                duplicates = set(duplicates)
+            else:
+                duplicates = {"file", "attachment", "inline"}
+        else:
+            duplicates = ()
 
         # prevent files from being sent with gzip compression
         headers = {"Accept-Encoding": "identity"}
@@ -71,10 +85,17 @@ class PawchiveExtractor(Extractor):
                 post["user_profile"] = creator
                 post["username"] = creator["name"]
 
+            if comments:
+                post["comments"] = cmts = self.api.creator_post_comments(
+                    service, creator_id, post["id"])
+                if not isinstance(cmts, list):
+                    self.log.debug("%s/%s: %s", creator_id, post["id"], cmts)
+                    post["comments"] = ()
+
             files = []
             hashes = set()
             warning = True
-            post_archives = post["archives"] = []
+            post_archives = post["archives"] = archives_type()
 
             for file in itertools.chain.from_iterable(
                     g(post) for g in generators):
@@ -97,7 +118,7 @@ class PawchiveExtractor(Extractor):
 
                 if match := find_hash(path):
                     file["hash"] = hash = match[1]
-                    if hash in hashes:
+                    if file["type"] not in duplicates and hash in hashes:
                         self.log.debug("Skipping %s %s (duplicate)",
                                        file["type"], path)
                         continue
@@ -117,7 +138,22 @@ class PawchiveExtractor(Extractor):
                 if ext in exts_archive or \
                         ext == "bin" and file["extension"] in exts_archive:
                     file["type"] = "archive"
-                    post_archives.append(file)
+                    if archives:
+                        try:
+                            archive = self.api.file(hash)
+                            archive.update(file)
+                        except Exception as exc:
+                            self.log.warning(
+                                "%s: Failed to retrieve archive metadata of "
+                                "'%s' (%s: %s)", post["id"], file.get("name"),
+                                exc.__class__.__name__, exc)
+                            archive = file.copy()
+                    else:
+                        archive = file.copy()
+                    if archives_type is dict:
+                        post_archives[hash] = archive
+                    else:
+                        post_archives.append(archive)
 
                 files.append(file)
 
@@ -322,7 +358,7 @@ class PawchiveAPI():
         return self._pagination(endpoint, params, 50)
 
     def file(self, file_hash):
-        endpoint = "/v1/file/" + file_hash
+        endpoint = "/v1/search_hash/" + file_hash
         return self._call(endpoint)
 
     def creators(self):
