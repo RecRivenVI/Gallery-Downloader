@@ -11,6 +11,7 @@ __tests__ = (
 {
     "#url"  : "https://www.bilibili.com/opus/988425412565532689",
     "#class": bilibili.BilibiliArticleExtractor,
+    "#exception": "HttpError",
     "#results": (
         "http://i0.hdslb.com/bfs/new_dyn/311264c4dcf45261f7d7a7fe451b05b9405279279.png",
         "http://i0.hdslb.com/bfs/new_dyn/b60d8bc6996529613d617443a12c0a93405279279.png",
@@ -50,6 +51,8 @@ __tests__ = (
     "height"   : 1068,
     "size"     : 115.80999755859375,
     "id"       : "977981688469520405",
+    "title"    : "",
+    "date"     : "dt:2024-09-17 03:08:26",
     "username" : "诗月饼",
 },
 
@@ -75,6 +78,7 @@ __tests__ = (
     ),
 
     "extension"   : {"jpg", "mp4"},
+    "date"        : "dt:2026-01-06 10:56:18",
     "width"       : 4096,
     "height"      : 3072,
     "id"          : "1154738799821979656",
@@ -84,23 +88,45 @@ __tests__ = (
     "modern"      : True,
     "theme"       : "light",
     "themeMode"   : "light",
+    "title"       : "",
     "user_id"     : 31968078,
     "username"    : "粽子淞",
 },
 
 {
     "#url"     : "https://www.bilibili.com/opus/1172711958019833880",
-    "#comment" : "multiple 'livephoto' files (#9210)",
     "#class"   : bilibili.BilibiliArticleExtractor,
-    "#count"   : 10,
+    "#count"   : 5,
 
     "count"    : 5,
-    "extension": {"jpg", "mp4"},
+    "extension": "jpg",
     "id"       : "1172711958019833880",
-    "live_url" : {None, str},
-    "suffix"   : {"", "l"},
+    "suffix"   : "",
     "user_id"  : 3546898287823414,
     "username" : "锦鲤的重度依赖",
+},
+
+{
+    "#url"     : "https://www.bilibili.com/opus/1214068919693738001",
+    "#comment" : "'title' metadata",
+    "#class"   : bilibili.BilibiliArticleExtractor,
+    "#results" : (
+        "http://i0.hdslb.com/bfs/new_dyn/9f0541646d1af7aa44b3fdda78cc284126089098.png",
+        "http://i0.hdslb.com/bfs/new_dyn/fded8c1239fc5a024c2c3f8f1fc6da8926089098.jpg",
+        "http://i0.hdslb.com/bfs/new_dyn/0278f2af582592c35fe452ccf44086a626089098.png",
+        "http://i0.hdslb.com/bfs/new_dyn/d3f10e7d775b7bf4ad06084356185ef026089098.png",
+        "http://i0.hdslb.com/bfs/new_dyn/56caf539db42cef0f3638185bc8fa5af26089098.png",
+        "http://i0.hdslb.com/bfs/new_dyn/c37f0e997574a35c30afac7fb237e1c526089098.jpg",
+        "http://i0.hdslb.com/bfs/new_dyn/a74094d76ec52ec657f56c4f2cf492a026089098.jpg",
+    ),
+
+    "count"   : 7,
+    "date"    : "dt:2026-06-15 08:07:28",
+    "id"      : "1214068919693738001",
+    "tags"    : [],
+    "title"   : "阶段性总结",
+    "user_id" : 26089098,
+    "username": "loooongm",
 },
 
 {

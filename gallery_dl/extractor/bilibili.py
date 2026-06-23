@@ -46,10 +46,15 @@ class BilibiliArticleExtractor(BilibiliExtractor):
         # Flatten modules list
         pics = []
         modules = {}
+        article["title"] = ""
         for module in article["detail"]["modules"]:
             if m := module.get("module_author"):
                 article["username"] = m.get("name")
                 article["user_id"] = m.get("mid")
+                article["date"] = self.parse_timestamp(m.get("pub_ts"))
+            if m := module.get("module_title"):
+                article["title"] = m.get("text")
+                article["tags"] = m.get("tags")
             if m := module.get("module_blocked"):
                 self.log.warning("%s: Blocked Article\n%s", article_id,
                                  m.get("hint_message"))
