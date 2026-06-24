@@ -59,10 +59,12 @@ __tests__ = (
         "http://aminoapps.com/p/92sf3z",
         "kroksoc (Color)",
     ],
-    "characters": ["Reiichi❀"],
-    "date"      : "dt:2021-07-03 20:02:02",
-    "hash"      : "bqhGcwcnU",
-    "id"        : "36817425",
+    "characters" : ["Reiichi❀"],
+    "date"       : "dt:2021-07-03 20:02:02",
+    "detail"     : "",
+    "hash"       : "bqhGcwcnU",
+    "id"         : "36817425",
+    "status"     : "original",
 },
 
 {
@@ -97,16 +99,35 @@ __tests__ = (
 
     "artists"   : ["NowhereMotel"],
     "date"      : "dt:2024-12-29 21:54:01",
+    "detail"    : "Dog band",
     "extension" : "png",
     "filename"  : "93386749_SjnbSIamQ",
     "hash"      : "SjnbSIamQ",
     "id"        : "93386749",
+    "status"    : "watermark",
     "characters": [
         "Reed",
         "Ferris",
         "Danny",
         "Shiba",
     ],
+},
+
+{
+    "#url"     : "https://f2.toyhou.se/file/f2-toyhou-se/thumbnails/98266697_jGT.png",
+    "#comment" : "thumbnail",
+    "#class"   : toyhouse.ToyhouseImageExtractor,
+    "#results" : "https://f2.toyhou.se/file/f2-toyhou-se/thumbnails/98266697_jGT.png",
+
+    "artists"   : ["NowhereMotel"],
+    "characters": ["KitKat"],
+    "date"      : "dt:2025-04-03 20:38:27",
+    "detail"    : "0",
+    "extension" : "png",
+    "filename"  : "98266697_jGT",
+    "hash"      : "jGT",
+    "id"        : "98266697",
+    "status"    : "thumbnail",
 },
 
 )
