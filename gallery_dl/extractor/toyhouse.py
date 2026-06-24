@@ -57,11 +57,9 @@ class ToyhouseExtractor(Extractor):
             "artists": text.split_html(extr(
                 '<div class="artist-credit',
                 '<div class="image-character'))[1:],
-            "characters": [
-                text.unescape(text.remove_html(v))
-                for v in extr('', '<div class="image-comment').split(
-                    '<div class="mb-1">')[1:]
-            ],
+            "characters": text.split_html(
+                extr('', 'class="image-comment') or
+                extr('', 'id="footer"'))[2:-1],
         }
 
     def _pagination(self, path):

@@ -90,4 +90,23 @@ __tests__ = (
     ],
 },
 
+{
+    "#url"     : "https://toyhou.se/~images/93386749",
+    "#class"   : toyhouse.ToyhouseImageExtractor,
+    "#results" : "https://f2.toyhou.se/file/f2-toyhou-se/watermarks/93386749_SjnbSIamQ.png",
+
+    "artists"   : ["NowhereMotel"],
+    "date"      : "dt:2024-12-29 21:54:01",
+    "extension" : "png",
+    "filename"  : "93386749_SjnbSIamQ",
+    "hash"      : "SjnbSIamQ",
+    "id"        : "93386749",
+    "characters": [
+        "Reed",
+        "Ferris",
+        "Danny",
+        "Shiba",
+    ],
+},
+
 )
