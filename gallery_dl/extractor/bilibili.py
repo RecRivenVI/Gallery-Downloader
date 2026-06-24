@@ -47,6 +47,7 @@ class BilibiliArticleExtractor(BilibiliExtractor):
         pics = []
         modules = {}
         article["title"] = ""
+        article["content"] = txt = []
         for module in article["detail"]["modules"]:
             if m := module.get("module_author"):
                 article["username"] = m.get("name")
@@ -68,6 +69,12 @@ class BilibiliArticleExtractor(BilibiliExtractor):
                     if "pic" in paragraph:
                         try:
                             pics.extend(paragraph["pic"]["pics"])
+                        except Exception:
+                            pass
+                    if "text" in paragraph:
+                        try:
+                            for node in paragraph["text"]["nodes"]:
+                                txt.append(node["word"]["words"])
                         except Exception:
                             pass
             del module["module_type"]

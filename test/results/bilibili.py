@@ -44,6 +44,7 @@ __tests__ = (
         "http://i0.hdslb.com/bfs/new_dyn/c74018e8272c56a6c28a1a1dc3c586311242656443.jpg",
     ),
 
+    "content"  : ["月饼节到了，中秋快乐哦"],
     "count"    : 1,
     "filename" : "c74018e8272c56a6c28a1a1dc3c586311242656443",
     "extension": "jpg",
@@ -77,6 +78,7 @@ __tests__ = (
         "https://i0.hdslb.com/bfs/dyn_video/_000003lud8wlka5eq2kxctgfx3fwo3b-1-152111110022.mp4",
     ),
 
+    "content"     : ["太热了"],
     "extension"   : {"jpg", "mp4"},
     "date"        : "dt:2026-01-06 10:56:18",
     "width"       : 4096,
@@ -98,6 +100,7 @@ __tests__ = (
     "#class"   : bilibili.BilibiliArticleExtractor,
     "#count"   : 5,
 
+    "content"  : ["*实际上是二月初的了但是现在才发:D"],
     "count"    : 5,
     "extension": "jpg",
     "id"       : "1172711958019833880",
@@ -120,6 +123,7 @@ __tests__ = (
         "http://i0.hdslb.com/bfs/new_dyn/a74094d76ec52ec657f56c4f2cf492a026089098.jpg",
     ),
 
+    "content" : ["分享图片"],
     "count"   : 7,
     "date"    : "dt:2026-06-15 08:07:28",
     "id"      : "1214068919693738001",
