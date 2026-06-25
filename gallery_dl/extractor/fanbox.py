@@ -358,6 +358,10 @@ class FanboxCreatorExtractor(FanboxExtractor):
     example = "https://USER.fanbox.cc/"
     _offset = 0
 
+    def skip_posts(self, num):
+        self._offset += num
+        return num
+
     def posts(self):
         c1, c2, qs = self.groups
 
