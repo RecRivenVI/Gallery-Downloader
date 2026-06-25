@@ -155,6 +155,22 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://pawchive.st/patreon/user/100641834/post/89926515",
+    "#comment" : "'haven't archived this post yet. have a subscription? use the importer!'",
+    "#category": ("", "pawchive", "patreon"),
+    "#class"   : pawchive.PawchivePostExtractor,
+    "#results" : "https://file.pawchive.st/data/c9/2a/c92a7395e18fcb776b462777a588bc953b7dbb89ec93b14b398b09add727803d.png",
+    "#log"     : "89926515: Incomplete/Missing file import ('pending')",
+
+    "content"      : "<p>The long awaited sheet is here. Please yell at me about how your class deserves an item over another class. THIS IS AN OPINION. ALWAYS PLAYER &gt; CLASS ETC ETC.</p>",
+    "date"         : "dt:2023-09-27 15:58:09",
+    "has_full"     : False,
+    "id"           : "89926515",
+    "preview_state": "pending",
+    "title"        : "ICC P4 LOOT PRIO SHEET",
+},
+
+{
     "#url"     : "https://pawchive.st/patreon/user/3295915",
     "#category": ("", "pawchive", "patreon"),
     "#class"   : pawchive.PawchiveUserExtractor,
