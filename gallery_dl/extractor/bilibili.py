@@ -56,6 +56,10 @@ class BilibiliArticleExtractor(BilibiliExtractor):
             if m := module.get("module_title"):
                 article["title"] = m.get("text")
                 article["tags"] = m.get("tags")
+            if m := module.get("module_topic"):
+                article["topic"] = m.get("name")
+                article["topic_id"] = m.get("id")
+                article["topic_url"] = m.get("jump_url")
             if m := module.get("module_blocked"):
                 self.log.warning("%s: Blocked Article\n%s", article_id,
                                  m.get("hint_message"))

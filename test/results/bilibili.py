@@ -151,6 +151,17 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.bilibili.com/opus/958931227880980488",
+    "#comment" : "'topic' metadata",
+    "#class"   : bilibili.BilibiliArticleExtractor,
+    "#results" : "http://i0.hdslb.com/bfs/new_dyn/29a796880f6502c13f6c7cd904fe0c241805430.jpg",
+
+    "topic"    : "绝区零绘画",
+    "topic_id" : "40061",
+    "topic_url": "https://m.bilibili.com/topic-detail?topic_id=40061&topic_name=%E7%BB%9D%E5%8C%BA%E9%9B%B6%E7%BB%98%E7%94%BB",
+},
+
+{
     "#url"    : "https://space.bilibili.com/405279279/article",
     "#class"  : bilibili.BilibiliUserArticlesExtractor,
     "#pattern": bilibili.BilibiliArticleExtractor.pattern,
