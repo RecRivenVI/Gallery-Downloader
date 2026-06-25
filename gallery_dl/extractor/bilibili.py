@@ -74,7 +74,10 @@ class BilibiliArticleExtractor(BilibiliExtractor):
                     if "text" in paragraph:
                         try:
                             for node in paragraph["text"]["nodes"]:
-                                txt.append(node["word"]["words"])
+                                if n := node.get("word"):
+                                    txt.append(n["words"])
+                                if n := node.get("rich"):
+                                    txt.append(n.get("orig_text") or n["text"])
                         except Exception:
                             pass
             del module["module_type"]

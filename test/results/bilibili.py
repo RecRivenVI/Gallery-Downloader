@@ -44,7 +44,7 @@ __tests__ = (
         "http://i0.hdslb.com/bfs/new_dyn/c74018e8272c56a6c28a1a1dc3c586311242656443.jpg",
     ),
 
-    "content"  : ["月饼节到了，中秋快乐哦"],
+    "content"  : ['月饼节到了，中秋快乐哦', '[龙年]'],
     "count"    : 1,
     "filename" : "c74018e8272c56a6c28a1a1dc3c586311242656443",
     "extension": "jpg",
@@ -131,6 +131,23 @@ __tests__ = (
     "title"   : "阶段性总结",
     "user_id" : 26089098,
     "username": "loooongm",
+},
+
+{
+    "#url"     : "https://www.bilibili.com/opus/708027931618705409",
+    "#comment" : "'rich' content with emoji",
+    "#class"   : bilibili.BilibiliArticleExtractor,
+    "#results" : "https://i0.hdslb.com/bfs/new_dyn/7ffb3e7f162503edc8a60316c5767ff26782661.jpg",
+
+    "date"    : "dt:2022-09-20 15:49:59",
+    "title"   : "",
+    "user_id" : 6782661,
+    "username": "箱学不动",
+    "content" : [
+        "二十天了！真没想到还能坚持",
+        "[跪了]",
+        " 之后会每五天发布一次动态",
+    ],
 },
 
 {
