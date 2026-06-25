@@ -28,6 +28,11 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://xub.fanbox.cc/posts?page=3&sort=newest",
+    "#class"   : fanbox.FanboxCreatorExtractor,
+},
+
+{
     "#url"     : "https://www.fanbox.cc/@xub/",
     "#category": ("", "fanbox", "creator"),
     "#class"   : fanbox.FanboxCreatorExtractor,
