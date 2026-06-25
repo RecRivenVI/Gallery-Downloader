@@ -19,7 +19,8 @@ class FacebookExtractor(Extractor):
     """Base class for Facebook extractors"""
     category = "facebook"
     root = "https://www.facebook.com"
-    directory_fmt = ("{category}", "{username}", "{title}{set_id:? (/)/}")
+    directory_fmt = ("{category}", "{username}",
+                     "{title[:220]}{set_id:? (/)/}")
     filename_fmt = "{id}.{extension}"
     archive_fmt = "{id}.{extension}"
 
@@ -64,9 +65,7 @@ class FacebookExtractor(Extractor):
                 set_page, '"owner":{"__typename":"User","id":"', '"'
             ),
             "user_pfbid": "",
-            "title": self.decode_all(text.extr(
-                set_page, '"title":{"text":"', '"}'
-            )),
+            "title": text.extr(set_page, '"title":{"', '}'),
             "first_photo_id": text.extr(
                 set_page,
                 '{"__typename":"Photo","__isMedia":"Photo","',
@@ -77,6 +76,12 @@ class FacebookExtractor(Extractor):
             )
         }
 
+        if t := directory["title"]:
+            try:
+                directory["title"] = util.json_loads(f'{{"{t}}}').get("text")
+            except Exception as exc:
+                self.log.debug("Failed to extract 'title' metadata")
+                self.log.traceback(exc)
         if directory["user_id"].startswith("pfbid"):
             directory["user_pfbid"] = directory["user_id"]
             directory["user_id"] = (
