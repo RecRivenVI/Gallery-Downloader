@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2022-2025 Mike Fährmann
+# Copyright 2022-2026 Mike Fährmann
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as
@@ -1053,6 +1053,8 @@ def pbkdf2_sha1(password, salt, iterations, key_length):
 
 def _decrypt_aes_cbc(ciphertext, key, offset=0,
                      initialization_vector=b" " * 16):
+    if not ciphertext:
+        return ""
     plaintext = aes.unpad_pkcs7(aes.aes_cbc_decrypt_bytes(
         ciphertext, key, initialization_vector))
     if offset:
@@ -1064,6 +1066,8 @@ def _decrypt_aes_cbc(ciphertext, key, offset=0,
 
 
 def _decrypt_aes_gcm(ciphertext, key, nonce, authentication_tag, offset=0):
+    if not ciphertext:
+        return ""
     try:
         plaintext = aes.aes_gcm_decrypt_and_verify_bytes(
             ciphertext, key, authentication_tag, nonce)
