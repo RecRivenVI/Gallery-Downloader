@@ -63,7 +63,7 @@ class GoonboxAlbumExtractor(GoonboxExtractor):
 
     def images(self):
         url = f"{self.root}/api/albums/{self.groups[0]}"
-        params = {"page": 1}
+        params = None
 
         while True:
             data = self.request_json(url, params=params)
@@ -78,4 +78,9 @@ class GoonboxAlbumExtractor(GoonboxExtractor):
                     break
             except Exception:
                 break
-            params["page"] += 1
+
+            if params is None:
+                url += "/images"
+                params = {"page": 2}
+            else:
+                params["page"] += 1
