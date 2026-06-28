@@ -254,12 +254,20 @@ def _firefox_cookies_database(browser_name, profile=None, container=None):
             identities = ()
 
         for context in identities:
-            if container == context.get("name") or container == text.extr(
-                    context.get("l10nID", ""), "userContext", ".label"):
-                container_id = context["userContextId"]
-                break
+            if c := context.get("name"):
+                if c == container:
+                    break
+            elif c := context.get("l10nId"):
+                if c.startswith("user-context-") and c[13:] == container:
+                    break
+                if c.rpartition("-")[2] == container:
+                    break
+            elif c := context.get("l10nID"):
+                if text.extr(c, "userContext", ".label") == container:
+                    break
         else:
             raise ValueError(f"Unable to find Firefox container '{container}'")
+        container_id = context["userContextId"]
         _log_debug("Only loading cookies from container '%s' (ID %s)",
                    container, container_id)
 
