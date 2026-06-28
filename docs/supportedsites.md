@@ -439,6 +439,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Folders</td>
     <td></td>
 </tr>
+<tr id="goonbox" title="goonbox">
+    <td>GoonBox</td>
+    <td>https://goonbox.cr/</td>
+    <td>Albums, individual Images</td>
+    <td></td>
+</tr>
 <tr id="harvardlawnuremberg" title="harvardlawnuremberg">
     <td>Harvard Law School Nuremberg Trials Project</td>
     <td>https://nuremberg.law.harvard.edu/</td>
