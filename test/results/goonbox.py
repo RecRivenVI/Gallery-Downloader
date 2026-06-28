@@ -130,4 +130,26 @@ __tests__ = (
     },
 },
 
+{
+    "#url"     : "https://goonbox.cr/a/testalbum.ac40Qh",
+    "#comment" : "legacy jpgfish album / redirect",
+    "#class"   : goonbox.GoonboxAlbumExtractor,
+    "#results" : (
+        "https://simp6.cuckcapital.cr/images4/fd9e77ea-682a-468c-a837-f467acff6efc.jpg",
+        "https://simp6.cuckcapital.cr/images4/936f6756-552c-4443-9569-ea6fbbb856f2.jpg",
+    ),
+
+    "album"          : {
+        "description" : None,
+        "encoded_id"  : "ac40Qh",
+        "images_count": 2,
+        "is_public"   : True,
+        "title"       : "testalbum",
+        "user"        : {
+            "display_name": None,
+            "username"    : "emcixnn",
+        },
+    },
+},
+
 )

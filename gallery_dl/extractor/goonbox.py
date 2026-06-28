@@ -62,12 +62,15 @@ class GoonboxAlbumExtractor(GoonboxExtractor):
     example = "https://goonbox.cr/a/ID"
 
     def images(self):
-        url = f"{self.root}/api/albums/{self.groups[0]}"
+        url = f"{self.root}/api/albums/{self.groups[0].rpartition('.')[2]}"
         params = None
 
         while True:
             data = self.request_json(url, params=params)
 
+            if "redirect" in data:
+                url = data["redirect"]
+                continue
             if "album" in data:
                 self.kwdict["album"] = data["album"]
             yield from data["images"]
