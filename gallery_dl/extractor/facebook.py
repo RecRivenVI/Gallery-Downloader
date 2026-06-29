@@ -138,6 +138,13 @@ class FacebookExtractor(Extractor):
             photo["user_id"] = text.extr(
                 photo_page, r'\"content_owner_id_new\":\"', r'\"')
 
+        if not photo["next_photo_id"]:
+            photo["_next_video"] = True
+            photo["next_photo_id"] = text.extr(
+                photo_page,
+                '"nextMedia":{"edges":[{"node":{"__typename":"Video","id":"',
+                '"')
+
         text.nameext_from_url(photo["url"], photo)
 
         photo["followups_ids"] = []
@@ -262,13 +269,18 @@ class FacebookExtractor(Extractor):
     def extract_set(self, set_data):
         set_id = set_data["set_id"]
         all_photo_ids = [set_data["first_photo_id"]]
+        videos = set()
 
         retries = 0
         i = 0
 
         while i < len(all_photo_ids):
             photo_id = all_photo_ids[i]
-            photo_url = f"{self.root}/photo/?fbid={photo_id}&set={set_id}"
+            if photo_id in videos:
+                photo_url = (f"{self.root}/{set_data['user_id']}/videos/"
+                             f"{set_id}/{photo_id}")
+            else:
+                photo_url = f"{self.root}/photo/?fbid={photo_id}&set={set_id}"
             photo_page = self.photo_page_request_wrapper(photo_url).text
 
             photo = self.parse_photo_page(photo_page)
@@ -282,7 +294,12 @@ class FacebookExtractor(Extractor):
                         )
                         all_photo_ids.append(followup_id)
 
-            if not photo["url"]:
+            if photo["url"]:
+                retries = 0
+                photo.update(set_data)
+                yield Message.Directory, "", photo
+                yield Message.Url, photo["url"], photo
+            elif photo_id not in videos:
                 if retries < self.fallback_retries and self._interval_429:
                     seconds = self._interval_429(retries + 1)
                     self.log.warning(
@@ -298,11 +315,6 @@ class FacebookExtractor(Extractor):
                         ". Skipping."
                     )
                     retries = 0
-            else:
-                retries = 0
-                photo.update(set_data)
-                yield Message.Directory, "", photo
-                yield Message.Url, photo["url"], photo
 
             if not photo["next_photo_id"]:
                 self.log.debug(
@@ -316,6 +328,7 @@ class FacebookExtractor(Extractor):
                         "Extraction is over."
                     )
             elif self._detect_jump and not set_id.startswith('pcb.') and \
+                    photo_id not in videos and photo["id"] and \
                     (int(photo["next_photo_id"]) >> 1) > int(photo["id"]) :
                 self.log.info(
                     "Detected possible jump to the beginning of the set. "
@@ -324,6 +337,8 @@ class FacebookExtractor(Extractor):
                     all_photo_ids.append(photo["next_photo_id"])
             else:
                 all_photo_ids.append(photo["next_photo_id"])
+                if photo.get("_next_video"):
+                    videos.add(photo["next_photo_id"])
 
             i += 1
 
