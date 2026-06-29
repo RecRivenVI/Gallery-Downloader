@@ -20,7 +20,7 @@ class GoonboxExtractor(Extractor):
     root = "https://goonbox.cr"
     directory_fmt = ("{category}",
                      "{album[title]|''}{album[encoded_id]:? (/)/}")
-    filename_fmt = "{filename} ({encoded_id}).{extension}"
+    filename_fmt = "{num:?/ />03}{filename} ({encoded_id}).{extension}"
     archive_fmt = "{encoded_id}"
 
     def items(self):
@@ -53,7 +53,19 @@ class GoonboxImageExtractor(GoonboxExtractor):
 
     def images(self):
         url = f"{self.root}/api/images/{self.groups[0]}"
-        return (self.request_json(url)["image"],)
+        data = self.request_json(url)
+        img = data["image"]
+        img["count"] = 1
+        img["num"] = 0
+
+        if "album_nav" in data:
+            try:
+                nav = data["album_nav"]
+                img["num"] = nav["total"] - nav["position"] + 1
+            except Exception as exc:
+                self.log.traceback(exc)
+
+        return (img,)
 
 
 class GoonboxAlbumExtractor(GoonboxExtractor):
@@ -64,6 +76,7 @@ class GoonboxAlbumExtractor(GoonboxExtractor):
     def images(self):
         url = f"{self.root}/api/albums/{self.groups[0].rpartition('.')[2]}"
         params = None
+        num = 0
 
         while True:
             data = self.request_json(url, params=params)
@@ -72,8 +85,14 @@ class GoonboxAlbumExtractor(GoonboxExtractor):
                 url = data["redirect"]
                 continue
             if "album" in data:
-                self.kwdict["album"] = data["album"]
-            yield from data["images"]
+                album = data["album"]
+                self.kwdict["album"] = album
+                self.kwdict["count"] = num = album.get("images_count")
+
+            for img in data["images"]:
+                img["num"] = num
+                num -= 1
+                yield img
 
             try:
                 pgn = data["pagination"]

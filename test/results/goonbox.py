@@ -65,6 +65,38 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://goonbox.cr/img/tgJ0X2P",
+    "#class"   : goonbox.GoonboxImageExtractor,
+    "#results" : "https://simp6.cuckcapital.cr/images4/46c41c91-fe87-4103-ad4e-7f4b78725667.png",
+
+    "count"          : 1,
+    "created_at"     : "2026-06-28T14:56:33.000000Z",
+    "date"           : "dt:2026-06-28 14:56:33",
+    "date_updated"   : "dt:2026-06-28 14:56:33",
+    "deleted_at"     : None,
+    "encoded_id"     : "tgJ0X2P",
+    "extension"      : "png",
+    "filename"       : "46c41c91-fe87-4103-ad4e-7f4b78725667",
+    "height"         : 100,
+    "is_ai_generated": False,
+    "medium_url"     : "https://simp6.cuckcapital.cr/images4/46c41c91-fe87-4103-ad4e-7f4b78725667.png",
+    "mime"           : "image/png",
+    "num"            : 8,
+    "original_filename": "46c41c91-fe87-4103-ad4e-7f4b78725667.png",
+    "original_url"   : "https://simp6.cuckcapital.cr/images4/46c41c91-fe87-4103-ad4e-7f4b78725667.png",
+    "size_bytes"     : 890,
+    "thumb_url"      : "https://simp6.cuckcapital.cr/images4/46c41c91-fe87-4103-ad4e-7f4b78725667.png",
+    "updated_at"     : "2026-06-28T14:56:33.000000Z",
+    "width"          : 100,
+    "album"          : {
+        "description": None,
+        "encoded_id" : "acOxyG",
+        "is_public"  : True,
+        "title"      : "numbers",
+    },
+},
+
+{
     "#url"     : "https://goonbox.cr/a/acOGyK",
     "#class"   : goonbox.GoonboxAlbumExtractor,
     "#results" : (
@@ -75,6 +107,8 @@ __tests__ = (
         "https://simp6.cuckcapital.cr/images4/78a6c16a-6b53-44f2-a408-e1cf6df7f320.jpg",
     ),
 
+    "count"          : 5,
+    "num"            : range(1, 5),
     "created_at"     : "iso:dt",
     "updated_at"     : "iso:dt",
     "date"           : "type:datetime",
@@ -106,6 +140,8 @@ __tests__ = (
     "#pattern" : r"https://simp\d\.cuckcapital\.cr/images4/[\w-]+\.png",
     "#count"   : 100,
 
+    "count"          : 100,
+    "num"            : range(1, 100),
     "created_at"     : "iso:dt",
     "updated_at"     : "iso:dt",
     "date"           : "type:datetime",
