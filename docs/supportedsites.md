@@ -1063,6 +1063,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Posts, Search Results, User Profiles</td>
     <td></td>
 </tr>
+<tr id="sakuhentai" title="sakuhentai">
+    <td>Sakuhentai</td>
+    <td>https://www.sakuhentai.net/</td>
+    <td>Galleries</td>
+    <td></td>
+</tr>
 <tr id="sankaku" title="sankaku">
     <td>Sankaku Channel</td>
     <td>https://sankaku.app/</td>
