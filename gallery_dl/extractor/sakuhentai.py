@@ -8,7 +8,6 @@
 
 """Extractors for https://www.sakuhentai.net/"""
 
-import re
 from .common import GalleryExtractor
 from .. import text
 
@@ -21,25 +20,23 @@ class SakuhentaiGalleryExtractor(GalleryExtractor):
     example = "https://www.sakuhentai.net/GALLERY-SLUG/"
 
     def __init__(self, match):
-        self.slug = match[1]
-        url = f"{self.root}/{self.slug}/"
+        url = f"{self.root}/{match[1]}/"
         GalleryExtractor.__init__(self, match, url)
 
     def metadata(self, page):
-        gallery_id = text.parse_int(text.extr(page, "?p=", "'"))
+        self.ld = ld = self._extract_jsonld(page)
         extr = text.extract_from(page)
         return {
-            "gallery_id": gallery_id,
-            "title"     : text.unescape(extr("entry-title\">", "</h1>")),
+            "gallery_id": text.parse_int(extr("?p=", "'")),
+            "title"     : text.unescape(extr("entry-title\">", "<")),
             "anime"     : text.unescape(extr(
-                "cat-serie\"><h2 title=\"", "\">")),
+                "cat-serie\"><h2 title=\"", '"'))[:-7],
             "character" : text.unescape(extr(
-                "cat-character\"><h2 title=\"", "\">")),
+                "cat-character\"><h2 title=\"", '"'))[:-7],
             "artist"    : text.unescape(extr(
-                "support-artist\"><h2 title=\"", "\">")),
+                "support-artist\"><h2 title=\"", '"'))[:-7],
+            "date": self.parse_datetime_iso(ld.get("datePublished"))
         }
 
-    def images(self, page):
-        blob = text.extr(page, "let pages = [", "];")
-        for url in re.findall(r'"(https?://[^"]+)"', blob):
-            yield url, None
+    def images(self, _):
+        return [(url, None) for url in self.ld["image"]]
