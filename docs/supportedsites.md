@@ -181,6 +181,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Albums, Direct Links, Media Files</td>
     <td></td>
 </tr>
+<tr id="cara" title="cara">
+    <td>Cara</td>
+    <td>https://cara.app/</td>
+    <td>Posts, User Profiles</td>
+    <td></td>
+</tr>
 <tr id="catbox" title="catbox">
     <td>Catbox</td>
     <td>https://catbox.moe/</td>

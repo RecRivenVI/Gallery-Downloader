@@ -41,6 +41,7 @@ modules = [
     "boosty",
     "booth",
     "bunkr",
+    "cara",
     "catbox",
     "chevereto",
     "cien",
