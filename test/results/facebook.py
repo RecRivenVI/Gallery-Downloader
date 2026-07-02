@@ -233,6 +233,24 @@ Plaque « Wavre Direct ». Au départ de Bruxelles : seuls les voyageurs de la s
 },
 
 {
+    "#url"     : "https://www.facebook.com/EdSheeranMusic/posts/new-kidsuper-merch-available-at-the-loop-tour-x/1552608342898398/",
+    "#comment" : "post link with ID (#228)",
+    "#class"   : facebook.FacebookSetExtractor,
+    "#count"   : 4,
+    "#pattern" : r"https://scontent-.+.fbcdn.net/v/.+",
+
+    "caption"       : "",
+    "date"          : "dt:2026-06-17 16:49:58",
+    "extension"     : "jpg",
+    "first_photo_id": "1552607882898444",
+    "set_id"        : "pcb.1552608342898398",
+    "title"         : "Photos from Ed Sheeran's post",
+    "user_id"       : "100044477407527",
+    "user_pfbid"    : "",
+    "username"      : "Ed Sheeran",
+},
+
+{
     "#url"     : "https://www.facebook.com/photo.php?fbid=10165113568399554&set=t.100064860875397&type=3",
     "#class"   : facebook.FacebookPhotoExtractor,
 },
