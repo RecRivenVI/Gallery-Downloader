@@ -1390,7 +1390,7 @@ Consider all listed sites to potentially be NSFW.
 <tr id="xasiat" title="xasiat">
     <td>Xasiat</td>
     <td>https://www.xasiat.com</td>
-    <td>Albums, Categories, Models, Tag Searches</td>
+    <td>Albums, Categories, Models, Search Results, Tag Searches</td>
     <td></td>
 </tr>
 <tr id="xfolio" title="xfolio">

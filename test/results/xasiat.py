@@ -102,4 +102,12 @@ __tests__ = (
     "#count"  : 15,
 },
 
+{
+    "#url"     : "https://www.xasiat.com/fr/search/2024-2025/",
+    "#class"   : xasiat.XasiatSearchExtractor,
+    "#pattern" : xasiat.XasiatAlbumExtractor.pattern,
+    "#range"   : "1-50",
+    "#count"   : 50,
+},
+
 )
