@@ -12,7 +12,7 @@ from .common import Extractor, Message
 from .. import text, util
 import itertools
 
-BASE_PATTERN = r"(?:https?://)?(?:www\.)?pawchive\.st"
+BASE_PATTERN = r"(?:https?://)?(?:www\.)?pawchive\.(?:st|pw)"
 USER_PATTERN = BASE_PATTERN + r"/([^/?#]+)/user/([^/?#]+)"
 HASH_PATTERN = r"/[0-9a-f]{2}/[0-9a-f]{2}/([0-9a-f]{64})"
 
@@ -28,9 +28,14 @@ class PawchiveExtractor(Extractor):
     cookies_domain = ".pawchive.st"
 
     def _init(self):
+        if domain := self.config("domain", "auto"):
+            self.root = (text.root_from_url(self.url) if domain == "auto" else
+                         text.ensure_http_scheme(domain))
+            lhs, sep, rhs = self.root.partition("://")
+            self.root_dl = f"{lhs}{sep}file.{rhs}"
         self.api = PawchiveAPI(self)
         self._find_inline = text.re(
-            r'src="(?:https?://(?:pawchive\.st))?(/inline/[^"]+'
+            r'src="(?:https?://(?:pawchive\.(?:st|pw)))?(/inline/[^"]+'
             r'|/[0-9a-f]{2}/[0-9a-f]{2}/[0-9a-f]{64}\.[^"]+)').findall
 
     def items(self):

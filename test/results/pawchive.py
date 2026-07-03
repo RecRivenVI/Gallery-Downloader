@@ -72,7 +72,7 @@ __tests__ = (
 },
 
 {
-    "#url"     : "https://pawchive.st/fanbox/user/37736420/post/11940782",
+    "#url"     : "https://pawchive.pw/fanbox/user/37736420/post/11940782",
     "#category": ("", "pawchive", "fanbox"),
     "#class"   : pawchive.PawchivePostExtractor,
     "#results" : (
@@ -224,7 +224,7 @@ __tests__ = (
 },
 
 {
-    "#url"     : "https://pawchive.st/posts?o=49950",
+    "#url"     : "https://pawchive.pw/posts?o=49950",
     "#class"   : pawchive.PawchivePostsExtractor,
 },
 

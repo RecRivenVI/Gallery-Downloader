@@ -5165,6 +5165,19 @@ Note
     This requires 1 additional HTTP request per post.
 
 
+extractor.pawchive.domain
+-------------------------
+Type
+    ``string``
+Default
+    ``"auto"``
+Description
+    Specifies the domain used by ``pawchive`` extractors.
+
+    Setting this option to ``"auto"``
+    uses the same domain as the given input URL.
+
+
 extractor.pawchive.duplicates
 -----------------------------
 Type
