@@ -80,6 +80,7 @@ modules = [
     "furaffinity",
     "furry34",
     "fuskator",
+    "ganknow",
     "gelbooru",
     "gelbooru_v01",
     "gelbooru_v02",

@@ -75,6 +75,7 @@ CATEGORY_MAP = {
     "framedsc"       : "FRAMED. Screenshot Community",
     "furaffinity"    : "Fur Affinity",
     "furry34"        : "Furry 34 com",
+    "ganknow"        : "Gank",
     "girlswithmuscle": "Girls with Muscle",
     "goonbox"        : "GoonBox",
     "harvardlawnuremberg": "Harvard Law School Nuremberg Trials Project",
@@ -350,6 +351,9 @@ SUBCATEGORY_MAP = {
     "fansly": {
         "lists": "Account Lists",
     },
+    "ganknow": {
+        "user": "User Posts",
+    },
     "fapello": {
         "path": ["Videos", "Trending Posts", "Popular Videos", "Top Models"],
     },
@@ -576,6 +580,7 @@ AUTH_MAP = {
     "fantia"         : _COOKIES,
     "flickr"         : _OAUTH,
     "furaffinity"    : _COOKIES,
+    "ganknow"        : _COOKIES,
     "furbooru"       : "API Key",
     "girlswithmuscle": "Supported",
     "horne"          : "Required",

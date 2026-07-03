@@ -1,0 +1,123 @@
+# -*- coding: utf-8 -*-
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation.
+
+from gallery_dl.extractor import ganknow
+
+
+__tests__ = (
+{
+    "#url"     : "https://ganknow.com/kukuchi581?tab=about",
+    "#class"   : ganknow.GanknowUserExtractor,
+    "#range"   : "1-3",
+    "#count"   : 3,
+    "#pattern" : r"https://lh3\.googleusercontent\.com/",
+
+    "accessType": str,
+    "count"     : int,
+    "date"      : "type:datetime",
+    "links"     : list,
+    "media"     : dict,
+    "media_id"  : "iso:uuid",
+    "post_id"   : "iso:uuid",
+    "post_url"  : r"re:https://ganknow\.com/post/[0-9a-f-]+",
+    "preview"   : bool,
+    "tags"      : list,
+    "title"     : str,
+    "type"      : "image",
+    "user"      : {
+        "id"      : "c0872970-df9b-4f83-b1e0-a85c3b4107fb",
+        "nickname": "kukuchi581",
+    },
+},
+
+{
+    "#url"  : "https://ganknow.com/u/kukuchi581",
+    "#class": ganknow.GanknowUserExtractor,
+},
+
+{
+    "#url"     : "https://ganknow.com/post/6c4ab8a6-e01d-463f-8ed5-53bead8495ee",
+    "#class"   : ganknow.GanknowPostExtractor,
+    "#auth"    : False,
+    "#results" : "https://lh3.googleusercontent.com/1QNQfcb5XOvQKaJre85AsFGfW2M-7-gzVfnRizMSfD6cyNmGMpvfKzJoxJuLq8tROgXOB61ELU9moS31RfdmuDk2PRliqYj4GBCa11_cSjUwZhhacTqHmHg",
+
+    "accessType"     : "private",
+    "author"         : "c0872970-df9b-4f83-b1e0-a85c3b4107fb",
+    "baseLanguage"   : None,
+    "content"        : "",
+    "count"          : 1,
+    "createdAt"      : "2026-06-10T21:51:25+08:00",
+    "date"           : "dt:2026-06-10 13:51:25",
+    "date_updated"   : "dt:2026-06-10 13:51:25",
+    "deletedAt"      : None,
+    "extension"      : "jpg",
+    "filename"       : "8b35abae-853f-42d6-9613-b0fed3807a17",
+    "gameID"         : None,
+    "id"             : "6c4ab8a6-e01d-463f-8ed5-53bead8495ee",
+    "isAllowToSee"   : False,
+    "isPassed"       : False,
+    "isPinned"       : False,
+    "languageCodes"  : ["tw"],
+    "links"          : [],
+    "media_blur"     : "https://lh3.googleusercontent.com/1QNQfcb5XOvQKaJre85AsFGfW2M-7-gzVfnRizMSfD6cyNmGMpvfKzJoxJuLq8tROgXOB61ELU9moS31RfdmuDk2PRliqYj4GBCa11_cSjUwZhhacTqHmHg",
+    "media_id"       : "8b35abae-853f-42d6-9613-b0fed3807a17",
+    "media_preview"  : "",
+    "media_thumb"    : "",
+    "media_url"      : "",
+    "num"            : 1,
+    "pinnedAt"       : None,
+    "postPrices"     : None,
+    "post_id"        : "6c4ab8a6-e01d-463f-8ed5-53bead8495ee",
+    "post_url"       : "https://ganknow.com/post/6c4ab8a6-e01d-463f-8ed5-53bead8495ee",
+    "preview"        : True,
+    "publishAt"      : None,
+    "title"          : "初音ミク 83h26",
+    "type"           : "image",
+    "updatedAt"      : "2026-06-10T21:51:25+08:00",
+    "url"            : "https://lh3.googleusercontent.com/1QNQfcb5XOvQKaJre85AsFGfW2M-7-gzVfnRizMSfD6cyNmGMpvfKzJoxJuLq8tROgXOB61ELU9moS31RfdmuDk2PRliqYj4GBCa11_cSjUwZhhacTqHmHg",
+    "tags"           : [
+        "初音ミク",
+        "Miku",
+        "VOCALOID",
+        "ツインテール",
+        " 後背位/DoggyStyle",
+    ],
+    "authorUser"     : {
+        "active"     : True,
+        "avatar"     : "https://lh3.googleusercontent.com/Udh1DxtF6O8kvSLOaw-94AYeN_hkeyusmJDolbLDutJX78zz_jntbuMZTDLHby0Fjbi8wvJhWlBQjhDea5-574TslRkkGgtql1u3gHHTXn1es_2JTjPZvA",
+        "deletedAt"  : "0001-01-01T00:00:00.000Z",
+        "id"         : "c0872970-df9b-4f83-b1e0-a85c3b4107fb",
+        "isMembershipEnabled": True,
+        "isSuspended": False,
+        "nickname"   : "kukuchi581",
+        "roles"      : [],
+        "tags"       : ["NSFW"],
+    },
+    "media"          : {
+        "blurUrl"   : "https://lh3.googleusercontent.com/1QNQfcb5XOvQKaJre85AsFGfW2M-7-gzVfnRizMSfD6cyNmGMpvfKzJoxJuLq8tROgXOB61ELU9moS31RfdmuDk2PRliqYj4GBCa11_cSjUwZhhacTqHmHg",
+        "createdAt" : "2026-06-10T21:51:25Z",
+        "id"        : "8b35abae-853f-42d6-9613-b0fed3807a17",
+        "postID"    : "6c4ab8a6-e01d-463f-8ed5-53bead8495ee",
+        "previewUrl": "",
+        "sort"      : 0,
+        "thumbUrl"  : "",
+        "type"      : "image",
+        "updatedAt" : "2026-06-10T21:51:25Z",
+        "url"       : "",
+    },
+    "postSummary"    : {
+        "count_bookmark": 0,
+        "count_comment" : 0,
+        "count_like"    : 2,
+        "count_share"   : 0,
+        "createdAt"     : "2026-06-10T21:51:25Z",
+        "id"            : "ffcd369c-cdd1-43c1-8e98-6d8a4340b284",
+        "post_id"       : "6c4ab8a6-e01d-463f-8ed5-53bead8495ee",
+        "updatedAt"     : "2026-06-14T15:00:08Z",
+    },
+},
+
+)
