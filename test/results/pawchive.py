@@ -12,7 +12,7 @@ __tests__ = (
     "#url"     : "https://pawchive.st/patreon/user/3295915/post/129540190",
     "#category": ("", "pawchive", "patreon"),
     "#class"   : pawchive.PawchivePostExtractor,
-    "#results" : "https://file.pawchive.st/data/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
+    "#results" : "https://file.pawchive.pw/data/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
 
     "added"           : "2026-06-11T21:15:32.024479",
     "archives"        : [],
@@ -45,7 +45,7 @@ __tests__ = (
     "tags"            : "{Animation,Announcement}",
     "title"           : "DANDADAN FULL ANIMATION!!",
     "type"            : "attachment",
-    "url"             : "https://file.pawchive.st/data/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
+    "url"             : "https://file.pawchive.pw/data/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
     "user"            : "3295915",
     "username"        : "Maplestar",
     "attachments"     : [{
@@ -55,7 +55,7 @@ __tests__ = (
         "name"     : "Timeline 1_0242.00_08_06_14.Still002.png",
         "path"     : "/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
         "type"     : "attachment",
-        "url"      : "https://file.pawchive.st/data/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
+        "url"      : "https://file.pawchive.pw/data/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
     }],
     "user_profile"    : {
         "ever_imported"   : True,
@@ -67,7 +67,7 @@ __tests__ = (
         "public_id"       : "Maplestar",
         "relation_id"     : None,
         "service"         : "patreon",
-        "updated"         : "2026-06-18T07:41:06.050087",
+        "updated"         : "2026-07-03T06:19:18.413405",
     },
 },
 
@@ -76,8 +76,8 @@ __tests__ = (
     "#category": ("", "pawchive", "fanbox"),
     "#class"   : pawchive.PawchivePostExtractor,
     "#results" : (
-        "https://file.pawchive.st/data/6a/74/6a74af514a95df7f215a7ce0968d87d82dad30a0b034ef767048add088885531.jpeg",
-        "https://file.pawchive.st/data/85/2c/852cd836f165b4e0e9426e92a48f968b57d42e6b11fa90f7405779134fd12fb7.mp4",
+        "https://file.pawchive.pw/data/6a/74/6a74af514a95df7f215a7ce0968d87d82dad30a0b034ef767048add088885531.jpeg",
+        "https://file.pawchive.pw/data/85/2c/852cd836f165b4e0e9426e92a48f968b57d42e6b11fa90f7405779134fd12fb7.mp4",
     ),
 
     "added"           : "2026-05-20T21:44:52",
@@ -120,7 +120,7 @@ __tests__ = (
         "name"     : "0250.png0000_5.mp4",
         "path"     : "/85/2c/852cd836f165b4e0e9426e92a48f968b57d42e6b11fa90f7405779134fd12fb7.mp4",
         "type"     : "attachment",
-        "url"      : "https://file.pawchive.st/data/85/2c/852cd836f165b4e0e9426e92a48f968b57d42e6b11fa90f7405779134fd12fb7.mp4",
+        "url"      : "https://file.pawchive.pw/data/85/2c/852cd836f165b4e0e9426e92a48f968b57d42e6b11fa90f7405779134fd12fb7.mp4",
     }],
     "file"            : {
         "extension": "jpeg",
@@ -129,7 +129,7 @@ __tests__ = (
         "name"     : "cover.jpeg",
         "path"     : "/6a/74/6a74af514a95df7f215a7ce0968d87d82dad30a0b034ef767048add088885531.jpeg",
         "type"     : "file",
-        "url"      : "https://file.pawchive.st/data/6a/74/6a74af514a95df7f215a7ce0968d87d82dad30a0b034ef767048add088885531.jpeg",
+        "url"      : "https://file.pawchive.pw/data/6a/74/6a74af514a95df7f215a7ce0968d87d82dad30a0b034ef767048add088885531.jpeg",
     },
     "user_profile"    : {
         "ever_imported"   : True,
@@ -150,7 +150,7 @@ __tests__ = (
     "#comment" : "'deferred' / not yet imported files",
     "#category": ("", "pawchive", "patreon"),
     "#class"   : pawchive.PawchivePostExtractor,
-    "#pattern" : r"https://file\.pawchive\.st/data/.+",
+    "#pattern" : r"https://file\.pawchive\.pw/data/.+",
     "#count"   : 72,
 },
 
@@ -159,7 +159,7 @@ __tests__ = (
     "#comment" : "'haven't archived this post yet. have a subscription? use the importer!'",
     "#category": ("", "pawchive", "patreon"),
     "#class"   : pawchive.PawchivePostExtractor,
-    "#results" : "https://file.pawchive.st/data/c9/2a/c92a7395e18fcb776b462777a588bc953b7dbb89ec93b14b398b09add727803d.png",
+    "#results" : "https://file.pawchive.pw/data/c9/2a/c92a7395e18fcb776b462777a588bc953b7dbb89ec93b14b398b09add727803d.png",
     "#log"     : "89926515: Incomplete/Missing file import ('pending')",
 
     "content"      : "<p>The long awaited sheet is here. Please yell at me about how your class deserves an item over another class. THIS IS AN OPINION. ALWAYS PLAYER &gt; CLASS ETC ETC.</p>",
@@ -175,7 +175,7 @@ __tests__ = (
     "#category": ("", "pawchive", "patreon"),
     "#class"   : pawchive.PawchiveUserExtractor,
     "#options" : {"max-posts": 10},
-    "#pattern" : r"https://file\.pawchive\.st/data/../../\w{64}\.\w+",
+    "#pattern" : r"https://file\.pawchive\.pw/data/../../\w{64}\.\w+",
     "#range"   : "1-10",
     "#count"   : 10,
 
@@ -194,7 +194,7 @@ __tests__ = (
         "public_id"       : "Maplestar",
         "relation_id"     : None,
         "service"         : "patreon",
-        "updated"         : "2026-06-18T07:41:06.050087",
+        "updated"         : "2026-07-03T06:19:18.413405",
     },
 },
 

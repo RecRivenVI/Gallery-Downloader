@@ -873,7 +873,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="pawchive" title="pawchive">
     <td>Pawchive</td>
-    <td>https://pawchive.st/</td>
+    <td>https://pawchive.pw/</td>
     <td>Artists, Favorites, Posts, User Profiles</td>
     <td>Supported</td>
 </tr>

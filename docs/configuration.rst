@@ -5170,7 +5170,7 @@ extractor.pawchive.domain
 Type
     ``string``
 Default
-    ``"auto"``
+    ``null``
 Description
     Specifies the domain used by ``pawchive`` extractors.
 
