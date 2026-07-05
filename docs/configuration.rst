@@ -1019,6 +1019,7 @@ Default
         ``4archive``      |
         ``4chanarchives`` |
         ``archivedmoe``   |
+        ``arena``         |
         ``nsfwalbum``     |
         ``pholder``       |
         ``tumblrgallery``
