@@ -361,4 +361,10 @@ __tests__ = (
     "#results" : "https://par1.scdn.st/image-sZrQUeOx.jpg",
 },
 
+{
+    "#url"     : "https://cdn.bunkr.ru/0689562-EIkU3Tbz.mp4",
+    "#category": ("lolisafe", "bunkr", "direct-link"),
+    "#class"   : bunkr.BunkrDirectLinkExtractor,
+},
+
 )
