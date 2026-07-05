@@ -121,6 +121,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Channels</td>
     <td></td>
 </tr>
+<tr id="artfight" title="artfight">
+    <td>Art Fight</td>
+    <td>https://artfight.net/</td>
+    <td>Assets, Attacks, Characters, Defenses, Posts, User Profiles</td>
+    <td></td>
+</tr>
 <tr id="artstation" title="artstation">
     <td>ArtStation</td>
     <td>https://www.artstation.com/</td>

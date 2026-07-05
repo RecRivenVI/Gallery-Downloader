@@ -33,6 +33,7 @@ CATEGORY_MAP = {
     "archivedmoe"    : "Archived.Moe",
     "archiveofsins"  : "Archive of Sins",
     "arena"          : "Are.na",
+    "artfight"       : "Art Fight",
     "artstation"     : "ArtStation",
     "aryion"         : "Eka's Portal",
     "atfbooru"       : "ATFBooru",

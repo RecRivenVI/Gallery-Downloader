@@ -596,6 +596,7 @@ Default
     ``"0.5-1.5"``
         ``ao3``             |
         ``arcalive``        |
+        ``artfight``        |
         ``booth``           |
         ``civitai``         |
         ``[Danbooru]``      |
@@ -1110,6 +1111,7 @@ Type
     ``bool``
 Default
     ``false``
+        ``artfight``   |
         ``artstation`` |
         ``behance``
     ``true``
@@ -1881,6 +1883,24 @@ Description
         by sending an extra HEAD request.
     ``false``
         Always download the ``.mp4`` version.
+
+
+extractor.artfight.include
+--------------------------
+Type
+    * ``string``
+    * ``list`` of ``strings``
+Default
+    * ``["characters", "attacks", "defenses"]``
+Description
+    A (comma-separated) list of subcategories to include
+    when processing a user profile.
+Supported Values
+    * ``characters``
+    * ``attacks``
+    * ``defenses``
+Note
+    It is possible to use ``"all"`` instead of listing all values separately.
 
 
 extractor.artstation.external

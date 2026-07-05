@@ -29,6 +29,7 @@ modules = [
     "arcalive",
     "architizer",
     "arena",
+    "artfight",
     "artstation",
     "aryion",
     "audiochan",
