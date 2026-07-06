@@ -86,7 +86,9 @@ __tests__ = (
     "page_url"   : "https://artfight.net/attack/2682502.first-attack",
     "title"      : "First attack!",
     "type"       : "attack",
-    "username"   : "",
+    "from"       : "miss_samychan",
+    "to"         : "Halo-Cat",
+    "team"       : "Wither",
 },
 
 {
@@ -129,6 +131,13 @@ __tests__ = (
     "page_url"   : "https://artfight.net/character/5905928.halley",
     "title"      : "[★] Halley",
     "type"       : "character",
+    "tags"       : [
+        "alien",
+        "star",
+        "space",
+        "modern",
+        "galaxy",
+    ],
 },
 
 )

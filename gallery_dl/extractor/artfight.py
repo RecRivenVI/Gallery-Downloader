@@ -60,10 +60,14 @@ class ArtfightExtractor(Extractor):
             date = extr(">On: </strong>", "<")
             imgs = extr("<!-- Attack main image -->", "<!--")
             dscr = extr("description -->", "<!--")
+            post["from"] = text.remove_html(extr(">From:</td>", "</tr>"))
+            post["to"] = text.remove_html(extr(">To:</td>", "</tr>"))
+            post["team"] = text.remove_html(extr(">Team:</td>", "</tr>"))
         else:
             date = extr(">Created: </strong>", "<")
             imgs = extr("<!-- Character main image -->", "<!--")
             dscr = extr("description -->", "<!--")
+            post["tags"] = text.split_html(extr(">Tags<", "</div>"))[1:]
 
         files = list(text.extract_iter(
             imgs, '<a target="_blank" href="', '"'))[::2]
