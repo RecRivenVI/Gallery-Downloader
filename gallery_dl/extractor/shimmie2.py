@@ -87,6 +87,10 @@ BASE_PATTERN = Shimmie2Extractor.update({
         "root": "https://co.llection.pics",
         "pattern": r"co\.llection\.pics",
     },
+    "prequelfanart": {
+        "root": "https://www.prequeladventure.com/fanartbooru",
+        "pattern": r"(?:www\.)?prequeladventure\.com/fanartbooru",
+    },
     "soybooru": {
         "root": "https://soybooru.com",
         "pattern": r"soybooru\.com",

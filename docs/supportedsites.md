@@ -1913,6 +1913,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Posts, Tag Searches</td>
     <td></td>
 </tr>
+<tr id="prequelfanart" title="prequelfanart">
+    <td>Prequel Fanart</td>
+    <td>https://www.prequeladventure.com/fanartbooru/</td>
+    <td>Posts, Tag Searches</td>
+    <td></td>
+</tr>
 <tr id="soybooru" title="soybooru">
     <td>Soybooru</td>
     <td>https://soybooru.com/</td>

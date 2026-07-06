@@ -179,6 +179,7 @@ CATEGORY_MAP = {
     "pornreactor"    : "PornReactor",
     "pornstarstube"  : "PORNSTARS.TUBE",
     "postimg"        : "Postimages",
+    "prequelfanart"  : "Prequel Fanart",
     "readcomiconline": "Read Comic Online",
     "rbt"            : "RebeccaBlackTech",
     "redgifs"        : "RedGIFs",
