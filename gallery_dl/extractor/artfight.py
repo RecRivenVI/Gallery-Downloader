@@ -21,8 +21,8 @@ class ArtfightExtractor(Extractor):
     root = "https://artfight.net"
     cookies_domain = ".artfight.net"
     directory_fmt = ("{category}", "{artist}", "{type!c}s")
-    filename_fmt = "{id}_{title}.{extension}"
-    archive_fmt = "{id}"
+    filename_fmt = "{id}_{num}_{title}.{extension}"
+    archive_fmt = "{id}_{num}"
     request_interval = (0.5, 1.5)
     tls12 = False  # CF
 
@@ -30,40 +30,51 @@ class ArtfightExtractor(Extractor):
         self.kwdict["username"] = text.unquote(self.groups[0])
         for post_url in self.posts():
             try:
-                post = self._extract(post_url)
+                post, files = self._extract(post_url)
             except Exception as exc:
                 self.log.traceback(exc)
                 self.log.warning("Failed to process '%s' (%s: %s)",
                                  post_url, exc.__class__.__name__, exc)
                 continue
 
-            url = post["file"]
-            text.nameext_from_url(url, post)
             yield Message.Directory, "", post
-            yield Message.Url, url, post
+            for post["num"], url in enumerate(files, 1):
+                text.nameext_from_url(url, post)
+                yield Message.Url, url, post
 
     def _extract(self, url):
         html = self.request(url).text
         extr = text.extract_from(html)
         _, type, name = url.rsplit("/", 2)
         title, _, artist = extr(' title="', '"').rpartition(" by ")
-        return {
+
+        post = {
+            "page_url": url,
             "id"    : name[:name.rfind(".")],
             "type"  : type,
             "title" : text.unescape(title),
             "artist": text.unescape(artist),
-            "date"  : self.parse_datetime(
-                extr(">On: </strong>", "<") or
-                extr(">Created: </strong>", "<"),
-                "%d %B %Y %I:%M:%S %p"),
-            "file"  : text.unescape(extr('<a target="_blank" href="', '"')),
-            "description": text.remove_html(extr(
-                "<!-- Attack description -->", "<!--")),
-            "page_url"   : url,
         }
 
-    def _pagination(self, url, type):
-        begin = f'class="profile-{type}s-body'
+        if type == "attack":
+            date = extr(">On: </strong>", "<")
+            imgs = extr("<!-- Attack main image -->", "<!--")
+            dscr = extr("description -->", "<!--")
+        else:
+            date = extr(">Created: </strong>", "<")
+            imgs = extr("<!-- Character main image -->", "<!--")
+            dscr = extr("description -->", "<!--")
+
+        files = list(text.extract_iter(
+            imgs, '<a target="_blank" href="', '"'))[::2]
+        post["description"] = dscr[
+            dscr.find('class="fr-view">')+16:dscr.rfind("</div>\n", 0, -12)]
+        post["date"] = self.parse_datetime(date, "%d %B %Y %I:%M:%S %p")
+        post["count"] = len(files)
+        return post, files
+
+    def _pagination(self, url):
+        begin = f'''class="profile-{url[url.rfind('/')+1:]}-body'''
         end = 'class="d-flex justify-content-center'
 
         while True:
@@ -89,43 +100,40 @@ class ArtfightUserExtractor(Dispatch, ArtfightExtractor):
             (ArtfightCharactersExtractor, base + "characters"),
             (ArtfightAttacksExtractor   , base + "attacks"),
             (ArtfightDefensesExtractor  , base + "defenses"),
-        ), ("characters", "attacks", "defenses",))
+        ), ("characters", "attacks", "defenses"))
 
 
 class ArtfightCharactersExtractor(ArtfightExtractor):
     subcategory = "characters"
     directory_fmt = ("{category}", "{username}", "Characters")
-    archive_fmt = "c{id}"
+    archive_fmt = "c{id}_{num}"
     pattern = USER_PATTERN + r"/characters"
     example = "https://artfight.net/~USER/characters"
 
     def posts(self):
-        return self._pagination(
-            f"{self.root}/~{self.groups[0]}/characters", "character")
+        return self._pagination(f"{self.root}/~{self.groups[0]}/characters")
 
 
 class ArtfightAttacksExtractor(ArtfightExtractor):
     subcategory = "attacks"
     directory_fmt = ("{category}", "{username}", "Attacks")
-    archive_fmt = "a{id}"
+    archive_fmt = "a{id}_{num}"
     pattern = USER_PATTERN + r"/attacks"
     example = "https://artfight.net/~USER/attacks"
 
     def posts(self):
-        return self._pagination(
-            f"{self.root}/~{self.groups[0]}/attacks", "attack")
+        return self._pagination(f"{self.root}/~{self.groups[0]}/attacks")
 
 
 class ArtfightDefensesExtractor(ArtfightExtractor):
     subcategory = "defenses"
     directory_fmt = ("{category}", "{username}" "Defenses")
-    archive_fmt = "d{id}"
+    archive_fmt = "d{id}_{num}"
     pattern = USER_PATTERN + r"/defenses"
     example = "https://artfight.net/~USER/defenses"
 
     def posts(self):
-        return self._pagination(
-            f"{self.root}/~{self.groups[0]}/defenses", "defense")
+        return self._pagination(f"{self.root}/~{self.groups[0]}/defenses")
 
 
 class ArtfightPostExtractor(ArtfightExtractor):
