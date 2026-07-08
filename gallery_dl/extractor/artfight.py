@@ -27,7 +27,6 @@ class ArtfightExtractor(Extractor):
     tls12 = False  # CF
 
     def items(self):
-        self.kwdict["username"] = text.unquote(self.groups[0])
         for post_url in self.posts():
             try:
                 post, files = self._extract(post_url)
@@ -41,6 +40,26 @@ class ArtfightExtractor(Extractor):
             for post["num"], url in enumerate(files, 1):
                 text.nameext_from_url(url, post)
                 yield Message.Url, url, post
+
+    def posts(self):
+        user = self.groups[0]
+        cat = self.__class__.subcategory
+        url = f"{self.root}/~{user}/{cat}"
+        begin = f'class="profile-{cat}-body'
+        end = 'class="d-flex justify-content-center'
+        self.kwdict["username"] = text.unquote(user)
+
+        while True:
+            page = self.request(url).text
+
+            items = text.extr(page, begin, end)
+            yield from text.extract_iter(items, '<a href="', '"')
+
+            link = text.iextr(page, 'rel="next"', "<", ">")
+            if url := text.extr(link, 'href="', '"'):
+                url = text.unescape(url)
+            else:
+                break
 
     def _extract(self, url):
         html = self.request(url).text
@@ -77,22 +96,6 @@ class ArtfightExtractor(Extractor):
         post["count"] = len(files)
         return post, files
 
-    def _pagination(self, url):
-        begin = f'''class="profile-{url[url.rfind('/')+1:]}-body'''
-        end = 'class="d-flex justify-content-center'
-
-        while True:
-            page = self.request(url).text
-
-            items = text.extr(page, begin, end)
-            yield from text.extract_iter(items, '<a href="', '"')
-
-            link = text.iextr(page, 'rel="next"', "<", ">")
-            if url := text.extr(link, 'href="', '"'):
-                url = text.unescape(url)
-            else:
-                break
-
 
 class ArtfightUserExtractor(Dispatch, ArtfightExtractor):
     pattern = USER_PATTERN + "$"
@@ -114,9 +117,6 @@ class ArtfightCharactersExtractor(ArtfightExtractor):
     pattern = USER_PATTERN + r"/characters"
     example = "https://artfight.net/~USER/characters"
 
-    def posts(self):
-        return self._pagination(f"{self.root}/~{self.groups[0]}/characters")
-
 
 class ArtfightAttacksExtractor(ArtfightExtractor):
     subcategory = "attacks"
@@ -125,9 +125,6 @@ class ArtfightAttacksExtractor(ArtfightExtractor):
     pattern = USER_PATTERN + r"/attacks"
     example = "https://artfight.net/~USER/attacks"
 
-    def posts(self):
-        return self._pagination(f"{self.root}/~{self.groups[0]}/attacks")
-
 
 class ArtfightDefensesExtractor(ArtfightExtractor):
     subcategory = "defenses"
@@ -135,9 +132,6 @@ class ArtfightDefensesExtractor(ArtfightExtractor):
     archive_fmt = "d{id}_{num}"
     pattern = USER_PATTERN + r"/defenses"
     example = "https://artfight.net/~USER/defenses"
-
-    def posts(self):
-        return self._pagination(f"{self.root}/~{self.groups[0]}/defenses")
 
 
 class ArtfightPostExtractor(ArtfightExtractor):
