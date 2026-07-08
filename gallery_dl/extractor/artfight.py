@@ -23,11 +23,17 @@ class ArtfightExtractor(Extractor):
     directory_fmt = ("{category}", "{artist}", "{type!c}s")
     filename_fmt = "{id}_{num}_{title}.{extension}"
     archive_fmt = "{id}_{num}"
+    per_page = 30
+    page_start = 1
+    offset = 0
     request_interval = (0.5, 1.5)
     tls12 = False  # CF
 
     def items(self):
-        for post_url in self.posts():
+        posts = self.posts()
+        if self.offset:
+            util.advance(posts, self.offset)
+        for post_url in posts:
             try:
                 post, files = self._extract(post_url)
             except Exception as exc:
@@ -41,10 +47,15 @@ class ArtfightExtractor(Extractor):
                 text.nameext_from_url(url, post)
                 yield Message.Url, url, post
 
+    def skip_posts(self, num):
+        pages, self.offset = divmod(num, self.per_page)
+        self.page_start += pages
+        return num
+
     def posts(self):
         user = self.groups[0]
         cat = self.__class__.subcategory
-        url = f"{self.root}/~{user}/{cat}"
+        url = f"{self.root}/~{user}/{cat}?page={self.page_start}"
         begin = f'class="profile-{cat}-body'
         end = 'class="d-flex justify-content-center'
         self.kwdict["username"] = text.unquote(user)
@@ -138,6 +149,7 @@ class ArtfightPostExtractor(ArtfightExtractor):
     subcategory = "post"
     pattern = BASE_PATTERN + r"(/(?:character|attack)/\d+(?:\.[^/?#]+)?)"
     example = "https://artfight.net/attack/12345.SLUG"
+    skip_posts = None
 
     def posts(self):
         self.kwdict["username"] = ""
@@ -151,6 +163,7 @@ class ArtfightAssetsExtractor(ArtfightExtractor):
     archive_fmt = "art_assets/{filename}"
     pattern = BASE_PATTERN + r"/info/art-assets"
     example = "https://artfight.net/info/art-assets"
+    skip_posts = None
 
     def items(self):
         url = self.root + "/info/art-assets"
