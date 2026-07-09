@@ -138,6 +138,17 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://chan.sankakucomplex.com/en/posts?tags=ink%2B_(artist)",
+    "#comment" : "tag with '+' character (#239)",
+    "#category": ("booru", "sankaku", "tag"),
+    "#class"   : sankaku.SankakuTagExtractor,
+    "#range"   : "1-10",
+    "#counmt"  : ">0",
+
+    "search_tags": "ink+_(artist)",
+},
+
+{
     "#url"     : "https://sankaku.app/books/90",
     "#category": ("booru", "sankaku", "pool"),
     "#class"   : sankaku.SankakuPoolExtractor,
