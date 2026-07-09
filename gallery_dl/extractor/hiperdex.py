@@ -9,7 +9,7 @@
 """Extractors for https://hiperdex.com/"""
 
 from .common import ChapterExtractor, MangaExtractor
-from .. import text
+from .. import text, util
 
 BASE_PATTERN = (r"((?:https?://)?(?:www\.)?"
                 r"(?:1st)?hiper(?:dex|toon)\d?\.(?:com|net|info|top))")
@@ -20,46 +20,39 @@ class HiperdexBase():
     category = "hiperdex"
     root = "https://hiperdex.com"
 
-    def manga_data(self, manga, page=None):
-        if not page:
-            url = f"{self.root}/manga/{manga}/"
-            page = self.request(url).text
-        extr = text.extract_from(page)
+    def manga_data(self, slug):
+        manga = self.request_api("series.bySlugWithGenres", {"slug": slug})
+        manga["manga"] = manga.pop("title", None)
+        manga["manga_id"] = manga.pop("id", None)
+        manga["manga_slug"] = manga.pop("slug", None)
+        manga["manga_cover"] = manga.pop("coverUrl", None)
+        manga["description"] = manga.pop("synopsis", None)
+        manga["author"] = manga.pop("authors", None)
+        manga["artist"] = manga.pop("artists", None)
+        manga["tags"] = manga.pop("genres", None)
+        manga["manga_date"] = self.parse_datetime_iso(
+            manga.pop("createdAt", None))
+        manga["manga_date_updated"] = self.parse_datetime_iso(
+            manga.pop("updatedAt", None))
 
-        return {
-            "url"    : text.unescape(extr(
-                'property="og:url" content="', '"')),
-            "manga"  : text.unescape(extr(
-                ' property="name" title="', '"')),
-            "score"  : text.parse_float(extr(
-                'id="averagerate">', '<')),
-            "author" : text.remove_html(extr(
-                'class="author-content">', '</div>')),
-            "artist" : text.remove_html(extr(
-                'class="artist-content">', '</div>')),
-            "genre"  : text.split_html(extr(
-                'class="genres-content">', '</div>'))[::2],
-            "type"   : extr(
-                'class="summary-content">', '<').strip(),
-            "release": text.parse_int(text.remove_html(extr(
-                'class="summary-content">', '</div>'))),
-            "status" : extr(
-                'class="summary-content">', '<').strip(),
-            "description": text.remove_html(text.unescape(extr(
-                '<div class="description-summary">', "</div>"))),
-            "language": "English",
-            "lang"    : "en",
-        }
+        return manga
 
     def chapter_data(self, chapter):
         if chapter.startswith("chapter-"):
             chapter = chapter[8:]
         chapter, _, minor = chapter.partition("-")
         return {
-            **self.cache(self.manga_data, self.manga.lower()),
+            **self.cache(self.manga_data, self.slug.lower()),
             "chapter"      : text.parse_int(chapter),
             "chapter_minor": "." + minor if minor and minor != "end" else "",
         }
+
+    def request_api(self, endpoint, params):
+        url = "https://hiperdex.com/api/trpc/" + endpoint
+        params = {"input": util.json_dumps({"json": params})}
+
+        result = self.request_json(url, params=params)
+        return result["result"]["data"]["json"]
 
 
 class HiperdexChapterExtractor(HiperdexBase, ChapterExtractor):
@@ -68,19 +61,20 @@ class HiperdexChapterExtractor(HiperdexBase, ChapterExtractor):
     example = "https://hiperdex.com/manga/MANGA/CHAPTER/"
 
     def __init__(self, match):
-        root, path, self.manga, self.chapter = match.groups()
+        root, path, self.slug, self.chapter = match.groups()
         self.root = text.ensure_http_scheme(root)
-        ChapterExtractor.__init__(self, match, self.root + path + "/")
+        ChapterExtractor.__init__(self, match, self.root + path)
 
     def metadata(self, _):
         return self.chapter_data(self.chapter)
 
-    def images(self, page):
-        pattern = text.re(r'id="image-\d+"\s+(?:data-)?src="([^"]+)')
-        return [
-            (url.strip(), None)
-            for url in pattern.findall(page)
-        ]
+    def images(self, _):
+        pages = self.request_api("reader.chapterPages", {
+            "seriesSlug": self.slug,
+            "chapterNumber": float(self.chapter),
+        })
+        pages.sort(key=lambda x: x.get("pageOrder"))
+        return [(page["webpUrl"], page) for page in pages]
 
 
 class HiperdexMangaExtractor(HiperdexBase, MangaExtractor):
@@ -90,29 +84,28 @@ class HiperdexMangaExtractor(HiperdexBase, MangaExtractor):
     example = "https://hiperdex.com/manga/MANGA/"
 
     def __init__(self, match):
-        root, path, self.manga = match.groups()
+        root, path, self.slug = match.groups()
         self.root = text.ensure_http_scheme(root)
-        MangaExtractor.__init__(self, match, self.root + path + "/")
+        MangaExtractor.__init__(self, match, self.root + path)
 
     def chapters(self, page):
-        data = self.cache(self.manga_data, self.manga, page)
-        self.page_url = url = data["url"]
-
-        url = self.page_url + "ajax/chapters/"
-        headers = {
-            "Accept": "*/*",
-            "X-Requested-With": "XMLHttpRequest",
-            "Origin": self.root,
-            "Referer": "https://" + text.quote(self.page_url[8:]),
-        }
-        html = self.request(url, method="POST", headers=headers).text
+        manga = self.cache(self.manga_data, self.slug)
+        base = f"{self.root}/manga/{manga['manga_slug']}/"
+        chapters = self.request_api("series.chapters", {
+            "seriesId": manga["manga_id"],
+        })
 
         results = []
-        for item in text.extract_iter(
-                html, '<li class="wp-manga-chapter', '</li>'):
-            url = text.extr(item, 'href="', '"')
-            chapter = url.rstrip("/").rpartition("/")[2]
-            results.append((url, self.chapter_data(chapter)))
+        for ch in chapters:
+            number = str(ch["number"])
+            results.append((base + number, {
+                "date": self.parse_datetime_iso(
+                    ch.pop("createdAt", None)),
+                "date_updated": self.parse_datetime_iso(
+                    ch.pop("updatedAt", None)),
+                **self.chapter_data(number),
+                **ch,
+            }))
         return results
 
 
