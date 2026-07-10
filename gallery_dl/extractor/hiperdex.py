@@ -42,7 +42,7 @@ class HiperdexBase():
             chapter = chapter[8:]
         chapter, _, minor = chapter.partition("-")
         return {
-            **self.cache(self.manga_data, self.slug.lower()),
+            **self.cache(self.manga_data, self.manga.lower()),
             "chapter"      : text.parse_int(chapter),
             "chapter_minor": "." + minor if minor and minor != "end" else "",
         }
@@ -50,8 +50,9 @@ class HiperdexBase():
     def request_api(self, endpoint, params):
         url = "https://hiperdex.com/api/trpc/" + endpoint
         params = {"input": util.json_dumps({"json": params})}
+        headers = {"x-hpx-nexus": "hpx-block-f91"}
 
-        result = self.request_json(url, params=params)
+        result = self.request_json(url, params=params, headers=headers)
         return result["result"]["data"]["json"]
 
 
@@ -61,7 +62,7 @@ class HiperdexChapterExtractor(HiperdexBase, ChapterExtractor):
     example = "https://hiperdex.com/manga/MANGA/CHAPTER/"
 
     def __init__(self, match):
-        root, path, self.slug, self.chapter = match.groups()
+        root, path, self.manga, self.chapter = match.groups()
         self.root = text.ensure_http_scheme(root)
         ChapterExtractor.__init__(self, match, self.root + path)
 
@@ -70,7 +71,7 @@ class HiperdexChapterExtractor(HiperdexBase, ChapterExtractor):
 
     def images(self, _):
         pages = self.request_api("reader.chapterPages", {
-            "seriesSlug": self.slug,
+            "seriesSlug": self.manga,
             "chapterNumber": float(self.chapter),
         })
         pages.sort(key=lambda x: x.get("pageOrder"))
@@ -84,12 +85,12 @@ class HiperdexMangaExtractor(HiperdexBase, MangaExtractor):
     example = "https://hiperdex.com/manga/MANGA/"
 
     def __init__(self, match):
-        root, path, self.slug = match.groups()
+        root, path, self.manga = match.groups()
         self.root = text.ensure_http_scheme(root)
         MangaExtractor.__init__(self, match, self.root + path)
 
     def chapters(self, page):
-        manga = self.cache(self.manga_data, self.slug)
+        manga = self.cache(self.manga_data, self.manga)
         base = f"{self.root}/manga/{manga['manga_slug']}/"
         chapters = self.request_api("series.chapters", {
             "seriesId": manga["manga_id"],
