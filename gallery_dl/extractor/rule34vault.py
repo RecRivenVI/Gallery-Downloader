@@ -21,10 +21,13 @@ class Rule34vaultExtractor(BooruExtractor):
     per_page = 100
 
     TAG_TYPES = {
-        1: "general",
-        2: "copyright",
-        4: "character",
-        8: "artist",
+        None: "general",
+        1   : "general",
+        2   : "copyright",
+        4   : "character",
+        8   : "artist",
+        16  : "system",
+        32  : "meta",
     }
 
     def _file_url(self, post):

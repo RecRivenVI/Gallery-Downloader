@@ -63,10 +63,11 @@ __tests__ = (
     },
     "tags": [
         "ai generated",
-        "demon slayer",
-        "kamado nezuko",
-        "school uniform",
         "sfw",
+        "demon slayer",
+        "2:3",
+        "school uniform",
+        "kamado nezuko",
     ],
     "tags_character": [
         "kamado nezuko",
@@ -75,9 +76,12 @@ __tests__ = (
         "demon slayer",
     ],
     "tags_general": [
-        "ai generated",
-        "school uniform",
         "sfw",
+        "school uniform",
+    ],
+    "tags_meta": [
+        "ai generated",
+        "2:3",
     ],
     "uploader": {
         "created"      : "2023-07-24T04:33:36.734495Z",
