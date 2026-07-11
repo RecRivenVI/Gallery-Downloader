@@ -120,4 +120,26 @@ __tests__ = (
     },
 },
 
+{
+    "#url"     : "https://ganknow.com/post/07e321c8-3ea9-40e3-96d5-bfd0cfbbaa7e",
+    "#comment" : "video",
+    "#class"   : ganknow.GanknowPostExtractor,
+    "#results" : "https://cdn.ganknow.com/media/73bfdc69-5618-4cba-b0ad-b3f7641328d2/image_picker_729B76E7-FF76-49C5-83B2-4389FB381940-13436-000003F66AC2FF5Dtrim.4B2733D7-15AE-4C94-AD9C-D299E44E1E13.MOV",
+
+    "accessType"     : "public",
+    "author"         : "b4f37863-8f64-41cf-b943-0ed75f4b043b",
+    "baseLanguage"   : "EN",
+    "content"        : "",
+    "count"          : 1,
+    "date"           : "dt:2025-07-25 16:29:31",
+    "date_updated"   : "dt:2025-08-26 13:40:02",
+    "extension"      : "mov",
+    "filename"       : "image_picker_729B76E7-FF76-49C5-83B2-4389FB381940-13436-000003F66AC2FF5Dtrim.4B2733D7-15AE-4C94-AD9C-D299E44E1E13",
+    "id"             : "07e321c8-3ea9-40e3-96d5-bfd0cfbbaa7e",
+    "post_id"        : "07e321c8-3ea9-40e3-96d5-bfd0cfbbaa7e",
+    "post_url"       : "https://ganknow.com/post/07e321c8-3ea9-40e3-96d5-bfd0cfbbaa7e",
+    "title"          : "good night 🌙💤 ",
+    "type"           : "video",
+},
+
 )
