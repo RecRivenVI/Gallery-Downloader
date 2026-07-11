@@ -87,10 +87,6 @@ BASE_PATTERN = MisskeyExtractor.update({
         "root": "https://misskey.art",
         "pattern": r"misskey\.art",
     },
-    "lesbian.energy": {
-        "root": "https://lesbian.energy",
-        "pattern": r"lesbian\.energy",
-    },
     "sushi.ski": {
         "root": "https://sushi.ski",
         "pattern": r"sushi\.ski",

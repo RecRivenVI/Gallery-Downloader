@@ -1763,12 +1763,6 @@ Consider all listed sites to potentially be NSFW.
     <td>Avatars, Backgrounds, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
     <td></td>
 </tr>
-<tr id="lesbian.energy" title="lesbian.energy">
-    <td>Lesbian.energy</td>
-    <td>https://lesbian.energy/</td>
-    <td>Avatars, Backgrounds, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
-    <td></td>
-</tr>
 <tr id="sushi.ski" title="sushi.ski">
     <td>Sushi.ski</td>
     <td>https://sushi.ski/</td>
