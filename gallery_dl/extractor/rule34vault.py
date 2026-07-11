@@ -109,7 +109,7 @@ class Rule34vaultTagExtractor(Rule34vaultExtractor):
     example = "https://rule34vault.com/TAG"
 
     def metadata(self):
-        self.tags = text.unquote(self.groups[0]).split("%7C")
+        self.tags = text.unquote(self.groups[0]).split("|")
         return {"search_tags": " ".join(self.tags)}
 
     def posts(self):

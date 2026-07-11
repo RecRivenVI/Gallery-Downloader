@@ -17,6 +17,17 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://rule34vault.com/beach%7Csummer",
+    "#comment" : "multiple tags (gh#9646)",
+    "#class"   : rule34vault.Rule34vaultTagExtractor,
+    "#pattern" : r"https://r34xyz\.b-cdn\.net/posts/\d+/\d+/\d+\.\w+",
+    "#range"   : "1-50",
+    "#count"   : 50,
+
+    "search_tags": "beach summer",
+},
+
+{
     "#url"  : "https://rule34vault.com/playlists/view/20164",
     "#class": rule34vault.Rule34vaultPlaylistExtractor,
     "#pattern": r"https://r34xyz\.b-cdn\.net/posts/\d+/\d+/\d+\.(jpg|mp4)",
