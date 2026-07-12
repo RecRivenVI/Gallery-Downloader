@@ -53,6 +53,15 @@ class TumblrExtractor(Extractor):
         elif not self.types:
             self.log.warning("no valid post types selected")
 
+        if il := self.inline:
+            if il == "reblog":
+                self._extract_body = lambda rb: rb["comment"]
+            elif il == "original":
+                self._extract_body = lambda rb: rb["tree_html"]
+            else:
+                self._extract_body = lambda rb: rb["comment"] + rb["tree_html"]
+            self.inline = True
+
         if self.reblogs == "same-blog":
             self._skip_reblog = self._skip_reblog_same_blog
 
@@ -149,7 +158,7 @@ class TumblrExtractor(Extractor):
             if self.inline and "reblog" in post:  # inline media
                 # only "chat" posts are missing a "reblog" key in their
                 # API response, but they can't contain images/videos anyway
-                body = post["reblog"]["comment"] + post["reblog"]["tree_html"]
+                body = self._extract_body(post["reblog"])
                 if "question" in post:
                     body = (f"{body} {post['question']} "
                             f"{post.get('answer') or ''}")

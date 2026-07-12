@@ -6861,11 +6861,19 @@ Description
 extractor.tumblr.inline
 -----------------------
 Type
-    ``bool``
+    * ``bool``
+    * ``string``
 Default
     ``true``
 Description
-    Search posts for inline images and videos.
+    ``true``
+        Search posts for inline images and videos
+    ``false``
+        Don't extract inline media
+    ``"original"``
+        Extract inline media only from the original post
+    ``"reblog"``
+        Extract inline media only from the reblog post
 
 
 extractor.tumblr.offset

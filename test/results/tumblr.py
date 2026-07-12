@@ -346,6 +346,20 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.tumblr.com/mikf123/821928825928761344/reblog-text-content-with-inline-media",
+    "#class"   : tumblr.TumblrPostExtractor,
+    "#options" : {"inline": "original"},
+    "#results" : "https://64.media.tumblr.com/f271654b2a1154b9ed5a8eaf19958544/38634e1186017404-c1/s99999x99999/665f81d62b05a26fe7519c3da0a093cfff8f560a.jpg",
+},
+
+{
+    "#url"     : "https://www.tumblr.com/mikf123/821928825928761344/reblog-text-content-with-inline-media",
+    "#class"   : tumblr.TumblrPostExtractor,
+    "#options" : {"inline": "reblog"},
+    "#results" : "https://64.media.tumblr.com/6fde2c979140a9991c539f350173ddd5/6dda6f0489857d66-11/s99999x99999/515897409b32223137fe0febc3e332c854cf3784.png",
+},
+
+{
     "#url"     : "http://demo.tumblr.com/tagged/Times%20Square",
     "#class"   : tumblr.TumblrTagExtractor,
     "#pattern" : r"https://\d+\.media\.tumblr\.com/tumblr_[^/_]+_1280.jpg",
