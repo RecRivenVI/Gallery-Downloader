@@ -14,7 +14,6 @@ __tests__ = (
     "#results" : "https://simp6.cuckcapital.cr/images4/9c32b778-15fb-4b2c-b65a-0ced5c373c3c.png",
     "#sha1_content": "cfaa8def53ed1a575e0c665c9d6d8cf2aac7a0ee",
 
-    "album"          : None,
     "created_at"     : "2026-06-28T11:06:50.000000Z",
     "date"           : "dt:2026-06-28 11:06:50",
     "date_updated"   : "dt:2026-06-28 11:06:50",
@@ -58,7 +57,7 @@ __tests__ = (
     "width"          : 1024,
     "album"          : {
         "encoded_id" : "acOGyK",
-        "is_public"  : True,
+        "visibility"  : "public",
         "title"      : """&"&amp;?ß""",
         "description": "stuff\nand\nthings",
     },
@@ -91,7 +90,7 @@ __tests__ = (
     "album"          : {
         "description": None,
         "encoded_id" : "acOxyG",
-        "is_public"  : True,
+        "visibility"  : "public",
         "title"      : "numbers",
     },
 },
@@ -125,7 +124,7 @@ __tests__ = (
     "album"          : {
         "encoded_id"  : "acOGyK",
         "images_count": 5,
-        "is_public"   : True,
+        "visibility"  : "public",
         "title"       : """&"&amp;?ß""",
         "description": "stuff\nand\nthings",
         "cover_image" : dict,
@@ -159,7 +158,7 @@ __tests__ = (
         "description" : None,
         "encoded_id"  : "acOxyG",
         "images_count": 100,
-        "is_public"   : True,
+        "visibility"  : "public",
         "title"       : "numbers",
         "cover_image" : dict,
         "user"        : dict,
@@ -179,13 +178,38 @@ __tests__ = (
         "description" : None,
         "encoded_id"  : "ac40Qh",
         "images_count": 2,
-        "is_public"   : True,
+        "visibility"  : "public",
         "title"       : "testalbum",
         "user"        : {
             "display_name": None,
             "username"    : "emcixnn",
         },
     },
+},
+
+{
+    "#url"     : "https://goonbox.cr/img/TvSaUIsQ.thGmYmw",
+    "#comment" : "legacy non-album image",
+    "#class"   : goonbox.GoonboxImageExtractor,
+    "#results" : "https://simp6.cuckcapital.cr/images4/2af692a7-476f-4271-8f8f-bae88af852a8.jpg",
+
+    "created_at"     : "2026-07-12T20:10:55.000000Z",
+    "date"           : "dt:2026-07-12 20:10:55",
+    "date_updated"   : "dt:2026-07-12 20:10:55",
+    "deleted_at"     : None,
+    "encoded_id"     : "thGmYmw",
+    "extension"      : "jpg",
+    "filename"       : "2af692a7-476f-4271-8f8f-bae88af852a8",
+    "height"         : 148,
+    "is_ai_generated": False,
+    "medium_url"     : "https://simp6.cuckcapital.cr/images4/2af692a7-476f-4271-8f8f-bae88af852a8.jpg",
+    "mime"           : "image/jpeg",
+    "original_filename": "2af692a7-476f-4271-8f8f-bae88af852a8.jpg",
+    "original_url"   : "https://simp6.cuckcapital.cr/images4/2af692a7-476f-4271-8f8f-bae88af852a8.jpg",
+    "size_bytes"     : 1248,
+    "thumb_url"      : "https://simp6.cuckcapital.cr/images4/2af692a7-476f-4271-8f8f-bae88af852a8.jpg",
+    "updated_at"     : "2026-07-12T20:10:55.000000Z",
+    "width"          : 225,
 },
 
 )
