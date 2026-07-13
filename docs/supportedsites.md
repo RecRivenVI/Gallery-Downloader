@@ -217,6 +217,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Collections, Generated Files, individual Images, Image Listings, Models, Model Listings, Posts, Post Listings, Image Searches, Model Searches, Tag Searches, User Profiles, User Collections, User Images, Image Reactions, User Models, User Posts, User Videos, Video Reactions, Video Listings</td>
     <td></td>
 </tr>
+<tr id="clonr" title="clonr">
+    <td>Clonr</td>
+    <td>https://clonr.co/</td>
+    <td>Folders</td>
+    <td></td>
+</tr>
 <tr id="comedywildlifephoto" title="comedywildlifephoto">
     <td>Comedy Wildlife Photography Awards</td>
     <td>https://www.comedywildlifephoto.com/</td>

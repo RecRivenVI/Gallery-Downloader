@@ -2552,6 +2552,16 @@ Available Types
     * ``inline``
 
 
+extractor.clonr.zip
+-------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Download folder content as a single ZIP archive instead of individual files.
+
+
 extractor.cosmos.format
 -----------------------
 Type
