@@ -81,7 +81,15 @@ class AudiochanExtractor(Extractor):
 
             if not data["has_more"]:
                 break
-            params["page"] += 1
+
+            try:
+                if cursor := data["meta"]["pagination"].get("next_cursor"):
+                    params["cursor"] = cursor
+                    params.pop("page", None)
+                else:
+                    params["page"] += 1
+            except Exception:
+                break
 
     def _extract_url(self, post):
         file = post["audioFile"]
@@ -127,10 +135,11 @@ class AudiochanUserExtractor(AudiochanExtractor):
         self.kwdict["user"] = self.request_api(endpoint)["data"]
 
         params = {
-            "sfw_only": "false",
-            "sort"    : "new",
+            "type": "all",
+            "content_mode": "all",
+            "sort": "new",
         }
-        return self._pagination(endpoint + "/audios", params)
+        return self._pagination(endpoint + "/content", params)
 
 
 class AudiochanCollectionExtractor(AudiochanExtractor):
@@ -140,12 +149,12 @@ class AudiochanCollectionExtractor(AudiochanExtractor):
 
     def posts(self):
         slug = self.groups[0]
-        endpoint = "/collections/" + slug
+        endpoint = "/playlists/" + slug
         self.kwdict["collection"] = col = self.request_api(endpoint)
         col.pop("audios", None)
         col.pop("items", None)
 
-        endpoint = f"/collections/slug/{slug}/items"
+        endpoint = f"/playlists/slug/{slug}/audios"
         return self._pagination(endpoint, {})
 
 
@@ -156,8 +165,12 @@ class AudiochanSearchExtractor(AudiochanExtractor):
 
     def posts(self):
         self.user = True
-        endpoint = "/search"
+
         params = text.parse_query(self.groups[0])
-        params["sfw_only"] = "false"
+        type = params.pop("tab", "audios")
+        params.setdefault("type", type)
+        params.setdefault("sort", "new")
+        params["count_mode"] = "none"
+
         self.kwdict["search_tags"] = params.get("q")
-        return self._pagination(endpoint, params, "audios")
+        return self._pagination("/search", params, type)
