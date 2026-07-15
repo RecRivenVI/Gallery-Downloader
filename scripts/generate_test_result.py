@@ -252,7 +252,7 @@ def main():
     LOG.info("Collecting data for '%s'", args.url)
     result = generate_test_result(args)
 
-    path = util.path("test", "results", f"{args.cat}.py")
+    path = util.path("test", "results", f"{args.cat.replace('.', '')}.py")
     path_tr = util.trim(path)
     LOG.info("Writing '%s' results to '%s'", args.url, path_tr)
     with util.lines(path) as lines:
