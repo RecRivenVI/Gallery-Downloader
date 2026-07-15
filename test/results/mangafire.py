@@ -9,50 +9,59 @@ from gallery_dl.extractor import mangafire
 
 __tests__ = (
 {
-    "#url"     : "https://mangafire.to/read/moto-saikyou-yuusha-no-saishuushoku.qzq9j/en/chapter-4",
+    "#url"     : "https://mangafire.to/title/qzq9j-re-employment-of-the-former-strongest-hero/chapter/4276231",
     "#class"   : mangafire.MangafireChapterExtractor,
-    "#pattern" : r"https://20l\.mfcdn2\.xyz/mf/\w+/h/p\.jpg",
+    "#pattern" : r"https://\w+\.mfcdn2\.xyz/mf/\w+/h/p\.jpg",
     "#count"   : 37,
 
     "chapter"       : 4,
     "chapter_id"    : 4276231,
     "chapter_minor" : "",
-    "chapter_string": "chapter-4",
+    "chapter_string": "4",
     "count"         : 37,
     "page"          : range(1, 37),
-    "cover"         : "https://static.mfcdn.cc/1d8c/i/c/f7/3ff94f3785fab893354f9d0ca440b59f.jpg",
+    "cover"         : "https://static.mfcdn.nl/c19c/i/c/f7/3ff94f3785fab893354f9d0ca440b59f.jpg",
     "description"   : "Dan was \"the strongest and bravest\" when he was young. But because of his lazy life, he is now a divorced, unemployed old man! He tries to earn money through quests for a living, but age has taken its toll on his strength and all that! He was approached by a silver-haired elf, a handsome man, and an S-rank adventurer... a young man of today’s generation!",
     "extension"     : "jpg",
     "filename"      : "p",
     "lang"          : "en",
     "manga"         : "Re-Employment of the Former Strongest Hero",
-    "manga_id"      : "qzq9j",
-    "manga_slug"    : "moto-saikyou-yuusha-no-saishuushoku",
-    "published"     : "Mar 31, 2022 to ?",
-    "publisher"     : ["Wild Hero's"],
-    "score"         : float,
-    "status"        : "Releasing",
+    "manga_id"      : 59079,
+    "manga_hid"     : "qzq9j",
+    "manga_slug"    : "re-employment-of-the-former-strongest-hero",
+    "year"          : 2022,
+    "rating"        : {int, float},
+    "status"        : "releasing",
     "title"         : "The Former Strongest Hero Makes a Choice",
-    "type"          : "Manga",
+    "type"          : "manga",
     "author"        : [
-        "Nobuto Hagio",
-        "Hironori Akutsu",
+        "Takunori Akutsu",
     ],
     "manga_titles"  : [
         "Moto Saikyou Yuusha no Saishuushoku",
-        "Re-Employment of the Former Strongest Hero",
+        "元最強勇者の再就職",
     ],
     "tags"          : [
         "Action",
         "Comedy",
+        "Drama",
+        "Ecchi",
         "Adventure",
         "Fantasy",
-        "Seinen",
+        "Slice of Life",
     ],
+    "themes": [
+        "Demons",
+        "Magic",
+        "Monster Girls",
+        "Monsters",
+        "Survival",
+    ],
+
 },
 
 {
-    "#url"     : "https://mangafire.to/read/munou-wa-fuyou-to-iware-tokei-tsukai-no-boku-wa-shokuin-guild-kara-oidasareru-mo-dungeon-no-shinbu-de-shin-no-chikara-ni-kakusei-suru-the-comic.6wmv9/en/chapter-14.1",
+    "#url"     : "https://mangafire.to/title/6wmv9-munou-wa-fuyou-to-iware-tokei-tsukai-no-boku-wa-shokunin-guild-kara-oidasareru-mo-dungeon-no-shinbu-de-shin-mo-chikara-ni-kakusei-suru/chapter/4765506",
     "#class"   : mangafire.MangafireChapterExtractor,
     "#pattern" : r"https://\w+\.mfcdn\d\.xyz/mf/\w+/h/p\.jpg",
     "#count"   : 13,
@@ -93,7 +102,7 @@ __tests__ = (
 },
 
 {
-    "#url"     : "https://mangafire.to/read/munou-wa-fuyou-to-iware-tokei-tsukai-no-boku-wa-shokuin-guild-kara-oidasareru-mo-dungeon-no-shinbu-de-shin-no-chikara-ni-kakusei-suru-the-comic.6wmv9/en/volume-2",
+    "#url"     : "https://mangafire.to/title/6wmv9-munou-wa-fuyou-to-iware-tokei-tsukai-no-boku-wa-shokunin-guild-kara-oidasareru-mo-dungeon-no-shinbu-de-shin-mo-chikara-ni-kakusei-suru/volume/301787",
     "#comment" : "volume",
     "#class"   : mangafire.MangafireChapterExtractor,
     "#pattern" : r"https://\w+\.mfcdn\d\.xyz/mf/\w+/h/p\.jpg",
@@ -104,11 +113,11 @@ __tests__ = (
     "chapter"       : 0,
     "chapter_id"    : 301787,
     "chapter_minor" : "",
-    "chapter_string": "volume-2",
+    "chapter_string": "2",
 },
 
 {
-    "#url"     : "https://mangafire.to/manga/my-noble-family-is-headed-for-ruin-so-i-may-as-well-study-magic-in-my-free-timee.xjj0w",
+    "#url"     : "https://mangafire.to/title/xjj0w-im-a-noble-on-the-brink-of-ruin-so-i-might-as-well-try-mastering-magic",
     "#class"   : mangafire.MangafireMangaExtractor,
     "#pattern" : mangafire.MangafireChapterExtractor.pattern,
     "#count"   : range(40, 60),
@@ -153,7 +162,7 @@ __tests__ = (
 },
 
 {
-    "#url"     : "https://mangafire.to/manga/regressing-as-the-reincarnated-bastard-of-the-sword-clann.90vp0",
+    "#url"     : "https://mangafire.to/title/90vp0-the-bastard-of-swordborne",
     "#class"   : mangafire.MangafireMangaExtractor,
     "#pattern" : mangafire.MangafireChapterExtractor.pattern,
     "#count"   : range(70, 120),
