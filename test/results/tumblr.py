@@ -188,18 +188,24 @@ __tests__ = (
     "#url"     : "https://mikf123.tumblr.com/post/167633596145/video-post",
     "#class"   : tumblr.TumblrPostExtractor,
     "#count"   : 2,
+
+    "source": {"video", "inline"},
 },
 
 {
     "#url"     : "https://mikf123.tumblr.com/post/167770026604/audio-post",
     "#class"   : tumblr.TumblrPostExtractor,
     "#count"   : 2,
+
+    "source": {"audio", "inline"},
 },
 
 {
     "#url"     : "https://mikf123.tumblr.com/post/172687798174/photo-post",
     "#class"   : tumblr.TumblrPostExtractor,
     "#count"   : 4,
+
+    "source": "photo",
 },
 
 {
@@ -350,6 +356,8 @@ __tests__ = (
     "#class"   : tumblr.TumblrPostExtractor,
     "#options" : {"inline": "original"},
     "#results" : "https://64.media.tumblr.com/f271654b2a1154b9ed5a8eaf19958544/38634e1186017404-c1/s99999x99999/665f81d62b05a26fe7519c3da0a093cfff8f560a.jpg",
+
+    "source": "inline",
 },
 
 {
@@ -357,6 +365,8 @@ __tests__ = (
     "#class"   : tumblr.TumblrPostExtractor,
     "#options" : {"inline": "reblog"},
     "#results" : "https://64.media.tumblr.com/6fde2c979140a9991c539f350173ddd5/6dda6f0489857d66-11/s99999x99999/515897409b32223137fe0febc3e332c854cf3784.png",
+
+    "source": "inline",
 },
 
 {

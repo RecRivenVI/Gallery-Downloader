@@ -116,9 +116,11 @@ class TumblrExtractor(Extractor):
             if "trail" in post:
                 del post["trail"]
             post["date"] = self.parse_timestamp(post["timestamp"])
+            post["source"] = None
             posts = []
 
             if "photos" in post:  # type "photo" or "link"
+                post["source"] = "photo"
                 photos = post["photos"]
                 del post["photos"]
 
@@ -148,13 +150,16 @@ class TumblrExtractor(Extractor):
 
             url = post.get("audio_url")  # type "audio"
             if url and url.startswith("https://a.tumblr.com/"):
+                post["source"] = "audio"
                 posts.append(self._prepare(url, post.copy()))
 
             if url := post.get("video_url"):  # type "video"
+                post["source"] = "video"
                 posts.append(self._prepare(
                     self._original_video(url), post.copy()))
 
             if self.inline and "reblog" in post:  # inline media
+                post["source"] = "inline"
                 # only "chat" posts are missing a "reblog" key in their
                 # API response, but they can't contain images/videos anyway
                 body = self._extract_body(post)
@@ -174,10 +179,12 @@ class TumblrExtractor(Extractor):
 
             if self.external:  # external links
                 if url := post.get("permalink_url") or post.get("url"):
+                    post["source"] = "external"
                     post["extension"] = None
                     posts.append((Message.Queue, url, post.copy()))
                     del post["extension"]
 
+            del post["source"]
             post["count"] = len(posts)
             yield Message.Directory, "", post
 
