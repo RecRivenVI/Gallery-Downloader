@@ -19,8 +19,8 @@ BASE_PATTERN = (
     r"([\w-]+\.tumblr\.com)))"
 )
 
-POST_TYPES = frozenset(("text", "quote", "link", "answer", "video",
-                        "audio", "photo", "chat", "search"))
+POST_TYPES = {"text", "quote", "link", "answer", "video",
+              "audio", "photo", "chat", "search"}
 
 
 class TumblrExtractor(Extractor):
@@ -55,11 +55,10 @@ class TumblrExtractor(Extractor):
 
         if il := self.inline:
             if il == "reblog":
-                self._extract_body = lambda rb: rb["comment"]
+                self._extract_body = lambda p: p["reblog"]["comment"]
             elif il == "original":
-                self._extract_body = lambda rb: rb["tree_html"]
-            else:
-                self._extract_body = lambda rb: rb["comment"] + rb["tree_html"]
+                self._extract_body = lambda p: (p["reblog"]["tree_html"] or
+                                                p["reblog"]["comment"])
             self.inline = True
 
         if self.reblogs == "same-blog":
@@ -158,7 +157,7 @@ class TumblrExtractor(Extractor):
             if self.inline and "reblog" in post:  # inline media
                 # only "chat" posts are missing a "reblog" key in their
                 # API response, but they can't contain images/videos anyway
-                body = self._extract_body(post["reblog"])
+                body = self._extract_body(post)
                 if "question" in post:
                     body = (f"{body} {post['question']} "
                             f"{post.get('answer') or ''}")
@@ -257,6 +256,10 @@ class TumblrExtractor(Extractor):
             return post["blog"]["uuid"] != post.get("reblogged_root_uuid")
         except Exception:
             return self.blog != post.get("reblogged_root_uuid")
+
+    def _extract_body(self, post):
+        rb = post["reblog"]
+        return rb["comment"] + rb["tree_html"]
 
     def _original_photo(self, url):
         resized = url.replace("/s2048x3072/", "/s99999x99999/", 1)

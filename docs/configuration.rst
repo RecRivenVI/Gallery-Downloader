@@ -6879,11 +6879,13 @@ Description
     ``true``
         Search posts for inline images and videos
     ``false``
-        Don't extract inline media
+        Don't extract inline files
     ``"original"``
-        Extract inline media only from the original post
+        Extract inline media files.
+        For reblogged posts, extract them only from the original post text.
     ``"reblog"``
-        Extract inline media only from the reblog post
+        Extract inline media files.
+        For reblogged posts, extract them only from the reblog text.
 
 
 extractor.tumblr.offset
