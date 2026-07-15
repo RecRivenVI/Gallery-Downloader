@@ -1754,25 +1754,25 @@ Consider all listed sites to potentially be NSFW.
 <tr id="misskey.io" title="misskey.io">
     <td>Misskey.io</td>
     <td>https://misskey.io/</td>
-    <td>Avatars, Backgrounds, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
+    <td>Avatars, Backgrounds, Emojis, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
     <td></td>
 </tr>
 <tr id="misskey.design" title="misskey.design">
     <td>Misskey.design</td>
     <td>https://misskey.design/</td>
-    <td>Avatars, Backgrounds, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
+    <td>Avatars, Backgrounds, Emojis, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
     <td></td>
 </tr>
 <tr id="misskey.art" title="misskey.art">
     <td>Misskey.art</td>
     <td>https://misskey.art/</td>
-    <td>Avatars, Backgrounds, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
+    <td>Avatars, Backgrounds, Emojis, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
     <td></td>
 </tr>
 <tr id="sushi.ski" title="sushi.ski">
     <td>Sushi.ski</td>
     <td>https://sushi.ski/</td>
-    <td>Avatars, Backgrounds, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
+    <td>Avatars, Backgrounds, Emojis, Favorites, Followed Users, User Profile Information, Notes, User Notes, User Profiles</td>
     <td></td>
 </tr>
 

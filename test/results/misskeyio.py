@@ -112,4 +112,22 @@ __tests__ = (
     "#class"   : misskey.MisskeyFavoriteExtractor,
 },
 
+{
+    "#url"     : "https://misskey.io/about",
+    "#category": ("misskey", "misskey.io", "emoji"),
+    "#class"   : misskey.MisskeyEmojiExtractor,
+    "#pattern" : r"https://media\.misskeyusercontent\.jp/(emoji|misskey|io)/.+",
+    "#count"   : range(10_000, 20_000),
+
+    "aliases"       : list,
+    "count"         : range(10_000, 20_000),
+    "emoji_category": str,
+    "extension"     : {"jpg", "jpeg", "png", "apng", "gif", "webp"},
+    "filename"      : str,
+    "instance"      : "misskey.io",
+    "name"          : str,
+    "num"           : range(1, 20_000),
+    "url"           : str,
+},
+
 )
