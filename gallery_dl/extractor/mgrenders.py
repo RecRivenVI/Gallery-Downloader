@@ -47,6 +47,11 @@ class MgrendersPostExtractor(MgrendersExtractor):
             "post_url": url,
         }
 
+        if m := text.re(r"(?i)(?:(.+) - )?(.+) Render(?: (?:.*\[(.+)\])?"
+                        r"(?:.*#(\d+))?)?").match(post["title"]):
+            post["series"], post["character"], post["artist"], post["id"] = \
+                m.groups()
+
         url = original(text.ensure_http_scheme(post["url"]))
         text.nameext_from_url(url, post)
         yield Message.Directory, "", post

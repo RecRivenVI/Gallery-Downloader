@@ -18,6 +18,10 @@ __tests__ = (
     "filename" : "Kuro+Usagi+Render+3+by+MG",
     "post_url" : "https://a.mg-renders.net/2013/01/mondai-ji-tachi-ga-isekai-kara-kuru-so_65.html",
     "title"    : "Mondai-ji-tachi ga Isekai Kara Kuru Sō Desu Yo? - Kuro Usagi Render",
+    "artist"   : None,
+    "character": "Kuro Usagi",
+    "id"       : None,
+    "series"   : "Mondai-ji-tachi ga Isekai Kara Kuru Sō Desu Yo?",
     "url"      : "//2.bp.blogspot.com/-EYJ-6Di_n3Y/UPZEUBqK-cI/AAAAAAAAE98/aLU7jD9wcDk/w0/Kuro+Usagi+Render+3+by+MG.png",
     "tags"     : [
         "Cleavage",
@@ -39,6 +43,10 @@ __tests__ = (
     "filename" : "My Mother - Nush Render [XTER] #11519",
     "post_url" : "https://a.mg-renders.net/2022/08/my-mother-nush-render-xter-11519.html",
     "title"    : "My Mother - Nush Render [XTER] #11519",
+    "artist"   : "XTER",
+    "character": "Nush",
+    "id"       : "11519",
+    "series"   : "My Mother",
     "url"      : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZW7MVmO7rALqTz9ukA7gH1sSQD8naZANsO9ZQwSQOu9ZXr97TPz2p0LJjI1PoS2yei9Vw2lJzs0y0KIoZy-Xyox_nXC47-DrSSB6mtzEjWEs9jppb8aJ18dQQ4zIW07ry5bHPZ8Q-55XMra91mkz1Z7yqswTcYtPgUrX6zj-lvsVQlvc-T2X7LtllMQ/w0/My%20Mother%20-%20Nush%20Render%20%5BXTER%5D%20%2311519.png",
     "tags"     : [
         "Armpit",
@@ -66,6 +74,10 @@ __tests__ = (
     "filename" : "Zero+no+Tsukaima+-+Tiffania+Westwood+Render+7+%5BFujii+Masahiro%5D",
     "post_url" : "https://h.mg-renders.net/2014/04/tiffania-westwood-render-ecchi-hentai.html",
     "title"    : "Zero no Tsukaima - Tiffania Westwood Render 7 [Fujii Masahiro]",
+    "artist"   : "Fujii Masahiro",
+    "character": "Tiffania Westwood",
+    "id"       : None,
+    "series"   : "Zero no Tsukaima",
     "url"      : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXC-mWlNu-WLCRwwPlf9iH9DDTwo0BN3i3DzGfQHQVPsfkIfA6bYoU0BxCwFNq93dfFMXicTUtoaL-_MbRkQoJL4X4ACOydPDeHM68ilWJbiOBL4OM-qG3dH6PTu10HXs4tEL6tZc4OpA/w0/Zero+no+Tsukaima+-+Tiffania+Westwood+Render+7+%255BFujii+Masahiro%255D.png",
     "tags"     : [
         "Bare legs",
