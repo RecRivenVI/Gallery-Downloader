@@ -333,7 +333,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="everia" title="everia">
     <td>EVERIA.CLUB</td>
-    <td>https://everia.club</td>
+    <td>https://everia.club/</td>
     <td>Categories, Dates, Posts, Search Results, Tag Searches</td>
     <td></td>
 </tr>
