@@ -151,6 +151,7 @@ modules = [
     "mangataro",
     "mangatown",
     "mangoxo",
+    "mgrenders",
     "misskey",
     "mixdrop",
     "motherless",

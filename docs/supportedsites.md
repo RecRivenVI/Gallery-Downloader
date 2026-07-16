@@ -799,6 +799,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Albums, Channels</td>
     <td>Supported</td>
 </tr>
+<tr id="mgrenders" title="mgrenders">
+    <td>Mgrenders</td>
+    <td>https://a.mg-renders.net/</td>
+    <td>Posts, Search Results</td>
+    <td></td>
+</tr>
 <tr id="mixdrop" title="mixdrop">
     <td>MixDrop</td>
     <td>https://mixdrop.ag/</td>
