@@ -52,6 +52,8 @@ __tests__ = (
     "#pattern" : kagane.KaganeChapterExtractor.pattern,
     "#count"   : 40,
 
+    "chapter"       : int,
+    "chapter_minor" : {"", ".5"},
     "chapter_id"    : str,
     "content_rating": "Suggestive",
     "date"          : "type:datetime",

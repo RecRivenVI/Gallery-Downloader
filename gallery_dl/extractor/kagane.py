@@ -91,13 +91,19 @@ class KaganeMangaExtractor(KaganeBase, MangaExtractor):
     def chapters(self, page):
         mid = self.groups[0]
         manga = self.cache(self._manga_info, mid)
+        base = f"{self.root}/series/{mid}/reader/"
 
-        return [
-            (f"{self.root}/series/{mid}/reader/{ch['book_id']}", {
+        results = []
+        for ch in manga["_chapters"]:
+            chapter, sep, minor = ch["chapter_no"].partition(".")
+            results.append((base + ch["book_id"], {
                 **manga,
+                **ch,
+                "volume": text.parse_int(ch.get("volume_no")),
+                "chapter": text.parse_int(chapter),
+                "chapter_minor": sep + minor,
                 "chapter_id": ch["book_id"],
                 "views": text.parse_int(ch["views"]),
                 "date": self.parse_datetime_iso(ch["created_at"]),
-            })
-            for ch in manga["_chapters"]
-        ]
+            }))
+        return results
