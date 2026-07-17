@@ -643,6 +643,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Posts, Search Results, Tag Searches, User Profiles</td>
     <td></td>
 </tr>
+<tr id="kagane" title="kagane">
+    <td>Kagane</td>
+    <td>https://kagane.to/</td>
+    <td>Chapters, Manga</td>
+    <td></td>
+</tr>
 <tr id="kaliscan" title="kaliscan">
     <td>KaliScan</td>
     <td>https://kaliscan.me/</td>

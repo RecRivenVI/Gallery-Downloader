@@ -124,6 +124,7 @@ modules = [
     "jschan",
     "kabeuchi",
     "kaliscan",
+    "kagane",
     "keenspot",
     "kemono",
     "khinsider",
