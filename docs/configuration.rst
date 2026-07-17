@@ -7672,6 +7672,19 @@ Description
         Descending order (newest first)
 
 
+extractor.vk.domain
+-------------------
+Type
+    ``string``
+Default
+    ``"auto"``
+Description
+    Specifies the domain used by ``cyberdrop`` regardless of input URL.
+
+    Setting this option to ``"auto"``
+    uses the same domain as a given input URL.
+
+
 extractor.vk.offset
 -------------------
 Type

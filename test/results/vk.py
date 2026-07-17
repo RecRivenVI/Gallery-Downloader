@@ -28,6 +28,11 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://vk.ru/id398982326",
+    "#class"   : vk.VkPhotosExtractor,
+},
+
+{
     "#url"     : "https://vk.com/cosplayinrussia",
     "#category": ("", "vk", "photos"),
     "#class"   : vk.VkPhotosExtractor,
