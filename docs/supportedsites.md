@@ -1321,6 +1321,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Galleries</td>
     <td></td>
 </tr>
+<tr id="vanlifetrader" title="vanlifetrader">
+    <td>Vanlife Trader</td>
+    <td>https://vanlifetrader.com/</td>
+    <td>Explores, Listings</td>
+    <td></td>
+</tr>
 <tr id="vipergirls" title="vipergirls">
     <td>Vipergirls</td>
     <td>https://vipergirls.to/</td>

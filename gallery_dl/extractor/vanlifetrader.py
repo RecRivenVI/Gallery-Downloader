@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2026 Mike Fährmann
-#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as
 # published by the Free Software Foundation.
@@ -10,6 +8,8 @@
 
 from .common import Extractor, Message
 from .. import text
+
+BASE_PATTERN = r"(?:https?://)?(?:www\.)?vanlifetrader\.com"
 
 
 class VanlifetraderExtractor(Extractor):
@@ -20,7 +20,7 @@ class VanlifetraderExtractor(Extractor):
     def _api_listing_metadata(self, listing):
         title = (listing.get("yoast_head_json") or {}).get("og_title", "")
         if title.endswith(" - Vanlife Trader"):
-            title = title[:-len(" - Vanlife Trader")]
+            title = title[:-17]
 
         return {
             "listing_id": listing["id"],
@@ -64,18 +64,13 @@ class VanlifetraderListingExtractor(VanlifetraderExtractor):
     directory_fmt = ("{category}", "{title}")
     filename_fmt = "{listing_id}_{num:>02}.{extension}"
     archive_fmt = "{listing_id}_{num}"
-    pattern = (r"(?:https?://)?(?:www\.)?vanlifetrader\.com"
-               r"/listing/([^/?#]+)")
+    pattern = BASE_PATTERN + r"/listing/([^/?#]+)"
     example = "https://vanlifetrader.com/listing/YEAR-MAKE-MODEL-HASH/"
-
-    def __init__(self, match):
-        VanlifetraderExtractor.__init__(self, match)
-        self.slug = match[1]
 
     def items(self):
         url = f"{self.root}/wp-json/wp/v2/listing"
         params = {
-            "slug"   : self.slug,
+            "slug"   : self.groups[0],
             "_fields": "id,slug,link,date,yoast_head_json",
         }
         listings = self.request_json(url, params=params)
@@ -98,8 +93,7 @@ class VanlifetraderListingExtractor(VanlifetraderExtractor):
 class VanlifetraderExploreExtractor(VanlifetraderExtractor):
     """Extractor for explore and search pages on vanlifetrader.com"""
     subcategory = "explore"
-    pattern = (r"(?:https?://)?(?:www\.)?vanlifetrader\.com"
-               r"/explore(?:[/?#][^#]*)?")
+    pattern = BASE_PATTERN + r"/explore"
     example = "https://vanlifetrader.com/explore/"
 
     def items(self):
