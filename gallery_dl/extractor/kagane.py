@@ -51,10 +51,15 @@ class KaganeChapterExtractor(KaganeBase, ChapterExtractor):
     example = "https://kagane.to/series/MANGA_ID/reader/CHAPTER_ID"
 
     def metadata(self, page):
-        chstr = text.unescape(text.extr(page, "<title>", "</title>"))
+        chstr = text.unescape(text.extr(
+            page, 'property="og:title" content="', '"'))
+
         match = text.re(
-            r"(?:.+?\s*-\s*)?(?:[Vv]olume\s*(\d+)\s*)?"
-            r"[Cc]hapter\s*(\d+)([^\s]*)?(?:\s*-\s*(.*))?").match(chstr)
+            r"\s+-\s+"
+            r"(?:[Vv]olume\s*(\d+)\s*)?"
+            r"[Cc]hapter\s*(\d+)([^\s]*)?"
+            r"(?:\s+-\s+(?:[Cc]h(?:apter|\.) [^\s]+(?:\s+-)?\s*)?(.+))?$"
+        ).search(chstr)
         volume, chapter, minor, title = match.groups()
 
         return {
