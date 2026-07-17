@@ -225,6 +225,7 @@ CATEGORY_MAP = {
     "turboimagehost" : "TurboImageHost.com",
     "turbo"          : "turbo.cr",
     "vanillarock"    : "もえぴりあ",
+    "vanlifetrader"  : "Vanlife Trader",
     "vidyart2"       : "/v/idyart2",
     "vidyapics"      : "Vidya Booru",
     "vipr"           : "Vipr.im",
