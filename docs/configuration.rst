@@ -217,12 +217,14 @@ Description
 extractor.*.follow
 ------------------
 Type
-    `Format String`_
+    * `Format String`_
+    * `list` of `Format Strings`_
 Default
     ``null``
 Example
     * ``"{content}"``
     * ``"\fE body or html or text"``
+    * ``["{body}", "{html}", "{text}"]``
 Description
     Follow URLs in the given `Format String`_'s result and
     process them with child extractors.
