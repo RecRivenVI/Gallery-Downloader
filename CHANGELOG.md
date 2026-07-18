@@ -1,5 +1,51 @@
 # Changelog
 
+## 1.32.7 - 2026-07-18
+### Extractors
+- **Additions**
+  - [clonr] add `folder` extractor ([`cb#251`](https://codeberg.org/mikf/gallery-dl/issues/251))
+  - [misskey] add `emoji` extractor ([`cb#249`](https://codeberg.org/mikf/gallery-dl/issues/249))
+  - [mgrenders] add support ([`gh#1340`](https://github.com/mikf/gallery-dl/issues/1340) [`gh#9543`](https://github.com/mikf/gallery-dl/issues/9543))
+  - [vanlifetrader] add support ([`gh#9415`](https://github.com/mikf/gallery-dl/issues/9415) [`pr#64`](https://codeberg.org/mikf/gallery-dl/pulls/64))
+  - [kagane] add `chapter` & `manga` extractors ([`cb#243`](https://codeberg.org/mikf/gallery-dl/issues/243) [`gh#8292`](https://github.com/mikf/gallery-dl/issues/8292) [`pr#268`](https://codeberg.org/mikf/gallery-dl/pulls/268))
+- **Removals**
+  - [misskey] remove `lesbian.energy`
+- **audiochan**
+  - fix `KeyError: 'stream_url'` ([`cb#256`](https://codeberg.org/mikf/gallery-dl/issues/256) [`cb#264`](https://codeberg.org/mikf/gallery-dl/issues/264) [`cb#269`](https://codeberg.org/mikf/gallery-dl/issues/269))
+  - update API endpoints ([`cb#256`](https://codeberg.org/mikf/gallery-dl/issues/256))
+- **civitai**
+  - fix `KeyError: 'createdAt'` when downloading user posts ([`cb#248`](https://codeberg.org/mikf/gallery-dl/issues/248) [`cb#255`](https://codeberg.org/mikf/gallery-dl/issues/255))
+- **everia**
+  - fix `post` extractor ([`cb#250`](https://codeberg.org/mikf/gallery-dl/issues/250))
+- **fanbox**
+  - fix post data extraction ([`cb#257`](https://codeberg.org/mikf/gallery-dl/issues/257))
+- **furry34**
+  - extend tag category list
+- **ganknow**
+  - fix video downloads
+- **goonbox**
+  - fix legacy non-album images ([`pr#253`](https://codeberg.org/mikf/gallery-dl/pulls/253))
+- **hiperdex**
+  - fix `403 Forbidden` errors ([`cb#241`](https://codeberg.org/mikf/gallery-dl/issues/241) [`cb#254`](https://codeberg.org/mikf/gallery-dl/issues/254))
+- **mangafire**
+  - update extractors ([`cb#260`](https://codeberg.org/mikf/gallery-dl/issues/260))
+- **rule34vault**
+  - extend tag category list
+  - fix searching for multiple tags ([`gh#9646`](https://github.com/mikf/gallery-dl/issues/9646))
+- **tumblr**
+  - extend `inline` option ([`gh#8468`](https://github.com/mikf/gallery-dl/issues/8468))
+  - provide `source` metadata for files
+- **vk**
+  - support `vk.ru` URLs ([`cb#267`](https://codeberg.org/mikf/gallery-dl/issues/267))
+  - add `domain` option ([`cb#267`](https://codeberg.org/mikf/gallery-dl/issues/267))
+- **webtoons**
+  - improve `bgm` filenames ([`gh#8733`](https://github.com/mikf/gallery-dl/issues/8733))
+### Post Processors
+- **exec**
+  - only add successful commands to archive ([`cb#266`](https://codeberg.org/mikf/gallery-dl/issues/266))
+### Cookies
+- support v147+ profile paths for Firefox-based browsers
+
 ## 1.32.6 - 2026-07-11
 ### Extractors
 - **Additions**
