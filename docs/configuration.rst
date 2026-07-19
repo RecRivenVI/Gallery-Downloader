@@ -9887,11 +9887,26 @@ Type
     * ``string``
     * ``list`` of ``strings``
 Default
+    ``"post-after"``
+        ``"target": "directory"``
     ``"file"``
+        otherwise
 Description
     The event(s) for which `mtime.key`_ or `mtime.value`_ get evaluated.
 
     See `metadata.event`_ for a list of available events.
+
+
+mtime.target
+------------
+Type
+    ``string``
+Default
+    ``"file"``
+Description
+    The target to which `mtime.key`_ or `mtime.value`_ is applied to.
+
+    Supported values are ``"file"`` and ``"directory"``.
 
 
 mtime.key
