@@ -518,7 +518,10 @@ extractor.*.sleep
 Type
     |Duration|_
 Default
+    ``5.0``
+        ``animepictures``
     ``0``
+        otherwise
 Description
     Number of seconds to sleep before each download.
 

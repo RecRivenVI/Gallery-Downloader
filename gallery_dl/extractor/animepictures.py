@@ -20,6 +20,7 @@ class AnimepicturesExtractor(booru.BooruExtractor):
     root = "https://anime-pictures.net"
     root_api = "https://api.anime-pictures.net/api"
     per_page = 80
+    download_interval = 5.0
     request_interval = 1.0
 
     def _init(self):

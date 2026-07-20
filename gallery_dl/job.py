@@ -721,8 +721,10 @@ class DownloadJob(Job):
         if kwdict is not None:
             pathfmt.set_directory(kwdict)
 
-        self.sleep = util.build_duration_func(cfg("sleep"))
-        self.sleep_skip = util.build_duration_func(cfg("sleep-skip"))
+        self.sleep = util.build_duration_func(
+            cfg("sleep", extr.download_interval))
+        self.sleep_skip = util.build_duration_func(
+            cfg("sleep-skip"))
         self.fallback = cfg("fallback", True)
         if not cfg("download", True):
             # monkey-patch method to do nothing and always return True

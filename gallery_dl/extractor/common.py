@@ -50,6 +50,7 @@ class Extractor():
     browser = None
     useragent = util.USERAGENT_FIREFOX
     geobypass = None
+    download_interval = 0.0
     request_interval = 0.0
     request_interval_min = 0.0
     request_interval_429 = 60.0
