@@ -10,6 +10,7 @@
 
 from . import booru
 from .. import text
+import collections
 
 BASE_PATTERN = r"(?:https?://)?(?:www\.)?anime\-pictures\.net"
 
@@ -23,6 +24,16 @@ class AnimepicturesExtractor(booru.BooruExtractor):
     download_interval = 5.0
     request_interval = 1.0
 
+    TAG_TYPES = {
+        1: "character",
+        2: "reference",
+        3: "copyright",
+        4: "author",
+        5: "",
+        6: "copyright_other",
+        7: "object",
+    }
+
     def _init(self):
         self.cookies.set("kira", "2", domain=".anime-pictures.net")
 
@@ -33,6 +44,20 @@ class AnimepicturesExtractor(booru.BooruExtractor):
 
     def _prepare(self, post):
         post["date"] = self.parse_datetime_iso(post["datetime"])
+
+    def _tags(self, post, _):
+        if "tags" not in post:
+            data = self.request_json(f"{self.root_api}/v3/posts/{post['id']}")
+            data.pop("post", None)
+            post.update(data)
+
+        tags = collections.defaultdict(list)
+        for tag in post["tags"]:
+            tag = tag["tag"]
+            tags[tag["type"]].append(tag["tag"])
+        types = self.TAG_TYPES
+        for key, value in tags.items():
+            post["tags_" + types[key]] = value
 
     def _pagination(self, url, params):
         params["page"] = text.parse_int(params.get("page"), self.page_start)
