@@ -625,6 +625,7 @@ Default
         ``xfolio``          |
         ``zerochan``
     ``"1.0"``
+        ``animepictures``   |
         ``furaffinity``     |
         ``rule34``
     ``"1.0-2.0"``

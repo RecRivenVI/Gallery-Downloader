@@ -97,6 +97,12 @@ Consider all listed sites to potentially be NSFW.
     <td>Chapters, Manga, Tag Searches</td>
     <td></td>
 </tr>
+<tr id="animepictures" title="animepictures">
+    <td>Anime pictures and wallpapers</td>
+    <td>https://anime-pictures.net/</td>
+    <td>Favorites, Posts, Stars, Tag Searches</td>
+    <td></td>
+</tr>
 <tr id="arcalive" title="arcalive">
     <td>Arcalive</td>
     <td>https://arca.live/</td>

@@ -25,6 +25,7 @@ modules = [
     "agnph",
     "ahottie",
     "allporncomic",
+    "animepictures",
     "ao3",
     "arcalive",
     "architizer",

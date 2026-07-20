@@ -29,6 +29,7 @@ CATEGORY_MAP = {
     "aibooru"        : "AIBooru",
     "allgirlbooru"   : "All girl",
     "allporncomic"   : "AllPornComic",
+    "animepictures"  : "Anime pictures and wallpapers",
     "ao3"            : "Archive of Our Own",
     "archivedmoe"    : "Archived.Moe",
     "archiveofsins"  : "Archive of Sins",
