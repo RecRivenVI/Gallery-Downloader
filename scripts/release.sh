@@ -14,10 +14,15 @@ prompt() {
 
 cleanup() {
     cd "${ROOTDIR}"
-    echo Removing old build directory
 
     if [ -d ./build ]; then
+        echo Removing old build directory
         rm -rf ./build
+    fi
+
+    if [ -d ./dist ]; then
+        echo Removing old dist directory
+        rm -rf ./dist/*
     fi
 }
 
@@ -119,15 +124,25 @@ build-vm() {
     rm -r /tmp/gallery-dl
 }
 
+checksum() {
+    cd "${ROOTDIR}/dist"
+    echo Generating SHA checksum files
+
+    sha256sum -- * > SHA256SUMS
+    sha512sum -- * > SHA512SUMS
+}
+
 sign() {
     cd "${ROOTDIR}/dist"
     echo Signing files
 
-    gpg --detach-sign --armor gallery_dl-${NEWVERSION}-py3-none-any.whl
-    gpg --detach-sign --armor gallery_dl-${NEWVERSION}.tar.gz
+    gpg --detach-sign --yes --armor gallery_dl-${NEWVERSION}-py3-none-any.whl
+    gpg --detach-sign --yes --armor gallery_dl-${NEWVERSION}.tar.gz
     gpg --detach-sign --yes gallery-dl.exe
     gpg --detach-sign --yes gallery-dl_x86.exe
     gpg --detach-sign --yes gallery-dl.bin
+    gpg --detach-sign --yes SHA256SUMS
+    gpg --detach-sign --yes SHA512SUMS
 }
 
 changelog() {
@@ -224,6 +239,7 @@ build-python
 build-linux
 build-windows
 build-windows_x86
+checksum
 sign
 upload-pypi
 upload-git
