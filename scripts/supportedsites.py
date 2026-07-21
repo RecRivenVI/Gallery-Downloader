@@ -149,6 +149,7 @@ CATEGORY_MAP = {
     "mariowiki"      : "Super Mario Wiki",
     "mastodon.social": "mastodon.social",
     "mediawiki"      : "MediaWiki",
+    "mgrenders"      : "MG Anime Renders",
     "micmicidol"     : "MIC MIC IDOL",
     "mixdrop"        : "MixDrop",
     "myhentaigallery": "My Hentai Gallery",
@@ -550,6 +551,15 @@ BASE_MAP = {
 URL_MAP = {
     "blogspot" : "https://www.blogger.com/",
     "wikimedia": "https://www.wikimedia.org/",
+
+    "civitai": (
+        "https://civitai.com/",
+        "https://civitai.red/",
+    ),
+    "mgrenders": (
+        "https://a.mg-renders.net/",
+        "https://h.mg-renders.net/",
+    ),
 }
 
 _OAUTH = '<a href="https://codeberg.org/mikf/gallery-dl#oauth">OAuth</a>'
@@ -702,8 +712,9 @@ def category_key(c):
     return category_text(c[0]).lower().lstrip("[")
 
 
-def subcategory_key(sc):
+def extractor_key(extr):
     """Generate sorting keys by subcategory"""
+    sc = extr.subcategory
     return "A" if sc == "issue" else sc
 
 
@@ -722,16 +733,16 @@ def build_extractor_list():
                 base = categories[extr.basecategory]
             else:
                 base = default
-            base[category].append(extr.subcategory)
+            base[category].append(extr)
             if category not in domains:
-                domains[category] = domain(extr)
+                domains[category] = URL_MAP.get(category) or domain(extr)
         else:
             base = categories[extr.basecategory]
             if not extr.instances:
-                base[""].append(extr.subcategory)
+                base[""].append(extr)
                 continue
             for category, root, info in extr.instances:
-                base[category].append(extr.subcategory)
+                base[category].append(extr)
                 if category not in domains:
                     if not root:
                         if category in URL_MAP:
@@ -744,8 +755,8 @@ def build_extractor_list():
 
     # sort subcategory lists
     for base in categories.values():
-        for subcategories in base.values():
-            subcategories.sort(key=subcategory_key)
+        for extractors in base.values():
+            extractors.sort(key=extractor_key)
 
     domains["pixiv-novel"] += "novel"
 
@@ -780,26 +791,11 @@ def build_extractor_list():
     return categories, domains
 
 
-# define table columns
-COLUMNS = (
-    ("Site", 20,
-     lambda bc, c, scs, d: category_text(c)),
-    ("URL" , 35,
-     lambda bc, c, scs, d: d),
-    ("Capabilities", 50,
-     lambda bc, c, scs, d: ", ".join(subcategory_text(bc, c, sc) for sc in scs
-                                     if subcategory_text(bc, c, sc))),
-    ("Authentication", 16,
-     lambda bc, c, scs, d: AUTH_MAP.get(c, "")),
-)
-
-
 def generate_output(columns, categories, domains):
-
     thead = []
     thead.append("<tr>")
     for column in columns:
-        thead.append(f"    <th>{column[0]}</th>")
+        thead.append(f"    <th>{column}</th>")
     thead.append("</tr>")
 
     tbody = []
@@ -815,13 +811,8 @@ def generate_output(columns, categories, domains):
         else:
             clist = sorted(base.items(), key=category_key)
 
-        for category, subcategories in clist:
-            tbody.append(f"""<tr id="{category}" title="{category}">""")
-            for column in columns:
-                domain = domains[category]
-                content = column[2](bcat, category, subcategories, domain)
-                tbody.append(f"    <td>{content}</td>")
-            tbody.append("</tr>")
+        for category, extractors in clist:
+            tbody.extend(generate_row(category, extractors, domains[category]))
 
     NL = "\n"
     GENERATOR = "/".join(os.path.normpath(__file__).split(os.sep)[-2:])
@@ -840,6 +831,42 @@ Consider all listed sites to potentially be NSFW.
 </tbody>
 </table>
 """
+
+
+def generate_row(category, extractors, domain):
+    row = [f"""<tr id="{category}" title="{category}">"""]
+
+    # Site Name
+    row.append(f"    <td>{category_text(category)}</td>")
+
+    # URLs
+    if isinstance(domain, str):
+        row.append(f"    <td>{domain}</td>")
+    else:
+        row.append(f"    <td>{'<br>'.join(domain)}</td>")
+        domain = domain[0]
+
+    # Subcategories
+    scs = []
+    for extr in extractors:
+        if sctext := subcategory_text(
+                extr.basecategory, category, extr.subcategory):
+            example = extr.example
+            if extr.basecategory:
+                example = domain + example[example.find("/", 8)+1:]
+            scs.append(f'<span title="{example}">{sctext}</span>')
+    sep = " |\n        "
+    row.append(f"    <td>{sep.join(scs)}</td>")
+
+    # Authentication
+    row.append(f"    <td>{AUTH_MAP.get(category, '')}</td>")
+
+    row.append("</tr>")
+    return row
+
+
+# define table columns
+COLUMNS = ("Site", "URL", "Capabilities", "Authentication")
 
 
 def main(path=None):
