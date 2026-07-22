@@ -194,7 +194,7 @@ class FanboxExtractor(Extractor):
             "hasAdultContent": None,
             "paymentMethod"  : None,
         }}
-        for plan in data["body"]:
+        for plan in data["body"]["plans"]:
             del plan["user"]
             plans[plan["fee"]] = plan
 
@@ -376,7 +376,8 @@ class FanboxCreatorExtractor(FanboxExtractor):
         return self._pagination_creator(url + (c1 or c2))
 
     def _pagination_creator(self, url):
-        urls = self.request_json(url, headers=self.headers)["body"]
+        urls = self.request_json(
+            url, headers=self.headers)["body"]["pageUrls"]
 
         if self._offset:
             quotient, remainder = divmod(self._offset, 10)
@@ -387,7 +388,8 @@ class FanboxCreatorExtractor(FanboxExtractor):
 
         for url in urls:
             url = text.ensure_http_scheme(url)
-            posts = self.request_json(url, headers=self.headers)["body"]
+            posts = self.request_json(
+                url, headers=self.headers)["body"]["posts"]
             if remainder:
                 posts = posts[remainder:]
                 remainder = None
