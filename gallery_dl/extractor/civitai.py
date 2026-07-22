@@ -6,7 +6,7 @@
 # it under the terms of the GNU General Public License version 2 as
 # published by the Free Software Foundation.
 
-"""Extractors for https://www.civitai.red/ and https://www.civitai.com/"""
+"""Extractors for https://civitai.com/ and https://civitai.red/"""
 
 from .common import Extractor, Message, Dispatch
 from .. import text, util
@@ -694,7 +694,7 @@ class CivitaiTrpcAPI():
         self.root = extractor.root + "/api/trpc/"
         self.headers = {
             "content-type"    : "application/json",
-            "x-client-version": "5.0.1386",
+            "x-client-version": "5.0.2142",
             "x-client-date"   : "",
             "x-client"        : "web",
             "x-fingerprint"   : "undefined",
@@ -861,8 +861,28 @@ class CivitaiTrpcAPI():
 
         params = {"input": util.json_dumps(input)}
         headers["x-client-date"] = str(int(time.time() * 1000))
-        return self.extractor.request_json(
-            url, params=params, headers=headers)["result"]["data"]["json"]
+
+        data = self.extractor.request_json(
+            url, params=params, headers=headers)["result"]["data"]
+
+        if not isinstance(data, str):
+            return data["json"]
+
+        meta = util.json_loads(data)
+        data = meta[0]
+
+        items = data.get("items") or 0
+        if items > 0:
+            data["items"] = items = [meta[i] for i in meta[items]]
+            for item in items:
+                for key, i in item.items():
+                    item[key] = meta[i] if i > 0 else None
+        else:
+            data["items"] = ()
+
+        cursor = data.get("nextCursor") or 0
+        data["nextCursor"] = meta[cursor] if cursor > 0 else None
+        return data
 
     def _pagination(self, endpoint, params, meta=None, user=False):
         if "cursor" not in params:
