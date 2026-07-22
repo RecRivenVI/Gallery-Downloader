@@ -25,15 +25,14 @@ class MyfigurecollectionItemExtractor(MyfigurecollectionExtractor):
     subcategory = "item"
     directory_fmt = ("{category}", "Items")
     filename_fmt = "{id}_{num:>02}_{filename}.{extension}"
-    archive_fmt = "{id}_{num}"
+    archive_fmt = "i{id}_{num}"
     pattern = BASE_PATTERN + r"/item/(\d+)"
     example = "https://myfigurecollection.net/item/12345"
 
     def items(self):
         item_id = self.groups[0]
         url = f"{self.root}/item/{item_id}"
-        page = self.request(url).text
-        extr = text.extract_from(page)
+        extr = text.extract_from(self.request(url).text)
 
         item = {
             "id"        : item_id,
@@ -102,6 +101,46 @@ class MyfigurecollectionItemExtractor(MyfigurecollectionExtractor):
                 name = f"{name} ({type})"
             results.append(name)
         return results
+
+
+class MyfigurecollectionPictureExtractor(MyfigurecollectionExtractor):
+    subcategory = "picture"
+    directory_fmt = ("{category}", "{user}", "Photos")
+    filename_fmt = "{id} {title}.{extension}"
+    archive_fmt = "p{id}"
+    pattern = BASE_PATTERN + r"/picture/(\d+)"
+    example = "https://myfigurecollection.net/picture/12345"
+
+    def items(self):
+        item_id = self.groups[0]
+        url = f"{self.root}/picture/{item_id}"
+        extr = text.extract_from(self.request(url).text)
+
+        item = {
+            "id"      : item_id,
+            "title"   : text.unescape(extr(
+                'property="og:title" content="', '"')),
+            "post_url": text.unescape(extr(
+                'property="og:url" content="', '"')),
+            "Category": text.split_html(extr(
+                'class="categories">', "</div></div><")),
+            "user"  : text.remove_html(extr("<section>", "</a><span")),
+            "date"  : self.parse_datetime(extr(
+                '<span title="', '"'), "%m/%d/%Y, %H:%M:%S"),
+            "url"   : extr('<a href="', '"'),
+            ""      : extr('<a class="size"', ">"),
+            "width" : text.parse_int(extr("", "&times;")),
+            "height": text.parse_int(extr("", " ")),
+            "size"  : text.parse_bytes(extr("(", "iB")),
+            "description": extr('<div class="bbcode">', "</div>"),
+            "tags"  : text.split_html(extr(
+                '<div class="object-tags">', "</section>"))[::2],
+        }
+        del item[""]
+
+        url = item["url"]
+        yield Message.Directory, "", item
+        yield Message.Url, url, text.nameext_from_url(url, item)
 
 
 def split(html):

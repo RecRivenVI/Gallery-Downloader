@@ -199,4 +199,54 @@ __tests__ = (
     ],
 },
 
+{
+    "#url"     : "https://myfigurecollection.net/picture/717980",
+    "#class"   : myfigurecollection.MyfigurecollectionPictureExtractor,
+    "#results" : "https://static.myfigurecollection.net/upload/pictures/2013/05/31/717980.jpeg",
+
+    "date"       : "dt:2013-05-31 03:26:01",
+    "extension"  : "jpeg",
+    "filename"   : "717980",
+    "height"     : 2048,
+    "id"         : "717980",
+    "post_url"   : "https://myfigurecollection.net/picture/717980",
+    "size"       : 1346560,
+    "title"      : "New day",
+    "url"        : "https://static.myfigurecollection.net/upload/pictures/2013/05/31/717980.jpeg",
+    "user"       : "anhxtan",
+    "width"      : 1365,
+    "description": """\
+I was very nervous when trying to keep Miku and her wings on the air. She can falling down any time, and my face will turn green for sure.<br />
+Luckily it was not happened ^^&quot; and the final result seemed not bad. This is <a href="https://myfigurecollection.net/blog/8391" title="https://myfigurecollection.net/blog/8391" class="internal-link">how did i pose her in the air</a><br />
+<br />
+Today is the last day of May and Miku is wishing the best thing to you all.\
+""",
+    "Category"   : [
+        "Figures",
+        "Lighting",
+    ],
+    "tags"       : [
+        "ageta yukiwo",
+        "aiyoku no eustia",
+        "august",
+        "cheerful japan!",
+        "crypton future media",
+        "eustia astraea",
+        "fyu-neru",
+        "good smile company",
+        "guilty crown",
+        "hatsune miku",
+        "kotobukiya",
+        "maruhige",
+        "nendoroid",
+        "nendoron",
+        "nitroplus",
+        "shiina mayuri",
+        "steins;gate",
+        "takaku & takeshi",
+        "vocaloid",
+        "yuzuriha inori",
+    ],
+},
+
 )

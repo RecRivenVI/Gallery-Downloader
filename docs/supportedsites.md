@@ -1181,7 +1181,8 @@ Consider all listed sites to potentially be NSFW.
 <tr id="myfigurecollection" title="myfigurecollection">
     <td>Myfigurecollection</td>
     <td>https://myfigurecollection.net/</td>
-    <td><span title="https://myfigurecollection.net/item/12345">Items</span></td>
+    <td><span title="https://myfigurecollection.net/item/12345">Items</span> |
+        <span title="https://myfigurecollection.net/picture/12345">Pictures</span></td>
     <td></td>
 </tr>
 <tr id="naver-blog" title="naver-blog">
