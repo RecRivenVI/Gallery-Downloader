@@ -157,6 +157,7 @@ modules = [
     "misskey",
     "mixdrop",
     "motherless",
+    "myfigurecollection",
     "myhentaigallery",
     "myportfolio",
     "naverblog",

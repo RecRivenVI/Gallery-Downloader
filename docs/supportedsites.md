@@ -1178,6 +1178,12 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://myhentaigallery.com/a/category/123">Tag Searches</span></td>
     <td></td>
 </tr>
+<tr id="myfigurecollection" title="myfigurecollection">
+    <td>Myfigurecollection</td>
+    <td>https://myfigurecollection.net/</td>
+    <td><span title="https://myfigurecollection.net/item/12345">Items</span></td>
+    <td></td>
+</tr>
 <tr id="naver-blog" title="naver-blog">
     <td>Naver Blog</td>
     <td>https://blog.naver.com/</td>
