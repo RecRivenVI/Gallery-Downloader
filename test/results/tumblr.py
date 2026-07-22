@@ -370,6 +370,17 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.tumblr.com/pangur-and-grim/822672895959498752/i-went-to-pick-up-a-new-book-and-thrilled-to-see",
+    "#class"   : tumblr.TumblrPostExtractor,
+    "#results" : (
+        "https://64.media.tumblr.com/52804c305ae921b2ec9345cf2dc7ae1d/31b4ad214a07c090-09/s99999x99999/e65939bc8efe358dffa40f703aeaaf695e7a694a.png",
+        "https://64.media.tumblr.com/2070fab9e473df127a1ddf15a4c8eb76/e961f538a8e5e7b9-e8/s99999x99999/53cbeaea628f4e37c4ee5d2d5215577a2bc243ff.jpg",
+    ),
+
+    "source": {"question", "answer"},
+},
+
+{
     "#url"     : "http://demo.tumblr.com/tagged/Times%20Square",
     "#class"   : tumblr.TumblrTagExtractor,
     "#pattern" : r"https://\d+\.media\.tumblr\.com/tumblr_[^/_]+_1280.jpg",
