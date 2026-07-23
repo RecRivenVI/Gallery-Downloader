@@ -200,6 +200,44 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://myfigurecollection.net/item/2827622",
+    "#comment" : "'Canceled' release",
+    "#class"   : myfigurecollection.MyfigurecollectionItemExtractor,
+    "#results" : (
+        "https://static.myfigurecollection.net/upload/items/2/2827622-b2f90.jpg",
+        "https://static.myfigurecollection.net/upload/pictures/2025/05/18/4411213.png",
+    ),
+
+    "Category"      : ["Hanged up"],
+    "artist"        : ["Shiratama Yupina (Illustrator)"],
+    "character"     : ["Henya the Genius"],
+    "company"       : ["Fourthwall (Manufacturer)"],
+    "count"         : 2,
+    "dimensions"    : "W= 110 mm (4.29in)    L= 15 mm (0.59in)    H= 80 mm (3.12in)",
+    "id"            : "2827622",
+    "material"      : "",
+    "origin"        : ["VShojo"],
+    "post_url"      : "https://myfigurecollection.net/item/2827622",
+    "release"       : ["Canceled"],
+    "title_html"    : "VShojo - Henya the Genius - Henya Bunniversary - Pass Case (Fourthwall)",
+    "classification": [
+        "Pass Case (Type)",
+        "Henya Bunniversary (Product line)",
+    ],
+    "tags"          : [
+        "canceled",
+        "fourthwall",
+        "goods",
+        "henya bunniversary",
+        "henya the genius",
+        "pass case",
+        "shiratama yupina",
+        "virtual youtuber",
+        "vshojo",
+    ],
+},
+
+{
     "#url"     : "https://myfigurecollection.net/picture/717980",
     "#class"   : myfigurecollection.MyfigurecollectionPictureExtractor,
     "#results" : "https://static.myfigurecollection.net/upload/pictures/2013/05/31/717980.jpeg",

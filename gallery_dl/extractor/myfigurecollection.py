@@ -113,11 +113,12 @@ class MyfigurecollectionItemExtractor(MyfigurecollectionExtractor):
             try:
                 date = f"{parts[2]}-{parts[1]}-{parts[0]}"
             except Exception:
+                if len(parts) < 2:
+                    results.append(text.remove_html(item))
+                    continue
                 date = f"{parts[1]}-{parts[0]}"
             name = f"{date}: {price.replace('<small>', '').strip()}"
-            if type:
-                name = f"{name} ({type})"
-            results.append(name)
+            results.append(f"{name} ({type})" if type else name)
         return results
 
 
@@ -146,15 +147,14 @@ class MyfigurecollectionPictureExtractor(MyfigurecollectionExtractor):
             "date"  : self.parse_datetime(extr(
                 '<span title="', '"'), "%m/%d/%Y, %H:%M:%S"),
             "url"   : extr('<a href="', '"'),
-            ""      : extr('<a class="size"', ">"),
-            "width" : text.parse_int(extr("", "&times;")),
+            "width" : text.parse_int(extr(
+                '<a class="size', ">") and extr("", "&times;")),
             "height": text.parse_int(extr("", " ")),
             "size"  : text.parse_bytes(extr("(", "iB")),
             "description": extr('<div class="bbcode">', "</div>"),
             "tags"  : text.split_html(extr(
                 '<div class="object-tags">', "</section>"))[::2],
         }
-        del item[""]
 
         url = item["url"]
         yield Message.Directory, "", item
