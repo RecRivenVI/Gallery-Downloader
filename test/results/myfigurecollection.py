@@ -249,4 +249,42 @@ Today is the last day of May and Miku is wishing the best thing to you all.\
     ],
 },
 
+{
+    "#url"     : "https://myfigurecollection.net/profile/AliceM",
+    "#class"   : myfigurecollection.MyfigurecollectionUserExtractor,
+    "#options" : {"include": "all"},
+    "#results" : (
+        "https://myfigurecollection.net/profile/AliceM/collection/",
+        "https://myfigurecollection.net/profile/AliceM/pictures/",
+    )
+},
+
+{
+    "#url"     : "https://myfigurecollection.net/profile/anhxtan/collection/",
+    "#class"   : myfigurecollection.MyfigurecollectionUserCollectionExtractor,
+    "#pattern" : myfigurecollection.MyfigurecollectionItemExtractor.pattern,
+    "#count"   : range(60, 80),
+},
+
+{
+    "#url"     : "https://myfigurecollection.net/?mode=view&username=AliceM&tab=collection&status=2&current=keywords&rootId=-1&categoryId=-1&output=2&sort=category&order=asc&_tb=user&page=1",
+    "#class"   : myfigurecollection.MyfigurecollectionUserCollectionExtractor,
+    "#pattern" : myfigurecollection.MyfigurecollectionItemExtractor.pattern,
+    "#count"   : range(120, 150),
+},
+
+{
+    "#url"     : "https://myfigurecollection.net/profile/AliceM/pictures/",
+    "#class"   : myfigurecollection.MyfigurecollectionUserPicturesExtractor,
+    "#pattern" : myfigurecollection.MyfigurecollectionPictureExtractor.pattern,
+    "#count"   : range(290, 320),
+},
+
+{
+    "#url"     : "https://myfigurecollection.net/?mode=view&username=anhxtan&tab=pictures&current=tags&categoryId=0&albumId=-1&sort=date&order=desc&_tb=user&page=5",
+    "#class"   : myfigurecollection.MyfigurecollectionUserPicturesExtractor,
+    "#pattern" : myfigurecollection.MyfigurecollectionPictureExtractor.pattern,
+    "#count"   : range(60, 80),
+},
+
 )

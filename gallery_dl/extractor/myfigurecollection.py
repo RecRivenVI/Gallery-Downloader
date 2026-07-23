@@ -8,7 +8,7 @@
 
 """Extractors for https://myfigurecollection.net/"""
 
-from .common import Extractor, Message
+from .common import Extractor, Message, Dispatch
 from .. import text, util
 
 BASE_PATTERN = r"(?:https?://)?(?:www\.)?myfigurecollection\.net"
@@ -19,6 +19,24 @@ class MyfigurecollectionExtractor(Extractor):
     """Base class for myfigurecollection extractors"""
     category = "myfigurecollection"
     root = "https://myfigurecollection.net"
+    parent = True
+
+    def _pagination(self, params):
+        url = self.root + "/"
+        params["page"] = text.parse_int(params.get("page"), 1)
+
+        find_ids = text.re(r'<a href="/\w+/(\d+)').findall
+        while True:
+            page = self.request(url, params=params).text
+            results, pos = text.extract(
+                page, '<div class="results">', '<div class="results-count">')
+
+            yield from find_ids(results)
+
+            pos = page.find("nav-current", pos)
+            if page.find('"nav-page', pos) < 0:
+                break
+            params["page"] += 1
 
 
 class MyfigurecollectionItemExtractor(MyfigurecollectionExtractor):
@@ -141,6 +159,81 @@ class MyfigurecollectionPictureExtractor(MyfigurecollectionExtractor):
         url = item["url"]
         yield Message.Directory, "", item
         yield Message.Url, url, text.nameext_from_url(url, item)
+
+
+class MyfigurecollectionUserExtractor(Dispatch, MyfigurecollectionExtractor):
+    pattern = USER_PATTERN + r"/?(?:$|\?|#)"
+    example = "https://myfigurecollection.net/profile/USER"
+
+    def items(self):
+        base = f"{self.root}/profile/{self.groups[0]}/"
+        return self._dispatch_extractors((
+            (MyfigurecollectionUserCollectionExtractor, base + "collection/"),
+            (MyfigurecollectionUserPicturesExtractor  , base + "pictures/"),
+        ), ("pictures",))
+
+
+class MyfigurecollectionUserCollectionExtractor(MyfigurecollectionExtractor):
+    subcategory = "user-collection"
+    pattern = (BASE_PATTERN + r"/(?:profile/([^/?#]+)/collection"
+               r"|\?(mode=view&username=[^&#]+&tab=collection[^#]*))")
+    example = "https://myfigurecollection.net/profile/USER/collection/"
+
+    def items(self):
+        username, query = self.groups
+        if username:
+            params = {
+                "mode"      : "view",
+                "username"  : username,
+                "tab"       : "collection",
+                "status"    : "2",
+                "current"   : "keywords",
+                "rootId"    : "-1",
+                "categoryId": "-1",
+                "output"    : "2",
+                "sort"      : "category",
+                "order"     : "asc",
+                "_tb"       : "user",
+                "page"      : 1,
+
+            }
+        else:
+            params = text.parse_query(query)
+
+        data = {"_extractor": MyfigurecollectionItemExtractor}
+        base = self.root + "/item/"
+        for item_id in self._pagination(params):
+            yield Message.Queue, base + item_id, data
+
+
+class MyfigurecollectionUserPicturesExtractor(MyfigurecollectionExtractor):
+    subcategory = "user-pictures"
+    pattern = (BASE_PATTERN + r"/(?:profile/([^/?#]+)/pictures"
+               r"|\?(mode=view&username=[^&#]+&tab=pictures[^#]*))")
+    example = "https://myfigurecollection.net/profile/USER/pictures/"
+
+    def items(self):
+        username, query = self.groups
+        if username:
+            params = {
+                "mode"      : "view",
+                "username"  : username,
+                "tab"       : "pictures",
+                "current"   : "tags",
+                "categoryId": "0",
+                "albumId"   : "-1",
+                "sort"      : "date",
+                "order"     : "desc",
+                "_tb"       : "user",
+                "page"      : 1,
+            }
+        else:
+            params = text.parse_query(query)
+
+        data = {"_extractor": MyfigurecollectionPictureExtractor}
+        base = self.root + "/picture/"
+        for item_id in self._pagination(params):
+            yield Message.Queue, base + item_id, data
 
 
 def split(html):
