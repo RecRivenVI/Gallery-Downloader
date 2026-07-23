@@ -874,9 +874,27 @@ class CivitaiTrpcAPI():
         items = data.get("items") or 0
         if items > 0:
             data["items"] = items = [meta[i] for i in meta[items]]
-            for item in items:
+            resolve = items.copy()
+            while resolve:
+                item = resolve.pop()
                 for key, i in item.items():
-                    item[key] = meta[i] if i > 0 else None
+                    if i > 0:
+                        item[key] = value = meta[i]
+                        if isinstance(value, dict):
+                            resolve.append(value)
+                        elif value and isinstance(value, list):
+                            first = value[0]
+                            if first == "Date":
+                                item[key] = value[1]
+                            elif isinstance(first, int):
+                                for index, i in enumerate(value):
+                                    value[index] = meta[i]
+                            elif isinstance(first, dict) and all(
+                                    isinstance(v, int) for v in first.values()):  # noqa: E501
+                                resolve.extend(value)
+                    else:
+                        item[key] = None
+
         else:
             data["items"] = ()
 
