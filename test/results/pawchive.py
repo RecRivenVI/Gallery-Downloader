@@ -141,7 +141,7 @@ __tests__ = (
         "public_id"       : "anna-anon",
         "relation_id"     : None,
         "service"         : "fanbox",
-        "updated"         : "2026-06-15T18:59:26.017105",
+        "updated"         : "iso:dt",
     },
 },
 
@@ -151,7 +151,7 @@ __tests__ = (
     "#category": ("", "pawchive", "patreon"),
     "#class"   : pawchive.PawchivePostExtractor,
     "#pattern" : r"https://file\.pawchive\.pw/data/.+",
-    "#count"   : 72,
+    "#count"   : 153,
 },
 
 {
@@ -194,7 +194,7 @@ __tests__ = (
         "public_id"       : "Maplestar",
         "relation_id"     : None,
         "service"         : "patreon",
-        "updated"         : "2026-07-03T06:19:18.413405",
+        "updated"         : "iso:dt",
     },
 },
 
