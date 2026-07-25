@@ -26,6 +26,27 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://co.llection.pics/post/view/162175",
+    "#comment" : "'source', 'rating', 'parent_id' metadta (#286)",
+    "#category": ("shimmie2", "thecollectionS", "post"),
+    "#class"   : shimmie2.Shimmie2PostExtractor,
+    "#results" : "https://co.llection.pics/_images/8a4543805458285188e0553b0f9802bd/162175%20-%20cbs%20channel-tans.jpg",
+
+    "extension": "jpg",
+    "file_url" : "https://co.llection.pics/_images/8a4543805458285188e0553b0f9802bd/162175%20-%20cbs%20channel-tans.jpg",
+    "filename" : "162175 - cbs channel-tans",
+    "height"   : 768,
+    "id"       : 162175,
+    "md5"      : "8a4543805458285188e0553b0f9802bd",
+    "parent_id": 0,
+    "rating"   : "Safe",
+    "size"     : 0,
+    "source"   : "https://desuarchive.org/co/thread/92965507/#92967840",
+    "tags"     : "cbs channel-tans",
+    "width"    : 1024,
+},
+
+{
     "#url"     : "https://co.llection.pics/post/list/crossovers/1",
     "#category": ("shimmie2", "thecollectionS", "tag"),
     "#class"   : shimmie2.Shimmie2TagExtractor,

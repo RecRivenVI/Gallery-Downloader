@@ -195,6 +195,12 @@ class Shimmie2PostExtractor(Shimmie2Extractor):
         post["width"] = text.extr(file, "data-width="+qt, qt)
         post["height"] = text.extr(
             file, "data-height="+qt, qt).partition(" ")[0]
+        post["source"] = text.extr(
+            extr(">Source Link<", "</tr>"), "href="+qt, qt)
+        post["parent_id"] = text.parse_int(text.remove_html(
+            extr("Parent</th>", "</tr>")))
+        post["rating"] = text.remove_html(
+            extr(">Rating</th>", "</tr>"))
 
         if not post["md5"]:
             post["md5"] = text.extr(post["file_url"], "/_images/", "/")
