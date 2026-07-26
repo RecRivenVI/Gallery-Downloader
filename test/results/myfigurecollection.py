@@ -331,6 +331,7 @@ Today is the last day of May and Miku is wishing the best thing to you all.\
     "#results" : (
         "https://myfigurecollection.net/profile/AliceM/collection/",
         "https://myfigurecollection.net/profile/AliceM/pictures/",
+        "https://myfigurecollection.net/profile/AliceM/blogposts/",
     )
 },
 
@@ -417,6 +418,20 @@ Item: <a href="https://myfigurecollection.net/item/2395834" title="https://myfig
 <br />
 Anyhow, that pretty much wraps things up! I hope you learned something from this article that may help you now or possibly in the future (If you thought this article was worthwhile don't forget to click ♡ Like at the bottom of the article). <span class="i">If you have any experiences with other figures with LEDs that could also have this issue, or you found other power combinations that work, please share your experiences in the comments section.</span> Thanks for taking the time to read my article!\
 """,
+},
+
+{
+    "#url"     : "https://myfigurecollection.net/profile/Toraneko/blogposts/",
+    "#class"   : myfigurecollection.MyfigurecollectionUserArticlesExtractor,
+    "#pattern" : myfigurecollection.MyfigurecollectionArticleExtractor.pattern,
+    "#count"   : 16,
+},
+
+{
+    "#url"     : "https://myfigurecollection.net/?mode=view&username=ChocolateSpider&tab=blogposts&current=keywords&sort=date&order=desc&categoryId=-1&isSelected=0&_tb=user&page=4",
+    "#class"   : myfigurecollection.MyfigurecollectionUserArticlesExtractor,
+    "#pattern" : myfigurecollection.MyfigurecollectionArticleExtractor.pattern,
+    "#count"   : range(50, 80),
 },
 
 )

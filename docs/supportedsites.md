@@ -1185,6 +1185,7 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://myfigurecollection.net/item/12345">Items</span> |
         <span title="https://myfigurecollection.net/picture/12345">Pictures</span> |
         <span title="https://myfigurecollection.net/profile/USER">User Profiles</span> |
+        <span title="https://myfigurecollection.net/profile/USER/blogposts/">User Articles</span> |
         <span title="https://myfigurecollection.net/profile/USER/collection/">User Collections</span> |
         <span title="https://myfigurecollection.net/profile/USER/pictures/">User Pictures</span></td>
     <td></td>

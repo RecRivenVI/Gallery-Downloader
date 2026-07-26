@@ -216,6 +216,7 @@ class MyfigurecollectionUserExtractor(Dispatch, MyfigurecollectionExtractor):
         return self._dispatch_extractors((
             (MyfigurecollectionUserCollectionExtractor, base + "collection/"),
             (MyfigurecollectionUserPicturesExtractor  , base + "pictures/"),
+            (MyfigurecollectionUserArticlesExtractor  , base + "blogposts/"),
         ), ("pictures",))
 
 
@@ -279,6 +280,37 @@ class MyfigurecollectionUserPicturesExtractor(MyfigurecollectionExtractor):
         data = {"_extractor": MyfigurecollectionPictureExtractor}
         base = self.root + "/picture/"
         for item_id in self._pagination(params):
+            yield Message.Queue, base + item_id, data
+
+
+class MyfigurecollectionUserArticlesExtractor(MyfigurecollectionExtractor):
+    subcategory = "user-articles"
+    pattern = (BASE_PATTERN + r"/(?:profile/([^/?#]+)/blogposts"
+               r"|\?(mode=view&username=[^&#]+&tab=blogposts[^#]*))")
+    example = "https://myfigurecollection.net/profile/USER/blogposts/"
+
+    def items(self):
+        username, query = self.groups
+
+        if username:
+            params = {
+                "mode"      : "view",
+                "username"  : username,
+                "tab"       : "blogposts",
+                "current"   : "keywords",
+                "sort"      : "date",
+                "order"     : "desc",
+                "categoryId": "-1",
+                "isSelected": "0",
+                "_tb"       : "user",
+                "page"      : "1",
+            }
+        else:
+            params = text.parse_query(query)
+
+        data = {"_extractor": MyfigurecollectionArticleExtractor}
+        base = self.root + "/blogpost/"
+        for item_id in util.unique_sequence(self._pagination(params)):
             yield Message.Queue, base + item_id, data
 
 
