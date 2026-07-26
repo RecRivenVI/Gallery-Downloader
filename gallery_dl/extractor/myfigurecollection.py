@@ -164,6 +164,49 @@ class MyfigurecollectionPictureExtractor(MyfigurecollectionExtractor):
         yield Message.Url, url, text.nameext_from_url(url, item)
 
 
+class MyfigurecollectionArticleExtractor(MyfigurecollectionExtractor):
+    subcategory = "article"
+    directory_fmt = ("{category}", "{user}", "Articles",
+                     "{date:%Y-%m-%d} {id} {title}")
+    filename_fmt = "{num:>02}.{extension}"
+    archive_fmt = "a{id}_{num}"
+    pattern = BASE_PATTERN + r"/blogpost/(\d+)"
+    example = "https://myfigurecollection.net/blogpost/12345"
+
+    def items(self):
+        item_id = self.groups[0]
+        url = f"{self.root}/blogpost/{item_id}"
+        extr = text.extract_from(self.request(url).text)
+
+        item = {
+            "id"      : item_id,
+            "title"   : text.unescape(extr(
+                'property="og:title" content="', '"')),
+            "post_url": text.unescape(extr(
+                'property="og:url" content="', '"')),
+            "Category": text.split_html(extr(
+                'class="categories">', "</div></div><")),
+            "user"  : text.remove_html(extr("<section>", "</a><span")),
+            "date"  : self.parse_datetime(extr(
+                '<span title="', '"'), "%m/%d/%Y, %H:%M:%S"),
+            "body"  : extr(
+                'eBody"><div class="bbcode">', '</div></div></div></div><div'),
+            "views" : extr(">", " ").replace(",", ""),
+            "likes" : extr(">", " ").replace(",", ""),
+            "comments": extr('/comments/">', " ").replace(",", ""),
+            "tags"  : text.split_html(extr(
+                '<div class="object-tags">', "</section>"))[::2],
+        }
+
+        files = text.re(r'<img[^>]*? alt="([^"]+)').findall(
+            item["body"])
+        item["count"] = len(files)
+
+        yield Message.Directory, "", item
+        for item["num"], url in enumerate(files, 1):
+            yield Message.Url, url, text.nameext_from_url(url, item)
+
+
 class MyfigurecollectionUserExtractor(Dispatch, MyfigurecollectionExtractor):
     pattern = USER_PATTERN + r"/?(?:$|\?|#)"
     example = "https://myfigurecollection.net/profile/USER"

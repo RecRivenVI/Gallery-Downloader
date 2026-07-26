@@ -1181,7 +1181,8 @@ Consider all listed sites to potentially be NSFW.
 <tr id="myfigurecollection" title="myfigurecollection">
     <td>Myfigurecollection</td>
     <td>https://myfigurecollection.net/</td>
-    <td><span title="https://myfigurecollection.net/item/12345">Items</span> |
+    <td><span title="https://myfigurecollection.net/blogpost/12345">Articles</span> |
+        <span title="https://myfigurecollection.net/item/12345">Items</span> |
         <span title="https://myfigurecollection.net/picture/12345">Pictures</span> |
         <span title="https://myfigurecollection.net/profile/USER">User Profiles</span> |
         <span title="https://myfigurecollection.net/profile/USER/collection/">User Collections</span> |
