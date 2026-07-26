@@ -111,14 +111,17 @@ class MyfigurecollectionItemExtractor(MyfigurecollectionExtractor):
 
             parts = date.split("/")
             try:
-                date = f"{parts[2]}-{parts[1]}-{parts[0]}"
+                name = f"{parts[2]}-{parts[1]}-{parts[0]}"
             except Exception:
                 if len(parts) < 2:
                     results.append(text.remove_html(item))
                     continue
-                date = f"{parts[1]}-{parts[0]}"
-            name = f"{date}: {price.replace('<small>', '').strip()}"
-            results.append(f"{name} ({type})" if type else name)
+                name = f"{parts[1]}-{parts[0]}"
+            if price:
+                name = f"{name}: {price.replace('<small>', '').strip()}"
+            if type:
+                name = f"{name} ({type})"
+            results.append(name)
         return results
 
 
