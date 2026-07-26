@@ -30,6 +30,7 @@ __tests__ = (
     "name"       : "test-テスト-\"&>",
     "slug"       : "test-テスト-\"&>-QjgneIQv.png",
     "num"        : 1,
+    "thumbnail"  : r"re:https://static\.scdn\.st/[^/]+/thumbs/.+",
 },
 
 {
@@ -251,6 +252,7 @@ __tests__ = (
     "filename" : "image-sZrQUeOx",
     "id"       : "sZrQUeOx",
     "name"     : "image",
+    "thumbnail": r"re:https://static\.scdn\.st/[^/]+/thumbs/.+",
 },
 
 {
