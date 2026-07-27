@@ -1484,14 +1484,6 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://rawkuma.net/manga/TITLE/">Manga</span></td>
     <td></td>
 </tr>
-<tr id="readcomiconline" title="readcomiconline">
-    <td>Read Comic Online</td>
-    <td>https://readcomiconline.li/</td>
-    <td><span title="https://readcomiconline.li/Comic/TITLE/Issue-123?id=12345">Comic Issues</span> |
-        <span title="https://readcomiconline.li/Comic/TITLE">Comics</span> |
-        <span title="https://readcomiconline.li/Artist/NAME">Tag Searches</span></td>
-    <td></td>
-</tr>
 <tr id="realbooru" title="realbooru">
     <td>Realbooru</td>
     <td>https://realbooru.com/</td>

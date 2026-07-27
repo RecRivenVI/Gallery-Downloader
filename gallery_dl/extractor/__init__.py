@@ -198,7 +198,6 @@ modules = [
     "postype",
     "rawkuma",
     "reactor",
-    "readcomiconline",
     "realbooru",
     "reddit",
     "redgifs",

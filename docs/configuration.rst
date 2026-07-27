@@ -646,8 +646,7 @@ Default
     ``"3.0-6.0"``
         ``bilibili``        |
         ``exhentai``        |
-        ``[reactor]``       |
-        ``readcomiconline``
+        ``[reactor]``
     ``"6.0-6.1"``
         ``twibooru``
     ``"6.0-12.0"``
@@ -999,9 +998,11 @@ Description
     Supported browsers:
 
     * ``firefox``
+    * ``firefox/153``
     * ``firefox/140``
     * ``firefox/128``
     * ``chrome``
+    * ``chrome/150``
     * ``chrome/138``
     * ``chrome/111``
 
@@ -5894,32 +5895,6 @@ Description
     to download as mp4 videos.
 
 
-extractor.readcomiconline.captcha
----------------------------------
-Type
-    ``string``
-Default
-    ``"stop"``
-Description
-    Controls how to handle redirects to CAPTCHA pages.
-
-    ``"stop``
-        Stop the current extractor run.
-    ``"wait``
-        Ask the user to solve the CAPTCHA and wait.
-
-
-extractor.readcomiconline.quality
----------------------------------
-Type
-    ``string``
-Default
-    ``"auto"``
-Description
-    Sets the ``quality`` query parameter of issue pages. (``"lq"`` or ``"hq"``)
-
-    ``"auto"`` uses the quality parameter of the input URL
-    or ``"hq"`` if not present.
 
 
 extractor.reddit.api
