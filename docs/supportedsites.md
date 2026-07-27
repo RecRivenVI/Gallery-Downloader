@@ -2460,6 +2460,7 @@ Consider all listed sites to potentially be NSFW.
     <td>https://www.nelomanga.net/</td>
     <td><span title="https://www.nelomanga.net/bookmark">Bookmarks</span> |
         <span title="https://www.nelomanga.net/manga/MANGA_NAME/chapter-123">Chapters</span> |
+        <span title="https://www.nelomanga.net/genre/GENRE">Genres</span> |
         <span title="https://www.nelomanga.net/manga/MANGA_NAME">Manga</span></td>
     <td></td>
 </tr>
@@ -2468,6 +2469,7 @@ Consider all listed sites to potentially be NSFW.
     <td>https://www.natomanga.com/</td>
     <td><span title="https://www.natomanga.com/bookmark">Bookmarks</span> |
         <span title="https://www.natomanga.com/manga/MANGA_NAME/chapter-123">Chapters</span> |
+        <span title="https://www.natomanga.com/genre/GENRE">Genres</span> |
         <span title="https://www.natomanga.com/manga/MANGA_NAME">Manga</span></td>
     <td></td>
 </tr>
@@ -2476,6 +2478,7 @@ Consider all listed sites to potentially be NSFW.
     <td>https://www.manganato.gg/</td>
     <td><span title="https://www.manganato.gg/bookmark">Bookmarks</span> |
         <span title="https://www.manganato.gg/manga/MANGA_NAME/chapter-123">Chapters</span> |
+        <span title="https://www.manganato.gg/genre/GENRE">Genres</span> |
         <span title="https://www.manganato.gg/manga/MANGA_NAME">Manga</span></td>
     <td></td>
 </tr>
@@ -2484,6 +2487,7 @@ Consider all listed sites to potentially be NSFW.
     <td>https://www.mangakakalot.gg/</td>
     <td><span title="https://www.mangakakalot.gg/bookmark">Bookmarks</span> |
         <span title="https://www.mangakakalot.gg/manga/MANGA_NAME/chapter-123">Chapters</span> |
+        <span title="https://www.mangakakalot.gg/genre/GENRE">Genres</span> |
         <span title="https://www.mangakakalot.gg/manga/MANGA_NAME">Manga</span></td>
     <td></td>
 </tr>

@@ -609,6 +609,7 @@ Default
         ``[foolfuuka]:search`` |
         ``hdoujin``         |
         ``itaku``           |
+        ``[manganelo]``     |
         ``newgrounds``      |
         ``[nitter]``        |
         ``[philomena]``     |
