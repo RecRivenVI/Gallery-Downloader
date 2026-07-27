@@ -21,7 +21,10 @@ __tests__ = (
     "width"    : 798,
     "height"   : 598,
     "md5"      : "f33d9e0da3ba476f67ef18911e05876b",
-    "size"     : 0,
+    "parent_id": None,
+    "rating"   : "Safe",
+    "size"     : 100352,
+    "source"   : "",
     "tags"     : "inkling series:splatoon unknown_artist wat",
 },
 
