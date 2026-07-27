@@ -4966,6 +4966,24 @@ Note
     Not supported by all ``moebooru`` instances.
 
 
+extractor.myfigurecollection.include
+------------------------------------
+Type
+    * ``string``
+    * ``list`` of ``strings``
+Default
+    ``"user-pictures"``
+Description
+    A (comma-separated) list of subcategories to include
+    when processing a user profile.
+Supported Values
+    * ``user-collections``
+    * ``user-pictures``
+    * ``user-albums``
+Note
+    It is possible to use ``"all"`` instead of listing all values separately.
+
+
 extractor.naver-blog.videos
 ---------------------------
 Type

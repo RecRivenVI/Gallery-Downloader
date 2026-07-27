@@ -217,7 +217,7 @@ class MyfigurecollectionUserExtractor(Dispatch, MyfigurecollectionExtractor):
             (MyfigurecollectionUserCollectionExtractor, base + "collection/"),
             (MyfigurecollectionUserPicturesExtractor  , base + "pictures/"),
             (MyfigurecollectionUserArticlesExtractor  , base + "blogposts/"),
-        ), ("pictures",))
+        ), ("user-pictures",))
 
 
 class MyfigurecollectionUserCollectionExtractor(MyfigurecollectionExtractor):
