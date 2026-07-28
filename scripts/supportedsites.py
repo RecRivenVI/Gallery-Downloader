@@ -184,6 +184,7 @@ CATEGORY_MAP = {
     "prequelfanart"  : "Prequel Fanart",
     "rbt"            : "RebeccaBlackTech",
     "redgifs"        : "RedGIFs",
+    "ricardoadacor"  : "Ricardo Milos Database",
     "rozenarcana"    : "Rozen Arcana",
     "rule34"         : "Rule 34",
     "rule34hentai"   : "Rule34Hentai",

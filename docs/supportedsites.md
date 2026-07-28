@@ -2767,6 +2767,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://www.visuabusters.com/booru/posts/query=TAG">Tag Searches</span></td>
     <td></td>
 </tr>
+<tr id="ricardoadacor" title="ricardoadacor">
+    <td>Ricardo Milos Database</td>
+    <td>https://ricardo.adacor.org/</td>
+    <td><span title="https://ricardo.adacor.org/post/12345">Posts</span> |
+        <span title="https://ricardo.adacor.org/posts/query=TAG">Tag Searches</span></td>
+    <td></td>
+</tr>
 
 <tr id="urlshortener" title="urlshortener">
     <td colspan="4"><strong>URL Shorteners</strong></td>
