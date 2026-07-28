@@ -194,6 +194,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://audiochan.com/u/USER">User Profiles</span></td>
     <td></td>
 </tr>
+<tr id="batcave" title="batcave">
+    <td>BatCave.biz</td>
+    <td>https://batcave.biz/</td>
+    <td><span title="https://batcave.biz/reader/12345/123">Comic Issues</span> |
+        <span title="https://batcave.biz/12345-SLUG.html">Comics</span></td>
+    <td><a href="https://codeberg.org/mikf/gallery-dl#cookies">Cookies</a></td>
+</tr>
 <tr id="bbc" title="bbc">
     <td>BBC</td>
     <td>https://bbc.co.uk/</td>
