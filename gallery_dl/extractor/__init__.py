@@ -34,6 +34,7 @@ modules = [
     "artstation",
     "aryion",
     "audiochan",
+    "bakashots",
     "batcave",
     "bbc",
     "behance",

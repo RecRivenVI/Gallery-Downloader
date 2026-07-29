@@ -194,6 +194,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://audiochan.com/u/USER">User Profiles</span></td>
     <td></td>
 </tr>
+<tr id="bakashots" title="bakashots">
+    <td>BakaCOMPARE</td>
+    <td>https://compare.bakashots.me/</td>
+    <td><span title="https://compare.bakashots.me/compare.php?setId=12345">Comparisons</span> |
+        <span title="https://compare.bakashots.me/search.php?searchTherms=QUERY">Search Results</span></td>
+    <td></td>
+</tr>
 <tr id="batcave" title="batcave">
     <td>BatCave.biz</td>
     <td>https://batcave.biz/</td>

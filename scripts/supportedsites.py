@@ -41,6 +41,7 @@ CATEGORY_MAP = {
     "atfforum"       : "All The Fallen",
     "azurlanewiki"   : "Azur Lane Wiki",
     "b4k"            : "arch.b4k.dev",
+    "bakashots"      : "BakaCOMPARE",
     "baraag"         : "baraag",
     "batcave"        : "BatCave.biz",
     "batoto"         : "BATO.TO",
