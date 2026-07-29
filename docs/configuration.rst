@@ -2534,6 +2534,16 @@ Description
     `quality <extractor.civitai.quality_>`__ ones.
 
 
+extractor.civitai.quality-fallback
+----------------------------------
+Type
+    * ``string``
+Default
+    ``"transcode=true,original=true,quality=100"``
+Description
+    Video quality options to pass with video fallback URLs.
+
+
 extractor.civitai.search-models.token
 -------------------------------------
 extractor.civitai.search-images.token
