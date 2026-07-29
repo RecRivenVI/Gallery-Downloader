@@ -251,6 +251,33 @@ Plaque « Wavre Direct ». Au départ de Bruxelles : seuls les voyageurs de la s
 },
 
 {
+    "#url"     : "https://www.facebook.com/MCDucBao/posts/pfbid02hj9e4Coo1pBjGpeHoaFeAemT1wiG4VzHsuwQQXGp4FHiAXVE7mXqSeWce2UVLKoNl",
+    "#class"   : facebook.FacebookSetExtractor,
+    "#count"   : 4,
+
+    "date"          : "dt:2026-04-19 12:39:19",
+    "first_photo_id": "10164188359360743",
+    "set_id"        : "pcb.10164188403405743",
+    "title"         : "Photos from Bùi Đức Bảo's post",
+    "user_id"       : "607435742",
+    "user_pfbid"    : "",
+    "username"      : "Bùi Đức Bảo",
+    "post_text"     : """\
+20h tối nay trên VTV3, tại Studio3, hẹn gặp mọi người trong một cuộc trò chuyện mà cá nhân Đức Bảo đã chờ đợi... quá lâu
+
+Khách mời là Vinh Khuất - một trong những người đàn ông Việt mà tôi “mê” nhất. Không phải vì điều gì hào nhoáng, mà bởi tài năng, sự sáng tạo và nguồn năng lượng rất riêng mà bạn mang lại.
+
+Tin tôi đi, đây sẽ là một cuộc gặp gỡ đáng theo dõi đấy ạ.
+
+Xem anh em tôi vui vẻ với nhau chưa? Còn Nguyen Hong Nhung thì… tạm thời cho ra rìa nhé!
+
+Hẹn gặp bạn tối nay!
+
+#mcducbao #VTV3 #Studio3\
+""",
+},
+
+{
     "#url"     : "https://www.facebook.com/photo.php?fbid=10165113568399554&set=t.100064860875397&type=3",
     "#class"   : facebook.FacebookPhotoExtractor,
 },

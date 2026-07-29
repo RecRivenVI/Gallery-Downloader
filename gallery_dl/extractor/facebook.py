@@ -166,7 +166,7 @@ class FacebookExtractor(Extractor):
             text.extr(
                 post_page, '"__isMedia":"Photo"', '"target_group"'
             ), '"url":"', ','
-        )
+        ).replace("\\/", "/").rstrip('"}')
 
         if post_page.count('"__isMedia":"Photo"') > 2:
             post = {
@@ -176,6 +176,8 @@ class FacebookExtractor(Extractor):
         else:
             post = {"set_id": None}
 
+        txt = text.extr(post_page, ',"text":"', '"},')
+        post["post_text"] = util.json_loads(f'"{txt}"')
         post["post_photo"] = first_photo_url
         return post
 
@@ -479,6 +481,7 @@ class FacebookSetExtractor(FacebookExtractor):
         if not set_id:
             set_id = set_id2
 
+        post = None
         if path:
             post_url = f"{self.root}/{path}"
             post_page = self.request(post_url).text
@@ -486,6 +489,7 @@ class FacebookSetExtractor(FacebookExtractor):
 
             set_id = post["set_id"]
             if not set_id:
+                self.kwdict.update(post)
                 params = text.parse_query(post["post_photo"].partition("?")[2])
                 self.groups = (params["fbid"],)
                 return FacebookPhotoExtractor.items(self)
@@ -498,6 +502,8 @@ class FacebookSetExtractor(FacebookExtractor):
         set_data = self.parse_set_page(set_page)
         if first_pid:
             set_data["first_photo_id"] = first_pid
+        if post:
+            set_data.update(post)
 
         return self.extract_set(set_data)
 
