@@ -887,9 +887,12 @@ class CivitaiTrpcAPI():
                 for key, i in item.items():
                     if i > 0:
                         item[key] = value = meta[i]
-                        if isinstance(value, dict):
+                        if not value:
+                            pass
+                        elif isinstance(value, dict) and all(
+                                isinstance(v, int) for v in value.values()):
                             resolve.append(value)
-                        elif value and isinstance(value, list):
+                        elif isinstance(value, list):
                             first = value[0]
                             if first == "Date":
                                 item[key] = value[1]
