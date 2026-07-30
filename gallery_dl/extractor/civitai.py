@@ -185,6 +185,8 @@ class CivitaiExtractor(Extractor):
                 data["extension"] = (
                     self._video_ext if file.get("type") == "video" else
                     self._image_ext)
+            if "_fallback" in file:
+                data["_fallback"] = file.pop("_fallback")
             if "id" not in file and data["filename"].isdecimal():
                 file["id"] = text.parse_int(data["filename"])
             if "date" not in file and "createdAt" in file:
