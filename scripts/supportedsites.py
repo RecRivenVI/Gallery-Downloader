@@ -57,6 +57,7 @@ CATEGORY_MAP = {
     "comicvine"      : "Comic Vine",
     "cyberfile"      : "CyberFile",
     "dankefuerslesen": "Danke fürs Lesen",
+    "dcinside"       : "DCinside",
     "deviantart"     : "DeviantArt",
     "drawfriends"    : "Draw Friends",
     "dynastyscans"   : "Dynasty Reader",

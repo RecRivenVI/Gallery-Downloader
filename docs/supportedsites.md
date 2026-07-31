@@ -423,6 +423,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://danke.moe/read/manga/TITLE/">Manga</span></td>
     <td></td>
 </tr>
+<tr id="dcinside" title="dcinside">
+    <td>DCinside</td>
+    <td>https://www.dcinside.com/</td>
+    <td><span title="https://gall.dcinside.com/board/view/?id=ID&no=12345">Galleries</span> |
+        <span title="https://gallog.dcinside.com/USER">User Profiles</span></td>
+    <td></td>
+</tr>
 <tr id="desktopography" title="desktopography">
     <td>Desktopography</td>
     <td>https://desktopography.net/</td>

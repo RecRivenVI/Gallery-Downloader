@@ -61,6 +61,7 @@ modules = [
     "danbooru",
     "dandadan",
     "dankefuerslesen",
+    "dcinside",
     "desktopography",
     "deviantart",
     "discord",
