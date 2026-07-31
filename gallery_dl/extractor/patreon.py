@@ -483,12 +483,9 @@ class PatreonCreatorExtractor(PatreonExtractor):
         if cid := text.extr(
                 page, r'{\"value\":{\"campaign\":{\"data\":{\"id\":\"', '\\"'):
             return cid
-        if cid := text.extr(
-                page, r'\":{\"campaign\":{\"data\":{\"id\":\"', '\\"'):
-            return cid
 
-        # thumbnail
-        if cid := text.extr(page, "/patreon-media/p/campaign/", "/"):
+        if (curl := text.extr(page, '"contentUrl":', ",")) and \
+                (cid := text.extr(curl, "/campaign/", "/")):
             return cid
 
         raise self.exc.AbortExtraction("Failed to extract campaign ID")
