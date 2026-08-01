@@ -2537,7 +2537,7 @@ Description
 extractor.civitai.quality-fallback
 ----------------------------------
 Type
-    * ``string``
+    ``string``
 Default
     ``"transcode=true,original=true,quality=100"``
 Description
@@ -5312,6 +5312,18 @@ Default
     ``true``
 Description
     Extract ``username`` and ``user_profile`` metadata.
+
+
+extractor.pawchive.original
+---------------------------
+Type
+    ``bool``
+Default
+    ``true``
+Description
+    Download original files.
+
+    Download thumbnails/previews if available when this option is disabled.
 
 
 extractor.paheal.metadata
