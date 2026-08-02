@@ -135,6 +135,7 @@ modules = [
     "komikcast",
     "koofr",
     "leakgallery",
+    "leftybooru",
     "lensdump",
     "lexica",
     "lightroom",

@@ -129,6 +129,7 @@ CATEGORY_MAP = {
     "jpgfish"        : "JPG Fish",
     "kabeuchi"       : "かべうち",
     "kaliscan"       : "KaliScan",
+    "leftybooru"     : "leftybooru",
     "mangafire"      : "MangaFire",
     "mangafreak"     : "MangaFreak",
     "mangareader"    : "MangaReader",

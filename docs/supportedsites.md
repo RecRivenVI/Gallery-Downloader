@@ -1036,6 +1036,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://leakgallery.com/creator">User Profiles</span></td>
     <td></td>
 </tr>
+<tr id="leftybooru" title="leftybooru">
+    <td>leftybooru</td>
+    <td>https://lefty.pictures/</td>
+    <td><span title="https://lefty.pictures/post/view/12345">Posts</span> |
+        <span title="https://lefty.pictures/post/list/TAG/1">Tag Searches</span></td>
+    <td></td>
+</tr>
 <tr id="lensdump" title="lensdump">
     <td>Lensdump</td>
     <td>https://lensdump.com/</td>
