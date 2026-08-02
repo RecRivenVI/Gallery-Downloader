@@ -1713,6 +1713,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://www.snapchat.com/@username">User Profiles</span></td>
     <td></td>
 </tr>
+<tr id="sofurry" title="sofurry">
+    <td>SoFurry</td>
+    <td>https://sofurry.com/</td>
+    <td><span title="https://sofurry.com/u/USER/gallery">Galleries</span> |
+        <span title="https://sofurry.com/s/ID">Submissions</span></td>
+    <td></td>
+</tr>
 <tr id="soundgasm" title="soundgasm">
     <td>Soundgasm</td>
     <td>https://soundgasm.net/</td>

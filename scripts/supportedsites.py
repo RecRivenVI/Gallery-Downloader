@@ -211,6 +211,7 @@ CATEGORY_MAP = {
     "slideshare"     : "SlideShare",
     "smugmug"        : "SmugMug",
     "socialmediagirlsforum": "Social Media Girls Forums",
+    "sofurry"        : "SoFurry",
     "speakerdeck"    : "Speaker Deck",
     "steamgriddb"    : "SteamGridDB",
     "subscribestar"  : "SubscribeStar",

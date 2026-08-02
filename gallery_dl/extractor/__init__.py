@@ -227,6 +227,7 @@ modules = [
     "slideshare",
     "smugmug",
     "snapchat",
+    "sofurry",
     "soundgasm",
     "speakerdeck",
     "steamgriddb",
