@@ -36,6 +36,8 @@ class FuraffinityExtractor(Extractor):
 
         if self.config("descriptions") == "html":
             self._process_description = str.strip
+        if self.config("comments") == "html":
+            self._process_comment = str.strip
 
         layout = self.config("layout")
         if layout and layout != "auto":
@@ -162,6 +164,8 @@ class FuraffinityExtractor(Extractor):
     def _process_description(self, description):
         return text.unescape(text.remove_html(description, "", ""))
 
+    _process_comment = _process_description
+
     def _extract_comments(self, html):
         extr = text.extract_from(html)
 
@@ -172,8 +176,9 @@ class FuraffinityExtractor(Extractor):
                     "date": self.parse_timestamp(ts),
                     "id"  : extr('id="cid:', '"'),
                     "user": extr('href="/user/', '/'),
-                    "text": text.remove_html(extr(
-                        'class="comment_text">', '</comment-user-text>')),
+                    "text": self._process_comment(extr(
+                        '<div class="user-submitted-links">',
+                        '</div>\n            </comment-user-text>')),
                 })
         else:
             while cid := extr('id="cid:', '"'):
@@ -182,8 +187,9 @@ class FuraffinityExtractor(Extractor):
                     "date": self.parse_timestamp(extr(
                         'data-timestamp="', '"')),
                     "user": extr('href="/user/', '/'),
-                    "text": text.remove_html(extr(
-                        'class="message-text">', '</tr>')),
+                    "text": self._process_comment(extr(
+                        'class="message-text">',
+                        '</div>\n        </td>\n    </tr>')),
                 })
         return results
 

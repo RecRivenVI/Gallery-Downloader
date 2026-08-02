@@ -3689,6 +3689,21 @@ Description
     in ``video`` works
 
 
+extractor.furaffinity.comments
+------------------------------
+Type
+    ``string``
+Default
+    ``"text"``
+Description
+    Controls the format of ``text`` entries in ``comments`` metadata fields.
+
+    ``"text"``
+        Plain text with HTML tags removed
+    ``"html"``
+        Raw HTML content
+
+
 extractor.furaffinity.descriptions
 ----------------------------------
 Type
