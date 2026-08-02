@@ -39,19 +39,14 @@ class AudiochanExtractor(Extractor):
 
     def items(self):
         for post in self.posts():
+            post["date"] = self.parse_datetime_iso(post["created_at"])
+            post["date_updated"] = self.parse_datetime_iso(post["updated_at"])
+
             if file := post.get("audioFile"):
                 post["_http_headers"] = self.headers_dl
-                post["date"] = self.parse_datetime_iso(
-                    file["created_at"])
-                post["date_updated"] = self.parse_datetime_iso(
-                    file["updated_at"])
                 post["description"] = self._extract_description(
                     post["description"])
             else:
-                post["date"] = self.parse_datetime_iso(
-                    post["created_at"])
-                post["date_updated"] = self.parse_datetime_iso(
-                    post["updated_at"])
                 post["description"] = post.pop("teaser", "")
 
             tags = []
