@@ -620,6 +620,7 @@ Default
         ``schalenetwork``   |
         ``scrolller``       |
         ``sizebooru``       |
+        ``sofurry``         |
         ``soundgasm``       |
         ``thehentaiworld``  |
         ``urlgalleries``    |
@@ -6459,6 +6460,39 @@ Default
     ``true``
 Description
     Download video files.
+
+
+extractor.sofurry.include
+-------------------------
+Type
+    * ``string``
+    * ``list`` of ``strings``
+Default
+    ``"gallery"``
+Description
+    A (comma-separated) list of subcategories to include
+    when processing a user profile.
+Supported Values
+    * ``gallery``
+    * ``favorite``
+Note
+    It is possible to use ``"all"`` instead of listing all values separately.
+
+
+extractor.sofurry.original
+--------------------------
+Type
+    ``bool``
+Default
+    ``true``
+Description
+    Download original files.
+
+    Submissions containing more than one file
+    will be downloaded as ``.zip`` archive.
+
+    Disabling this option will download files
+    via their `display` URL in ``.webp`` format.
 
 
 extractor.steamgriddb.animated

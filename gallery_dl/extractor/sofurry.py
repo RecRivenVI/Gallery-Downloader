@@ -8,7 +8,7 @@
 
 """Extractors for https://sofurry.com/"""
 
-from .common import Extractor, Message
+from .common import Extractor, Message, Dispatch
 from .. import text, util
 
 BASE_PATTERN = r"(?:https?://)?(?:www\.)?sofurry\.com"
@@ -24,7 +24,7 @@ class SofurryExtractor(Extractor):
     page_start = 0
     per_page = 24
     offset = 0
-    request_interval = 1.0
+    request_interval = (0.5, 1.5)
 
     def items(self):
         original = self.config("original", True)
@@ -92,6 +92,10 @@ class SofurryExtractor(Extractor):
 
             subs = self.request_json(url, params=params)["submissions"]
 
+    def _profile_data(self, handle):
+        url = f"{self.root}/u/{handle}/gallery.data?_routes=profile"
+        return self._unpack(self.request_json(url))["profile"]["data"]
+
     def _unpack(self, pack):
         def resolve(item):
             if isinstance(item, dict):
@@ -110,14 +114,16 @@ class SofurryExtractor(Extractor):
         return resolve(pack[0])
 
 
-class SofurrySubmissionExtractor(SofurryExtractor):
-    subcategory = "submission"
-    pattern = BASE_PATTERN + r"/s/([^/?#]+)"
-    example = "https://sofurry.com/s/ID"
-    skip_posts = None
+class SofurryUserExtractor(Dispatch, SofurryExtractor):
+    pattern = BASE_PATTERN + r"/u/([^/?#]+)/?(?:$|\?|#)"
+    example = "https://sofurry.com/u/USER"
 
-    def posts(self):
-        return (self.groups[0],)
+    def items(self):
+        base = f"{self.root}/u/{self.groups[0]}/"
+        return self._dispatch_extractors((
+            (SofurryGalleryExtractor , base + "gallery"),
+            (SofurryFavoriteExtractor, base + "likes"),
+        ), ("gallery",))
 
 
 class SofurryFolderExtractor(SofurryExtractor):
@@ -128,12 +134,9 @@ class SofurryFolderExtractor(SofurryExtractor):
     example = "https://sofurry.com/u/USER/gallery?folder=iD"
 
     def posts(self):
-        user, folder_id, query = self.groups
+        handle, folder_id, query = self.groups
 
-        url = (f"{self.root}/u/{user}/gallery.data"
-               f"?folder={folder_id}&_routes=profile")
-        data = self._unpack(self.request_json(url))["profile"]["data"]
-
+        data = self.cache(self._profile_data, handle)
         for folder in data["folders"]:
             if folder["id"] == folder_id:
                 break
@@ -144,7 +147,7 @@ class SofurryFolderExtractor(SofurryExtractor):
 
         url = self.root + "/api/profile"
         params = text.parse_query(query)
-        params["handle"] = user
+        params["handle"] = handle
         params["tab"] = "folder"
         params["folder_id"] = folder_id
         return self._pagination(url, params)
@@ -157,14 +160,41 @@ class SofurryGalleryExtractor(SofurryExtractor):
     example = "https://sofurry.com/u/USER/gallery"
 
     def posts(self):
-        user, query = self.groups
+        handle, query = self.groups
 
-        url = f"{self.root}/u/{user}/gallery.data?_routes=profile"
-        data = self._unpack(self.request_json(url))["profile"]["data"]
+        data = self.cache(self._profile_data, handle)
         self.kwdict["user"] = data["profile"]
 
         url = self.root + "/api/profile"
         params = text.parse_query(query)
-        params["handle"] = user
+        params["handle"] = handle
         params["tab"] = "gallery"
         return self._pagination(url, params, data["gallery"])
+
+
+class SofurryFavoriteExtractor(SofurryExtractor):
+    subcategory = "favorite"
+    directory_fmt = ("{category}", "{user[handle]}", "Likes")
+    archive_fmt = "f{user[handle]}_{id}_{num}"
+    pattern = BASE_PATTERN + r"/u/([^/?#]+)/likes(?:/?\?([^#]+))?"
+    example = "https://sofurry.com/u/USER/likes"
+
+    def posts(self):
+        handle, query = self.groups
+        self.kwdict["user"] = self.cache(self._profile_data, handle)["profile"]
+
+        url = self.root + "/api/profile"
+        params = text.parse_query(query)
+        params["handle"] = handle
+        params["tab"] = "likes"
+        return self._pagination(url, params)
+
+
+class SofurrySubmissionExtractor(SofurryExtractor):
+    subcategory = "submission"
+    pattern = BASE_PATTERN + r"/s/([^/?#]+)"
+    example = "https://sofurry.com/s/ID"
+    skip_posts = None
+
+    def posts(self):
+        return (self.groups[0],)
