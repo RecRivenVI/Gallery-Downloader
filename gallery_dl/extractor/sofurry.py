@@ -9,6 +9,7 @@
 """Extractors for https://sofurry.com/"""
 
 from .common import Extractor, Message
+from .. import text, util
 
 BASE_PATTERN = r"(?:https?://)?(?:www\.)?sofurry\.com"
 
@@ -17,84 +18,153 @@ class SofurryExtractor(Extractor):
     """Base class for sofurry extractors"""
     category = "sofurry"
     root = "https://sofurry.com"
+    directory_fmt = ("{category}", "{author[handle]}")
+    filename_fmt = "{date:%Y-%m-%d} {id}{title:? //}{num:? //:>02}.{extension}"
+    archive_fmt = "{id}_{num}"
+    page_start = 0
+    per_page = 24
+    offset = 0
+    request_interval = 1.0
+
+    def items(self):
+        original = self.config("original", True)
+
+        posts = self.posts()
+        if self.offset:
+            util.advance(posts, self.offset)
+        for submission_id in posts:
+            url = f"{self.root}/s/{submission_id}.data"
+            data = self._unpack(self.request_json(url))
+            post = data["routes/submission.$id"]["data"]["submission"]
+
+            files = post["content"]
+            post["count"] = len(files)
+            post["date"] = self.parse_datetime_iso(post["publishedAt"])
+
+            yield Message.Directory, "", post
+            if original:
+                if len(files) == 1:
+                    file = files[0]
+                    post["extension"] = file["extension"]
+                    post["file_id"] = file["id"]
+                    post["file_title"] = file["title"]
+                    post["file_description"] = file["description"]
+                    post["meta"] = file["meta"]
+                else:
+                    post["extension"] = "zip"
+                post["filename"] = post["title"]
+                post["num"] = 0
+
+                url = f"{self.root}/api/submission-download/{submission_id}"
+                yield Message.Url, url, post
+
+            else:
+                files.sort(key=lambda f: f.get("position", 0))
+                for post["num"], file in enumerate(files, 1):
+                    url = file["displayUrl"]
+                    post["file_id"] = file["id"]
+                    post["file_title"] = file["title"]
+                    post["file_description"] = file["description"]
+                    post["filename"] = url[url.rfind("/")+1:]
+                    post["extension"] = "webp"
+                    post["meta"] = file["meta"]
+                    yield Message.Url, url, post
+
+    def skip_posts(self, num):
+        pages, self.offset = divmod(num, self.per_page)
+        self.page_start += pages
+        return num
+
+    def _pagination(self, url, params, subs=None):
+        params["page"] = self.page_start
+        params["per_page"] = "24"
+
+        if subs is None or self.page_start > 0:
+            subs = self.request_json(url, params=params)["submissions"]
+
+        while True:
+            for submission in subs["data"]:
+                yield submission["id"]
+
+            if not subs.get("hasNextPage"):
+                break
+            params["page"] += 1
+
+            subs = self.request_json(url, params=params)["submissions"]
 
     def _unpack(self, pack):
-        def _resolve(item):
+        def resolve(item):
             if isinstance(item, dict):
                 return {
-                    pack[int(key[1:])]: (_resolve(pack[value])
+                    pack[int(key[1:])]: (resolve(pack[value])
                                          if value > 0 else None)
                     for key, value in item.items()
                 }
             if isinstance(item, list):
                 return [
-                    _resolve(pack[value]) if value > 0 else None
+                    resolve(pack[value]) if value > 0 else None
                     for value in item
                 ]
             return item
 
-        return _resolve(pack[0])
+        return resolve(pack[0])
 
 
 class SofurrySubmissionExtractor(SofurryExtractor):
     subcategory = "submission"
-    directory_fmt = ("{category}", "{author[username]}")
-    filename_fmt = "{date:%Y-%m-%d} {id}{title:? //}{num:? //:>02}.{extension}"
-    archive_fmt = "{filename}"
     pattern = BASE_PATTERN + r"/s/([^/?#]+)"
     example = "https://sofurry.com/s/ID"
+    skip_posts = None
 
-    def items(self):
-        submission_id = self.groups[0]
-        url = f"{self.root}/s/{submission_id}.data"
-        data = self._unpack(self.request_json(url))
-        submission = data["routes/submission.$id"]["data"]["submission"]
+    def posts(self):
+        return (self.groups[0],)
 
-        files = submission["content"]
-        submission["count"] = len(files)
-        submission["date"] = self.parse_datetime_iso(submission["publishedAt"])
 
-        yield Message.Directory, "", submission
-        if self.config("original", True):
-            url = f"{self.root}/api/submission-download/{submission_id}"
-            submission["filename"] = submission["title"]
-            submission["extension"] = \
-                files[0]["extension"] if len(files) == 1 else "zip"
-            yield Message.Url, url, submission
+class SofurryFolderExtractor(SofurryExtractor):
+    subcategory = "folder"
+    directory_fmt = ("{category}", "{user[handle]}",
+                     "{folder[name]} ({folder[id]})")
+    pattern = BASE_PATTERN + r"/u/([^/?#]+)/gallery/?\?folder=([^&#]+)([^#]*)"
+    example = "https://sofurry.com/u/USER/gallery?folder=iD"
+
+    def posts(self):
+        user, folder_id, query = self.groups
+
+        url = (f"{self.root}/u/{user}/gallery.data"
+               f"?folder={folder_id}&_routes=profile")
+        data = self._unpack(self.request_json(url))["profile"]["data"]
+
+        for folder in data["folders"]:
+            if folder["id"] == folder_id:
+                break
         else:
-            files.sort(key=lambda f: f.get("position", 0))
-            for submission["num"], file in enumerate(files, 1):
-                url = file["displayUrl"]
-                submission["file_id"] = file["id"]
-                submission["file_title"] = file["title"]
-                submission["file_description"] = file["description"]
-                submission["extension"] = file["extension"]
-                submission["meta"] = file["meta"]
-                submission["filename"] = url[url.rfind("/")+1:]
-                yield Message.Url, url, submission
+            raise self.exc.NotFoundError("folder")
+        self.kwdict["folder"] = folder
+        self.kwdict["user"] = data["profile"]
+
+        url = self.root + "/api/profile"
+        params = text.parse_query(query)
+        params["handle"] = user
+        params["tab"] = "folder"
+        params["folder_id"] = folder_id
+        return self._pagination(url, params)
 
 
 class SofurryGalleryExtractor(SofurryExtractor):
     subcategory = "gallery"
-    pattern = BASE_PATTERN + r"/u/([^/?#]+)/gallery"
+    directory_fmt = ("{category}", "{user[handle]}")
+    pattern = BASE_PATTERN + r"/u/([^/?#]+)/gallery(?:/?\?([^#]+))?"
     example = "https://sofurry.com/u/USER/gallery"
 
-    def items(self):
+    def posts(self):
+        user, query = self.groups
+
+        url = f"{self.root}/u/{user}/gallery.data?_routes=profile"
+        data = self._unpack(self.request_json(url))["profile"]["data"]
+        self.kwdict["user"] = data["profile"]
+
         url = self.root + "/api/profile"
-        params = {
-            "handle": "zummeng",
-            "tab": "gallery",
-            "page": 0,
-            "per_page": "24",
-        }
-        base = self.root + "/s/"
-        while True:
-            subs = self.request_json(url, params=params)["submissions"]
-
-            for submission in subs["data"]:
-                submission["_extractor"] = SofurrySubmissionExtractor
-                yield Message.Queue, base + submission["id"], submission
-
-            if not subs.get("hasNextPage"):
-                break
-            params["page"] += 1
+        params = text.parse_query(query)
+        params["handle"] = user
+        params["tab"] = "gallery"
+        return self._pagination(url, params, data["gallery"])

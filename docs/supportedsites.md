@@ -1716,7 +1716,8 @@ Consider all listed sites to potentially be NSFW.
 <tr id="sofurry" title="sofurry">
     <td>SoFurry</td>
     <td>https://sofurry.com/</td>
-    <td><span title="https://sofurry.com/u/USER/gallery">Galleries</span> |
+    <td><span title="https://sofurry.com/u/USER/gallery?folder=iD">Folders</span> |
+        <span title="https://sofurry.com/u/USER/gallery">Galleries</span> |
         <span title="https://sofurry.com/s/ID">Submissions</span></td>
     <td></td>
 </tr>
