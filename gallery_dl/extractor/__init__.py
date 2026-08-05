@@ -353,11 +353,7 @@ def _modules_internal():
 def _modules_path(path, files):
     sys.path.insert(0, path)
     try:
-        return [
-            __import__(name[:-3])
-            for name in files
-            if name.endswith(".py")
-        ]
+        return [__import__(name) for name in files]
     finally:
         del sys.path[0]
 

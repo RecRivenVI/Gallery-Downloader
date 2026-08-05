@@ -10455,20 +10455,39 @@ Description
 extractor.module-sources
 ------------------------
 Type
-    ``list`` of |Path|_ instances
+    * ``list`` of
+        * ``object``
+        * |Path|_ instances
+        * ``null``
 Example
-    ``["~/.config/gallery-dl/modules", null]``
-Description
-    List of directories to load external extractor modules from.
+    .. code:: json
 
-    Any file in a specified directory with a ``.py`` filename extension
-    gets `imported <https://docs.python.org/3/reference/import.html>`__
-    and searched for potential extractors,
-    i.e. classes with a ``pattern`` attribute.
-Note
-    ``null`` references internal extractors defined in
-    `extractor/__init__.py <https://codeberg.org/mikf/gallery-dl/src/tag/v1.32.0/gallery_dl/extractor/__init__.py#L12>`__
-    or by `extractor.modules`_.
+        ["~/.config/gallery-dl/modules", null]
+
+    .. code:: json
+
+        [
+            {"from": "~/.config/gallery-dl/modules", "import": ["my_custom_extractor"]},
+            null
+        ]
+
+Description
+    List of sources that gallery-dl should `import <https://docs.python.org/3/reference/import.html>`__ and search
+    for extractors, i.e. classes with a ``pattern`` attribute.
+
+    The following list elements are supported:
+
+    ``object``
+        An object describing a module import. The following keys are required:
+
+        ``from``: A |Path|_ to the directory the files are located in. This directory will be available on the module search path (``sys.path``) during import.
+
+        ``ìmport``: A ``list`` of ``strings`` of filenames to import. The names must be given without the ``.py`` extension.
+    ``path``
+        A path to a directory containing custom extractors. All files in the directory ending with ``.py`` will be imported.
+    ``null``
+        Includes the internal extractors defined in `extractor/__init__.py <https://codeberg.org/mikf/gallery-dl/src/tag/v1.32.0/gallery_dl/extractor/__init__.py#L12>`__
+        or in `extractor.modules`_.
 
 
 extractor.category-map
