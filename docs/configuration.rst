@@ -3747,6 +3747,7 @@ Supported Values
     * ``gallery``
     * ``scraps``
     * ``favorite``
+    * ``journals``
 Note
     It is possible to use ``"all"`` instead of listing all values separately.
 

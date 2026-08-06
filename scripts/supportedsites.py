@@ -368,6 +368,7 @@ SUBCATEGORY_MAP = {
         "path": ["Videos", "Trending Posts", "Popular Videos", "Top Models"],
     },
     "furaffinity": {
+        "journals"   : "Journal Listings",
         "submissions": "New Submissions",
     },
     "hatenablog": {

@@ -230,6 +230,24 @@ class FuraffinityExtractor(Extractor):
                 continue
             path = text.extr(page, 'right" href="', '"')
 
+    def _pagination_journals(self, pnum=None):
+        if not pnum:
+            pnum = 1
+        path = f"/journals/{self.user}/{pnum}"
+        while True:
+            page = self.request(self.root + path).text
+            extr = text.extract_from(page)
+            while True:
+                post_id = extr('<a href="#jid:', '"')
+                if not post_id:
+                    break
+                yield post_id
+
+            pnum += 1
+            path = f"/journals/petruz/{pnum}/"
+            if path not in page:
+                break
+
     def _pagination_search(self, query):
         url = self.root + "/search/"
         data = {
@@ -326,6 +344,60 @@ class FuraffinityFavoriteExtractor(FuraffinityExtractor):
         return post
 
 
+class FuraffinityJournalsExtractor(FuraffinityExtractor):
+    """Extractor for a furaffinity user's journal entries"""
+    subcategory = "journals"
+    directory_fmt = ("{category}", "{user!l}", "Journals")
+    pattern = BASE_PATTERN + r"/journals/([^/?#]+)(/\d+)?"
+    example = "https://www.furaffinity.net/journals/USER/"
+
+    def posts(self):
+        return self._pagination_journals(self.groups[1])
+
+    def _parse_post(self, post_id):
+        url = f"{self.root}/journal/{post_id}/"
+        page = self.request(url).text
+        extr = text.extract_from(page)
+
+        if self._new_layout is None:
+            self._new_layout = ("http-equiv=" not in extr("<meta ", ">"))
+
+        data = {
+            "id": text.parse_int(post_id),
+            "extension": "htm",
+        }
+
+        if self._new_layout:
+            data["artist_url"] = extr('href="/user/', '/"')
+            data["artist"] = extr('alt="', '"')
+            data["title"] = text.unescape(extr(
+                'id="c-journalTitleTop__subject"><h3>', '<'))
+            data["date"] = self.parse_timestamp(extr(
+                'data-time="', '"'))
+            data["rating"] = extr('alt="', ' ')
+            data["url"] = "text:" + extr(
+                'user-submitted-links">',
+                '</div>\n                    </div>')
+            data["comments"] = self._extract_comments(extr(
+                'id="comments-journal"', '<script type="text/javascript">'))
+        else:
+            data["title"] = text.unescape(extr(
+                '<div class="no_overflow">', '<'))
+            data["artist_url"] = extr('href="/user/', '/"')
+            data["artist"] = extr('</span>', '<')
+            data["date"] = self.parse_timestamp(extr(
+                'data-time="', '"'))
+            data["rating"] = None
+            data["url"] = "text:" + extr(
+                '<div class="journal-body">',
+                '</div>\n                    </td>').strip()
+            data["comments"] = self._extract_comments(extr(
+                'id="page-comments"', 'id="add_comment_form"'))
+
+        data["user"] = self.user or data["artist_url"]
+        return data
+
+
 class FuraffinitySearchExtractor(FuraffinityExtractor):
     """Extractor for furaffinity search results"""
     subcategory = "search"
@@ -358,6 +430,17 @@ class FuraffinityPostExtractor(FuraffinityExtractor):
         return (post_id,)
 
 
+class FuraffinityJournalExtractor(FuraffinityExtractor):
+    """Extractor for a single furaffinity journal"""
+    subcategory = "journal"
+    directory_fmt = ("{category}", "{user!l}", "Journals")
+    pattern = BASE_PATTERN + r"/journal/(\d+)"
+    example = "https://www.furaffinity.net/journal/12345/"
+
+    posts = FuraffinityPostExtractor.posts
+    _parse_post = FuraffinityJournalsExtractor._parse_post
+
+
 class FuraffinityUserExtractor(Dispatch, FuraffinityExtractor):
     """Extractor for furaffinity user profiles"""
     pattern = BASE_PATTERN + r"/user/([^/?#]+)"
@@ -370,6 +453,7 @@ class FuraffinityUserExtractor(Dispatch, FuraffinityExtractor):
             (FuraffinityGalleryExtractor , f"{base}/gallery/{user}"),
             (FuraffinityScrapsExtractor  , f"{base}/scraps/{user}"),
             (FuraffinityFavoriteExtractor, f"{base}/favorites/{user}"),
+            (FuraffinityJournalsExtractor, f"{base}/journals/{user}"),
         ), ("gallery",))
 
 

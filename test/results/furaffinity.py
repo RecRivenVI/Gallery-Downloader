@@ -294,4 +294,96 @@ __tests__ = (
     "#auth"    : True,
 },
 
+{
+    "#url"     : "https://www.furaffinity.net/journal/10144860/",
+    "#class"   : furaffinity.FuraffinityJournalExtractor,
+    "#results" : """\
+text:Another fantasy themed pack is done, be sure to check it out:<br />
+<br />
+<a class="auto_link " href="https://www.furaffinity.net/view/46139064/"title="https://www.furaffinity.net/view/46139064/" >https://www.furaffinity.net/view/46139064/</a><br />
+<br />
+An interesting addition on this pack was the outfits. While testing it very interesting combinations with other props were possible since i separated many parts of the costumes. I hope you all find it useful for your needs. For now i'll focus on other future packs, i want to make another hybrid soon, and i also had the tigers to think about. So while i think about all of that, go and have some fun with the models.<br />
+<br />
+You all take care out there! See ya soon!\
+""",
+
+    "artist"    : "petruz",
+    "artist_url": "petruz",
+    "date"      : "dt:2022-02-27 00:59:17",
+    "extension" : "htm",
+    "id"        : 10144860,
+    "rating"    : "General",
+    "title"     : "Another Dragonlord follower...",
+    "user"      : "petruz",
+    "comments"  : [
+        {
+            "date": "dt:2022-02-27 05:00:52",
+            "id"  : "58977165",
+            "text": "Ooh😲",
+            "user": "bedford95",
+        },
+        {
+            "date": "dt:2022-02-28 03:04:06",
+            "id"  : "58980942",
+            "user": "thelight777",
+            "text": str,
+        },
+        {
+            "date": "dt:2022-02-28 10:43:46",
+            "id"  : "58981829",
+            "text": "clothes pack, ever?",
+            "user": "whitevixenrae",
+        },
+    ],
+},
+
+{
+    "#url"     : "https://www.furaffinity.net/journals/destellanova/",
+    "#class"   : furaffinity.FuraffinityJournalsExtractor,
+    "#pattern" : r'text:<b class="bbcode bbcode_b">Bastion of the Plains .+',
+    "#count"   : 1,
+
+    "artist"    : "destellanova",
+    "artist_url": "destellanova",
+    "date"      : "dt:2026-03-08 14:41:11",
+    "extension" : "htm",
+    "id"        : 11321698,
+    "rating"    : "General",
+    "title"     : "(C|L)oredump [0x00]: OCs",
+    "user"      : "destellanova",
+    "comments"  : [
+        {
+            "date": "dt:2026-03-08 14:42:38",
+            "id"  : "61505820",
+            "text": "Howdy ;0",
+            "user": "lulor",
+        },
+        {
+            "date": "dt:2026-03-08 14:54:17",
+            "id"  : "61505830",
+            "text": "Hi <3",
+            "user": "destellanova",
+        },
+        {
+            "date": "dt:2026-03-08 15:00:02",
+            "id"  : "61505837",
+            "user": "lulor",
+            "text": """\
+OH NOW THERES LORE GHFBFNF
+looks like I just said ‘hi’ to a lore post lol\
+""",
+        },
+        {
+            "date": "dt:2026-03-08 15:03:41",
+            "id"  : "61505841",
+            "user": "lulor",
+            "text": """\
+Okay now that I’ve read I’m very interested… I already thought your sona (who I assume is Stella) was very cute and pretty, but now that I know she’s part mimic, I just wanna know more and see more about her >;0
+And maybe give a fluffy hug because dying repeatedly can’t be good on the psyche -v-‘
+You wanna chat on discord or something maybe? :3c @ Uberfighter\
+""",
+        },
+    ],
+},
+
 )

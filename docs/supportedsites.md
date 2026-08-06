@@ -638,6 +638,8 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://www.furaffinity.net/gallery/USER/folder/12345/FOLDER">Folders</span> |
         <span title="https://www.furaffinity.net/watchlist/by/USER/">Followed Users</span> |
         <span title="https://www.furaffinity.net/gallery/USER/">Galleries</span> |
+        <span title="https://www.furaffinity.net/journal/12345/">Journals</span> |
+        <span title="https://www.furaffinity.net/journals/USER/">Journal Listings</span> |
         <span title="https://www.furaffinity.net/view/12345/">Posts</span> |
         <span title="https://www.furaffinity.net/scraps/USER/">Scraps</span> |
         <span title="https://www.furaffinity.net/search/?q=QUERY">Search Results</span> |
