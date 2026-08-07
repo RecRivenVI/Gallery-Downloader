@@ -78,6 +78,7 @@ modules = [
     "fapello",
     "fapachi",
     "fikfap",
+    "fileditchfiles",
     "filester",
     "fitnakedgirls",
     "flickr",
