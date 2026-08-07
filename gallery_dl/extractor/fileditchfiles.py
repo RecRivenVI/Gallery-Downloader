@@ -28,7 +28,8 @@ class FileditchfilesFileExtractor(FileditchfilesExtractor):
     example = "https://fileditchfiles.st/xyz01/ID/SLUG"
 
     def items(self):
-        page = self.request(self.url).text
+        url = text.ensure_http_scheme(self.url)
+        page = self.request(url).text
 
         if (pos := page.find('class="verifying-overlay"')) >= 0:
             data = text.extract_all(page, (
@@ -40,7 +41,7 @@ class FileditchfilesFileExtractor(FileditchfilesExtractor):
             ), pos)[0]
             diff = text.parse_int(data["pow_diff"])
             data["pow_nonce"] = _nonce(data["pow_challenge"], diff)
-            page = self.request(self.url, method="POST", data=data).text
+            page = self.request(url, method="POST", data=data).text
 
         extr = text.extract_from(page)
         file = {
@@ -64,7 +65,7 @@ class FileditchfilesShortURLExtractor(FileditchfilesExtractor):
     example = "https://theditch.st/ID"
 
     def items(self):
-        page = self.request(self.url).text
+        page = self.request(text.ensure_http_scheme(self.url)).text
         data = {
             "id": self.groups[0],
             "_extractor": FileditchfilesFileExtractor,
