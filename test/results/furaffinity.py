@@ -343,7 +343,7 @@ You all take care out there! See ya soon!\
     "#pattern" : r'text:<b class="bbcode bbcode_b">Bastion of the Plains .+',
     "#count"   : 1,
 
-    "artist"    : "destellanova",
+    "artist"    : "Destellanova",
     "artist_url": "destellanova",
     "date"      : "dt:2026-03-08 14:41:11",
     "extension" : "htm",

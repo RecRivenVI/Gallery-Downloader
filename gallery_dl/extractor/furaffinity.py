@@ -368,8 +368,8 @@ class FuraffinityJournalsExtractor(FuraffinityExtractor):
         }
 
         if self._new_layout:
-            data["artist_url"] = extr('href="/user/', '/"')
-            data["artist"] = extr('alt="', '"')
+            data["artist_url"] = extr('-displayName-block" href="/user/', '/"')
+            data["artist"] = extr('-displayName">', '<')
             data["title"] = text.unescape(extr(
                 'id="c-journalTitleTop__subject"><h3>', '<'))
             data["date"] = self.parse_timestamp(extr(
@@ -383,7 +383,7 @@ class FuraffinityJournalsExtractor(FuraffinityExtractor):
         else:
             data["title"] = text.unescape(extr(
                 '<div class="no_overflow">', '<'))
-            data["artist_url"] = extr('href="/user/', '/"')
+            data["artist_url"] = extr('-userName-block" href="/user/', '/"')
             data["artist"] = extr('</span>', '<')
             data["date"] = self.parse_timestamp(extr(
                 'data-time="', '"'))
