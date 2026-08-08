@@ -348,6 +348,7 @@ class FuraffinityJournalsExtractor(FuraffinityExtractor):
     """Extractor for a furaffinity user's journal entries"""
     subcategory = "journals"
     directory_fmt = ("{category}", "{user!l}", "Journals")
+    archive_fmt = "j_{id}"
     pattern = BASE_PATTERN + r"/journals/([^/?#]+)(/\d+)?"
     example = "https://www.furaffinity.net/journals/USER/"
 
@@ -433,7 +434,8 @@ class FuraffinityPostExtractor(FuraffinityExtractor):
 class FuraffinityJournalExtractor(FuraffinityExtractor):
     """Extractor for a single furaffinity journal"""
     subcategory = "journal"
-    directory_fmt = ("{category}", "{user!l}", "Journals")
+    directory_fmt = FuraffinityJournalsExtractor.directory_fmt
+    archive_fmt = FuraffinityJournalsExtractor.archive_fmt
     pattern = BASE_PATTERN + r"/journal/(\d+)"
     example = "https://www.furaffinity.net/journal/12345/"
 
