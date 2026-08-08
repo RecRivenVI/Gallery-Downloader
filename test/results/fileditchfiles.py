@@ -22,7 +22,7 @@ __tests__ = (
 
 {
     "#url"     : "https://theditch.st/djfn3zqm",
-    "#class"   : fileditchfiles.FileditchfilesShortURLExtractor,
+    "#class"   : fileditchfiles.FileditchfilesShorturlExtractor,
     "#results" : "https://fileditchfiles.st/beta16/edbb4e3dfa0b08137768/begging-emoticon-showing-clasped-hands-41405302.webp",
 
     "id"       : "djfn3zqm"

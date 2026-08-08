@@ -58,7 +58,7 @@ class FileditchfilesFileExtractor(FileditchfilesExtractor):
         yield Message.Url, url, text.nameext_from_url(url, file)
 
 
-class FileditchfilesShortURLExtractor(FileditchfilesExtractor):
+class FileditchfilesShorturlExtractor(FileditchfilesExtractor):
     """Extractor for short file URls"""
     subcategory = "shorturl"
     pattern = r"(?:https?://)?(?:www\.)?theditch\.st/([^/?#]+)"
