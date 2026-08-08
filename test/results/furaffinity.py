@@ -338,6 +338,15 @@ You all take care out there! See ya soon!\
 },
 
 {
+    "#url"     : "https://www.furaffinity.net/journal/11382485",
+    "#comment" : "'System Message'",
+    "#class"   : furaffinity.FuraffinityJournalExtractor,
+    "#auth"    : False,
+    "#count"   : 0,
+    "#log"     : """~Unable to download journal 11382485 ("The owner of this page has elected to make it available to registered users only. To view the contents of this page please log in or create an account")""",
+},
+
+{
     "#url"     : "https://www.furaffinity.net/journals/destellanova/",
     "#class"   : furaffinity.FuraffinityJournalsExtractor,
     "#pattern" : r'text:<b class="bbcode bbcode_b">Bastion of the Plains .+',

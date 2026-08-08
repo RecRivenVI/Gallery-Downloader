@@ -169,6 +169,12 @@ class FuraffinityExtractor(Extractor):
         if self._new_layout is None:
             self._new_layout = ("http-equiv=" not in extr("<meta ", ">"))
 
+        if msg := (extr(">System Message", "</section>") or
+                   extr("System Message", "</table>")):
+            msg = text.remove_html(msg).partition(" . Continue ")[0]
+            return self.log.warning("Unable to download journal %s (\"%s\")",
+                                    post_id, msg)
+
         data = {
             "id": text.parse_int(post_id),
             "extension": "htm",
