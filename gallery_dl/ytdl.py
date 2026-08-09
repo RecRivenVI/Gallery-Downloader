@@ -11,6 +11,7 @@
 import shlex
 import itertools
 from . import text, util, exception
+from yt_dlp.networking.impersonate import ImpersonateTarget
 
 
 def import_module(module_name):
@@ -44,6 +45,9 @@ def construct_YoutubeDL(module, obj, user_opts, system_opts=None):
         opts = parse_command_line(module, argv) if argv else user_opts
     except SystemExit:
         raise exception.AbortExtraction("Invalid command-line option")
+
+    if opts.get("impersonate") is not None:
+        opts["impersonate"] = ImpersonateTarget.from_str(opts.get("impersonate"))
 
     if opts.get("format") is None:
         opts["format"] = config("format")
@@ -445,6 +449,7 @@ def parse_command_line(module, argv):
         "geo_bypass_ip_block": getattr(
             opts, "geo_bypass_ip_block", None),
         "compat_opts": compat_opts,
+        "impersonate": opts.impersonate
     }
 
 
