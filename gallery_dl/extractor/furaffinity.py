@@ -56,8 +56,9 @@ class FuraffinityExtractor(Extractor):
             if post := self._parse_post(post_id):
                 if metadata:
                     post.update(metadata)
+                url = post.pop("url")
                 yield Message.Directory, "", post
-                yield Message.Url, post["url"], post
+                yield Message.Url, url, post
 
                 if self.external:
                     for url in text.extract_iter(

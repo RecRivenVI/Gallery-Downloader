@@ -92,7 +92,6 @@ __tests__ = (
     "id"         : 21835115,
     "tags"       : list,
     "title"      : "Bude's 4 Ever",
-    "url"        : r"re:https://d\d?\.f(uraffinity|acdn)\.net/art",
     "user"       : "mirlinthloth",
     "views"      : int,
     "favorites"  : int,
