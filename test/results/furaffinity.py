@@ -395,4 +395,15 @@ You wanna chat on discord or something maybe? :3c @ Uberfighter\
     ],
 },
 
+{
+    "#url"     : "https://www.furaffinity.net/journals/frisky17532/3/",
+    "#class"   : furaffinity.FuraffinityJournalsExtractor,
+    "#range"   : "1-3",
+    "#count"   : 3,
+
+    "artist"    : "Frisky17532",
+    "artist_url": "frisky17532",
+    "rating"    : "General",
+},
+
 )

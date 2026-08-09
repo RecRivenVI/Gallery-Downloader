@@ -280,8 +280,7 @@ class FuraffinityExtractor(Extractor):
             path = text.extr(page, 'right" href="', '"')
 
     def _pagination_journals(self, pnum=None):
-        if not pnum:
-            pnum = 1
+        pnum = text.parse_int(pnum, 1)
         path = f"/journals/{self.user}/{pnum}"
         while True:
             page = self.request(self.root + path).text
@@ -293,7 +292,7 @@ class FuraffinityExtractor(Extractor):
                 yield post_id
 
             pnum += 1
-            path = f"/journals/petruz/{pnum}/"
+            path = f"/journals/{self.user}/{pnum}/"
             if path not in page:
                 break
 
