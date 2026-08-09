@@ -286,6 +286,39 @@ Twitter : https://x.com/croove_nsfw\
 },
 
 {
+    "#url"     : "https://www.iwara.tv/video/alEv09J4n6lIFQ/project-diva-mega39s-mod-romeo-and-cinderella",
+    "#comment" : "embedded youtube video",
+    "#class"   : iwara.IwaraVideoExtractor,
+    "#options" : {"embeds": True},
+    "#results" : "ytdl:https://youtu.be/ctEzwsBE8hc",
+
+    "date"        : "dt:2026-08-09 14:28:55",
+    "date_updated": "dt:2026-08-09 16:52:19",
+    "duration"    : None,
+    "extension"   : "",
+    "file_id"     : "alEv09J4n6lIFQ",
+    "filename"    : "",
+    "format"      : "embed",
+    "height"      : None,
+    "id"          : "alEv09J4n6lIFQ",
+    "rating"      : "general",
+    "size"        : None,
+    "slug"        : "project-diva-mega39s-mod-romeo-and-cinderella",
+    "title"       : "【PROJECT DIVA MEGA39's+ MOD】ロミオとシンデレラ (Romeo and Cinderella)",
+    "type"        : None,
+    "width"       : None,
+    "tags"        : [
+        "kagamine_rin",
+        "project_diva",
+        "uncategorized",
+        "vocaloid",
+    ],
+    "user"        : {
+        "name": "murakoshi_channel",
+    },
+},
+
+{
     "#url"        : "https://www.iwara.tv/image/5m3gLfcei6BQsL/sparkle",
     "#category"   : ("", "iwara", "image"),
     "#class"      : iwara.IwaraImageExtractor,

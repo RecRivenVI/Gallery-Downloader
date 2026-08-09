@@ -4378,6 +4378,16 @@ Description
     Download video files.
 
 
+extractor.iwara.embeds
+----------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Downlload embedded external videos using |ytdl|.
+
+
 extractor.iwara.format
 ----------------------
 Type
