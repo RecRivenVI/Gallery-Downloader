@@ -107,6 +107,11 @@ class RedditExtractor(Extractor):
                             url = "ytdl:" + self._extract_video(media)
                             yield Message.Url, url, submission
 
+                    elif not url and (
+                            embed := media.get("secure_media_embed")) and (
+                            src := text.extr(embed.get("content", ""), 'src="', '"')):  # noqa: E501
+                        urls.append((src, submission))
+
                     elif not submission["is_self"]:
                         urls.append((url, submission))
 

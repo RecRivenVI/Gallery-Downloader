@@ -347,6 +347,14 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.reddit.com/r/BlackWorldOrder/comments/1ujksvq/tiny/",
+    "#comment" : "empty 'url' (gh#9678)",
+    "#class"   : reddit.RedditSubmissionExtractor,
+    "#options" : {"api": "oauth"},
+    "#results" : "https://www.redgifs.com/ifr/nauticallemonchiffonbluebreastedkookaburra",
+},
+
+{
     "#url"     : "https://i.redd.it/upjtjcx2npzz.jpg",
     "#category": ("", "reddit", "image"),
     "#class"   : reddit.RedditImageExtractor,
