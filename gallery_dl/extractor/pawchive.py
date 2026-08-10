@@ -109,6 +109,12 @@ class PawchiveExtractor(Extractor):
                     self.log.debug("%s/%s: %s", creator_id, post["id"], cmts)
                     post["comments"] = ()
 
+            if tags := post.get("tags"):
+                if isinstance(tags, str):
+                    post["tags"] = tags[1:-1].replace('"', '').split(",")
+            else:
+                post["tags"] = ()
+
             files = []
             hashes = set()
             warning = True
