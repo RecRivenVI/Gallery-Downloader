@@ -10455,10 +10455,8 @@ Description
 extractor.module-sources
 ------------------------
 Type
-    * ``list`` of
-        * ``object``
-        * |Path|_ instances
-        * ``null``
+    * ``list`` of |Path|_ instances
+    * ``list`` of ``object``
 Example
     .. code:: json
 
@@ -10467,27 +10465,40 @@ Example
     .. code:: json
 
         [
-            {"from": "~/.config/gallery-dl/modules", "import": ["my_custom_extractor"]},
+            {
+                "from": "~/.config/gallery-dl/modules",
+                "import": ["custom_module1", "custom_module2"]
+            },
             null
         ]
 
 Description
-    List of sources that gallery-dl should `import <https://docs.python.org/3/reference/import.html>`__ and search
-    for extractors, i.e. classes with a ``pattern`` attribute.
+    List of sources to load (external) extractor modules from.
 
-    The following list elements are supported:
+    The following elements are supported:
 
+    |Path|_
+        | A path to a directory containing custom extractor modules.
+        | All files in this directory with a ``.py`` filename extension
+          will be `imported <https://docs.python.org/3/reference/import.html>`__
+          and searched for extractors, i.e. classes with a ``pattern`` attribute.
     ``object``
-        An object describing a module import. The following keys are required:
+        An object describing module
+        `imports <https://docs.python.org/3/reference/import.html>`__
+        in a specific directory.
 
-        ``from``: A |Path|_ to the directory the files are located in. This directory will be available on the module search path (``sys.path``) during import.
+        The following keys are required:
 
-        ``ìmport``: A ``list`` of ``strings`` of filenames to import. The names must be given without the ``.py`` extension.
-    ``path``
-        A path to a directory containing custom extractors. All files in the directory ending with ``.py`` will be imported.
+        ``from``
+            | A |Path|_ to the directory the modules are located in.
+            | This directory will be available on the module search path (``sys.path``) during import.
+        ``ìmport``
+            | A ``list`` of ``strings`` of filenames to import.
+            | The names must be given without ``.py`` extension.
     ``null``
-        Includes the internal extractors defined in `extractor/__init__.py <https://codeberg.org/mikf/gallery-dl/src/tag/v1.32.0/gallery_dl/extractor/__init__.py#L12>`__
-        or in `extractor.modules`_.
+        Internal extractors defined in
+        `extractor/__init__.py <https://codeberg.org/mikf/gallery-dl/src/tag/v1.32.0/gallery_dl/extractor/__init__.py#L12>`__
+        or by `extractor.modules`_.
 
 
 extractor.category-map

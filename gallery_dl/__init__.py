@@ -302,7 +302,8 @@ Entries:
                 if isinstance(source, str):
                     path = util.expand_path(source)
                     try:
-                        files = [name[:-3] for name in os.listdir(path) if name.endswith(".py")]
+                        files = [name[:-3] for name in os.listdir(path)
+                                 if name.endswith(".py")]
                         modules.append(extractor._modules_path(path, files))
                     except Exception as exc:
                         log.warning("Unable to load modules from %s (%s: %s)",
@@ -313,7 +314,8 @@ Entries:
                     try:
                         modules.append(extractor._modules_path(path, files))
                     except Exception as exc:
-                        log.warning("Unable to load modules [%s] from %s (%s: %s)",
+                        log.warning("Unable to load modules [%s] "
+                                    "from %s (%s: %s)",
                                     files, path, exc.__class__.__name__, exc)
                 else:
                     modules.append(extractor._modules_internal())
