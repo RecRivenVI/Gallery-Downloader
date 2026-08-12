@@ -244,6 +244,9 @@ class ImagetwistImageExtractor(ImagehostImageExtractor):
         filename, pos = text.extract(page, ' alt="', '"', pos)
         return url, filename
 
+    def metadata(self, page):
+        return {"_http_headers": {"Referer": self.page_url}}
+
 
 class ImagetwistGalleryExtractor(ImagehostImageExtractor):
     """Extractor for galleries from imagetwist.com"""
@@ -457,6 +460,9 @@ class ViprImageExtractor(ImagehostImageExtractor):
             self.not_found()
         alt, pos = text.extract(page, ' alt="', '"', pos)
         return url, alt and text.unescape(alt)
+
+    def metadata(self, page):
+        return {"_http_headers": {"Referer": self.page_url}}
 
 
 class ImgclickImageExtractor(ImagehostImageExtractor):
