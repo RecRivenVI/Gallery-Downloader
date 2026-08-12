@@ -93,6 +93,12 @@ Consider all listed sites to potentially be NSFW.
     <td><span title="https://www.adultempire.com/12345/gallery.html">Galleries</span></td>
     <td></td>
 </tr>
+<tr id="adultphotosets" title="adultphotosets">
+    <td>AdultPhotoSets</td>
+    <td>https://adultphotosets.best/</td>
+    <td>Categories, Galleries, Home Feed, Tag Searches</td>
+    <td></td>
+</tr>
 <tr id="agnph" title="agnph">
     <td>AGNPH</td>
     <td>https://agn.ph/</td>

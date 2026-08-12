@@ -24,6 +24,7 @@ CATEGORY_MAP = {
     "2chan"          : "Futaba Channel",
     "35photo"        : "35PHOTO",
     "adultempire"    : "Adult Empire",
+    "adultphotosets" : "AdultPhotoSets",
     "agnph"          : "AGNPH",
     "ahottie"        : "AHottie",
     "aibooru"        : "AIBooru",
