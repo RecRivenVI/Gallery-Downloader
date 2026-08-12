@@ -10465,20 +10465,50 @@ Description
 extractor.module-sources
 ------------------------
 Type
-    ``list`` of |Path|_ instances
+    * ``list`` of |Path|_ instances
+    * ``list`` of ``object``
 Example
-    ``["~/.config/gallery-dl/modules", null]``
-Description
-    List of directories to load external extractor modules from.
+    .. code:: json
 
-    Any file in a specified directory with a ``.py`` filename extension
-    gets `imported <https://docs.python.org/3/reference/import.html>`__
-    and searched for potential extractors,
-    i.e. classes with a ``pattern`` attribute.
-Note
-    ``null`` references internal extractors defined in
-    `extractor/__init__.py <https://codeberg.org/mikf/gallery-dl/src/tag/v1.32.0/gallery_dl/extractor/__init__.py#L12>`__
-    or by `extractor.modules`_.
+        ["~/.config/gallery-dl/modules", null]
+
+    .. code:: json
+
+        [
+            {
+                "from": "~/.config/gallery-dl/modules",
+                "import": ["custom_module1", "custom_module2"]
+            },
+            null
+        ]
+
+Description
+    List of sources to load (external) extractor modules from.
+
+    The following elements are supported:
+
+    |Path|_
+        | A path to a directory containing custom extractor modules.
+        | All files in this directory with a ``.py`` filename extension
+          will be `imported <https://docs.python.org/3/reference/import.html>`__
+          and searched for extractors, i.e. classes with a ``pattern`` attribute.
+    ``object``
+        An object describing module
+        `imports <https://docs.python.org/3/reference/import.html>`__
+        in a specific directory.
+
+        The following keys are required:
+
+        ``from``
+            | A |Path|_ to the directory the modules are located in.
+            | This directory will be available on the module search path (``sys.path``) during import.
+        ``ìmport``
+            | A ``list`` of ``strings`` of filenames to import.
+            | The names must be given without ``.py`` extension.
+    ``null``
+        Internal extractors defined in
+        `extractor/__init__.py <https://codeberg.org/mikf/gallery-dl/src/tag/v1.32.0/gallery_dl/extractor/__init__.py#L12>`__
+        or by `extractor.modules`_.
 
 
 extractor.category-map
