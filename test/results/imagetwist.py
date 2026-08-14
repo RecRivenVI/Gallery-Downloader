@@ -20,6 +20,9 @@ __tests__ = (
     "extension": "png",
     "token"    : "f1i2s4vhvbrq",
     "post_url" : "https://imagetwist.com/f1i2s4vhvbrq",
+    "_http_headers": {
+        "Referer": "https://imagetwist.com/f1i2s4vhvbrq",
+    },
 },
 
 {

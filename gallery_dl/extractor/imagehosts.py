@@ -66,6 +66,8 @@ class ImagehostImageExtractor(Extractor):
             data = text.nameext_from_url(url)
         data["token"] = self.token
         data["post_url"] = self.page_url
+        data["_http_headers"] = {"Referer": self.page_url}
+
         data.update(self.metadata(page))
 
         if url.startswith("http:"):

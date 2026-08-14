@@ -18,6 +18,9 @@ __tests__ = (
     "filename" : "sommer01035",
     "post_url" : "https://vipr.im/kcd5jcuhgs3v",
     "token"    : "kcd5jcuhgs3v",
+    "_http_headers": {
+        "Referer": "https://vipr.im/kcd5jcuhgs3v",
+    },
 },
 
 {
