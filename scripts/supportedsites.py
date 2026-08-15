@@ -135,6 +135,7 @@ CATEGORY_MAP = {
     "mangareader"    : "MangaReader",
     "mangataro"      : "MangaTaro",
     "mgewiki"        : "Monster Girl Encyclopedia Wiki",
+    "onlyhaven"      : "OnlyHaven",
     "s3ndpics"       : "S3ND",
     "schalenetwork"  : "Schale Network",
     "leakgallery"    : "Leak Gallery",
@@ -420,8 +421,11 @@ SUBCATEGORY_MAP = {
         "followed": "Followed Users",
         "nuita" : "Nuita History",
     },
+    "onlyhaven": {
+        "posts": "Post Listings",
+    },
     "pawchive": {
-        "posts": "",
+        "posts": "Post Listings",
     },
     "pinterest": {
         "board": "",

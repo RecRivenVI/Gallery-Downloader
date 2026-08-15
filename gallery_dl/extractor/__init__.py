@@ -177,6 +177,7 @@ modules = [
     "nsfwalbum",
     "nudostar",
     "okporn",
+    "onlyhaven",
     "paheal",
     "patreon",
     "pawchive",

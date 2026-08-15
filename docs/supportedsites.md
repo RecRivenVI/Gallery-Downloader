@@ -1308,6 +1308,14 @@ Consider all listed sites to potentially be NSFW.
     <td><span title="https://ok.porn/albums/12345/">Galleries</span></td>
     <td></td>
 </tr>
+<tr id="onlyhaven" title="onlyhaven">
+    <td>OnlyHaven</td>
+    <td>https://cum.st/</td>
+    <td><span title="https://cum.st/creators/SERVICE/12345/post/12345">Posts</span> |
+        <span title="https://cum.st/posts">Post Listings</span> |
+        <span title="https://cum.st/creators/SERVICE/12345">User Profiles</span></td>
+    <td></td>
+</tr>
 <tr id="patreon" title="patreon">
     <td>Patreon</td>
     <td>https://www.patreon.com/</td>
@@ -1323,6 +1331,7 @@ Consider all listed sites to potentially be NSFW.
     <td><span title="https://pawchive.pw/artists">Artists</span> |
         <span title="https://pawchive.pw/favorites">Favorites</span> |
         <span title="https://pawchive.pw/SERVICE/user/12345/post/12345">Posts</span> |
+        <span title="https://pawchive.pw/posts">Post Listings</span> |
         <span title="https://pawchive.pw/SERVICE/user/12345">User Profiles</span></td>
     <td>Supported</td>
 </tr>
