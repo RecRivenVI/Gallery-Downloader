@@ -3844,6 +3844,14 @@ Description
     Recursively download files from subfolders.
 
 
+extractor.gofile.salt
+---------------------
+Type
+    ``string``
+Description
+    Alternate `salt` value used during website token generation.
+
+
 extractor.hdoujin.cbz
 ---------------------
 Type
