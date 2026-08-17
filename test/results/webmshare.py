@@ -52,4 +52,22 @@ __tests__ = (
     "#class"   : webmshare.WebmshareVideoExtractor,
 },
 
+{
+    "#url"     : "https://webmshare.com/oO9Z0",
+    "#comment" : "18+",
+    "#class"   : webmshare.WebmshareVideoExtractor,
+    "#results" : "https://s1.webmshare.com/oO9Z0.webm",
+
+    "date"     : "dt:2026-06-22 00:00:00",
+    "extension": "webm",
+    "filename" : "oO9Z0",
+    "height"   : 1440,
+    "id"       : "oO9Z0",
+    "thumb"    : "https://s1.webmshare.com/t/oO9Z0.jpg",
+    "title"    : "めぐみん Bass Knight with Megumin",
+    "url"      : "https://s1.webmshare.com/oO9Z0.webm",
+    "views"    : int,
+    "width"    : 2560,
+},
+
 )

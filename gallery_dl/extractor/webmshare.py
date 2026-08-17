@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2022-2025 Mike Fährmann
+# Copyright 2022-2026 Mike Fährmann
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as
@@ -23,17 +23,26 @@ class WebmshareVideoExtractor(Extractor):
                r"/(?:play/|download-webm/)?(\w{3,})")
     example = "https://webmshare.com/_ID_"
 
-    def __init__(self, match):
-        Extractor.__init__(self, match)
-        self.video_id = match[1]
-
     def items(self):
-        url = f"{self.root}/{self.video_id}"
+        video_id = self.groups[0]
+        url = f"{self.root}/{video_id}"
         extr = text.extract_from(self.request(url).text)
 
+        title = extr('property="og:title" content="', '"')
+        if not title:
+            url_r18 = self.root + "/is_adult"
+            data = {
+                "url_to_go": text.unescape(extr(
+                    'name="url_to_go" value="', '"')),
+                "_token"   : text.unescape(extr(
+                    'name="_token" value="', '"')),
+            }
+            response = self.request(url_r18, method="POST", data=data)
+            extr = text.extract_from(response.text)
+            title = extr('property="og:title" content="', '"')
+
         data = {
-            "title": text.unescape(extr(
-                'property="og:title" content="', '"').rpartition(" — ")[0]),
+            "title": text.unescape(title.rpartition(" — ")[0]),
             "thumb": "https:" + extr('property="og:image" content="', '"'),
             "url"  : "https:" + extr('property="og:video" content="', '"'),
             "width": text.parse_int(extr(
@@ -43,8 +52,8 @@ class WebmshareVideoExtractor(Extractor):
             "date" : self.parse_datetime(extr(
                 "<small>Added ", "<"), "%B %d, %Y"),
             "views": text.parse_int(extr('glyphicon-eye-open"></span>', '<')),
-            "id"       : self.video_id,
-            "filename" : self.video_id,
+            "id"       : video_id,
+            "filename" : video_id,
             "extension": "webm",
         }
 
