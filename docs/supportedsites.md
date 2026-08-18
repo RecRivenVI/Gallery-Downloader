@@ -2009,7 +2009,8 @@ Consider all listed sites to potentially be NSFW.
 <tr id="webmshare" title="webmshare">
     <td>webmshare</td>
     <td>https://webmshare.com/</td>
-    <td><span title="https://webmshare.com/_ID_">Videos</span></td>
+    <td><span title="https://webmshare.com/results?q=QUERY">Search Results</span> |
+        <span title="https://webmshare.com/_ID_">Videos</span></td>
     <td></td>
 </tr>
 <tr id="webtoons" title="webtoons">

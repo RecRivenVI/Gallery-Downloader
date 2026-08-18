@@ -12,11 +12,32 @@ from .common import Extractor, Message
 from .. import text
 
 
-class WebmshareVideoExtractor(Extractor):
-    """Extractor for webmshare videos"""
+class WebmshareExtractor(Extractor):
+    """Base class for webmshare extractors"""
     category = "webmshare"
-    subcategory = "video"
     root = "https://webmshare.com"
+
+
+class WebmshareSearchExtractor(WebmshareExtractor):
+    """Extractor for webmshare search results"""
+    subcategory = "search"
+    pattern = r"(?:https?://)?webmshare\.com/results\?q=([^&#]+)"
+    example = "https://webmshare.com/results?q=QUERY"
+
+    def items(self):
+        query = self.groups[0]
+        page = self.request(f"{self.root}/results?q={query}").text
+        self.kwdict["search_tags"] = text.unquote(query)
+
+        data = {"_extractor": WebmshareVideoExtractor}
+        base = self.root + "/"
+        for video_id in text.extract_iter(page, '<a href="/', '"'):
+            yield Message.Queue, base + video_id, data
+
+
+class WebmshareVideoExtractor(WebmshareExtractor):
+    """Extractor for webmshare videos"""
+    subcategory = "video"
     filename_fmt = "{id}{title:? //}.{extension}"
     archive_fmt = "{id}"
     pattern = (r"(?:https?://)?(?:s\d+\.)?webmshare\.com"

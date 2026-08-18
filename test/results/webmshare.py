@@ -70,4 +70,22 @@ __tests__ = (
     "width"    : 2560,
 },
 
+{
+    "#url"     : "https://webmshare.com/results?q=nature",
+    "#class"   : webmshare.WebmshareSearchExtractor,
+    "#results" : (
+        "https://webmshare.com/VVO1v",
+        "https://webmshare.com/jxa11",
+        "https://webmshare.com/DeWDV",
+        "https://webmshare.com/93GOD",
+        "https://webmshare.com/RyoEW",
+        "https://webmshare.com/3jODz",
+        "https://webmshare.com/ZQ4GJ",
+        "https://webmshare.com/6jLQ1",
+        "https://webmshare.com/WWNwd",
+    ),
+
+    "search_tags": "nature",
+},
+
 )
