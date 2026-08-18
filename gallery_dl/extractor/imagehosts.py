@@ -328,9 +328,8 @@ class PixhostImageExtractor(ImagehostImageExtractor):
 
     def get_info(self, page):
         self.kwdict["directory"] = self.page_url.rsplit("/")[-2]
-        url , pos = text.extract(page, "contentUrl\":\"", "\"")
-        name, pos = text.extract(page, "alt=\"", "\"", pos)
-        return url, text.unescape(name) if name else None
+        data = self._extract_jsonld(page)
+        return data["contentUrl"], data.get("name")
 
 
 class PixhostGalleryExtractor(ImagehostImageExtractor):

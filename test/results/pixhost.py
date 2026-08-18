@@ -15,7 +15,7 @@ __tests__ = (
     "#results"      : "https://img37.pixhost.cc/images/190/130327671_test-.png",
     "#sha1_content" : "0c8768055e4e20e7c7259608b67799171b691140",
 
-    "filename" : "130327671_test-",
+    "filename" : "test-",
     "extension": "png",
     "directory": "190",
     "token"    : "130327671",
@@ -29,7 +29,7 @@ __tests__ = (
     "#results"      : "https://img37.pixhost.cc/images/190/130327671_test-.png",
     "#sha1_content" : "0c8768055e4e20e7c7259608b67799171b691140",
 
-    "filename" : "130327671_test-",
+    "filename" : "test-",
     "extension": "png",
     "directory": "190",
     "token"    : "130327671",
