@@ -1180,6 +1180,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://www.mangatown.com/manga/TITLE">Manga</span></td>
     <td></td>
 </tr>
+<tr id="mangayi" title="mangayi">
+    <td>MangaYi</td>
+    <td>https://mangayi.com/</td>
+    <td><span title="https://mangayi.com/read/TITLE">Chapters</span> |
+        <span title="https://mangatown.com/manga/TITLE">Manga</span></td>
+    <td></td>
+</tr>
 <tr id="mangoxo" title="mangoxo">
     <td>Mangoxo</td>
     <td>https://www.mangoxo.com/</td>

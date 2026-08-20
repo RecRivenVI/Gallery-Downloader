@@ -157,6 +157,7 @@ modules = [
     "mangareader",
     "mangataro",
     "mangatown",
+    "mangayi",
     "mangoxo",
     "mgrenders",
     "misskey",
