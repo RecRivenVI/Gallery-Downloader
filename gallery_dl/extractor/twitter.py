@@ -1082,8 +1082,8 @@ class TwitterLikesExtractor(TwitterExtractor):
 class TwitterBookmarkExtractor(TwitterExtractor):
     """Extractor for bookmarked tweets"""
     subcategory = "bookmark"
-    pattern = BASE_PATTERN + r"/i/bookmarks()"
-    example = "https://x.com/i/bookmarks"
+    pattern = BASE_PATTERN + r"/i/(?:history|bookmarks)()"
+    example = "https://x.com/i/history"
 
     def tweets(self):
         return self.api.user_bookmarks()

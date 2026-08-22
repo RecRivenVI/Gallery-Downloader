@@ -1897,7 +1897,7 @@ Consider all listed sites to potentially be NSFW.
     <td>https://x.com/</td>
     <td><span title="https://x.com/USER/photo">Avatars</span> |
         <span title="https://x.com/USER/header_photo">Backgrounds</span> |
-        <span title="https://x.com/i/bookmarks">Bookmarks</span> |
+        <span title="https://x.com/i/history">Bookmarks</span> |
         <span title="https://x.com/i/communities">Communities</span> |
         <span title="https://x.com/i/events/12345">Events</span> |
         <span title="https://x.com/USER/followers">Followers</span> |

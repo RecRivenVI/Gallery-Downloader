@@ -237,8 +237,12 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://x.com/i/history",
+    "#class"   : twitter.TwitterBookmarkExtractor,
+},
+
+{
     "#url"     : "https://twitter.com/i/bookmarks",
-    "#category": ("", "twitter", "bookmark"),
     "#class"   : twitter.TwitterBookmarkExtractor,
 },
 
