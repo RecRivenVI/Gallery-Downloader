@@ -510,6 +510,8 @@ class TwitterExtractor(Extractor):
                 tget("retweeted_status_id_str")),
             "quote_id"      : text.parse_int(
                 tget("quoted_by_id_str")),
+            "quoted_id"     : text.parse_int(
+                tget("quoted_status_id_str")),
             "reply_id"      : text.parse_int(
                 tget("in_reply_to_status_id_str")),
             "conversation_id": text.parse_int(
