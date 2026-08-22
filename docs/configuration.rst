@@ -2132,14 +2132,14 @@ Description
 
     ``"listRecords"``
         | Use the results from
-          `com.atproto.repo.listRecords <https://docs.bsky.app/docs/api/com-atproto-repo-list-records>`__
+          `com.atproto.repo.listRecords <https://endpoints.bsky.app/#bluesky-app/tag/comatprotorepo/GET/xrpc/com.atproto.repo.listRecords>`__
         | Requires no login and alows accessing likes of all users,
           but uses one request to
-          `getPostThread <https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread>`__
+          `getPostThread <https://endpoints.bsky.app/#bluesky-app/tag/appbskyfeed/GET/xrpc/app.bsky.feed.getPostThread>`__
           per post,
     ``"getActorLikes"``
         | Use the results from
-          `app.bsky.feed.getActorLikes <https://docs.bsky.app/docs/api/app-bsky-feed-get-actor-likes>`__
+          `app.bsky.feed.getActorLikes <https://endpoints.bsky.app/#bluesky-app/tag/appbskyfeed/GET/xrpc/app.bsky.feed.getActorLikes>`__
         | Requires login and only allows accessing your own likes.
 
 
@@ -2161,7 +2161,7 @@ Description
         ``hashtags``, ``mentions``, ``uris``
     ``user``
         | Detailed ``user`` metadata for the user referenced in the input URL.
-        | (`app.bsky.actor.getProfile <https://docs.bsky.app/docs/api/app-bsky-actor-get-profile>`__)
+        | (`app.bsky.actor.getProfile <https://endpoints.bsky.app/#bluesky-app/tag/appbskyactor/GET/xrpc/app.bsky.actor.getProfile>`__)
 
 
 extractor.bluesky.post.depth
@@ -2175,7 +2175,7 @@ Default
 Description
     Sets the maximum depth of returned reply posts.
 
-    (See the ``depth`` parameter of `app.bsky.feed.getPostThread <https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread>`__)
+    (See the ``depth`` parameter of `app.bsky.feed.getPostThread <https://endpoints.bsky.app/#bluesky-app/tag/appbskyfeed/GET/xrpc/app.bsky.feed.getPostThread>`__)
 
 
 extractor.bluesky.quoted
