@@ -123,10 +123,10 @@ class PatreonExtractor(Extractor):
 
     def _content(self, post):
         if content := post.get("content"):
-            for img in text.extract_iter(
-                    content, '><figure><img src="', '>'):
-                url = text.unescape(img[:img.find('"')])
-                data = {"media_id": text.extr(img, 'media_id="', '"')}
+            pattern = text.re(r'><(?:figure><img|video) src="([^"]+)([^>]*)')
+            for url, attrs in pattern.findall(content):
+                url = text.unescape(url)
+                data = {"media_id": text.extr(attrs, 'media_id="', '"')}
                 yield "content", data, url, self._filename(url) or url
 
     def posts(self):
