@@ -15,9 +15,10 @@ __tests__ = (
     "#pattern" : r"https://i[1-4]\.nhentai\.net/galleries/867789/\d+\.jpg",
     "#count"   : 16,
 
-    "title"     : r"re:\[Morris\] Amazon no Hiyaku \| Amazon Elixir",
-    "title_en"  : str,
-    "title_ja"  : str,
+    "title"     : "[Morris] Amazon no Hiyaku | Amazon Elixir (COMIC Momohime 2005-05) [English] [Decensored]",
+    "title_en"  : "[Morris] Amazon no Hiyaku | Amazon Elixir (COMIC Momohime 2005-05) [English] [Decensored]",
+    "title_ja"  : "[モリス] アマゾンの秘薬 (COMIC 桃姫 2005年5月号) [英訳] [無修正]",
+    "title_pretty": "Amazon no Hiyaku | Amazon Elixir",
     "gallery_id": 147850,
     "media_id"  : 867789,
     "count"     : 16,
