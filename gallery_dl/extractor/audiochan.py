@@ -96,13 +96,17 @@ class AudiochanExtractor(Extractor):
 
     def _extract_url(self, post):
         file = post["audioFile"]
-        if url := file["url"]:
+        if url := file.get("url"):
             return url
 
+        base = f"{self.root_api}/audios/{post['id']}"
         data = {"file_id": file.get("source_audio_file_id") or file["id"]}
+        data["play_intent"] = self.request_json(
+            base + "/play-intent", method="POST", headers=self.headers_api,
+            json=data)["play_intent"]
         return self.request_json(
-            f"{self.root_api}/audios/{post['id']}/stream-url",
-            method="POST", headers=self.headers_api, json=data)["url"]
+            base + "/stream-url", method="POST", headers=self.headers_api,
+            json=data)["url"]
 
     def _extract_description(self, description, texts=None):
         if texts is None:
