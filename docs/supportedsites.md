@@ -2042,9 +2042,9 @@ Consider all listed sites to potentially be NSFW.
 <tr id="whyp" title="whyp">
     <td>Whyp</td>
     <td>https://whyp.it/</td>
-    <td><span title="https://whyp.it/tracks/12345/SLUG">Audio</span> |
-        <span title="https://whyp.it/collections/123/NAME">Collections</span> |
-        <span title="https://whyp.it/users/123/NAME">User Profiles</span></td>
+    <td><span title="https://whyp.it/tracks/NAME-ID">Audio</span> |
+        <span title="https://whyp.it/collections/NAME-ID">Collections</span> |
+        <span title="https://whyp.it/users/NAME-ID">User Profiles</span></td>
     <td></td>
 </tr>
 <tr id="wikiart" title="wikiart">
