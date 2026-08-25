@@ -278,6 +278,8 @@ class TestExtractorResults(unittest.TestCase):
                 for url in tjob.url_list:
                     self.assertRegex(url, pattern, msg="#pattern")
             else:
+                self.assertEqual(
+                    len(tjob.url_list), len(pattern), msg="#pattern/count")
                 for url, pat in zip(tjob.url_list, pattern):
                     self.assertRegex(url, pat, msg="#pattern")
 
