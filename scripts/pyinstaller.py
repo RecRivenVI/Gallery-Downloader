@@ -46,6 +46,9 @@ def main():
 
         # https://github.com/pyinstaller/pyinstaller/issues/9149
         "--exclude-module", "pkg_resources",
+        # unnecessary PyInstaller runtime dependencies
+        "--exclude-module=setuptools",
+        "--exclude-module=packaging",
 
         "--additional-hooks-dir", util.path("scripts"),
         "--distpath", util.path("dist"),
