@@ -160,6 +160,41 @@ def output(write, args):
                 write(f'    # from {", ".join(parents)}\n')
 
 
+def update(args):
+    if target := args.update:
+        targets = (("", "pyinstaller", "secretstorage")
+                   if target == "all" else (target,))
+    else:
+        targets = ("",)
+
+    write = sys.stdout.write
+    for target in targets:
+        if target and target[0] != "_":
+            target = "_" + target
+        path = "./requirements/versions" + target
+        write(f"Updating '{path}'\n")
+        path = util.path(path)
+        with open(path) as fp:
+            lines = fp.readlines()
+
+        session = requests.Session()
+        for idx, line in enumerate(lines):
+            line = line.strip()
+            if not line or line[0] == "#":
+                continue
+            pkg, _, version = line.partition("==")
+            u = f"https://pypi.org/pypi/{pkg}/json"
+            d = session.get(u).json()
+            if not (i := d.get("info")):
+                continue
+            if version != i["version"]:
+                write(f"- {i['name']}: {version} >> {i['version']}\n")
+            lines[idx] = f"{i['name']}=={i['version']}\n"
+
+        with open(path, "w") as fp:
+            fp.writelines(lines)
+
+
 def parse_args(args=None):
     parser = argparse.ArgumentParser(args)
     parser.add_argument("-a", "--architecture", action="append", default=[])
@@ -178,6 +213,7 @@ def parse_args(args=None):
     parser.add_argument("-p", "--platform", action="append", default=[])
     parser.add_argument("-P", "--python", action="append", default=[])
     parser.add_argument("-s", "--sdist", action="store_true")
+    parser.add_argument("-u", "--update", const="", nargs="?")
     parser.add_argument("-x", "--exclude", action="append", default=[])
 
     parser.add_argument("--x32", "--x86", action="store_true")
@@ -259,8 +295,12 @@ def parse_args(args=None):
 
 def main():
     args = parse_args()
-    for pkg in args.pkgs:
-        collect(pkg, args)
+
+    if args.update is not None:
+        update(args)
+    if args.pkgs:
+        for pkg in args.pkgs:
+            collect(pkg, args)
 
     if not args.output or args.output == "-":
         output(sys.stdout.write, args)
