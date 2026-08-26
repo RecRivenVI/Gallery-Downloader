@@ -1184,7 +1184,7 @@ Consider all listed sites to potentially be NSFW.
     <td>Mangayi</td>
     <td>https://mangayi.com/</td>
     <td><span title="https://mangayi.com/read/TITLE/chapter/1/">Chapters</span> |
-        <span title="https://mangayi.com/read/TITLE">Manga</span></td>
+        <span title="https://mangayi.com/read/TITLE/">Manga</span></td>
     <td></td>
 </tr>
 <tr id="mangoxo" title="mangoxo">

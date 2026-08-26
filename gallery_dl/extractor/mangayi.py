@@ -20,7 +20,7 @@ class MangayiBase():
 
 class MangayiChapterExtractor(MangayiBase, ChapterExtractor):
     """Extractor for manga-chapters from mangayi.com"""
-    pattern = BASE_PATTERN + r"(/read/[^/?#]+/(?:v(\d+)/)?chapter/\d+[^/?#]*/)"
+    pattern = BASE_PATTERN + r"(/read/[^/?#]+/(?:v(\d+)/)?chapter/\d+[^/?#]*)"
     example = "https://mangayi.com/read/TITLE/chapter/1/"
 
     def metadata(self, page):
@@ -50,8 +50,8 @@ class MangayiChapterExtractor(MangayiBase, ChapterExtractor):
 
 class MangayiMangaExtractor(MangayiBase, MangaExtractor):
     chapterclass = MangayiChapterExtractor
-    pattern = BASE_PATTERN + r"(/read/[^/?#]+/)"
-    example = "https://mangayi.com/read/TITLE"
+    pattern = BASE_PATTERN + r"(/read/[^/?#]+)"
+    example = "https://mangayi.com/read/TITLE/"
 
     def chapters(self, page):
         manga = util.json_loads("{" + text.extr(
