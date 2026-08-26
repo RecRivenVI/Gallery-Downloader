@@ -115,10 +115,10 @@ def resolve(data):
 
                 elif type == "Map":
                     result = []
-                    for key, new in zip(*(iter(value[1:]),) * 2, strict=True):
+                    for i in range(1, len(value), 2):
                         pair = [None, None]
-                        stack.append((pair, 0, key))
-                        stack.append((pair, 1, new))
+                        stack.append((pair, 0, value[i]))
+                        stack.append((pair, 1, value[i+1]))
                         result.append(pair)
 
                 elif type == "RegExp":

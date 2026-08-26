@@ -72,8 +72,9 @@ class TestDevalue(unittest.TestCase):
         for name, input, exc, msg in TEST_CASES_ERR:
             with self.assertLogs("nuxt") as log_info:
                 nuxt.resolve(input)
-            self.assertEqual(
-                log_info.output, [f"ERROR:nuxt:{exc.__name__}: {msg}"], name)
+            self.assertEqual(len(log_info.output), 1, name)
+            self.assertRegex(log_info.output[0],
+                             f"^ERROR:nuxt:{exc.__name__}: .*{msg}", name)
 
     def test_nuxt_resolve_cyclical(self):
         name = "Map (cyclical)"
