@@ -265,7 +265,9 @@ class TumblrExtractor(Extractor):
         return rb["comment"] + rb["tree_html"]
 
     def _extract_inline(self, posts, post, seen, txt):
+        more = txt.find(">[[MORE]]<") + 1
         for match in self._finditer_inline(txt):
+            post["keepreading"] = (match.end() > more) if more else False
             vid, url = match.groups()
             if vid is None:
                 if url not in seen:

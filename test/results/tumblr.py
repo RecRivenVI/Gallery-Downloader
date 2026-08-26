@@ -377,7 +377,28 @@ __tests__ = (
         "https://64.media.tumblr.com/2070fab9e473df127a1ddf15a4c8eb76/e961f538a8e5e7b9-e8/s99999x99999/53cbeaea628f4e37c4ee5d2d5215577a2bc243ff.jpg",
     ),
 
+    "keepreading": False,
     "source": {"question", "answer"},
+},
+
+{
+    "#url"     : "https://www.tumblr.com/claredelun3e/825259888123035648",
+    "#comment" : "files below 'Keep Reading' cut (#391)",
+    "#class"   : tumblr.TumblrPostExtractor,
+    "#options" : {"file-filter": "keepreading"},
+    "#results" : "https://64.media.tumblr.com/93f5b5aefeec5a2b650cd20a871ce3cc/2ef65ca09d33fb3e-b9/s99999x99999/b2887332f0c18243cf3d7fe4774720f6f7fa6cc8.jpg",
+
+    "count"      : 2,
+    "date"       : "dt:2026-08-18 04:59:19",
+    "extension"  : "jpg",
+    "filename"   : "b2887332f0c18243cf3d7fe4774720f6f7fa6cc8",
+    "hash"       : "b2887332f0c18243cf3d7fe4774720f6f7fa6cc8",
+    "id"         : 825259888123035648,
+    "keepreading": True,
+    "num"        : 2,
+    "post_url"   : "https://www.tumblr.com/blog/view/claredelun3e/825259888123035648",
+    "slug"       : "that-cat-reminded-me-of-him-cat-in-question",
+    "source"     : "inline",
 },
 
 {
