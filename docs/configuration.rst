@@ -5361,6 +5361,38 @@ Description
     Download thumbnails/previews if available when this option is disabled.
 
 
+extractor.pawchive.revisions
+----------------------------
+Type
+    * ``bool``
+    * ``string``
+Default
+    ``false``
+Description
+    Extract post revisions.
+
+    Set this to ``"unique"`` to filter out duplicate revisions.
+Note
+    This requires 1 additional HTTP request per post.
+
+
+extractor.pawchive.order-revisions
+----------------------------------
+Type
+    ``string``
+Default
+    ``"desc"``
+Description
+    Controls the order in which
+    `revisions <extractor.pawchive.revisions_>`__
+    are returned.
+
+    ``"asc"`` | ``"reverse"``
+        Ascending order (oldest first)
+    ``"desc"``
+        Descending order (newest first)
+
+
 extractor.paheal.metadata
 -------------------------
 Type
