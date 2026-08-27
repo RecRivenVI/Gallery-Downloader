@@ -3077,6 +3077,19 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://thefappeningblog.com/forum/threads/TITLE.12345/">Threads</span></td>
     <td></td>
 </tr>
+<tr id="thirsthub" title="thirsthub">
+    <td>ThirstHub</td>
+    <td>https://thirsthub.cc/</td>
+    <td><span title="https://thirsthub.cc/forums/TITLE.123/">Forums</span> |
+        <span title="https://thirsthub.cc/media/albums/ALBUM.123/">Albums</span> |
+        <span title="https://thirsthub.cc/media/categories/CATEGORY.123/">Media Categories</span> |
+        <span title="https://thirsthub.cc/media/NAME.123/">Media Files</span> |
+        <span title="https://thirsthub.cc/media/users/USER.123/">User Media</span> |
+        <span title="https://thirsthub.cc/threads/TITLE.12345/post-54321">Posts</span> |
+        <span title="https://thirsthub.cc/members/USER.123/">Profiles</span> |
+        <span title="https://thirsthub.cc/threads/TITLE.12345/">Threads</span></td>
+    <td></td>
+</tr>
 
 <tr id="moebooru" title="moebooru">
     <td colspan="4"><strong>Moebooru and MyImouto</strong></td>

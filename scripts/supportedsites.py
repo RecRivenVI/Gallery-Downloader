@@ -227,6 +227,7 @@ CATEGORY_MAP = {
     "thefap"         : "TheFap",
     "thefappeningforum": "The Fappening Forum",
     "thehentaiworld" : "The Hentai World",
+    "thirsthub"      : "ThirstHub",
     "tiktok"         : "TikTok",
     "titsintops"     : "Tits In Tops Forum",
     "tmohentai"      : "TMOHentai",
