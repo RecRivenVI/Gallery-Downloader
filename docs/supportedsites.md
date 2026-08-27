@@ -96,7 +96,10 @@ Consider all listed sites to potentially be NSFW.
 <tr id="adultphotosets" title="adultphotosets">
     <td>AdultPhotoSets</td>
     <td>https://adultphotosets.best/</td>
-    <td>Categories, Galleries, Home Feed, Tag Searches</td>
+    <td><span title="https://adultphotosets.best/softcore-photo-sets/">Categories</span> |
+        <span title="https://adultphotosets.best/hardcore-photo-sets/123-TITLE.html">Galleries</span> |
+        <span title="https://adultphotosets.best/">Home Feed</span> |
+        <span title="https://adultphotosets.best/tags/TAG/">Tag Searches</span></td>
     <td></td>
 </tr>
 <tr id="agnph" title="agnph">
