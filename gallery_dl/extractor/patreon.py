@@ -13,6 +13,8 @@ from .. import text, util, dt
 import collections
 import itertools
 
+BASE_PATTERN = r"(?:https?://)?(?:www\.)?patreon\.com"
+
 
 class PatreonExtractor(Extractor):
     """Base class for patreon extractors"""
@@ -365,7 +367,7 @@ class PatreonCollectionExtractor(PatreonExtractor):
     subcategory = "collection"
     directory_fmt = ("{category}", "{creator[full_name]}",
                      "Collections", "{collection[title]} ({collection[id]})")
-    pattern = r"(?:https?://)?(?:www\.)?patreon\.com/collection/(\d+)"
+    pattern = BASE_PATTERN + r"/collection/(\d+)"
     example = "https://www.patreon.com/collection/12345"
 
     def posts(self):
@@ -399,8 +401,7 @@ class PatreonCollectionExtractor(PatreonExtractor):
 class PatreonPostExtractor(PatreonExtractor):
     """Extractor for media from a single post"""
     subcategory = "post"
-    pattern = (r"(?:https?://)?(?:www\.)?patreon\.com"
-               r"/(?:[^/?#]+/)?posts/(?:[^/?#]*-)?(\d+)")
+    pattern = BASE_PATTERN + r"/(?:[^/?#]+/)?posts/(?:[^/?#]*-)?(\d+)"
     example = "https://www.patreon.com/posts/TITLE-12345"
 
     def posts(self):
@@ -415,7 +416,7 @@ class PatreonPostExtractor(PatreonExtractor):
 class PatreonCreatorExtractor(PatreonExtractor):
     """Extractor for a creator's works"""
     subcategory = "creator"
-    pattern = (r"(?:https?://)?(?:www\.)?patreon\.com"
+    pattern = (BASE_PATTERN +
                r"/(?!(?:home|create|login|signup|search|posts|messages)"
                r"(?:$|[/?#]))"
                r"(?:profile/creators|(?:cw?/)?([^/?#]+)(?:/posts)?)"
@@ -488,7 +489,7 @@ class PatreonCreatorExtractor(PatreonExtractor):
 class PatreonUserExtractor(PatreonExtractor):
     """Extractor for media from creators supported by you"""
     subcategory = "user"
-    pattern = r"(?:https?://)?(?:www\.)?patreon\.com/home$"
+    pattern = BASE_PATTERN + r"/home$"
     example = "https://www.patreon.com/home"
 
     def skip_date(self, date):
