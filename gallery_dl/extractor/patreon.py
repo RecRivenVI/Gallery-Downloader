@@ -405,12 +405,13 @@ class PatreonPostExtractor(PatreonExtractor):
     example = "https://www.patreon.com/posts/TITLE-12345"
 
     def posts(self):
-        url = f"{self.root}/api/posts/{self.groups[0]}"
-        params = {"json-api-version": "1.0"}
-        post = self.request_json(url, params=params, notfound=True)
-
+        url = self._build_url("/posts/" + self.groups[0], "", "")
+        post = self.request_json(url, notfound=True)
         included = self._transform(post["included"])
         return (self._process(post["data"], included),)
+
+    def _order(self, sort):
+        return ""
 
 
 class PatreonCreatorExtractor(PatreonExtractor):

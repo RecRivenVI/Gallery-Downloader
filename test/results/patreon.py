@@ -245,6 +245,19 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.patreon.com/eslaf/posts/serena-163360221",
+    "#comment" : "multi-image post",
+    "#class"   : patreon.PatreonPostExtractor,
+    "#pattern" : (
+        r"https://c10.patreonusercontent.com/4/patreon-media/p/post/163360221/b126c428cf954d6b8d79f81282775f9e/eyJhIjoxLCJwIjoxfQ%3D%3D/1.jpg\?token-hash=.+",
+        r"https://c10.patreonusercontent.com/4/patreon-media/p/post/163360221/f8ebe1ba79994edd86283fe1fdda8f0b/eyJhIjoxLCJwIjoxfQ%3D%3D/1.jpg\?token-hash=.+",
+        r"https://c10.patreonusercontent.com/4/patreon-media/p/post/163360221/7a40a8b7cab84a269effb3ee94680d36/eyJhIjoxLCJwIjoxfQ%3D%3D/1.jpg\?token-hash=.+",
+    ),
+
+    "type": "image",
+},
+
+{
     "#url"     : "https://www.patreon.com/collection/15764",
     "#class"   : patreon.PatreonCollectionExtractor,
     "#range"   : "1-3",
