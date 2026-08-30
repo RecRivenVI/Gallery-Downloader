@@ -569,8 +569,10 @@ class RedditAPI():
             try:
                 data = response.json()
             except ValueError:
+                html = response.text
+                msg = text.extr(html, '-content-strong">', "</div>")
                 raise self.extractor.exc.AbortExtraction(
-                    text.remove_html(response.text))
+                    text.remove_html(f'"{msg}"' if msg else html))
 
             if "error" in data:
                 exc = self.extractor.exc
