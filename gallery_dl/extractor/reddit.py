@@ -131,7 +131,8 @@ class RedditExtractor(Extractor):
 
                     for comment in comments:
                         media = (embeds and "media_metadata" in comment)
-                        html = comment["body_html"] or ""
+                        html = (comment.get("body_html") or
+                                comment.get("contentHTML") or "")
                         href = (' href="' in html)
 
                         if not media and not href:
@@ -140,7 +141,7 @@ class RedditExtractor(Extractor):
                         data = submission.copy()
                         data["comment"] = comment
                         comment["date"] = data["date"] = self.parse_timestamp(
-                            comment["created_utc"])
+                            comment.get("created_utc"))
 
                         if media:
                             for url in self._extract_embed(data, comment):
