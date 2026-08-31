@@ -648,18 +648,11 @@ Consider all listed sites to potentially be NSFW.
     <td><a href="https://codeberg.org/mikf/gallery-dl#cookies">Cookies</a></td>
 </tr>
 <tr id="furry34" title="furry34">
-    <td>Furry 34 com</td>
+    <td>Furry 34</td>
     <td>https://furry34.com/</td>
     <td><span title="https://furry34.com/playlists/view/12345">Playlists</span> |
         <span title="https://furry34.com/post/12345">Posts</span> |
         <span title="https://furry34.com/TAG">Tag Searches</span></td>
-    <td></td>
-</tr>
-<tr id="fuskator" title="fuskator">
-    <td>Fuskator</td>
-    <td>https://fuskator.com/</td>
-    <td><span title="https://fuskator.com/thumbs/ID/">Galleries</span> |
-        <span title="https://fuskator.com/search/TAG/">Search Results</span></td>
     <td></td>
 </tr>
 <tr id="2chan" title="2chan">
