@@ -55,6 +55,11 @@ __tests__ = (
 },
 
 {
+    "#url"  : "https://8chan.st/vhs/res/4.html",
+    "#class": _8chan._8chanThreadExtractor,
+},
+
+{
     "#url"  : "https://8chan.se/vhs/res/4.html",
     "#class": _8chan._8chanThreadExtractor,
 },
@@ -74,6 +79,11 @@ __tests__ = (
     "#class": _8chan._8chanBoardExtractor,
     "#pattern": _8chan._8chanThreadExtractor.pattern,
     "#count"  : range(24, 32),
+},
+
+{
+    "#url"  : "https://8chan.st/vhs/",
+    "#class": _8chan._8chanBoardExtractor,
 },
 
 {
