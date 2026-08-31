@@ -941,12 +941,6 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://itaku.ee/profile/USER">User Profiles</span></td>
     <td></td>
 </tr>
-<tr id="itchio" title="itchio">
-    <td>itch.io</td>
-    <td>https://itch.io/</td>
-    <td><span title="https://USER.itch.io/GAME">Games</span></td>
-    <td></td>
-</tr>
 <tr id="iwara" title="iwara">
     <td>Iwara</td>
     <td>https://www.iwara.tv/</td>

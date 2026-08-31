@@ -121,7 +121,6 @@ modules = [
     "instagram",
     "issuu",
     "itaku",
-    "itchio",
     "iwara",
     "joyreactor",
     "jschan",
