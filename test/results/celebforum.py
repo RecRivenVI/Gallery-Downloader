@@ -9,7 +9,7 @@ from gallery_dl.extractor import xenforo
 
 __tests__ = (
 {
-    "#url"     : "https://celebforum.to/threads/addison-vodka.84947/post-885855",
+    "#url"     : "https://celebforum.cc/threads/addison-vodka.84947/post-885855",
     "#category": ("xenforo", "celebforum", "post"),
     "#class"   : xenforo.XenforoPostExtractor,
     "#results" : (
@@ -59,7 +59,13 @@ __tests__ = (
 },
 
 {
-    "#url"     : "https://celebforum.to/threads/addison-vodka.84947/",
+    "#url"     : "https://celebforum.to/threads/addison-vodka.84947/post-885855",
+    "#category": ("xenforo", "celebforum", "post"),
+    "#class"   : xenforo.XenforoPostExtractor,
+},
+
+{
+    "#url"     : "https://celebforum.cc/threads/addison-vodka.84947/",
     "#category": ("xenforo", "celebforum", "thread"),
     "#class"   : xenforo.XenforoThreadExtractor,
     "#count"   : range(1000, 2000),
@@ -97,12 +103,24 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://celebforum.to/threads/addison-vodka.84947/",
+    "#category": ("xenforo", "celebforum", "thread"),
+    "#class"   : xenforo.XenforoThreadExtractor,
+},
+
+{
     "#url"     : "https://celebforum.to/forums/pornostars.13/",
     "#category": ("xenforo", "celebforum", "forum"),
     "#class"   : xenforo.XenforoForumExtractor,
     "#pattern" : xenforo.XenforoThreadExtractor.pattern,
     "#range"   : "1-50",
     "#count"   : 50,
+},
+
+{
+    "#url"     : "https://celebforum.cc/media/albums/5404/",
+    "#category": ("xenforo", "celebforum", "media-album"),
+    "#class"   : xenforo.XenforoMediaAlbumExtractor,
 },
 
 {

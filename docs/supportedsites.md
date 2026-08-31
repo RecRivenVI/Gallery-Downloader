@@ -2998,15 +2998,15 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="celebforum" title="celebforum">
     <td>celebforum</td>
-    <td>https://celebforum.to/</td>
-    <td><span title="https://celebforum.to/forums/TITLE.123/">Forums</span> |
-        <span title="https://celebforum.to/media/albums/ALBUM.123/">Albums</span> |
-        <span title="https://celebforum.to/media/categories/CATEGORY.123/">Media Categories</span> |
-        <span title="https://celebforum.to/media/NAME.123/">Media Files</span> |
-        <span title="https://celebforum.to/media/users/USER.123/">User Media</span> |
-        <span title="https://celebforum.to/threads/TITLE.12345/post-54321">Posts</span> |
-        <span title="https://celebforum.to/members/USER.123/">Profiles</span> |
-        <span title="https://celebforum.to/threads/TITLE.12345/">Threads</span></td>
+    <td>https://celebforum.cc/</td>
+    <td><span title="https://celebforum.cc/forums/TITLE.123/">Forums</span> |
+        <span title="https://celebforum.cc/media/albums/ALBUM.123/">Albums</span> |
+        <span title="https://celebforum.cc/media/categories/CATEGORY.123/">Media Categories</span> |
+        <span title="https://celebforum.cc/media/NAME.123/">Media Files</span> |
+        <span title="https://celebforum.cc/media/users/USER.123/">User Media</span> |
+        <span title="https://celebforum.cc/threads/TITLE.12345/post-54321">Posts</span> |
+        <span title="https://celebforum.cc/members/USER.123/">Profiles</span> |
+        <span title="https://celebforum.cc/threads/TITLE.12345/">Threads</span></td>
     <td></td>
 </tr>
 <tr id="titsintops" title="titsintops">
