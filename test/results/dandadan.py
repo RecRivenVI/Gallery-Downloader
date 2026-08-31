@@ -42,6 +42,15 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://w6.dandadan.net/manga/dandadan-chapter-241/",
+    "#class"   : dandadan.DandadanChapterExtractor,
+    "#pattern" : r"https://pic\.readkakegurui\.com/file/sancdn/dandadan/chapter\-241/\d+\.webp",
+    "#count"   : 21,
+
+    "chapter": 241,
+},
+
+{
     "#url"     : "https://dandadan.net/",
     "#class"   : dandadan.DandadanMangaExtractor,
     "#pattern" : dandadan.DandadanChapterExtractor.pattern,
