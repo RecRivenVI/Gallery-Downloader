@@ -340,9 +340,6 @@ SUBCATEGORY_MAP = {
         "favgroup": "Favorite Groups",
         "random"  : "Random Posts",
     },
-    "desktopography": {
-        "site": "",
-    },
     "deviantart": {
         "stash" : "Sta.sh",
         "status": "Status Updates",

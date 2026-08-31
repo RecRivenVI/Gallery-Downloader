@@ -62,7 +62,6 @@ modules = [
     "dandadan",
     "dankefuerslesen",
     "dcinside",
-    "desktopography",
     "deviantart",
     "discord",
     "dynastyscans",

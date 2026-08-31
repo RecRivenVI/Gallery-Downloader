@@ -430,13 +430,6 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://gallog.dcinside.com/USER">User Profiles</span></td>
     <td></td>
 </tr>
-<tr id="desktopography" title="desktopography">
-    <td>Desktopography</td>
-    <td>https://desktopography.net/</td>
-    <td><span title="https://desktopography.net/portfolios/NAME/">Entries</span> |
-        <span title="https://desktopography.net/exhibition-2020/">Exhibitions</span></td>
-    <td></td>
-</tr>
 <tr id="deviantart" title="deviantart">
     <td>DeviantArt</td>
     <td>https://www.deviantart.com/</td>
