@@ -14,7 +14,6 @@ modules = [
     "2chan",
     "2chen",
     "35photo",
-    "3dbooru",
     "4chan",
     "4archive",
     "4chanarchives",

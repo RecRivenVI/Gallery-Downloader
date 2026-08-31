@@ -29,15 +29,6 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://35photo.pro/USER">User Profiles</span></td>
     <td></td>
 </tr>
-<tr id="3dbooru" title="3dbooru">
-    <td>3dbooru</td>
-    <td>http://behoimi.org/</td>
-    <td><span title="http://behoimi.org/pool/show/12345">Pools</span> |
-        <span title="http://behoimi.org/post/popular_by_month">Popular Images</span> |
-        <span title="http://behoimi.org/post/show/12345">Posts</span> |
-        <span title="http://behoimi.org/post?tags=TAG">Tag Searches</span></td>
-    <td></td>
-</tr>
 <tr id="4archive" title="4archive">
     <td>4archive</td>
     <td>https://4archive.org/</td>
