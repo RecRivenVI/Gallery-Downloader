@@ -10609,7 +10609,8 @@ Special Values
 extractor.config-map
 --------------------
 Type
-    ``object`` (`category` → `category`)
+    * ``object`` (`src-category` → `dest-category`)
+    * ``list`` of [`src-category`, `dest-category`] pairs
 Default
     .. code:: json
 
