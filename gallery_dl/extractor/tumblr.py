@@ -114,11 +114,13 @@ class TumblrExtractor(Extractor):
                 continue
             post["reblogged"] = reblog
 
-            if "trail" in post:
-                del post["trail"]
             files = self._extract_files(post)
             post["date"] = self.parse_timestamp(post["timestamp"])
             post["count"] = len(files)
+            if "trail" in post:
+                del post["trail"]
+            if "source" in post:
+                post["Source"] = post.pop("source")
 
             yield Message.Directory, "", post
             for post["num"], (msg, url, file) in enumerate(files, 1):
