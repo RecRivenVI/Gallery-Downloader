@@ -25,6 +25,8 @@ class PawchiveExtractor(Extractor):
     filename_fmt = "{id}_{title[:180]}_{num:>02}_{filename[:180]}.{extension}"
     archive_fmt = "{service}_{user}_{id}_{num}"
     cookies_domain = ".pawchive.pw"
+    useragent = util.USERAGENT_GALLERYDL
+    request_interval = 1.0
 
     def _init(self):
         if domain := self.config("domain"):

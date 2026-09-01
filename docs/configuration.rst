@@ -632,6 +632,7 @@ Default
     ``"1.0"``
         ``animepictures``   |
         ``furaffinity``     |
+        ``pawchive``        |
         ``rule34``
     ``"1.0-2.0"``
         ``flickr``          |
@@ -926,6 +927,7 @@ Default
         * ``[Danbooru]``
         * ``mangadex``
         * ``[nitter]``
+        * ``pawchive``
         * ``weasyl``
         * ``[wikimedia]``
         * ``zerochan``
