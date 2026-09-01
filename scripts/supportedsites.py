@@ -23,6 +23,8 @@ except ImportError:
 CATEGORY_MAP = {
     "2chan"          : "Futaba Channel",
     "35photo"        : "35PHOTO",
+    "4archive"       : "4Archive",
+    "4chanarchives"  : "4ChanAArchives",
     "adultempire"    : "Adult Empire",
     "adultphotosets" : "AdultPhotoSets",
     "agnph"          : "AGNPH",
@@ -47,8 +49,10 @@ CATEGORY_MAP = {
     "batcave"        : "BatCave.biz",
     "batoto"         : "BATO.TO",
     "bbc"            : "BBC",
+    "bilibili"       : "BiliBili",
     "blacktowhite"   : "BlacktoWhite",
     "booth"          : "BOOTH",
+    "bunkr"          : "BUNKR",
     "celebforum"     : "celebforum",
     "cfake"          : "Celebrity Fakes",
     "cien"           : "Ci-en",
@@ -67,7 +71,7 @@ CATEGORY_MAP = {
     "e6ai"           : "e6AI",
     "erome"          : "EroMe",
     "eporner"        : "EPORNER",
-    "everia"         : "EVERIA.CLUB",
+    "everia"         : "Everia.club",
     "e-hentai"       : "E-Hentai",
     "exhentai"       : "ExHentai",
     "fallenangels"   : "Fallen Angels Scans",
@@ -80,9 +84,10 @@ CATEGORY_MAP = {
     "foriio"         : "foriio",
     "framedsc"       : "FRAMED. Screenshot Community",
     "furaffinity"    : "Fur Affinity",
-    "furry34"        : "Furry 34 com",
+    "furry34"        : "Furry 34",
     "ganknow"        : "Gank",
     "girlswithmuscle": "Girls with Muscle",
+    "Girlsreleased"  : "-GR-",
     "goonbox"        : "GoonBox",
     "harvardlawnuremberg": "Harvard Law School Nuremberg Trials Project",
     "hatenablog"     : "HatenaBlog",
@@ -116,7 +121,7 @@ CATEGORY_MAP = {
     "imagechest"     : "ImageChest",
     "imgdrive"       : "ImgDrive.net",
     "imgkiwi"        : "IMG.Kiwi",
-    "imglike"        : "Nude Celeb",
+    "imglike"        : "Foxglove Vault",
     "imgpile"        : "imgpile",
     "imgpv"          : "IMGPV",
     "imgtaxi"        : "ImgTaxi.com",
@@ -126,10 +131,10 @@ CATEGORY_MAP = {
     "imhentai"       : "IMHentai",
     "imxto"          : "IMX.to",
     "joyreactor"     : "JoyReactor",
-    "itchio"         : "itch.io",
     "jpgfish"        : "JPG Fish",
     "kabeuchi"       : "かべうち",
     "kaliscan"       : "KaliScan",
+    "khinsider"      : "KHInsider",
     "leftybooru"     : "leftybooru",
     "mangafire"      : "MangaFire",
     "mangafreak"     : "MangaFreak",
@@ -561,13 +566,68 @@ URL_MAP = {
     "blogspot" : "https://www.blogger.com/",
     "wikimedia": "https://www.wikimedia.org/",
 
+    "2ch": (
+        "https://2ch.su/",
+        "https://2ch.org/",
+        "https://2ch.life/",
+        "https://2ch.hk/",
+    ),
+    "8chan": (
+        "https://8chan.moe/",
+        "https://8chan.st/",
+        "https://8chan.cc/",
+    ),
+    "ao3": (
+        "https://archiveofourown.org/",
+        "https://ao3.org/",
+    ),
+    "cien": (
+        "https://ci-en.net/",
+        "https://ci-en.dlsite.com/",
+    ),
     "civitai": (
         "https://civitai.com/",
         "https://civitai.red/",
     ),
+    "hatenablog": (
+        "https://hatena.blog/",
+    ),
+    "iwara": (
+        "https://www.iwara.tv/",
+        "https://www.iwara.ai/",
+    ),
+    "joyreactor": (
+        "https://joyreactor.com/",
+        "https://joyreactor.cc/",
+    ),
+    "konachan": (
+        "https://konachan.com/",
+        "https://konachan.net/",
+    ),
+    "koofer": (
+        "https://koofr.eu/",
+        "https://app.koofr.net/",
+    ),
     "mgrenders": (
         "https://a.mg-renders.net/",
         "https://h.mg-renders.net/",
+    ),
+    "sankaku": (
+        "https://sankaku.app/",
+        "https://www.sankakucomplex.com/",
+        "https://chan.sankakucomplex.com/",
+    ),
+    "subscribestar": (
+        "https://www.subscribestar.com/",
+        "https://www.subscribestar.adult/",
+    ),
+    "twitter": (
+        "https://x.com/",
+        "https://twitter.com/",
+    ),
+    "vk": (
+        "https://vk.ru/",
+        "https://vk.com/",
     ),
 }
 

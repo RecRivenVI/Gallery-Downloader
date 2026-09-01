@@ -15,7 +15,7 @@ Consider all listed sites to potentially be NSFW.
 <tbody valign="top">
 <tr id="2ch" title="2ch">
     <td>2ch</td>
-    <td>https://2ch.org/</td>
+    <td>https://2ch.su/<br>https://2ch.org/<br>https://2ch.life/<br>https://2ch.hk/</td>
     <td><span title="https://2ch.org/a/">Boards</span> |
         <span title="https://2ch.org/a/res/12345.html">Threads</span></td>
     <td></td>
@@ -30,7 +30,7 @@ Consider all listed sites to potentially be NSFW.
     <td></td>
 </tr>
 <tr id="4archive" title="4archive">
-    <td>4archive</td>
+    <td>4Archive</td>
     <td>https://4archive.org/</td>
     <td><span title="https://4archive.org/board/a/">Boards</span> |
         <span title="https://4archive.org/board/a/thread/12345/">Threads</span></td>
@@ -44,7 +44,7 @@ Consider all listed sites to potentially be NSFW.
     <td></td>
 </tr>
 <tr id="4chanarchives" title="4chanarchives">
-    <td>4chanarchives</td>
+    <td>4ChanAArchives</td>
     <td>https://4chanarchives.com/</td>
     <td><span title="https://4chanarchives.com/board/a/">Boards</span> |
         <span title="https://4chanarchives.com/board/a/thread/12345/">Threads</span></td>
@@ -61,7 +61,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="8chan" title="8chan">
     <td>8chan</td>
-    <td>https://8chan.moe/</td>
+    <td>https://8chan.moe/<br>https://8chan.st/<br>https://8chan.cc/</td>
     <td><span title="https://8chan.moe/a/">Boards</span> |
         <span title="https://8chan.moe/a/res/12345.html">Threads</span></td>
     <td></td>
@@ -142,7 +142,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="ao3" title="ao3">
     <td>Archive of Our Own</td>
-    <td>https://archiveofourown.org/</td>
+    <td>https://archiveofourown.org/<br>https://ao3.org/</td>
     <td><span title="https://archiveofourown.org/works/search?work_search[query]=air">Search Results</span> |
         <span title="https://archiveofourown.org/series/12345">Series</span> |
         <span title="https://archiveofourown.org/users/USER/subscriptions">Subscriptions</span> |
@@ -232,7 +232,7 @@ Consider all listed sites to potentially be NSFW.
     <td></td>
 </tr>
 <tr id="bilibili" title="bilibili">
-    <td>Bilibili</td>
+    <td>BiliBili</td>
     <td>https://www.bilibili.com/</td>
     <td><span title="https://www.bilibili.com/opus/12345">Articles</span> |
         <span title="https://space.bilibili.com/12345/article">User Articles</span> |
@@ -261,7 +261,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="boosty" title="boosty">
     <td>Boosty</td>
-    <td>https://www.boosty.to/</td>
+    <td>https://boosty.to/</td>
     <td><span title="https://boosty.to/app/messages?dialogId=12345">DMs</span> |
         <span title="https://boosty.to/">Subscriptions Feed</span> |
         <span title="https://boosty.to/app/settings/subscriptions">Followed Users</span> |
@@ -279,7 +279,7 @@ Consider all listed sites to potentially be NSFW.
     <td></td>
 </tr>
 <tr id="bunkr" title="bunkr">
-    <td>Bunkr</td>
+    <td>BUNKR</td>
     <td>https://bunkr.cr/</td>
     <td><span title="https://bunkr.cr/a/ID">Albums</span> |
         <span title="https://bunkr.cr/NAME-ID.EXT">Direct Links</span> |
@@ -309,7 +309,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="cien" title="cien">
     <td>Ci-en</td>
-    <td>https://ci-en.net/</td>
+    <td>https://ci-en.net/<br>https://ci-en.dlsite.com/</td>
     <td><span title="https://ci-en.net/creator/123/article/12345">Articles</span> |
         <span title="https://ci-en.net/creator/123">Creators</span> |
         <span title="https://ci-en.net/mypage/subscription">Followed Users</span> |
@@ -508,7 +508,7 @@ Consider all listed sites to potentially be NSFW.
     <td></td>
 </tr>
 <tr id="everia" title="everia">
-    <td>EVERIA.CLUB</td>
+    <td>Everia.club</td>
     <td>https://everia.club/</td>
     <td><span title="https://everia.club/category/CATEGORY">Categories</span> |
         <span title="https://everia.club/0000/00/00">Dates</span> |
@@ -714,7 +714,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="hatenablog" title="hatenablog">
     <td>HatenaBlog</td>
-    <td>https://hatenablog.com</td>
+    <td>https://hatena.blog/</td>
     <td><span title="https://BLOG.hatenablog.com/archive/2024">Archive</span> |
         <span title="https://BLOG.hatenablog.com/entry/PATH">Individual Posts</span> |
         <span title="https://BLOG.hatenablog.com">Home Feed</span> |
@@ -943,7 +943,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="iwara" title="iwara">
     <td>Iwara</td>
-    <td>https://www.iwara.tv/</td>
+    <td>https://www.iwara.tv/<br>https://www.iwara.ai/</td>
     <td><span title="https://www.iwara.tv/favorites/videos">Favorites</span> |
         <span title="https://www.iwara.tv/profile/USERNAME/followers">Followers</span> |
         <span title="https://www.iwara.tv/profile/USERNAME/following">Followed Users</span> |
@@ -960,7 +960,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="joyreactor" title="joyreactor">
     <td>JoyReactor</td>
-    <td>https://joyreactor.com/</td>
+    <td>https://joyreactor.com/<br>https://joyreactor.cc/</td>
     <td><span title="https://joyreactor.com/post/12345">Posts</span> |
         <span title="https://joyreactor.com/search/TAG">Search Results</span> |
         <span title="https://joyreactor.com/tag/TAG">Tag Searches</span> |
@@ -998,7 +998,7 @@ Consider all listed sites to potentially be NSFW.
     <td>Supported</td>
 </tr>
 <tr id="khinsider" title="khinsider">
-    <td>Khinsider</td>
+    <td>KHInsider</td>
     <td>https://downloads.khinsider.com/</td>
     <td><span title="https://downloads.khinsider.com/game-soundtracks/album/TITLE">Soundtracks</span></td>
     <td></td>
@@ -1593,7 +1593,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="sankaku" title="sankaku">
     <td>Sankaku Channel</td>
-    <td>https://sankaku.app/</td>
+    <td>https://sankaku.app/<br>https://www.sankakucomplex.com/<br>https://chan.sankakucomplex.com/</td>
     <td><span title="https://sankaku.app/books?tags=TAG">Book Searches</span> |
         <span title="https://sankaku.app/books/12345">Pools</span> |
         <span title="https://sankaku.app/post/show/12345">Posts</span> |
@@ -1753,7 +1753,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="subscribestar" title="subscribestar">
     <td>SubscribeStar</td>
-    <td>https://www.subscribestar.com/</td>
+    <td>https://www.subscribestar.com/<br>https://www.subscribestar.adult/</td>
     <td><span title="https://www.subscribestar.com/posts/12345">Posts</span> |
         <span title="https://www.subscribestar.com/USER">User Profiles</span></td>
     <td>Supported</td>
@@ -1881,7 +1881,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="twitter" title="twitter">
     <td>Twitter</td>
-    <td>https://x.com/</td>
+    <td>https://x.com/<br>https://twitter.com/</td>
     <td><span title="https://x.com/USER/photo">Avatars</span> |
         <span title="https://x.com/USER/header_photo">Backgrounds</span> |
         <span title="https://x.com/i/history">Bookmarks</span> |
@@ -1944,7 +1944,7 @@ Consider all listed sites to potentially be NSFW.
 </tr>
 <tr id="vk" title="vk">
     <td>VK</td>
-    <td>https://vk.com/</td>
+    <td>https://vk.ru/<br>https://vk.com/</td>
     <td><span title="https://vk.com/album12345_00">Albums</span> |
         <span title="https://vk.com/id12345">Photos</span> |
         <span title="https://vk.com/tag12345">Tagged Photos</span> |
@@ -2166,7 +2166,7 @@ Consider all listed sites to potentially be NSFW.
     <td></td>
 </tr>
 <tr id="imglike" title="imglike">
-    <td>Nude Celeb</td>
+    <td>Foxglove Vault</td>
     <td>https://imglike.com/</td>
     <td><span title="https://imglike.com/album/TITLE.ID">Albums</span> |
         <span title="https://imglike.com/category/TITLE">Categories</span> |
