@@ -230,6 +230,25 @@ Description
     process them with child extractors.
 
 
+extractor.*.async
+-----------------
+Type
+    * ``bool``
+    * ``integer``
+Default
+    ``true``
+        ``imgbox``    |
+        ``khinsider`` |
+        ``[Nijie]``
+    ``false``
+        otherwise
+Description
+    Run data extraction in an asynchronous background thread.
+
+    Use an ``integer`` value to control the ``maxsize`` argument of the underlying
+    `message queue <https://docs.python.org/3/library/queue.html#queue.Queue>`__.
+
+
 extractor.*.parent
 ------------------
 Type

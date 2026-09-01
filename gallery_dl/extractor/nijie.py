@@ -8,17 +8,18 @@
 
 """Extractors for nijie instances"""
 
-from .common import BaseExtractor, Message, Dispatch, AsynchronousMixin
+from .common import BaseExtractor, Message, Dispatch
 from .. import text, dt
 
 
-class NijieExtractor(AsynchronousMixin, BaseExtractor):
+class NijieExtractor(BaseExtractor):
     """Base class for nijie extractors"""
     basecategory = "Nijie"
     directory_fmt = ("{category}", "{user_id}")
     filename_fmt = "{image_id}_p{num}.{extension}"
     archive_fmt = "{image_id}_{num}"
     request_interval = (2.0, 4.0)
+    async_mode = True
 
     def __init__(self, match):
         BaseExtractor.__init__(self, match)
