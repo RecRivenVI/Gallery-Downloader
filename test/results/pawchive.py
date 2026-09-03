@@ -33,6 +33,7 @@ __tests__ = (
     "next"            : "127944513",
     "num"             : 1,
     "origin"          : "import",
+    "original"        : True,
     "path"            : "/4f/3a/4f3a65f8e123dfc1fb0a91ae7f001b598c96135695e977701daf55d528145d74.png",
     "poll"            : None,
     "prev"            : "132209121",
@@ -133,11 +134,23 @@ __tests__ = (
 
 {
     "#url"     : "https://pawchive.st/patreon/user/195041460/post/159596856",
-    "#comment" : "'deferred' / not yet imported files",
+    "#comment" : "'preview_only' files",
     "#category": ("", "pawchive", "patreon"),
     "#class"   : pawchive.PawchivePostExtractor,
-    "#pattern" : r"https://file\.pawchive\.pw/data/.+",
+    "#count"   : 0,
+},
+
+{
+    "#url"     : "https://pawchive.st/patreon/user/195041460/post/159596856",
+    "#comment" : "'preview_only' files",
+    "#category": ("", "pawchive", "patreon"),
+    "#class"   : pawchive.PawchivePostExtractor,
+    "#options" : {"previews": True},
+    "#pattern" : r"https://img.pawchive.pw/thumbnail/data/.+",
     "#count"   : 153,
+
+    "extension": "webp",
+    "original" : False,
 },
 
 {
@@ -167,7 +180,7 @@ __tests__ = (
         "https://file.pawchive.pw/data/e9/5a/e95a64c2d29109083e7b07f39e200b645b62b7bfcae358cf694b5eea8e32a8c1.png",
     ),
 
-    "added"         : "2026-05-29T13:00:00",
+    "added"         : "2026-08-10T20:00:00",
     "archives"      : [],
     "captions"      : None,
     "content"       : "<p></p>",
@@ -214,7 +227,7 @@ __tests__ = (
         "https://file.pawchive.pw/data/e9/5a/e95a64c2d29109083e7b07f39e200b645b62b7bfcae358cf694b5eea8e32a8c1.png",
     ),
 
-    "added"         : "2026-05-29T13:00:00",
+    "added"         : "iso:dt",
     "archives"      : [],
     "captions"      : None,
     "content"       : "<p></p>",

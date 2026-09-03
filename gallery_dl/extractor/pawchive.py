@@ -56,15 +56,12 @@ class PawchiveExtractor(Extractor):
         archives_type = dict if self.config("archives-format") in {
             "dict", "object"} else list
         comments = True if self.config("comments") else False
+        previews = True if self.config("previews") else False
+        original = True if self.config("original", True) else False
         creator_info = {} if self.config("metadata", True) else None
         exts_archive = util.EXTS_ARCHIVE
-
-        if self.config("original", True):
-            original = True
-        else:
-            original = False
-            root_thmb = self.root.replace("://", "://img.") + "/thumbnail/data"
-            exts_thmb = util.EXTS_IMAGE
+        root_thmb = self.root.replace("://", "://img.") + "/thumbnail/data"
+        exts_thmb = util.EXTS_IMAGE
 
         if duplicates := self.config("duplicates"):
             if isinstance(duplicates, str):
@@ -198,8 +195,19 @@ class PawchiveExtractor(Extractor):
                 for post["num"], file in enumerate(files, 1):
                     if "id" in file:
                         del file["id"]
+                    if not file.get("preview_only"):
+                        url = file["url"]
+                        file["original"] = True
+                    elif previews:
+                        url = root_thmb + file["path"]
+                        file["extension"] = "webp"
+                        file["original"] = False
+                    else:
+                        self.log.info("%s: Skipping %s ('preview only')",
+                                      post["id"], file["path"][7:])
+                        continue
                     post.update(file)
-                    yield Message.Url, file["url"], post
+                    yield Message.Url, url, post
             else:
                 for post["num"], file in enumerate(files, 1):
                     if file["extension"] in exts_thmb:
@@ -207,6 +215,7 @@ class PawchiveExtractor(Extractor):
                         if "id" in file:
                             del file["id"]
                         post.update(file)
+                        post["original"] = False
                         yield Message.Url, root_thmb + file["path"], post
                     else:
                         self.log.warning("%s: Skipping %s",

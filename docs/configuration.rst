@@ -5382,6 +5382,16 @@ Description
     Download thumbnails/previews if available when this option is disabled.
 
 
+extractor.pawchive.previews
+---------------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Download thumbnails/previews for files marked as ``preview_only``..
+
+
 extractor.pawchive.revisions
 ----------------------------
 Type
