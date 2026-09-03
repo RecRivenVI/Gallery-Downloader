@@ -323,11 +323,10 @@ class DeviantartExtractor(Extractor):
 
         # filename metadata
         sub = text.re(r"\W").sub
-        deviation["filename"] = "".join((
-            sub("_", deviation["title"].lower()), "_by_",
-            sub("_", deviation["author"]["username"].lower()), "-d",
-            deviation["index_base36"],
-        ))
+        deviation["filename"] = (
+            f"{sub('_', deviation['title'].lower())}_by_"
+            f"{sub('_', deviation['author']['username'].lower())}_d"
+            f"{deviation['index_base36']}")
 
     def commit(self, deviation, target):
         url = target["src"]
