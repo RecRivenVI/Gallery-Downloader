@@ -888,6 +888,12 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.deviantart.com/king-thumb-toe/art/action-Test2-After-Catherine-grew-up-1-1363178565",
+    "#comment" : "multiple videos",
+    "#class"   : deviantart.DeviantartDeviationExtractor,
+},
+
+{
     "#url"     : "https://www.deviantart.com/stash/09z3557z648",
     "#comment" : "sta.sh journal (#6207)",
     "#class"   : deviantart.DeviantartStashExtractor,
