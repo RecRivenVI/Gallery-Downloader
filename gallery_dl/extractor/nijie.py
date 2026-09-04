@@ -9,7 +9,7 @@
 """Extractors for nijie instances"""
 
 from .common import BaseExtractor, Message, Dispatch
-from .. import text, dt
+from .. import text, util, dt
 
 
 class NijieExtractor(BaseExtractor):
@@ -158,7 +158,8 @@ class NijieExtractor(BaseExtractor):
 
             if self.user_name is None:
                 self.user_name = self._extract_user_name(page)
-            yield from text.extract_iter(page, 'illust_id="', '"')
+            yield from util.unique_sequence(text.extract_iter(
+                page, 'illust_id="', '"'))
 
             if '<a rel="next"' not in page:
                 return
