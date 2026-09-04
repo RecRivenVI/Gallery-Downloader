@@ -2463,6 +2463,17 @@ Consider all listed sites to potentially be NSFW.
     <td></td>
 </tr>
 
+<tr id="kokonotsuba" title="kokonotsuba">
+    <td colspan="4"><strong>Kokonotsuba Imageboards</strong></td>
+</tr>
+<tr id="gurochan" title="gurochan">
+    <td>GUROchan</td>
+    <td>https://boards.guro.st/</td>
+    <td><span title="https://boards.guro.st/art/">Boards</span> |
+        <span title="https://boards.guro.st/BOARD/koko.php?res=12345">Threads</span></td>
+    <td></td>
+</tr>
+
 <tr id="lynxchan" title="lynxchan">
     <td colspan="4"><strong>LynxChan Imageboards</strong></td>
 </tr>
@@ -2850,13 +2861,6 @@ Consider all listed sites to potentially be NSFW.
     <td>https://smuglo.li/</td>
     <td><span title="https://smuglo.li/a/">Boards</span> |
         <span title="https://smuglo.li/a/res/12345.html">Threads</span></td>
-    <td></td>
-</tr>
-<tr id="gurochan" title="gurochan">
-    <td>Gurochan</td>
-    <td>https://boards.guro.cx/</td>
-    <td><span title="https://boards.guro.cx/a/">Boards</span> |
-        <span title="https://boards.guro.cx/a/res/12345.html">Threads</span></td>
     <td></td>
 </tr>
 

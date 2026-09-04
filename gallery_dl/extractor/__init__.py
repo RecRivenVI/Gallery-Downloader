@@ -130,6 +130,7 @@ modules = [
     "keenspot",
     "kemono",
     "khinsider",
+    "kokonotsuba",
     "komikcast",
     "koofr",
     "leakgallery",
