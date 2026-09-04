@@ -1,5 +1,55 @@
 # Changelog
 
+## 1.32.11 - 2026-09-04
+### Extractors
+- **Additions**
+  - [kokonotsuba] add generic extractors for kokonotsuba imageboards
+- **Removals**
+  - [3dbooru] remove module
+  - [desktopography] remove module
+  - [fuskator] remove module
+  - [itchio] remove module
+- **8chan**
+  - support `8chan.st` URLs
+- **celebforum**
+  - update domain to `celebforum.cc` ([`cb#409`](https://codeberg.org/mikf/gallery-dl/issues/409))
+- **dandadan**
+  - update domain to `w6.dandadan.net`
+- **deviantart**
+  - support videos in multi-file posts ([`cb#379`](https://codeberg.org/mikf/gallery-dl/issues/379) [`gh#9692`](https://github.com/mikf/gallery-dl/issues/9692))
+  - update `filename` metadata format ([`gh#9729`](https://github.com/mikf/gallery-dl/issues/9729))
+- **fansly**
+  - fix potential `414 Request-URI Too Large` errors ([`gh#9715`](https://github.com/mikf/gallery-dl/issues/9715))
+- **lightroom**
+  - fix download URLs
+- **mangafreak**
+  - fix `manga` extractor
+  - update domain to 'ww3.mangafreak.me'
+- **nijie**
+  - ignore duplicate post IDs
+- **pawchive**
+  - fix `403 Forbidden` errors by using `gallery-dl/<version>` as User-Agent ([`cb#405`](https://codeberg.org/mikf/gallery-dl/issues/405) [`gh#9717`](https://github.com/mikf/gallery-dl/issues/9717))
+  - add `endpoint` option
+  - add `previews` option ([`gh#9727`](https://github.com/mikf/gallery-dl/issues/9727))
+  - provide `original` metadata value ([`gh#9727`](https://github.com/mikf/gallery-dl/issues/9727))
+- **reddit**
+  - fix handling REST API `morecomments` results ([`cb#403`](https://codeberg.org/mikf/gallery-dl/issues/403))
+  - improve `You`ve been blocked' message
+- **tiktok**
+  - fix `AttributeError: '_generate_headers'` ([`cb#402`](https://codeberg.org/mikf/gallery-dl/issues/402))
+- **tumblr**
+  - prevent `source` metadata getting overwritten
+  - refactor file extraction ([`cb#369`](https://codeberg.org/mikf/gallery-dl/issues/369))
+- **webmshare**
+  - send `is_adult` cookie
+### Configuration
+  - update existing `config-map` targets ([`gh#9720`](https://github.com/mikf/gallery-dl/issues/9720))
+### Documentation
+- **supportedsites**
+  - update site names & URLs
+### Miscellaneous
+- implement general `async` option ([`cb#369`](https://codeberg.org/mikf/gallery-dl/issues/369))
+
 ## 1.32.10 - 2026-08-29
 ### Extractors
 - **Additions**
@@ -12,7 +62,6 @@
   - [sofurry] add support ([`gh#311`](https://github.com/mikf/gallery-dl/issues/311) [`gh#2382`](https://github.com/mikf/gallery-dl/issues/2382))
   - [webmshare] add `search` extractor
   - [xenforo] support `thirsthub.cc` ([`cb#393`](https://codeberg.org/mikf/gallery-dl/issues/393))
-- **Removals**
 - **aryion**
   - fix non-recursive pagination
 - **audiochan**
