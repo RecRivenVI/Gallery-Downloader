@@ -3513,6 +3513,16 @@ Description
     to access locked content.
 
 
+extractor.fantia.text
+---------------------
+Type
+    ``bool``
+Default
+    ``true``
+Description
+    Download content of text-only posts.
+
+
 extractor.filester.domain
 -------------------------
 Type
