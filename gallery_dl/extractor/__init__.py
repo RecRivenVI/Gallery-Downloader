@@ -111,6 +111,7 @@ modules = [
     "imagefap",
     "imagepond",
     "imageshack",
+    "imdb",
     "imgbb",
     "imgbox",
     "imgpile",

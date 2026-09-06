@@ -121,6 +121,7 @@ CATEGORY_MAP = {
     "imgbox"         : "imgbox",
     "imagechest"     : "ImageChest",
     "imgdrive"       : "ImgDrive.net",
+    "imdb"           : "IMDb",
     "imgkiwi"        : "IMG.Kiwi",
     "imglike"        : "Foxglove Vault",
     "imgpile"        : "imgpile",

@@ -844,6 +844,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://imageshack.com/user/USER">User Profiles</span></td>
     <td></td>
 </tr>
+<tr id="imdb" title="imdb">
+    <td>IMDb</td>
+    <td>https://www.imdb.com/</td>
+    <td><span title="https://www.imdb.com/name/nm012345/mediaviewer/">Name Images</span> |
+        <span title="https://www.imdb.com/title/tt012345/mediaviewer/">Title Images</span></td>
+    <td></td>
+</tr>
 <tr id="imgbb" title="imgbb">
     <td>ImgBB</td>
     <td>https://imgbb.com/</td>
