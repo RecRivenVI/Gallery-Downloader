@@ -103,6 +103,7 @@ class OnlyhavenExtractor(Extractor):
             post["count"] = len(files)
             yield Message.Directory, "", post
             for post["num"], file in enumerate(files, 1):
+                file["file_id"] = file.pop("id", None)
                 post.update(file)
                 yield Message.Url, file["url"], post
 
