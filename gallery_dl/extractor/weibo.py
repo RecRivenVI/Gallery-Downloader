@@ -158,7 +158,9 @@ class WeiboExtractor(Extractor):
                         files.append(self._extract_video(
                             item["data"]["media_info"]))
                 elif type == "pic":
-                    files.append(item["data"]["largest"].copy())
+                    file = item["data"]["largest"].copy()
+                    file["type"] = "pic"
+                    files.append(file)
                 else:
                     self.log.warning("Unknown media type '%s'", type)
             return
@@ -171,17 +173,21 @@ class WeiboExtractor(Extractor):
 
                 if pic_type == "gif" and self.gifs:
                     if self.gifs_video:
-                        files.append({"url": pic["video"]})
+                        file = {"url": pic["video"]}
                     else:
-                        files.append(pic["largest"].copy())
+                        file = pic["largest"].copy()
 
                 elif pic_type == "livephoto" and self.livephoto:
                     if not self.livephoto_video:
-                        files.append(pic["largest"].copy())
-                    files.append({"url": pic["video"]})
+                        file = pic["largest"].copy()
+                        file["type"] = "livephoto"
+                        files.append(file)
+                    file = {"url": pic["video"]}
 
                 else:
-                    files.append(pic["largest"].copy())
+                    file = pic["largest"].copy()
+                file["type"] = pic_type
+                files.append(file)
 
         if "page_info" in status:
             info = status["page_info"]
@@ -197,7 +203,9 @@ class WeiboExtractor(Extractor):
             for item in status["url_struct"]:
                 if pics := item.get("pic_infos"):
                     for pic in pics.values():
-                        files.append(pic.get("largest") or pic["large"])
+                        file = pic.get("largest") or pic["large"]
+                        file["type"] = "pic"
+                        files.append(file)
 
     def _extract_video(self, info):
         if info.get("live_status") == 1:
@@ -222,6 +230,7 @@ class WeiboExtractor(Extractor):
                 self.log.warning("%s: %s", exc.__class__.__name__, exc)
                 video["url"] = ""
 
+        video["type"] = "video"
         return video
 
     def _status_by_id(self, status_id):

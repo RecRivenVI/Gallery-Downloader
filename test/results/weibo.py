@@ -196,6 +196,7 @@ __tests__ = (
     "#class"   : weibo.WeiboStatusExtractor,
     "#pattern" : r"https?://wx\d+.sinaimg.cn/large/\w+.jpg",
 
+    "type"  : "pic",
     "status": {
         "count": 1,
         "date" : "dt:2018-12-30 13:56:36",
@@ -207,6 +208,8 @@ __tests__ = (
     "#category": ("", "weibo", "status"),
     "#class"   : weibo.WeiboStatusExtractor,
     "#pattern" : r"https?://f.us.sinaimg.cn/\w+\.mp4\?label=mp4_1080p",
+
+    "type": "video",
 },
 
 {
@@ -240,6 +243,7 @@ __tests__ = (
     "#options" : {"retweets": True},
     "#count"   : 2,
 
+    "type"  : "pic",
     "status": {
         "id"                     : 4600272267522211,
         "retweeted_status": {"id": 4600167083287033},
@@ -253,6 +257,7 @@ __tests__ = (
     "#class"   : weibo.WeiboStatusExtractor,
     "#options" : {"retweets": "original"},
 
+    "type"  : "pic",
     "status": {"id": 4600167083287033},
 },
 
@@ -266,6 +271,7 @@ __tests__ = (
 
     "filename" : {"000yfKhRjx08hBAXxdZ60f0f0100tBPr0k01", "000GEYrCjx08hBAXUFo40f0f0100vS5G0k01"},
     "extension": "mov",
+    "type"     : "livephoto",
 },
 
 {
@@ -276,6 +282,7 @@ __tests__ = (
     "#results" : "https://wx4.sinaimg.cn/large/68d80d22gy1h2ryfa8k0kg208w06o7wh.gif",
 
     "extension": "gif",
+    "type"     : "gif",
 },
 
 {
@@ -285,6 +292,8 @@ __tests__ = (
     "#class"   : weibo.WeiboStatusExtractor,
     "#options" : {"gifs": "video"},
     "#pattern" : r"https://g\.us\.sinaimg.cn/o0/qNZcaAAglx07Wuf921CM0104120005tc0E010\.mp4\?label=gif_mp4",
+
+    "type"     : "gif",
 },
 
 {
