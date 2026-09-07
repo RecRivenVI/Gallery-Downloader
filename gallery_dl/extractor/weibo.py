@@ -133,6 +133,12 @@ class WeiboExtractor(Extractor):
                     text.nameext_from_url(url, file)
                     if file["extension"] == "json":
                         file["extension"] = "mp4"
+                    elif not file["extension"]:
+                        params = text.parse_query(url[url.find("?")+1:])
+                        if "livephoto" in params:
+                            text.nameext_from_url(params["livephoto"], file)
+                        else:
+                            file["extension"] = "mp4"
                 if file["extension"] == "m3u8":
                     url = "ytdl:" + url
                     file["_ytdl_manifest"] = "hls"
