@@ -8092,11 +8092,19 @@ Description
 extractor.weibo.livephoto
 -------------------------
 Type
-    ``bool``
+    * ``bool``
+    * ``string``
 Default
     ``true``
 Description
     Download ``livephoto`` files.
+
+    ``true``
+        Download image & video files
+    ``false``
+        Download images only
+    ``"video"``
+        Download videos only
 
 
 extractor.weibo.movies

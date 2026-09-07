@@ -33,6 +33,7 @@ class WeiboExtractor(Extractor):
 
     def _init(self):
         self.livephoto = self.config("livephoto", True)
+        self.livephoto_video = (self.livephoto == "video")
         self.retweets = self.config("retweets", False)
         self.longtext = self.config("text", False)
         self.videos = self.config("videos", True)
@@ -175,7 +176,8 @@ class WeiboExtractor(Extractor):
                         files.append(pic["largest"].copy())
 
                 elif pic_type == "livephoto" and self.livephoto:
-                    files.append(pic["largest"].copy())
+                    if not self.livephoto_video:
+                        files.append(pic["largest"].copy())
                     files.append({"url": pic["video"]})
 
                 else:
