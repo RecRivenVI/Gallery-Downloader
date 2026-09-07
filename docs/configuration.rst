@@ -249,6 +249,16 @@ Description
     `message queue <https://docs.python.org/3/library/queue.html#queue.Queue>`__.
 
 
+extractor.*.children
+--------------------
+Type
+    ``bool``
+Default
+    ``true``
+Description
+    Allow spawning child extractors.
+
+
 extractor.*.parent
 ------------------
 Type
