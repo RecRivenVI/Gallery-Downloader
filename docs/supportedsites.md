@@ -580,13 +580,6 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://fikfap.com/user/USER">User Profiles</span></td>
     <td></td>
 </tr>
-<tr id="fileditchfiles" title="fileditchfiles">
-    <td>Fileditchfiles</td>
-    <td>https://fileditchfiles.st/</td>
-    <td><span title="https://fileditchfiles.st/xyz01/ID/SLUG">Files</span> |
-        <span title="https://theditch.st/ID">Shorturls</span></td>
-    <td></td>
-</tr>
 <tr id="filester" title="filester">
     <td>filester.me</td>
     <td>https://filester.me/</td>
