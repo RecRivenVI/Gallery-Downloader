@@ -168,7 +168,6 @@ modules = [
     "naverblog",
     "naverchzzk",
     "naverwebtoon",
-    "nekohouse",
     "newgrounds",
     "nhentai",
     "nijie",

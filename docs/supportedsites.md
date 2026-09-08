@@ -1235,13 +1235,6 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://comic.naver.com/webtoon/detail?titleId=12345&no=1">Episodes</span></td>
     <td></td>
 </tr>
-<tr id="nekohouse" title="nekohouse">
-    <td>Nekohouse</td>
-    <td>https://nekohouse.su/</td>
-    <td><span title="https://nekohouse.su/SERVICE/user/12345/post/12345">Posts</span> |
-        <span title="https://nekohouse.su/SERVICE/user/12345">User Profiles</span></td>
-    <td></td>
-</tr>
 <tr id="newgrounds" title="newgrounds">
     <td>Newgrounds</td>
     <td>https://www.newgrounds.com/</td>
