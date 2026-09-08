@@ -7693,6 +7693,16 @@ Description
     to accept before stopping.
 
 
+extractor.twitter.showmore
+--------------------------
+Type
+    ``bool``
+Default
+    ``true``
+Description
+    Expand ``Show more`` / ``Show probable spam`` stubs.
+
+
 extractor.twitter.showreplies
 -----------------------------
 Type
