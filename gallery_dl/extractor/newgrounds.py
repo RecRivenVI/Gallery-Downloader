@@ -9,7 +9,7 @@
 """Extractors for https://www.newgrounds.com/"""
 
 from .common import Extractor, Message, Dispatch
-from .. import text, util, dt
+from .. import text, util
 import itertools
 
 BASE_PATTERN = r"(?:https?://)?(?:www\.)?newgrounds\.com"
@@ -50,7 +50,6 @@ class NewgroundsExtractor(Extractor):
 
     def items(self):
         self.login()
-        metadata = self.metadata()
 
         for post_url in self.posts():
             try:
@@ -61,8 +60,6 @@ class NewgroundsExtractor(Extractor):
                 url = None
 
             if url:
-                if metadata:
-                    post.update(metadata)
                 yield Message.Directory, "", post
                 post["num"] = 0
                 yield Message.Url, url, text.nameext_from_url(url, post)
@@ -94,9 +91,6 @@ class NewgroundsExtractor(Extractor):
     def posts(self):
         """Return URLs of all relevant post pages"""
         return self._pagination(self.__class__.subcategory, self.groups[1])
-
-    def metadata(self):
-        """Return general metadata"""
 
     def login(self):
         if self.cookies_check(self.cookies_names):
@@ -199,7 +193,7 @@ class NewgroundsExtractor(Extractor):
             "description": text.unescape(extr(':description" content="', '"')),
             "type"       : "art",
             "_type"      : "i",
-            "date"       : dt.parse_iso(extr(
+            "date"       : self.parse_datetime_iso(extr(
                 'itemprop="datePublished" content="', '"')),
             "rating"     : extr('class="rated-', '"'),
             "url"        : full('src="', '"'),
@@ -257,7 +251,7 @@ class NewgroundsExtractor(Extractor):
             "url"        : text.unescape(extr('ty="og:audio" content="', '"')),
             "type"       : "audio",
             "_type"      : "a",
-            "date"       : dt.parse_iso(extr(
+            "date"       : self.parse_datetime_iso(extr(
                 'itemprop="datePublished" content="', '"')),
             "index"      : text.parse_int(index),
             "_index"     : index,
@@ -277,7 +271,7 @@ class NewgroundsExtractor(Extractor):
             src = src.replace("\\/", "/")
             formats = ()
             type = extr(',"description":"', '"')
-            date = dt.parse_iso(extr(
+            date = self.parse_datetime_iso(extr(
                 'itemprop="datePublished" content="', '"'))
             if type:
                 type = type.rpartition(" ")[2].lower()
@@ -536,6 +530,7 @@ class NewgroundsSearchExtractor(NewgroundsExtractor):
         self.query = text.parse_query(query)
 
     def posts(self):
+        self.kwdict["search_tags"] = self.query.get("terms", "")
         if suitabilities := self.query.get("suitabilities"):
             data = {"view_suitability_" + s: "on"
                     for s in suitabilities.split(",")}
@@ -543,9 +538,6 @@ class NewgroundsSearchExtractor(NewgroundsExtractor):
                          method="POST", data=data)
         return self._pagination_search(
             "/search/conduct/" + self._path, self.query)
-
-    def metadata(self):
-        return {"search_tags": self.query.get("terms", "")}
 
     def _pagination_search(self, path, params):
         url = self.root + path
