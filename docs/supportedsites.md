@@ -2019,6 +2019,13 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://weibo.com/USER?tabtype=video">Videos</span></td>
     <td></td>
 </tr>
+<tr id="whitekitten" title="whitekitten">
+    <td>WhiteKitten</td>
+    <td>https://whitekitten.art/</td>
+    <td><span title="https://whitekitten.art/posts/12345">Posts</span> |
+        <span title="https://whitekitten.art/?q=TAG">Tag Searches</span></td>
+    <td></td>
+</tr>
 <tr id="whyp" title="whyp">
     <td>Whyp</td>
     <td>https://whyp.it/</td>
