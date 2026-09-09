@@ -1003,6 +1003,13 @@ Consider all listed sites to potentially be NSFW.
     <td><span title="https://downloads.khinsider.com/game-soundtracks/album/TITLE">Soundtracks</span></td>
     <td></td>
 </tr>
+<tr id="whitekitten" title="whitekitten">
+    <td>kitty-booru</td>
+    <td>https://whitekitten.art/</td>
+    <td><span title="https://whitekitten.art/posts/12345">Posts</span> |
+        <span title="https://whitekitten.art/?q=TAG">Tag Searches</span></td>
+    <td></td>
+</tr>
 <tr id="komikcast" title="komikcast">
     <td>Komikcast</td>
     <td>https://komikcast.li/</td>
@@ -2017,13 +2024,6 @@ Consider all listed sites to potentially be NSFW.
         <span title="https://weibo.com/detail/12345">Images from Statuses</span> |
         <span title="https://weibo.com/USER">User Profiles</span> |
         <span title="https://weibo.com/USER?tabtype=video">Videos</span></td>
-    <td></td>
-</tr>
-<tr id="whitekitten" title="whitekitten">
-    <td>WhiteKitten</td>
-    <td>https://whitekitten.art/</td>
-    <td><span title="https://whitekitten.art/posts/12345">Posts</span> |
-        <span title="https://whitekitten.art/?q=TAG">Tag Searches</span></td>
     <td></td>
 </tr>
 <tr id="whyp" title="whyp">
