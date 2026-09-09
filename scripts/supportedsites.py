@@ -254,6 +254,7 @@ CATEGORY_MAP = {
     "webtoons"       : "WEBTOON",
     "weebcentral"    : "Weeb Central",
     "weebdex"        : "WeebDex",
+    "whitekitten"    : "kitty-booru",
     "wikiart"        : "WikiArt.org",
     "wikigg"         : "wiki.gg",
     "wikimediacommons": "Wikimedia Commons",

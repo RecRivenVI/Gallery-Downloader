@@ -267,6 +267,7 @@ modules = [
     "webtoons",
     "weebcentral",
     "weibo",
+    "whitekitten",
     "whyp",
     "wikiart",
     "wikifeet",
