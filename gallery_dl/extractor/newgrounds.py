@@ -157,7 +157,22 @@ class NewgroundsExtractor(Extractor):
             return {}
 
         if response.status_code >= 400:
-            return {}
+            if "<title>Content Filtered</title>" not in page:
+                return {}
+            self.log.debug('"Content Filtered" response')
+
+            url_if = self.root + "/age-verification/ignore-filter"
+            headers = {"X-CSRF-TOKEN": text.extr(
+                page, 'name="csrf-token" content="', '"')}
+            data = {"url": url}
+            self.request(
+                url_if, method="POST", headers=headers, data=data, fatal=False)
+
+            response = self.request(url, fatal=False)
+            if response.history and "/login" in response.url:
+                self.log.warning("Redirected to 'login' page (%s)",
+                                 response.url)
+                return {}
 
         extr = text.extract_from(page)
         data = extract_data(extr, post_url)
