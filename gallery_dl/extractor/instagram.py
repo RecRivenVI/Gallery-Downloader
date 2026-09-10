@@ -735,23 +735,6 @@ class InstagramTaggedExtractor(InstagramExtractor):
         return self.api.user_tagged(self.user_id)
 
 
-class InstagramGuideExtractor(InstagramExtractor):
-    """Extractor for an Instagram guide"""
-    subcategory = "guide"
-    pattern = USER_PATTERN + r"/guide/[^/?#]+/(\d+)"
-    example = "https://www.instagram.com/USER/guide/NAME/12345"
-
-    def __init__(self, match):
-        InstagramExtractor.__init__(self, match)
-        self.guide_id = match[2]
-
-    def metadata(self):
-        return {"guide": self.api.guide(self.guide_id)}
-
-    def posts(self):
-        return self.api.guide_media(self.guide_id)
-
-
 class InstagramSavedExtractor(InstagramExtractor):
     """Extractor for an Instagram user's saved media"""
     subcategory = "saved"
@@ -967,15 +950,6 @@ class InstagramRestAPI():
             self._strategy_uid = strategy
         else:
             self._strategy_uid = ("search", "web")
-
-    def guide(self, guide_id):
-        endpoint = "/v1/guides/web_info/"
-        params = {"guide_id": guide_id}
-        return self._call(endpoint, params=params)
-
-    def guide_media(self, guide_id):
-        endpoint = f"/v1/guides/guide/{guide_id}/"
-        return self._pagination_guides(endpoint)
 
     def highlights_media(self, user_id, chunk_size=5):
         reel_ids = [hl["id"] for hl in self.highlights_tray(user_id)]
@@ -1238,21 +1212,6 @@ class InstagramRestAPI():
                 return extr._update_cursor(None)
             params["page"] = info["next_page"]
             params["max_id"] = extr._update_cursor(info["next_max_id"])
-
-    def _pagination_guides(self, endpoint):
-        extr = self.extractor
-        params = {"max_id": extr._init_cursor()}
-
-        while True:
-            data = self._call(endpoint, params=params)
-
-            for item in data["items"]:
-                yield from item["media_items"]
-
-            next_max_id = data.get("next_max_id")
-            if not next_max_id:
-                return extr._update_cursor(None)
-            params["max_id"] = extr._update_cursor(next_max_id)
 
     def _pagination_following(self, endpoint, params):
         extr = self.extractor
