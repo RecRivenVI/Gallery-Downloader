@@ -1010,7 +1010,8 @@ Default
         ``twitter``    |
         ``vsco``
     ``"chrome"``
-        ``comicartfans``
+        ``comicartfans`` |
+        ``instagram``
     ``null``
         otherwise
 Example
@@ -4076,21 +4077,6 @@ Description
 
     (See `API#Search <https://wiki.inkbunny.net/wiki/API#Search>`__
     for details)
-
-
-extractor.instagram.api
------------------------
-Type
-    ``string``
-Default
-    ``"rest"``
-Description
-    Selects which API endpoints to use.
-
-    ``"rest"``
-        REST API - higher-resolution media
-    ``"graphql"``
-        GraphQL API - lower-resolution media
 
 
 extractor.instagram.audio
