@@ -5252,6 +5252,22 @@ Note
     port than the default.
 
 
+extractor.onlyhaven.endpoint
+----------------------------
+Type
+    ``string``
+Default
+    ``"posts"``
+Description
+    API endpoint to use when retrieving creator posts.
+
+    ``"posts"`` | ``"legacy"``
+        Provide regular metadata
+    ``"posts+"`` | ``"legacy+"``
+        Provide full metadata
+        by using an additional API request to fetch individual post data
+
+
 extractor.pawchive.archives
 ---------------------------
 Type
