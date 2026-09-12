@@ -1095,8 +1095,7 @@ class InstagramAPI():
             return lsd, dtsg
 
         extr.log.debug("Extracting GraphQL tokens")
-        url = f"{extr.root}/{username}/"
-        page = self._page = extr.request(url, interval=False).text
+        page = extr.cache(self._profile_page, username)
         pos = page.find(' id="__eqmc"')
         eqmc = util.json_loads(
             page[page.find(">", pos)+1:page.find("</script>", pos)])
@@ -1112,11 +1111,15 @@ class InstagramAPI():
 
     def _extract_docid(self, username, opname):
         extr = self.extractor
+        if doc_id := extr.config("doc-id"):
+            extr.log.debug("Using 'config' doc_id value")
+            return doc_id
+
         extr.log.debug("Extracting '%s' doc_id value", opname)
         needle = opname + "_instagramRelayOperation"
         doc_id = ""
         for path in util.unique(text.extract_iter(
-                self._page,
+                extr.cache(self._profile_page, username),
                 'href="https://static.cdninstagram.com/rsrc.php/', '"')):
             if not path.endswith(".js"):
                 continue
@@ -1131,6 +1134,10 @@ class InstagramAPI():
                 break
         extr.log.debug("Found 'doc_id=%s'", doc_id)
         return doc_id
+
+    def _profile_page(self, username):
+        extr = self.extractor
+        return extr.request(f"{extr.root}/{username}/", interval=False).text
 
     def _call(self, endpoint, **kwargs):
         extr = self.extractor
