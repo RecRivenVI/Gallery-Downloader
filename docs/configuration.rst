@@ -6943,11 +6943,19 @@ Note
 extractor.tiktok.videos
 -----------------------
 Type
-    ``bool``
+    * ``bool``
+    * ``string``
 Default
     ``true``
 Description
-    Download videos using |ytdl|.
+    Controls video download behavior.
+
+    ``true``
+        Download videos
+    ``"ytdl"``
+        Download videos using |ytdl|
+    ``false``
+        Ignore videos
 
 
 extractor.tiktok.tiktok-range
