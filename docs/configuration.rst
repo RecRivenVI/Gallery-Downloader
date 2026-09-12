@@ -5252,20 +5252,40 @@ Note
     port than the default.
 
 
-extractor.onlyhaven.endpoint
-----------------------------
+extractor.onlyhaven.domain
+--------------------------
 Type
     ``string``
 Default
-    ``"posts"``
+    ``null``
 Description
-    API endpoint to use when retrieving creator posts.
+    Specifies the domain used by ``onlyhaven`` extractors.
 
-    ``"posts"`` | ``"legacy"``
-        Provide regular metadata
-    ``"posts+"`` | ``"legacy+"``
-        Provide full metadata
-        by using an additional API request to fetch individual post data
+    Setting this option to ``"auto"``
+    uses the same domain as the given input URL.
+
+
+extractor.onlyhaven.expand
+--------------------------
+Type
+    ``bool``
+Default
+    ``false``
+Description
+    Provide complete ``creator`` post metadata
+    by fetching extra data with an additional API request for each post.
+
+    Includes ``originalFilename``, ``comments``, ``links``, ``tags``,
+
+
+extractor.onlyhaven.metadata
+----------------------------
+Type
+    ``bool``
+Default
+    ``true``
+Description
+    Extract ``username`` and ``user_profile`` metadata.
 
 
 extractor.pawchive.archives
