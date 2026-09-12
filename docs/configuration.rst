@@ -4588,20 +4588,17 @@ Description
     Extract a user's announcements as ``announcements`` metadata.
 
 
-extractor.kemono.endpoint
--------------------------
+extractor.kemono.expand
+-----------------------
 Type
-    ``string``
+    ``bool``
 Default
-    ``"posts"``
+    ``false``
 Description
-    API endpoint to use for retrieving creator posts.
+    Provide complete post metadata
+    by fetching extra data with an additional API request for each post.
 
-    ``"posts"`` | ``"legacy"``
-        Provides only limited metadata.
-    ``"posts+"`` | ``"legacy+"``
-        Provides full metadata,
-        but requires an additional API request for each post.
+    Includes ``captions``, ``content``, ``embed``, ``poll``, ``tags``,
 
 
 extractor.kemono.favorites
