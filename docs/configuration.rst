@@ -5363,20 +5363,15 @@ Description
         | Ignore it otherwise
 
 
-extractor.pawchive.endpoint
----------------------------
+extractor.pawchive.expand
+-------------------------
 Type
-    ``string``
+    ``bool``
 Default
-    ``"posts"``
+    ``false``
 Description
-    API endpoint to use when retrieving creator posts.
-
-    ``"posts"`` | ``"legacy"``
-        Provide regular metadata
-    ``"posts+"`` | ``"legacy+"``
-        Provide full metadata
-        by using an additional API request to fetch individual post data
+    Provide complete post metadata
+    by fetching extra data with an additional API request for each post.
 
 
 extractor.pawchive.favorites
