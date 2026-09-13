@@ -5439,7 +5439,8 @@ Type
 Default
     ``false``
 Description
-    Download thumbnails/previews for files marked as ``preview_only``..
+    | Download thumbnails/previews for files marked as ``preview_only`` and
+    | provide preview fallbacks for original files.
 
 
 extractor.pawchive.revisions

@@ -197,6 +197,8 @@ class PawchiveExtractor(Extractor):
                     if not file.get("preview_only"):
                         url = file["url"]
                         file["original"] = True
+                        if previews:
+                            file["_fallback"] = (root_thmb + file["path"],)
                     elif previews:
                         url = root_thmb + file["path"]
                         file["extension"] = "webp"
