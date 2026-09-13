@@ -31,6 +31,7 @@ class DcinsideGalleryExtractor(GalleryExtractor):
 
         return {
             "id"      : text.parse_int(params.get("no")),
+            "board"   : params.get("id"),
             "title"   : extr('"headline":"', '",\r'),
             "content" : extr('"articleBody":"', '",\r'),
             "date"    : self.parse_datetime_iso(extr(
