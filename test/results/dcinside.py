@@ -53,6 +53,23 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://gall.dcinside.com/mgallery/board/view/?id=onlk&no=2495",
+    "#comment" : "ads in 'writing_view_box' element (#444)",
+    "#class"   : dcinside.DcinsideGalleryExtractor,
+    "#results" : "https://dcimg1.dcinside.com/viewimage.php?id=22b3dc2d&no=24b0d769e1d32ca73de986fa11d02831cece6b72dd02ce8c7323b841a681867dcccab0086364c69aac05bb410adb656aa57a963991117bde68d41fd967a689",
+
+    "comments"    : range(5, 15),
+    "content"     : "릴레는 간호사나 좀비나 유령중에 고민을 상당히 오래햇네용",
+    "date"        : "dt:2023-11-07 10:53:34",
+    "display_name": "쌈바라차차",
+    "extension"   : "jpg",
+    "hash"        : "a04810ad242eb553ae3417499a2dcc73408f8eac4f7b3157dcf1bb98b70cd7",
+    "id"          : 2495,
+    "title"       : "할로윈짤을 그렸사와요 - 플레이어(웹툰) 마이너 갤러리",
+    "username"    : "tkaqkfkcici",
+},
+
+{
     "#url"     : "https://gallog.dcinside.com/chinese5249",
     "#class"   : dcinside.DcinsideUserExtractor,
     "#pattern" : dcinside.DcinsideGalleryExtractor.pattern,
