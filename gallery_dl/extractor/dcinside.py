@@ -46,9 +46,9 @@ class DcinsideGalleryExtractor(GalleryExtractor):
         }
 
     def images(self, page):
-        if box := text.extr(page, 'class="writing_view_box', "\t</div>"):
+        if write_div := text.extr(page, 'class="write_div', "</div>"):
             results = []
-            for img in text.extract_iter(box, "<img", ">"):
+            for img in text.extract_iter(write_div, "<img", ">"):
                 url = text.unescape(text.extr(img, ' src="', '"'))
                 results.append((url, {
                     "hash"     : text.extr(img, ' alt="', '"'),
