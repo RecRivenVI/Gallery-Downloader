@@ -16,6 +16,7 @@ __tests__ = (
         "https://dcimg1.dcinside.com/viewimage.php?id=3dafdf2ce0d12cab76&no=24b0d769e1d32ca73de885fa1bd62531058478fac3157bc024e4bab3a06677d6d31d4957ed12b900e4a4ff1ad5734a6e5c0f5d163c4901cdb8e1f3926f6ad29a25dea500f8",
     ),
 
+    "board"       : "projectmx",
     "comments"    : range(25, 50),
     "content"     : "5일페 ［난선생님에게아무것도아니야사라져도누구도신경쓰지않을거야그렇지만날계속봐줬으면좋겠...］부스에 굿즈로 나가는 친구들입니다타이밍 좋게 게임에도 실장되어서 너무 기쁘네요^_^",
     "count"       : 2,
@@ -38,6 +39,7 @@ __tests__ = (
     "#class"   : dcinside.DcinsideGalleryExtractor,
     "#results" : "https://dcimg4.dcinside.co.kr/viewimage.php?id=3dafdf2ce0d12cab76&no=24b0d769e1d32ca73de785fa11d028311db29c13695a307ccacdd430f4f615f7eb84edfc6b29cdec230edf23c04e256cf557c84ded177ace55d1c855695cabfe62ae3774f6f10737fe8eb97661d41b7132dc",
 
+    "board"       : "projectmx",
     "comments"    : range(15, 50),
     "content"     : "호시노",
     "count"       : 1,
@@ -50,6 +52,21 @@ __tests__ = (
     "title"       : "으헤으헤으헤으헤으헤으헤 - 블루 아카이브 마이너 갤러리",
     "username"    : "chinese5249",
     "views"       : range(3500, 9000),
+},
+
+{
+    "#url"     : "https://gall.dcinside.com/mgallery/board/view?id=drawing&no=24172",
+    "#class"   : dcinside.DcinsideGalleryExtractor,
+
+    "board"       : "drawing",
+    "comments"    : range(15, 30),
+    "content"     : "파개",
+    "count"       : 4,
+    "date"        : "dt:2019-10-11 08:59:32",
+    "display_name": "쌈바라차차",
+    "id"          : 24172,
+    "title"       : "최근그림들 - 그림 마이너 갤러리",
+    "username"    : "tkaqkfkcici",
 },
 
 {
