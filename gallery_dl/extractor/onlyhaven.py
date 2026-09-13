@@ -55,8 +55,8 @@ class OnlyhavenExtractor(Extractor):
                 post["title"] = text.unescape(text.remove_html(
                     chtml.partition("\n")[0]))
             else:
-                post["title"] = post.get(
-                    "caption", "").partition("\n")[0].strip()
+                post["title"] = (post.get(
+                    "caption") or "").partition("\n")[0].strip()
 
             if creator_info is not None:
                 key = f"{service}_{creator_id}"
