@@ -48,8 +48,9 @@ class DcinsideGalleryExtractor(GalleryExtractor):
         if box := text.extr(page, 'class="writing_view_box', "\t</div>"):
             results = []
             for img in text.extract_iter(box, "<img", ">"):
-                url = (text.unescape(text.extr(img, ' data-original="', '"')) or
-                       text.unescape(text.extr(img, ' src="', '"')))
+                url = text.unescape(text.extr(img, ' data-original="', '"') or
+                                    text.extr(img, ' src="', '"') or
+                                    text.extr(img, " src='", "'"))
                 results.append((url, {
                     "hash"     : text.extr(img, ' alt="', '"'),
                     "extension": "jpg",

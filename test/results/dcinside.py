@@ -53,6 +53,26 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://gall.dcinside.com/mgallery/board/view?id=drawing&no=24172",
+    "#class"   : dcinside.DcinsideGalleryExtractor,
+    "#results" : (
+        "https://dcimg1.dcinside.com/viewimage.php?id=29afd131ecdc3f&no=24b0d769e1d32ca73fed84fa11d02831150e3d5bd66e1c599a53538ed1f12cc2bb5dc8cdd3365397726c6b0257a05cd3dc739d35a28f965f727cc2910ef0b67c822a",
+        "https://dcimg1.dcinside.com/viewimage.php?id=29afd131ecdc3f&no=24b0d769e1d32ca73fed84fa11d02831150e3d5bd66e1c599a53538ed1f12cc2bb5dc8cdd3365397726c6b0257a05cd3dc739d35a28fc10f712ac39d09a1b67ccdbd",
+        "https://dcimg1.dcinside.com/viewimage.php?id=29afd131ecdc3f&no=24b0d769e1d32ca73fed84fa11d02831150e3d5bd66e1c599a53538ed1f12cc2bb5dc8cdd3365397726c6b0257a05cd3dc739d35a28f97092270c5c00ef4b67c8fa8",
+        "https://dcimg1.dcinside.com/viewimage.php?id=29afd131ecdc3f&no=24b0d769e1d32ca73fed84fa11d02831150e3d5bd66e1c599a53538ed1f12cc2bb5dc8cdd3365397726c6b0257a05cd3dc739d35a28f9e07267a90c30cf1b67c7c8c",
+    ),
+
+    "content"     : "파개",
+    "count"       : 4,
+    "date"        : "dt:2019-10-11 08:59:32",
+    "display_name": "쌈바라차차",
+    "extension"   : "jpg",
+    "id"          : 24172,
+    "title"       : "최근그림들 - 그림 마이너 갤러리",
+    "username"    : "tkaqkfkcici",
+},
+
+{
     "#url"     : "https://gallog.dcinside.com/chinese5249",
     "#class"   : dcinside.DcinsideUserExtractor,
     "#pattern" : dcinside.DcinsideGalleryExtractor.pattern,
